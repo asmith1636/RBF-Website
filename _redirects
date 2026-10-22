@@ -1,0 +1,2 @@
+# Netlify: pretty URLs are on by default; force non-www
+https://www.rbfconstruction.com/* https://rbfconstruction.com/:splat 301!
