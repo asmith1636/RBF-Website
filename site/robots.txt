@@ -1,0 +1,62 @@
+# RBF Construction — search engines and AI assistants are welcome
+User-agent: *
+Allow: /
+Disallow: /thank-you
+
+User-agent: GPTBot
+Allow: /
+Disallow: /thank-you
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /thank-you
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /thank-you
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /thank-you
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /thank-you
+
+User-agent: Claude-User
+Allow: /
+Disallow: /thank-you
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /thank-you
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /thank-you
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /thank-you
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /thank-you
+
+User-agent: Bingbot
+Allow: /
+Disallow: /thank-you
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /thank-you
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /thank-you
+
+User-agent: CCBot
+Allow: /
+Disallow: /thank-you
+
+Sitemap: https://rbfconstruction.com/sitemap.xml

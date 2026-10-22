@@ -1,0 +1,7 @@
+# Local preview screenshots and tool files
+previews/
+__pycache__/
+.claude/
+*.pyc
+.DS_Store
+Thumbs.db
