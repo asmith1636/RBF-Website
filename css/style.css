@@ -465,3 +465,15 @@ a.cap:hover{border-color:var(--amber);transform:translateY(-3px)}
 .hero-slides>.wrap{align-items:flex-start;gap:0;grid-template-columns:none}
 .hero-slides .slide-bar .wrap{align-items:center;justify-content:space-between;gap:20px;grid-template-columns:none}
 @media (max-width:640px){.hero-slides .slide-bar .wrap{align-items:flex-start;gap:10px}}
+
+/* ---- v4: gallery filters, alternating features ---- */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 24px}
+.filters button{font-family:var(--head);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:1rem;padding:10px 18px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--navy);cursor:pointer;transition:all .2s}
+.filters button:hover{border-color:var(--amber)}
+.filters button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.gallery figure[hidden]{display:none}
+.features{padding-top:clamp(56px,7vw,90px)}
+.features .feature{margin-bottom:clamp(56px,7vw,90px)}
+.features .feature.rev>div:first-child{order:2}
+.svc-groups .grp p{color:var(--muted);margin:0}
+@media (max-width:860px){.features .feature.rev>div:first-child{order:0}}
