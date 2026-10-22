@@ -174,12 +174,21 @@ ALL_SERVICE_LINKS = SERVICES + [("/" + s["slug"], s["nav"]) for s in SVC]
 def header(path):
     def cur(p):
         return ' aria-current="page"' if p == path else ""
-    cols = []
-    for g, (label, hub) in GROUPS.items():
-        items = "".join(f'<a href="/{s["slug"]}"{cur("/" + s["slug"])}>{s["nav"]}</a>' for s in SVC_BY_GROUP[g])
-        cols.append(f'<div><a class="grp" href="{hub}"{cur(hub)}>{label}</a>{items}</div>')
-    mega = "".join(cols)
+
+    def links(group):
+        return "".join(f'<a href="/{s["slug"]}"{cur("/" + s["slug"])}>{s["nav"]}</a>' for s in SVC_BY_GROUP[group])
+
+    gc_menu = (f'<div><a class="grp" href="/residential-general-contracting"{cur("/residential-general-contracting")}>Residential</a>{links("residential")}</div>'
+               f'<div><a class="grp" href="/commercial-general-contracting"{cur("/commercial-general-contracting")}>Commercial</a>{links("commercial")}</div>'
+               f'<a class="sub-foot" href="/general-contracting"{cur("/general-contracting")}>Construction management &amp; design-build {icon("arrow")}</a>')
+    site_menu = links("site") + f'<a class="sub-foot" href="/site-development"{cur("/site-development")}>All site work &amp; utilities {icon("arrow")}</a>'
     areas = "".join(f'<a href="/{c["slug"]}"{cur("/" + c["slug"])}>{c["name"]}</a>' for c in COUNTIES)
+    about = "".join(f'<a href="{u}"{cur(u)}>{t}</a>' for u, t in
+                    [("/about", "About RBF"), ("/resources/", "Resources &amp; Guides"), ("/careers", "Careers"), ("/bidding-list", "Subcontractors")])
+    gc_on = path in ("/general-contracting", "/residential-general-contracting", "/commercial-general-contracting") or \
+        any(path == "/" + s["slug"] for s in SVC if s["group"] != "site")
+    site_on = path == "/site-development" or any(path == "/" + s["slug"] for s in SVC_BY_GROUP["site"])
+    on = ' class="is-section"'
     return f"""<a class="skip" href="#main">Skip to content</a>
 <div class="topbar"><div class="wrap">
   <span class="slogan">&ldquo;{BIZ['slogan']}&rdquo; &mdash; Serving Genesee, Oakland &amp; Southeast Michigan</span>
@@ -192,11 +201,11 @@ def header(path):
   </a>
   <button class="menu-toggle" aria-controls="nav" aria-expanded="false" aria-label="Open menu">{icon('menu')}</button>
   <nav id="nav" class="nav" aria-label="Main">
-    <div class="has-sub"><a href="/general-contracting"{cur('/general-contracting')}>Services</a><div class="sub mega">{mega}</div></div>
+    <div class="has-sub"><a href="/general-contracting"{cur('/general-contracting') or (on if gc_on else '')}>General Contracting</a><div class="sub mega two">{gc_menu}</div></div>
+    <div class="has-sub"><a href="/site-development"{cur('/site-development') or (on if site_on else '')}>Site Work &amp; Utilities</a><div class="sub">{site_menu}</div></div>
     <div class="has-sub"><a href="/service-areas"{cur('/service-areas')}>Service Areas</a><div class="sub">{areas}</div></div>
     <a href="/projects"{cur('/projects')}>Projects</a>
-    <a href="/resources/"{cur('/resources/')}>Resources</a>
-    <a href="/about"{cur('/about')}>About</a>
+    <div class="has-sub"><a href="/about"{cur('/about')}>About</a><div class="sub">{about}</div></div>
     <a href="/construction-contact"{cur('/construction-contact')}>Contact</a>
     <a class="btn btn-amber" href="/construction-contact#quote">Request a Bid</a>
   </nav>
@@ -221,9 +230,10 @@ def footer():
       <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a> &middot; <a href="mailto:{BIZ['email']}">{BIZ['email']}</a><br>{BIZ['hours_text']}</address>
       <div class="social"><a href="{BIZ['facebook']}" rel="noopener" target="_blank" aria-label="RBF Construction on Facebook">{icon('facebook')}</a></div>
     </div>
-    <div><h2><a href="/residential-general-contracting">Residential</a></h2><ul>{res}</ul>
-      <h2 style="margin-top:22px"><a href="/site-development">Site Work</a></h2><ul>{site}</ul></div>
-    <div><h2><a href="/commercial-general-contracting">Commercial</a></h2><ul>{com}<li><a href="/general-contracting">General Contracting</a></li></ul></div>
+    <div><h2><a href="/general-contracting">General Contracting</a></h2>
+      <h3><a href="/residential-general-contracting">Residential</a></h3><ul>{res}</ul>
+      <h3><a href="/commercial-general-contracting">Commercial</a></h3><ul>{com}</ul></div>
+    <div><h2><a href="/site-development">Site Work &amp; Utilities</a></h2><ul>{site}</ul></div>
     <div><h2><a href="/service-areas">Service Areas</a></h2><ul>{areas}</ul></div>
     <div><h2>Company</h2><ul>
       <li><a href="/about">About</a></li><li><a href="/projects">Projects</a></li><li><a href="/resources/">Resources</a></li><li><a href="/careers">Careers</a></li>
@@ -415,8 +425,9 @@ def faq_html(faqs, heading="Frequently Asked Questions", sub=""):
 def aside(path, group=None):
     if group:
         label, hub = GROUPS[group]
-        links = [(hub, f"All {label} Services")] + [("/" + s["slug"], s["nav"]) for s in SVC_BY_GROUP[group]]
-        title = f"{label} Services"
+        label = label.replace("&", "&amp;")
+        title = label if group == "site" else f"{label} Services"
+        links = [(hub, f"All {title}")] + [("/" + s["slug"], s["nav"]) for s in SVC_BY_GROUP[group]]
     else:
         links, title = SERVICES, "Our Services"
     lis = "".join(f'<li><a href="{u}"{" aria-current=\"page\"" if u == path else ""}>{t}</a></li>' for u, t in links)
@@ -591,14 +602,32 @@ def child_cards(group):
     return f'<div class="cards cards-{len(out)}">' + "".join(out) + "</div>"
 
 
-def svc_groups():
-    cols = []
-    for g, (label, hub) in GROUPS.items():
-        lis = "".join(f'<li><a href="/{s["slug"]}">{s["nav"]}</a></li>' for s in SVC_BY_GROUP[g])
-        ic = {"residential": "home", "commercial": "building", "site": "excavator"}[g]
-        cols.append(f'<div class="grp reveal">{icon(ic)}<h3><a href="{hub}">{label}</a></h3><ul>{lis}</ul>'
-                    f'<a class="more" href="{hub}">All {label.lower()} services {icon("arrow")}</a></div>')
-    return '<div class="svc-groups">' + "".join(cols) + "</div>"
+def divisions():
+    def lis(group):
+        return "".join(f'<li><a href="/{s["slug"]}">{s["nav"]}</a></li>' for s in SVC_BY_GROUP[group])
+    return f"""<div class="divisions">
+  <article class="division reveal">
+    <a class="division-media" href="/general-contracting" tabindex="-1" aria-hidden="true">{img('kitchen-island-wood-beams-white-cabinets', alt='', sizes='(max-width:860px) 100vw, 600px')}<span>01 / Build</span></a>
+    <div class="division-body">
+      <h3><a href="/general-contracting">General Contracting</a></h3>
+      <p>Residential and commercial construction with personal on-site supervision &mdash; design-build or design-bid-build.</p>
+      <div class="division-cols">
+        <div><h4><a href="/residential-general-contracting">Residential</a></h4><ul>{lis('residential')}</ul></div>
+        <div><h4><a href="/commercial-general-contracting">Commercial</a></h4><ul>{lis('commercial')}</ul></div>
+      </div>
+      <a class="btn btn-navy" href="/general-contracting">General Contracting {icon('arrow')}</a>
+    </div>
+  </article>
+  <article class="division reveal">
+    <a class="division-media" href="/site-development" tabindex="-1" aria-hidden="true">{img('commercial-site-excavation-grading', alt='', sizes='(max-width:860px) 100vw, 600px')}<span>02 / Prepare</span></a>
+    <div class="division-body">
+      <h3><a href="/site-development">Site Work &amp; Utilities</a></h3>
+      <p>Our own crews and equipment for earthwork, underground utilities, paving, concrete and demolition &mdash; for our projects and yours.</p>
+      <ul class="division-list">{lis('site')}</ul>
+      <a class="btn btn-amber" href="/site-development">Site Work &amp; Utilities {icon('arrow')}</a>
+    </div>
+  </article>
+</div>"""
 
 
 # --------------------------------------------------------------------------
@@ -650,16 +679,6 @@ def home():
     links = ["/site-development", "/excavation-grading", "/demolition", "/parking-lot-paving-concrete",
              "/parking-lot-paving-concrete", "/underground-utilities"]
     caps_html = "".join(f'<a class="cap reveal" href="{l}">{icon(i)}<h3>{t}</h3><p>{d}</p></a>' for (i, t, d), l in zip(caps, links))
-    cards = [
-        ("/residential-general-contracting", "Residential", "Custom homes and additions, kitchen &amp; bath remodels, and pole barns &mdash; with personal on-site supervision.", "kitchen-island-wood-beams-white-cabinets"),
-        ("/commercial-general-contracting", "Commercial", "Office buildings, restaurants, medical and dental offices, retail and tenant build-outs.", "retail-plaza-jimmy-johns-pizza-hut-smoothie-king"),
-        ("/site-development", "Site Work", "Excavation, grading, demolition, parking lots, concrete and underground utilities.", "commercial-site-excavation-grading"),
-        ("/general-contracting", "General Contracting", "Construction management, design-build and design-bid-build delivered on time and on budget.", "steel-frame-commercial-building"),
-    ]
-    cards_html = "".join(
-        f'<a class="card reveal" href="{u}"><div class="img">{img(s, sizes="(max-width:640px) 100vw, (max-width:1060px) 50vw, 25vw")}</div>'
-        f'<div class="body"><h3>{t}</h3><p>{d}</p><span class="more">Learn more {icon("arrow")}</span></div></a>'
-        for u, t, d, s in cards)
     steps = [
         ("Consult &amp; Site Review", "We walk the site or home, review plans and goals, and give expert technical advice from day one."),
         ("Budget &amp; Value Engineering", "We price the work, find savings without cutting corners, and select the right trades."),
@@ -705,10 +724,9 @@ def home():
 </div></section>
 
 <section class="alt"><div class="wrap">
-  <div class="section-head center"><span class="eyebrow">Our Services</span><h2>Residential, Commercial &amp; Site Work</h2>
-  <p>Everything from a kitchen remodel to a ground-up medical building &mdash; and the site work underneath it.</p></div>
-  <div class="cards">{cards_html}</div>
-  {svc_groups()}
+  <div class="section-head center"><span class="eyebrow">Two Divisions, One Team</span><h2>General Contracting &amp; Site Work</h2>
+  <p>Everything from a kitchen remodel to a ground-up restaurant &mdash; and the excavation and utilities underneath it.</p></div>
+  {divisions()}
 </div></section>
 
 <section><div class="wrap">
@@ -749,8 +767,10 @@ def home():
 
 def service_page(path, crumb, title, desc, h1, lead, bg, content, faqs, svc_name, svc_types, photos, group=None, trail=None):
     if trail is None:
-        if group:
+        if group == "site":
             trail = [("Home", "/"), (GROUPS[group][0], GROUPS[group][1]), (crumb, path)]
+        elif group:
+            trail = [("Home", "/"), ("General Contracting", "/general-contracting"), (GROUPS[group][0], GROUPS[group][1]), (crumb, path)]
         elif path == "/general-contracting":
             trail = [("Home", "/"), (crumb, path)]
         else:
@@ -849,7 +869,7 @@ def commercial():
         "Office buildings, restaurants, medical facilities and retail &mdash; from site work to ribbon cutting, for local owners and national brands.",
         "retail-plaza-jimmy-johns-pizza-hut-smoothie-king", content, faqs, "Commercial General Contracting",
         ["Commercial construction", "Office construction", "Restaurant construction", "Medical office construction",
-         "Retail construction", "Tenant build-out", "Commercial renovation"], [], trail=[("Home", "/"), ("Commercial", "/commercial-general-contracting")])
+         "Retail construction", "Tenant build-out", "Commercial renovation"], [], trail=[("Home", "/"), ("General Contracting", "/general-contracting"), ("Commercial", "/commercial-general-contracting")])
 
 
 def residential():
@@ -881,7 +901,7 @@ def residential():
         "Custom homes and additions, kitchen and bath remodels, and pole barns across Genesee County, Oakland County and Southeast Michigan.",
         "foundation-walls-excavation", content, faqs, "Residential General Contracting",
         ["Residential construction", "Custom home building", "Home additions", "Kitchen remodeling", "Bathroom remodeling", "Pole barns"],
-        [], trail=[("Home", "/"), ("Residential", "/residential-general-contracting")])
+        [], trail=[("Home", "/"), ("General Contracting", "/general-contracting"), ("Residential", "/residential-general-contracting")])
 
 
 def site_development():
@@ -908,12 +928,12 @@ def site_development():
         "/site-development", "Site Work",
         "Site Development & Excavation | SE Michigan | RBF",
         "Site development contractor for Genesee, Oakland & Southeast Michigan: excavation, grading, demolition, parking lots, concrete and underground utilities.",
-        "Site Development, Excavation &amp; Utilities",
+        "Site Work, Excavation &amp; Underground Utilities",
         "Earthwork, demolition, paving, concrete and underground utilities &mdash; the solid foundation every successful project needs.",
         "commercial-site-excavation-grading", content, faqs, "Site Development and Earthwork",
         ["Site development", "Excavation", "Land balancing", "Demolition", "Parking lot construction",
          "Concrete curbs and gutters", "Storm sewer installation", "Sanitary sewer installation", "Water line installation"],
-        [], trail=[("Home", "/"), ("Site Work", "/site-development")])
+        [], trail=[("Home", "/"), ("Site Work & Utilities", "/site-development")])
 
 
 # --------------------------------------------------------------------------
@@ -1254,7 +1274,7 @@ def llms_txt():
     hubs = sec([("/general-contracting", "General Contracting", "construction management, design-build, design-bid-build, consulting"),
                 ("/residential-general-contracting", "Residential", "custom homes and additions, kitchen and bath remodeling, pole barns"),
                 ("/commercial-general-contracting", "Commercial", "offices, restaurants, medical, retail, tenant build-outs"),
-                ("/site-development", "Site Work", "excavation, grading, utilities, paving, concrete, demolition")])
+                ("/site-development", "Site Work & Utilities", "excavation, grading, underground utilities, paving, concrete, demolition")])
     svcs = sec([("/" + s["slug"], s["nav"], s["desc"]) for s in SVC])
     areas = "\n".join(f"- [{c['name']}]({SITE}/{c['slug']}): {', '.join(c['cities'])}" for c in COUNTIES)
     arts = sec([("/resources/" + a["slug"], a["h1"], a["summary"]) for a in ARTICLES])

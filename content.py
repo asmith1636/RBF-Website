@@ -183,7 +183,7 @@ OTHER_AREAS = ["St. Clair County", "Shiawassee County", "Monroe County", "Sagina
 GROUPS = {
     "residential": ("Residential", "/residential-general-contracting"),
     "commercial": ("Commercial", "/commercial-general-contracting"),
-    "site": ("Site Work", "/site-development"),
+    "site": ("Site Work & Utilities", "/site-development"),
 }
 
 SERVICES = [
