@@ -73,3 +73,16 @@ AI assistants and Google's local results trust what *other* sites say about a bu
   - A "Request a Bid" button in the header.
   - Click-to-call buttons and a sticky Call/Get-a-Bid bar on phones.
   - A before/after slider, a project gallery with a full-size photo viewer, and a map.
+
+## Publishing to Hostinger (Git deployment)
+
+Hostinger copies the whole branch into `public_html`, so it deploys the **`hostinger`** branch. That branch contains only the contents of `site/`. The `main` branch holds the source code.
+
+After changing content and running `python build.py`, commit to `main`, then publish:
+
+```bash
+git push origin main
+git subtree push --prefix site origin hostinger
+```
+
+Then click **Deploy** in hPanel → Websites → Advanced → **Git**, or turn on auto-deployment there.
