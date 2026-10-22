@@ -45,7 +45,7 @@ BIZ = {
     "county": "Genesee County",
     "lat": 42.944206,
     "lng": -83.706416,
-    "hours_text": "Monday–Friday, 8:00 AM – 5:00 PM",
+    "hours_text": "Monday–Friday, 9:00 AM – 5:00 PM",
     "facebook": "https://facebook.com/rbfconstructioninc/",
 }
 # Service area lives in content.py (COUNTIES) — CONFIRM WITH OWNER before launch (see README)
@@ -157,13 +157,13 @@ def header(path):
     areas = "".join(f'<a href="/{c["slug"]}"{cur("/" + c["slug"])}>{c["name"]}</a>' for c in COUNTIES)
     return f"""<a class="skip" href="#main">Skip to content</a>
 <div class="topbar"><div class="wrap">
-  <span class="slogan">&ldquo;{BIZ['slogan']}&rdquo; &mdash; Serving Oakland County &amp; Southeast Michigan</span>
-  <span><a class="tl" href="/careers">Careers</a><a class="tl" href="/bidding-list">Subcontractors</a><span class="hours">{icon('clock')} Mon&ndash;Fri 8&ndash;5 &nbsp;</span>{icon('phone')} <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a></span>
+  <span class="slogan">&ldquo;{BIZ['slogan']}&rdquo; &mdash; Serving Genesee, Oakland &amp; Southeast Michigan</span>
+  <span><a class="tl" href="/careers">Careers</a><a class="tl" href="/bidding-list">Subcontractors</a>{icon('phone')} <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a></span>
 </div></div>
 <header class="site-header"><div class="wrap">
   <a class="brand" href="/" aria-label="{BIZ['short']} home">
     <img src="/img/rbf-construction-logo.webp" width="480" height="480" alt="{BIZ['short']} logo">
-    <span class="brand-text"><strong>RBF CONSTRUCTION</strong><em>General Contractor &middot; Southeast Michigan</em></span>
+    <span class="brand-text"><strong>RBF CONSTRUCTION</strong><em>Genesee &middot; Oakland &middot; SE Michigan</em></span>
   </a>
   <button class="menu-toggle" aria-controls="nav" aria-expanded="false" aria-label="Open menu">{icon('menu')}</button>
   <nav id="nav" class="nav" aria-label="Main">
@@ -171,7 +171,7 @@ def header(path):
     <div class="has-sub"><a href="/general-contracting"{cur('/general-contracting')}>Services</a><div class="sub mega">{mega}</div></div>
     <div class="has-sub"><a href="/service-areas"{cur('/service-areas')}>Service Areas</a><div class="sub">{areas}</div></div>
     <a href="/projects"{cur('/projects')}>Projects</a>
-    <a href="/resources"{cur('/resources')}>Resources</a>
+    <a href="/resources/"{cur('/resources/')}>Resources</a>
     <a href="/construction-contact"{cur('/construction-contact')}>Contact</a>
     <a class="btn btn-amber" href="/construction-contact#quote">Request a Bid</a>
   </nav>
@@ -191,7 +191,7 @@ def footer():
   <div class="foot-grid">
     <div>
       <img class="logo" src="/img/rbf-construction-logo.webp" width="480" height="480" alt="{BIZ['short']} logo" loading="lazy">
-      <p>{BIZ['name']} is a general contractor serving Oakland County, Genesee County and all of Southeast Michigan: kitchen and bath remodeling, custom homes, commercial construction and complete site work.</p>
+      <p>{BIZ['name']} is a general contractor serving Genesee County, Oakland County and all of Southeast Michigan: kitchen and bath remodeling, custom homes, commercial construction and complete site work.</p>
       <address><a href="{MAP_LINK}" rel="noopener" target="_blank">{BIZ['street']}, {BIZ['city']}, {BIZ['region']} {BIZ['zip']}</a><br>
       <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a> &middot; <a href="mailto:{BIZ['email']}">{BIZ['email']}</a><br>{BIZ['hours_text']}</address>
       <div class="social"><a href="{BIZ['facebook']}" rel="noopener" target="_blank" aria-label="RBF Construction on Facebook">{icon('facebook')}</a></div>
@@ -201,11 +201,11 @@ def footer():
     <div><h2><a href="/commercial-general-contracting">Commercial</a></h2><ul>{com}<li><a href="/general-contracting">General Contracting</a></li></ul></div>
     <div><h2><a href="/service-areas">Service Areas</a></h2><ul>{areas}</ul></div>
     <div><h2>Company</h2><ul>
-      <li><a href="/projects">Projects</a></li><li><a href="/resources">Resources</a></li><li><a href="/careers">Careers</a></li>
+      <li><a href="/projects">Projects</a></li><li><a href="/resources/">Resources</a></li><li><a href="/careers">Careers</a></li>
       <li><a href="/bidding-list">Subcontractor Bid List</a></li><li><a href="/construction-contact">Contact</a></li>
       <li><a href="/privacy-policy">Privacy Policy</a></li></ul></div>
   </div>
-  <div class="foot-bottom"><span>&copy; <span id="year">{date.today().year}</span> {BIZ['name']} &mdash; &ldquo;{BIZ['slogan']}.&rdquo; All rights reserved.</span><span>General contractor serving Oakland County &amp; Southeast Michigan</span></div>
+  <div class="foot-bottom"><span>&copy; <span id="year">{date.today().year}</span> {BIZ['name']} &mdash; &ldquo;{BIZ['slogan']}.&rdquo; All rights reserved.</span><span>General contractor serving Genesee, Oakland &amp; Southeast Michigan</span></div>
 </div></footer>
 <nav class="callbar" aria-label="Quick contact"><a href="tel:{BIZ['phone_e164']}">{icon('phone')} Call Now</a><a href="/construction-contact#quote">{icon('doc')} Get a Bid</a></nav>
 <script src="/js/main.js?v={ver('js/main.js')}" defer></script>"""
@@ -234,8 +234,8 @@ def business_schema():
         "alternateName": [BIZ["short"], "RBF Construction Inc", "RBF"],
         "slogan": BIZ["slogan"],
         "description": ("RBF Construction, Inc. is a general contractor headquartered in Flint, Michigan serving all of "
-                        "Oakland County, Genesee County and Southeast Michigan. Services include kitchen and bathroom "
-                        "remodeling, custom homes and additions, commercial construction of office buildings, restaurants, "
+                        "Genesee County, Oakland County and Southeast Michigan. Services include custom homes, kitchen and bathroom "
+                        "remodeling, pole barns and additions, commercial construction of office buildings, restaurants, "
                         "medical and dental offices and retail, construction management, design-build, and complete site work: "
                         "excavation, grading, underground utilities, parking lots, concrete and demolition."),
         "url": SITE + "/",
@@ -250,10 +250,10 @@ def business_schema():
         "hasMap": MAP_LINK,
         "openingHoursSpecification": [{"@type": "OpeningHoursSpecification",
                                        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                                       "opens": "08:00", "closes": "17:00"}],
+                                       "opens": "09:00", "closes": "17:00"}],
         "areaServed": area_served(),
         "sameAs": [BIZ["facebook"]],
-        "knowsAbout": ["General contracting", "Kitchen remodeling", "Bathroom remodeling", "Custom home building",
+        "knowsAbout": ["General contracting", "Custom home building", "Kitchen remodeling", "Bathroom remodeling", "Pole barns", "Post-frame buildings",
                        "Home additions", "Commercial construction", "Office building construction", "Tenant build-outs",
                        "Restaurant construction", "Drive-thru construction", "Medical office construction",
                        "Dental office construction", "Retail construction", "Construction management", "Design-build",
@@ -313,8 +313,9 @@ def page(path, title, desc, body, trail, extra_schema=(), page_type="WebPage", p
     ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, separators=(",", ":"))
     pre = ""
     if preload:
-        pre = (f'<link rel="preload" as="image" href="/img/{preload}.webp" '
-               f'imagesrcset="/img/{preload}-800.webp 800w, /img/{preload}.webp 1405w" imagesizes="(max-width:860px) 100vw, 580px" fetchpriority="high">')
+        first = HERO_SLIDES[0][0]
+        pre = (f'<link rel="preload" as="image" href="/img/{first}-hero.webp" '
+               f'imagesrcset="/img/{first}-hero-960.webp 960w, /img/{first}-hero.webp 1920w" imagesizes="100vw" fetchpriority="high">')
     og_img = SITE + "/img/" + og_image
     return f"""<!doctype html>
 <html lang="en-US">
@@ -409,25 +410,25 @@ def aside(path, group=None):
 # --------------------------------------------------------------------------
 HOME_FAQ = [
     ("What does RBF Construction do?",
-     "RBF Construction, Inc. is a full-service general contractor serving Oakland County, Genesee County and Southeast Michigan. "
-     "We do <a href=\"/kitchen-remodeling\">kitchen</a> and <a href=\"/bathroom-remodeling\">bathroom remodeling</a>, "
-     "<a href=\"/custom-home-builder\">custom homes and additions</a>, commercial construction of "
+     "RBF Construction, Inc. is a full-service general contractor serving Genesee County, Oakland County and Southeast Michigan. "
+     "We build <a href=\"/custom-home-builder\">custom homes and additions</a>, do <a href=\"/kitchen-remodeling\">kitchen</a> "
+     "and <a href=\"/bathroom-remodeling\">bathroom remodeling</a>, build <a href=\"/pole-barns\">pole barns</a>, and handle commercial construction of "
      "<a href=\"/office-building-construction\">office buildings</a>, <a href=\"/restaurant-construction\">restaurants</a>, "
      "<a href=\"/medical-office-construction\">medical and dental offices</a> and <a href=\"/retail-construction\">retail</a>, "
      "plus complete <a href=\"/site-development\">site work</a>: excavation, grading, underground utilities, parking lots, "
      "concrete and demolition."),
     ("What areas do you serve?",
-     "We serve <a href=\"/oakland-county-general-contractor\">all of Oakland County</a> and Southeast Michigan, including "
-     "<a href=\"/genesee-county-general-contractor\">Genesee</a>, <a href=\"/livingston-county-general-contractor\">Livingston</a>, "
+     "We serve <a href=\"/genesee-county-general-contractor\">Genesee County</a>, <a href=\"/oakland-county-general-contractor\">Oakland County</a> "
+     "and all of Southeast Michigan, including <a href=\"/livingston-county-general-contractor\">Livingston</a>, "
      "<a href=\"/macomb-county-general-contractor\">Macomb</a>, <a href=\"/wayne-county-general-contractor\">Wayne</a>, "
      "<a href=\"/lapeer-county-general-contractor\">Lapeer</a> and <a href=\"/washtenaw-county-general-contractor\">Washtenaw</a> "
      "counties. See all <a href=\"/service-areas\">service areas</a>."),
     ("Where is RBF Construction located?",
-     f"Our office is at {BIZ['street']}, {BIZ['city']}, {BIZ['region']} {BIZ['zip']}, just off I-75 north of Oakland County. "
+     f"Our office is at {BIZ['street']}, {BIZ['city']}, {BIZ['region']} {BIZ['zip']}, just off I-75 between Genesee and Oakland counties. "
      f"We&rsquo;re open {BIZ['hours_text']}. Call <a href=\"tel:{BIZ['phone_e164']}\">{BIZ['phone']}</a> or email "
      f"<a href=\"mailto:{BIZ['email']}\">{BIZ['email']}</a>."),
     ("Do you do kitchen and bathroom remodels?",
-     "Yes. We remodel kitchens and bathrooms throughout Oakland County and Southeast Michigan, from cabinet and countertop "
+     "Yes. We remodel kitchens and bathrooms throughout Genesee County, Oakland County and Southeast Michigan, from cabinet and countertop "
      "updates to full remodels with layout changes, walk-in showers and accessible, aging-in-place bathrooms. We handle "
      "the trades, permits and inspections."),
     ("What types of commercial buildings do you build?",
@@ -504,8 +505,8 @@ def area_section():
     return f"""<section id="service-area"><div class="wrap area">
 <div>
   <span class="eyebrow">Service Area</span>
-  <h2>Serving Oakland County &amp; Southeast Michigan</h2>
-  <p>RBF Construction works throughout <strong>all of Oakland County</strong> and Southeast Michigan, from our headquarters on W Hill Rd in Flint, just off I-75. Choose your county to see the communities we serve:</p>
+  <h2>Serving Genesee, Oakland &amp; Southeast Michigan</h2>
+  <p>RBF Construction works throughout <strong>Genesee County, Oakland County</strong> and all of Southeast Michigan, from our headquarters on W Hill Rd in Flint, just off I-75. Choose your county to see the communities we serve:</p>
   <ul class="towns">{counties}</ul>
   <div class="nap"><dl>
     <dt>Address</dt><dd><a href="{MAP_LINK}" rel="noopener" target="_blank">{BIZ['street']}, {BIZ['city']}, {BIZ['region']} {BIZ['zip']}</a></dd>
@@ -542,6 +543,38 @@ def svc_groups():
 # --------------------------------------------------------------------------
 # Pages
 # --------------------------------------------------------------------------
+HERO_SLIDES = [
+    ("retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "Multi-tenant retail building &mdash; Jimmy John&rsquo;s, Pizza Hut &amp; Smoothie King", "center 65%"),
+    ("commercial-renovation-after", "Commercial renovation &mdash; new facade, paving &amp; striping", "center 60%"),
+    ("commercial-site-excavation-grading", "Commercial site excavation &amp; grading", "center 55%"),
+    ("precast-structure-crane-set", "Setting precast structures", "center 60%"),
+    ("underground-utility-trench-excavation", "Underground utility installation", "center 50%"),
+    ("industrial-pump-room-upgrade", "Pump station upgrade", "center 50%"),
+]
+
+
+def unescape_html(t):
+    from html import unescape
+    return unescape(t)
+
+
+def hero_slides():
+    figs, dots = [], []
+    for i, (stem, cap, pos) in enumerate(HERO_SLIDES):
+        w, h = dims(stem + "-hero")
+        first = i == 0
+        load = ' fetchpriority="high"' if first else ' loading="lazy"'
+        figs.append(
+            f'<figure class="slide{" is-active" if first else ""}" data-caption="{escape(unescape_html(cap), quote=True)}"{"" if first else " aria-hidden=\"true\""}>'
+            f'<img src="/img/{stem}-hero.webp" srcset="/img/{stem}-hero-960.webp 960w, /img/{stem}-hero.webp 1920w" sizes="100vw" '
+            f'width="{w}" height="{h}" alt="{escape(PHOTOS[stem])}" style="object-position:{pos}"{load}></figure>')
+        dots.append(f'<button type="button" class="dot{" is-active" if first else ""}" aria-label="Show slide {i + 1}"></button>')
+    return (f'<div class="slides">{"".join(figs)}</div>',
+            f'<div class="slide-bar"><div class="wrap"><p class="slide-cap" aria-live="polite">{HERO_SLIDES[0][1]}</p>'
+            f'<div class="slide-nav"><button type="button" class="prev" aria-label="Previous slide">{icon("arrow")}</button>'
+            f'{"".join(dots)}<button type="button" class="next" aria-label="Next slide">{icon("arrow")}</button></div></div></div>')
+
+
 def home():
     caps = [
         ("building", "Commercial Site Development", "Complete site packages for office, restaurant, medical and retail projects."),
@@ -555,7 +588,7 @@ def home():
              "/parking-lot-paving-concrete", "/underground-utilities"]
     caps_html = "".join(f'<a class="cap reveal" href="{l}">{icon(i)}<h3>{t}</h3><p>{d}</p></a>' for (i, t, d), l in zip(caps, links))
     cards = [
-        ("/residential-general-contracting", "Residential", "Kitchen &amp; bath remodels, custom homes and additions with personal on-site supervision.", "foundation-walls-excavation"),
+        ("/residential-general-contracting", "Residential", "Custom homes and additions, kitchen &amp; bath remodels, and pole barns &mdash; with personal on-site supervision.", "foundation-walls-excavation"),
         ("/commercial-general-contracting", "Commercial", "Office buildings, restaurants, medical and dental offices, retail and tenant build-outs.", "retail-plaza-jimmy-johns-pizza-hut-smoothie-king"),
         ("/site-development", "Site Work", "Excavation, grading, demolition, parking lots, concrete and underground utilities.", "commercial-site-excavation-grading"),
         ("/general-contracting", "General Contracting", "Construction management, design-build and design-bid-build delivered on time and on budget.", "steel-frame-commercial-building"),
@@ -573,30 +606,18 @@ def home():
     steps_html = "".join(f'<li class="reveal"><h3>{t}</h3><p>{d}</p></li>' for t, d in steps)
 
     body = f"""
-<section class="hero">
-  {img('commercial-site-excavation-grading', 'bg', lazy=False, alt='')}
+<section class="hero hero-slides" aria-label="Featured projects">
+  {hero_slides()[0]}
   <div class="wrap">
-   <div>
     <span class="eyebrow">&ldquo;{BIZ['slogan']}&rdquo;</span>
-    <h1>Oakland County &amp; <span>Southeast Michigan</span> General Contractor</h1>
-    <p class="lead">Kitchen and bath remodels, custom homes, offices, restaurants, medical and retail buildings &mdash; plus all the site work. RBF Construction takes your project from the first shovel of dirt to the final walkthrough.</p>
+    <h1>Genesee, Oakland &amp; <span>Southeast Michigan</span> General Contractor</h1>
+    <p class="lead">Custom homes, remodels and pole barns. Offices, restaurants, medical and retail buildings. Plus all the site work underneath them &mdash; from the first shovel of dirt to the final walkthrough.</p>
     <div class="actions">
       <a class="btn btn-amber" href="/construction-contact#quote">Request a Bid {icon('arrow')}</a>
       <a class="btn btn-ghost" href="tel:{BIZ['phone_e164']}">{icon('phone')} Call {BIZ['phone']}</a>
     </div>
-    <ul class="hero-facts">
-      <li>{icon('check')} Residential &amp; commercial</li>
-      <li>{icon('check')} Site work through finished building</li>
-      <li>{icon('check')} All of Oakland County &amp; SE Michigan</li>
-    </ul>
-   </div>
-   <div class="hero-media">
-    {img('retail-plaza-jimmy-johns-pizza-hut-smoothie-king', 'main', lazy=False, sizes='(max-width:860px) 100vw, 580px', priority=True)}
-    {img('storm-sewer-pipe-installation-crew', 'inset', lazy=False, sizes='260px')}
-    <span class="tag">Completed project</span>
-    <span class="tag2">{icon('check')} From dirt to done</span>
-   </div>
   </div>
+  {hero_slides()[1]}
 </section>
 {clients_strip()}
 <section><div class="wrap split">
@@ -609,7 +630,7 @@ def home():
   <div class="reveal">
     <span class="eyebrow">Who We Are</span>
     <h2>Your Vision, Our Expertise in Construction</h2>
-    <p><strong>RBF Construction</strong> is a full-service general contractor serving all of Oakland County and Southeast Michigan. We remodel kitchens and bathrooms, build custom homes, construct offices, restaurants, medical and retail buildings, and handle every phase of site work with our own crews.</p>
+    <p><strong>RBF Construction</strong> is a full-service general contractor serving Genesee County, Oakland County and all of Southeast Michigan. We build custom homes and pole barns, remodel kitchens and bathrooms, construct offices, restaurants, medical and retail buildings, and handle every phase of site work with our own crews.</p>
     <p>We pair a trusted network of skilled tradesmen, subcontractors and architects with personal on-site supervision, so every project is streamlined for efficiency and cost-effectiveness &mdash; whether it&rsquo;s one bathroom or a ground-up commercial site.</p>
     <ul class="checks">
       <li>{icon('check')}<span><strong>On time and on budget.</strong> Schedules and budgets are managed from preconstruction through closeout.</span></li>
@@ -656,11 +677,11 @@ def home():
 {faq_html(HOME_FAQ, "Questions About Working With RBF", "Quick answers about our services, service area and how to get a bid.")}
 {area_section()}
 """
-    title = "General Contractor | Oakland County & SE Michigan | RBF"
-    desc = ("Oakland County & Southeast Michigan general contractor: kitchen & bath remodels, custom homes, office, "
-            "restaurant, medical & retail builds, site work.")
+    title = "General Contractor | Genesee, Oakland & SE Michigan | RBF"
+    desc = ("Genesee, Oakland & SE Michigan general contractor: custom homes, remodels, pole barns, offices, restaurants, "
+            "medical & retail builds, site work.")
     return page("/", title, desc, body, [("Home", "/")], [faq_schema(HOME_FAQ)],
-                preload="retail-plaza-jimmy-johns-pizza-hut-smoothie-king")
+                preload="hero")
 
 
 def service_page(path, crumb, title, desc, h1, lead, bg, content, faqs, svc_name, svc_types, photos, group=None, trail=None):
@@ -694,7 +715,7 @@ def general_contracting():
     all_svcs = "".join(f'<li><a href="/{s["slug"]}">{s["nav"]}</a></li>' for s in SVC)
     content = f"""
 <h2>Comprehensive Construction Solutions</h2>
-<p>At RBF Construction, Inc. we deliver outstanding results for projects of all sizes across <strong>Oakland County and Southeast Michigan</strong>. As a full-service construction company, we provide general contracting, construction management, design-build and construction consulting services for residential and commercial clients. Our team manages every detail to ensure your complete satisfaction.</p>
+<p>At RBF Construction, Inc. we deliver outstanding results for projects of all sizes across <strong>Genesee County, Oakland County and Southeast Michigan</strong>. As a full-service construction company, we provide general contracting, construction management, design-build and construction consulting services for residential and commercial clients. Our team manages every detail to ensure your complete satisfaction.</p>
 <ul class="tick-list"><li>General contracting</li><li>Construction management</li><li>Design-build</li><li>Design-bid-build</li><li>Construction consulting</li><li>Value engineering</li></ul>
 <h2>Design-Bid-Build Expertise</h2>
 <p>We specialize in traditional design-bid-build projects for commercial facilities, working closely with architects to deliver on time and within budget. When the drawings are done, we bring accurate pricing, a realistic schedule and the right subcontractors to the table.</p>
@@ -725,8 +746,8 @@ def general_contracting():
     return service_page(
         "/general-contracting", "General Contracting",
         "General Contracting & Design-Build | SE Michigan | RBF",
-        "Full-service general contractor for Oakland County & Southeast Michigan: construction management, design-build, design-bid-build and consulting.",
-        "General Contracting in Oakland County &amp; Southeast Michigan",
+        "Full-service general contractor for Genesee, Oakland & Southeast Michigan: construction management, design-build, design-bid-build and consulting.",
+        "General Contracting in Genesee, Oakland &amp; Southeast Michigan",
         "General contracting, construction management, design-build and consulting &mdash; managed in person, delivered on time and on budget.",
         "steel-frame-commercial-building", content, faqs, "General Contracting",
         ["General contracting", "Construction management", "Design-build", "Design-bid-build", "Construction consulting"],
@@ -736,7 +757,7 @@ def general_contracting():
 def commercial():
     content = f"""
 <h2>Commercial General Contractor for Southeast Michigan Businesses</h2>
-<p>RBF Construction builds and renovates commercial properties of all kinds for owners, developers and national brands across Oakland County and Southeast Michigan &mdash; <strong>office buildings, restaurants, medical and dental offices, retail stores and multi-tenant buildings</strong>. Our work includes projects for Jimmy John&rsquo;s, Pizza Hut, Smoothie King, Taco Bell, Dollar Tree, Biggby Coffee, Cottage Inn Pizza and Athletico Physical Therapy.</p>
+<p>RBF Construction builds and renovates commercial properties of all kinds for owners, developers and national brands across Genesee County, Oakland County and Southeast Michigan &mdash; <strong>office buildings, restaurants, medical and dental offices, retail stores and multi-tenant buildings</strong>. Our work includes projects for Jimmy John&rsquo;s, Pizza Hut, Smoothie King, Taco Bell, Dollar Tree, Biggby Coffee, Cottage Inn Pizza and Athletico Physical Therapy.</p>
 {child_cards('commercial')}
 <p>Because we also run our own <a href="/site-development">site development division</a>, we can take a commercial project from raw ground &mdash; demolition, excavation, utilities, parking lot and concrete &mdash; all the way through the finished building.</p>
 <h2>Featured: Commercial Renovation</h2>
@@ -759,9 +780,9 @@ def commercial():
     ]
     return service_page(
         "/commercial-general-contracting", "Commercial Construction",
-        "Commercial Construction | Oakland County & SE MI | RBF",
-        "Commercial contractor for Oakland County & Southeast Michigan: office buildings, restaurants, medical offices, retail and tenant build-outs.",
-        "Commercial Construction in Oakland County &amp; Southeast Michigan",
+        "Commercial Construction | Genesee, Oakland & SE MI | RBF",
+        "Commercial contractor for Genesee, Oakland & Southeast Michigan: office buildings, restaurants, medical offices, retail and tenant build-outs.",
+        "Commercial Construction in Genesee, Oakland &amp; Southeast Michigan",
         "Office buildings, restaurants, medical facilities and retail &mdash; from site work to ribbon cutting, for local owners and national brands.",
         "retail-plaza-jimmy-johns-pizza-hut-smoothie-king", content, faqs, "Commercial General Contracting",
         ["Commercial construction", "Office construction", "Restaurant construction", "Medical office construction",
@@ -771,7 +792,7 @@ def commercial():
 def residential():
     content = f"""
 <h2>Residential Construction With Personal Supervision</h2>
-<p>RBF Construction brings the discipline of a commercial contractor to homes across <strong>Oakland County and Southeast Michigan</strong>. Whether you&rsquo;re remodeling a kitchen or bathroom, adding on, or building a new home from the ground up, you get one accountable contractor, personal on-site supervision and a trusted network of skilled tradesmen.</p>
+<p>RBF Construction brings the discipline of a commercial contractor to homes across <strong>Genesee County, Oakland County and Southeast Michigan</strong>. Whether you&rsquo;re building a new home from the ground up, adding on, remodeling a kitchen or bathroom, or putting up a pole barn, you get one accountable contractor, personal on-site supervision and a trusted network of skilled tradesmen.</p>
 {child_cards('residential')}
 <h2>Built Right From the Ground Up</h2>
 <p>Many residential headaches start below grade or behind the walls. Because RBF runs its own <a href="/site-development">site development and earthwork division</a>, we handle excavation, grading, drainage, foundations and utility work with the same team that manages your build &mdash; so nothing falls through the cracks between contractors.</p>
@@ -785,25 +806,25 @@ def residential():
 <p>Planning a project? Read our <a href="/resources/kitchen-bathroom-remodel-planning-guide">kitchen and bath remodel planning guide</a>, then <a href="/construction-contact#quote">tell us about it</a> or call <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a>.</p>"""
     faqs = [
         ("What residential services does RBF Construction offer?",
-         "Kitchen remodeling, bathroom remodeling, custom homes, home additions, and residential site work such as excavation, foundations, grading, drainage, driveways and utility connections."),
+         "Custom homes and additions, kitchen remodeling, bathroom remodeling, pole barns and garages, and residential site work such as excavation, foundations, grading, drainage, driveways and utility connections."),
         ("Do you do residential work in Oakland County?",
          "Yes. We remodel and build homes throughout Oakland County, including Clarkston, Waterford, Rochester Hills, Troy, Novi, Milford, Holly and Oxford, and across Southeast Michigan."),
     ]
     return service_page(
         "/residential-general-contracting", "Residential",
-        "Residential Contractor | Oakland County & SE MI | RBF",
-        "Kitchen & bath remodeling, custom homes and additions in Oakland County & Southeast Michigan, with in-house site work and on-site supervision.",
-        "Residential Remodeling &amp; New Homes in Southeast Michigan",
-        "Kitchen and bath remodels, custom homes and additions across Oakland County and Southeast Michigan.",
+        "Residential Contractor | Genesee, Oakland & SE MI | RBF",
+        "Custom homes, kitchen & bath remodels and pole barns in Genesee, Oakland & Southeast Michigan, with in-house site work and on-site supervision.",
+        "Custom Homes, Remodels &amp; Pole Barns",
+        "Custom homes and additions, kitchen and bath remodels, and pole barns across Genesee County, Oakland County and Southeast Michigan.",
         "foundation-walls-excavation", content, faqs, "Residential General Contracting",
-        ["Residential construction", "Kitchen remodeling", "Bathroom remodeling", "Custom home building", "Home additions"],
+        ["Residential construction", "Custom home building", "Home additions", "Kitchen remodeling", "Bathroom remodeling", "Pole barns"],
         [], trail=[("Home", "/"), ("Residential", "/residential-general-contracting")])
 
 
 def site_development():
     content = f"""
 <h2>Site Development &amp; Earthwork Contractor for Southeast Michigan</h2>
-<p>We believe a successful project starts with a solid foundation. Our experienced crews provide comprehensive <strong>site development and earthwork services</strong> across Oakland County and Southeast Michigan, ensuring your project gets off to the right start. We handle everything from initial site review and expert technical advice to the critical groundwork.</p>
+<p>We believe a successful project starts with a solid foundation. Our experienced crews provide comprehensive <strong>site development and earthwork services</strong> across Genesee County, Oakland County and Southeast Michigan, ensuring your project gets off to the right start. We handle everything from initial site review and expert technical advice to the critical groundwork.</p>
 {child_cards('site')}
 <h2>Our Full-Service Earthwork Division</h2>
 <ul class="tick-list">
@@ -818,12 +839,12 @@ def site_development():
         ("What is land balancing?",
          "Land balancing means moving soil on a site so the amount cut from high areas matches the fill needed in low areas, reaching plan grades while minimizing the cost of hauling dirt on or off the site."),
         ("Do you do site work in Oakland County?",
-         "Yes. We provide site development, excavation, utilities, paving and demolition throughout Oakland County and Southeast Michigan."),
+         "Yes. We provide site development, excavation, utilities, paving and demolition throughout Genesee County, Oakland County and Southeast Michigan."),
     ]
     return service_page(
         "/site-development", "Site Work",
         "Site Development & Excavation | SE Michigan | RBF",
-        "Site development contractor for Oakland County & Southeast Michigan: excavation, grading, demolition, parking lots, concrete and underground utilities.",
+        "Site development contractor for Genesee, Oakland & Southeast Michigan: excavation, grading, demolition, parking lots, concrete and underground utilities.",
         "Site Development, Excavation &amp; Utilities",
         "Earthwork, demolition, paving, concrete and underground utilities &mdash; the solid foundation every successful project needs.",
         "commercial-site-excavation-grading", content, faqs, "Site Development and Earthwork",
@@ -863,7 +884,7 @@ def service_areas():
     cards = "".join(
         f'<a class="county reveal" href="/{c["slug"]}"><h3>{c["name"]}</h3><p>{", ".join(c["cities"][:7])} and more</p>'
         f'<span class="more">View {c["name"]} {icon("arrow")}</span></a>' for c in COUNTIES)
-    body = f"""{page_hero("Service Areas: Oakland County &amp; Southeast Michigan", "RBF Construction serves all of Oakland County and the surrounding Southeast Michigan counties from our headquarters in Flint.", trail, "commercial-site-excavation-grading")}
+    body = f"""{page_hero("Service Areas: Genesee, Oakland &amp; Southeast Michigan", "RBF Construction serves Genesee County, Oakland County and the surrounding Southeast Michigan counties from our headquarters in Flint.", trail, "commercial-site-excavation-grading")}
 <section><div class="wrap">
   <div class="section-head"><span class="eyebrow">Where We Work</span><h2>Counties We Serve</h2>
   <p>We take on residential remodeling, new homes, commercial construction and site work in each of these counties. Select yours to see the communities we serve.</p></div>
@@ -871,8 +892,8 @@ def service_areas():
   <p style="margin-top:30px">We also take projects in {", ".join(OTHER_AREAS[:-1])} and {OTHER_AREAS[-1]}. <a href="/construction-contact#quote">Contact us</a> about your location.</p>
 </div></section>
 {area_section()}"""
-    return page("/service-areas", "Service Areas | Oakland County & SE Michigan | RBF",
-                "RBF Construction serves all of Oakland County plus Genesee, Livingston, Macomb, Wayne, Lapeer and Washtenaw counties in Southeast Michigan.",
+    return page("/service-areas", "Service Areas | Genesee, Oakland & SE MI | RBF",
+                "RBF Construction serves Genesee and Oakland counties plus Livingston, Lapeer, Macomb, Wayne and Washtenaw counties in Southeast Michigan.",
                 body, trail, [{"@type": "ItemList", "name": "RBF Construction service areas",
                                "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": c["name"], "url": f"{SITE}/{c['slug']}"}
                                                    for i, c in enumerate(COUNTIES)]}])
@@ -883,7 +904,7 @@ def service_areas():
 # --------------------------------------------------------------------------
 def article_page(a):
     path = "/resources/" + a["slug"]
-    trail = [("Home", "/"), ("Resources", "/resources"), (strip_tags(a["h1"]).split(":")[0], path)]
+    trail = [("Home", "/"), ("Resources", "/resources/"), (strip_tags(a["h1"]).split(":")[0], path)]
     lead = a["summary"]
     body = f"""{page_hero(a['h1'], lead, trail, a['bg'])}
 <section><div class="wrap content-grid">
@@ -898,12 +919,12 @@ def article_page(a):
 
 
 def resources():
-    trail = [("Home", "/"), ("Resources", "/resources")]
+    trail = [("Home", "/"), ("Resources", "/resources/")]
     cards = "".join(f'<a class="county reveal" href="/resources/{a["slug"]}"><h3>{a["h1"]}</h3><p>{a["summary"]}</p>'
                     f'<span class="more">Read the guide {icon("arrow")}</span></a>' for a in ARTICLES)
     body = f"""{page_hero("Construction Guides &amp; Resources", "Straight answers to common questions about remodeling, building and site work in Southeast Michigan.", trail, None)}
 <section><div class="wrap"><div class="county-grid">{cards}</div></div></section>"""
-    return page("/resources", "Construction Guides & Resources | RBF Construction",
+    return page("/resources/", "Construction Guides & Resources | RBF Construction",
                 "Guides from RBF Construction on design-build vs. design-bid-build, planning a kitchen or bath remodel, and commercial site work in Michigan.",
                 body, trail, page_type="CollectionPage")
 
@@ -975,7 +996,7 @@ def contact():
         field("Project location (city)", "location", req=False, auto="address-level2"),
         field("Tell us about your project", "message", "textarea", full=True),
     ], "Submit Your Inquiry")
-    body = f"""{page_hero("Contact RBF Construction", "Get in touch for reliable construction services anywhere in Oakland County and Southeast Michigan. Call, email or send your project details for a bid.", trail, "precast-structure-crane-set")}
+    body = f"""{page_hero("Contact RBF Construction", "Get in touch for reliable construction services anywhere in Genesee County, Oakland County and Southeast Michigan. Call, email or send your project details for a bid.", trail, "precast-structure-crane-set")}
 <section id="quote"><div class="wrap form-wrap">
   <div><span class="eyebrow">Request a Bid</span><h2>Tell Us About Your Project</h2>
   <p>Share a few details and our team will follow up. Plans, photos, the address and your target timeline help us respond faster.</p>{f}</div>
@@ -986,14 +1007,14 @@ def contact():
       <dt>Email</dt><dd><a href="mailto:{BIZ['email']}">{BIZ['email']}</a></dd>
       <dt>Address</dt><dd><a href="{MAP_LINK}" rel="noopener" target="_blank">{BIZ['street']}<br>{BIZ['city']}, {BIZ['region']} {BIZ['zip']}</a></dd>
       <dt>Hours</dt><dd>{BIZ['hours_text']}</dd>
-      <dt>Serving</dt><dd><a href="/service-areas">Oakland County &amp; Southeast Michigan</a></dd>
+      <dt>Serving</dt><dd><a href="/service-areas">Genesee, Oakland &amp; Southeast Michigan</a></dd>
     </dl>
     <p style="margin:18px 0 0"><a class="btn btn-navy" href="tel:{BIZ['phone_e164']}" style="width:100%">{icon('phone')} Call Now</a></p>
   </div>
 </div></section>
 {area_section()}"""
     return page("/construction-contact", "Contact RBF Construction | 810-938-8498",
-                "Contact RBF Construction for a bid anywhere in Oakland County & Southeast Michigan. Call 810-938-8498 or email info@rbfconstruction.com.",
+                "Contact RBF Construction for a bid anywhere in Genesee, Oakland & Southeast Michigan. Call 810-938-8498 or email info@rbfconstruction.com.",
                 body, trail, page_type="ContactPage")
 
 
@@ -1085,7 +1106,7 @@ def not_found():
 def indexed():
     return (["/", "/general-contracting", "/residential-general-contracting", "/commercial-general-contracting",
              "/site-development"] + ["/" + s["slug"] for s in SVC] + ["/service-areas"] +
-            ["/" + c["slug"] for c in COUNTIES] + ["/projects", "/resources"] +
+            ["/" + c["slug"] for c in COUNTIES] + ["/projects", "/resources/"] +
             ["/resources/" + a["slug"] for a in ARTICLES] +
             ["/construction-contact", "/careers", "/bidding-list", "/privacy-policy"])
 
@@ -1117,7 +1138,7 @@ def llms_txt():
     def sec(items):
         return "\n".join(f"- [{strip_tags(t)}]({SITE}{u}): {strip_tags(d)}" for u, t, d in items)
     hubs = sec([("/general-contracting", "General Contracting", "construction management, design-build, design-bid-build, consulting"),
-                ("/residential-general-contracting", "Residential", "kitchen and bath remodeling, custom homes, additions"),
+                ("/residential-general-contracting", "Residential", "custom homes and additions, kitchen and bath remodeling, pole barns"),
                 ("/commercial-general-contracting", "Commercial", "offices, restaurants, medical, retail, tenant build-outs"),
                 ("/site-development", "Site Work", "excavation, grading, utilities, paving, concrete, demolition")])
     svcs = sec([("/" + s["slug"], s["nav"], s["desc"]) for s in SVC])
@@ -1126,7 +1147,7 @@ def llms_txt():
     faq = "\n".join(f"### {strip_tags(q)}\n{strip_tags(a)}\n" for q, a in HOME_FAQ)
     return f"""# {BIZ['name']}
 
-> {BIZ['name']} ("{BIZ['slogan']}") is a general contractor headquartered in Flint, Michigan that serves all of Oakland County and Southeast Michigan. It does kitchen and bathroom remodeling, custom homes and additions, commercial construction (office buildings, restaurants, medical and dental offices, retail), construction management and design-build, and complete site work: excavation, grading, underground utilities, parking lots, concrete and demolition.
+> {BIZ['name']} ("{BIZ['slogan']}") is a general contractor headquartered in Flint, Michigan that serves Genesee County, Oakland County and all of Southeast Michigan. It builds custom homes and additions, does kitchen and bathroom remodeling, builds pole barns, commercial construction (office buildings, restaurants, medical and dental offices, retail), construction management and design-build, and complete site work: excavation, grading, underground utilities, parking lots, concrete and demolition.
 
 ## Key facts
 - Legal name: {BIZ['name']}
@@ -1137,7 +1158,7 @@ def llms_txt():
 - Phone: {BIZ['phone']}
 - Email: {BIZ['email']}
 - Hours: {BIZ['hours_text']}
-- Service area: all of Oakland County and Southeast Michigan, including {", ".join(c['name'] for c in COUNTIES)} counties
+- Service area: Genesee County, Oakland County and all of Southeast Michigan, including {", ".join(c['name'] for c in COUNTIES)} counties
 - Brands built for: {", ".join(n for _, n in CLIENTS)}
 - Facebook: {BIZ['facebook']}
 
@@ -1229,7 +1250,7 @@ def build():
         "site-development.html": site_development(),
         "service-areas.html": service_areas(),
         "projects.html": projects(),
-        "resources.html": resources(),
+        "resources/index.html": resources(),
         "construction-contact.html": contact(),
         "careers.html": careers(),
         "bidding-list.html": bidding(),
@@ -1264,6 +1285,8 @@ def serve(port=8000):
     class H(http.server.SimpleHTTPRequestHandler):
         def send_head(self):
             p = self.path.split("?")[0]
+            if os.path.isdir(os.path.join(OUT, p.strip("/"))):
+                return super().send_head()  # folder: redirect to "/" and serve its index.html, like Apache
             if p != "/" and "." not in p.rsplit("/", 1)[-1]:
                 cand = os.path.join(OUT, p.strip("/") + ".html")
                 self.path = p + ".html" if os.path.exists(cand) else "/404.html"

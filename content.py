@@ -13,6 +13,38 @@ TEL = "+18109388498"
 # --------------------------------------------------------------------------
 COUNTIES = [
     {
+        "slug": "genesee-county-general-contractor", "name": "Genesee County",
+        "cities": ["Flint", "Flint Township", "Burton", "Grand Blanc", "Grand Blanc Township", "Fenton", "Fenton Township",
+                   "Flushing", "Davison", "Swartz Creek", "Clio", "Mt. Morris", "Linden", "Montrose", "Goodrich",
+                   "Gaines", "Genesee Township", "Mundy Township"],
+        "title": "General Contractor in Flint & Genesee County | RBF",
+        "desc": "Flint-based general contractor for all of Genesee County: custom homes, remodels, pole barns, commercial construction and site work.",
+        "h1": "Genesee County&rsquo;s Hometown General Contractor",
+        "lead": "Headquartered on W Hill Rd in Flint, RBF builds homes, remodels, pole barns, commercial buildings and sites across every corner of Genesee County.",
+        "bg": "commercial-renovation-after",
+        "intro": """<p>Genesee County is home base for RBF Construction. Our office and crews are based at 1411 W Hill Rd in Flint, which means fast response times and personal on-site supervision on projects in Flint, Flint Township, Burton, Grand Blanc, Fenton, Flushing, Davison, Swartz Creek, Clio and every surrounding township.</p>
+<p>We know Genesee County&rsquo;s neighborhoods, soils, municipalities and inspectors. We&rsquo;ve built commercial buildings, renovated storefronts, installed underground utilities and upgraded pump stations here, and we bring the same team to homeowners planning a new home, a remodel or a pole barn.</p>""",
+        "focus": """<h2>Services Across Genesee County</h2>
+<ul class="tick-list"><li><a href="/custom-home-builder">Custom homes &amp; additions</a></li><li><a href="/kitchen-remodeling">Kitchen remodeling</a></li>
+<li><a href="/bathroom-remodeling">Bathroom remodeling</a></li><li><a href="/pole-barns">Pole barns &amp; garages</a></li>
+<li><a href="/commercial-general-contracting">Commercial construction</a></li><li><a href="/restaurant-construction">Restaurants &amp; drive-thrus</a></li>
+<li><a href="/medical-office-construction">Medical offices</a></li><li><a href="/site-development">Site work &amp; utilities</a></li></ul>
+<h2>New Homes, Remodels and Pole Barns</h2>
+<p>From established neighborhoods in Flint, Burton and Flushing to newer subdivisions in Grand Blanc and Fenton and acreage in Gaines, Atlas, Goodrich and Montrose, we build custom homes and additions, remodel kitchens and bathrooms, and put up pole barns and garages &mdash; with our own crews handling the excavation, concrete and utility work.</p>
+<h2>Commercial Construction and Redevelopment</h2>
+<p>Genesee County&rsquo;s commercial corridors &mdash; Miller Road, Linden Road, Hill Road, Dort Highway, Saginaw Street and the Grand Blanc and Fenton business districts &mdash; are full of properties with good bones and dated buildings. We build new restaurants, offices, medical and retail buildings, and we turn tired properties into modern, leasable space with new facades, interiors, parking lots and utilities. See our <a href="/projects">before-and-after renovation</a>.</p>
+<h2>Site Work Close to Home</h2>
+<p>Our equipment and earthwork crews are based right here in Flint, so excavation, grading, storm and sanitary sewers, water lines, parking lots and demolition in Genesee County start fast and stay on schedule.</p>""",
+        "faqs": [
+            ("Where is RBF Construction located in Genesee County?",
+             "Our office is at 1411 W Hill Rd, Flint, MI 48507, open Monday through Friday, 8 AM to 5 PM."),
+            ("Which Genesee County communities do you serve?",
+             "All of them, including Flint, Flint Township, Burton, Grand Blanc, Fenton, Flushing, Davison, Swartz Creek, Clio, Mt. Morris, Linden, Montrose, Goodrich and Gaines."),
+            ("Do you build pole barns in Genesee County?",
+             "Yes. We build pole barns, garages and post-frame buildings throughout Genesee County, including the site preparation and concrete floors."),
+        ],
+    },
+    {
         "slug": "oakland-county-general-contractor", "name": "Oakland County",
         "cities": ["Troy", "Southfield", "Auburn Hills", "Rochester Hills", "Rochester", "Pontiac", "Bloomfield Hills",
                    "Birmingham", "West Bloomfield", "Farmington Hills", "Novi", "Wixom", "Commerce Township", "Milford",
@@ -41,32 +73,6 @@ COUNTIES = [
              "Kitchen and bathroom remodels, custom homes and additions, office buildings and tenant build-outs, restaurants, medical and dental offices, retail buildings, and site work including excavation, grading, utilities, parking lots and demolition."),
             ("Is your office close to Oakland County?",
              "Our headquarters is at 1411 W Hill Rd in Flint, just off I-75, a short drive north of Oakland County. We meet clients on site anywhere in the county."),
-        ],
-    },
-    {
-        "slug": "genesee-county-general-contractor", "name": "Genesee County",
-        "cities": ["Flint", "Flint Township", "Burton", "Grand Blanc", "Grand Blanc Township", "Fenton", "Fenton Township",
-                   "Flushing", "Davison", "Swartz Creek", "Clio", "Mt. Morris", "Linden", "Montrose", "Goodrich",
-                   "Gaines", "Genesee Township", "Mundy Township"],
-        "title": "Genesee County General Contractor | Flint, MI | RBF",
-        "desc": "Flint-based general contractor serving all of Genesee County: remodeling, custom homes, commercial construction and site development.",
-        "h1": "Genesee County&rsquo;s Hometown General Contractor",
-        "lead": "Headquartered on W Hill Rd in Flint, RBF builds, remodels and develops sites across every corner of Genesee County.",
-        "bg": "commercial-renovation-after",
-        "intro": """<p>Genesee County is home base for RBF Construction. Our office and crews are based at 1411 W Hill Rd in Flint, which means fast response times and personal on-site supervision on projects in Flint, Burton, Grand Blanc, Fenton, Flushing, Davison, Swartz Creek, Clio and the surrounding townships.</p>
-<p>We&rsquo;ve built commercial buildings, renovated storefronts, installed underground utilities and upgraded pump stations in the region, and we bring the same team to homeowners planning a remodel or a new home.</p>""",
-        "focus": """<h2>Services Across Genesee County</h2>
-<ul class="tick-list"><li><a href="/kitchen-remodeling">Kitchen remodeling</a></li><li><a href="/bathroom-remodeling">Bathroom remodeling</a></li>
-<li><a href="/custom-home-builder">New homes &amp; additions</a></li><li><a href="/commercial-general-contracting">Commercial construction</a></li>
-<li><a href="/restaurant-construction">Restaurant construction</a></li><li><a href="/medical-office-construction">Medical offices</a></li>
-<li><a href="/underground-utilities">Underground utilities</a></li><li><a href="/parking-lot-paving-concrete">Parking lots &amp; concrete</a></li></ul>
-<h2>Commercial Renovation and Redevelopment</h2>
-<p>Many Genesee County properties have good bones and dated buildings. We specialize in turning tired commercial properties into modern, leasable space &mdash; new facades, interiors, parking lots and utilities &mdash; as you can see in our <a href="/projects">before-and-after renovation</a>.</p>""",
-        "faqs": [
-            ("Where is RBF Construction located in Genesee County?",
-             "Our office is at 1411 W Hill Rd, Flint, MI 48507, open Monday through Friday, 8 AM to 5 PM."),
-            ("Which Genesee County communities do you serve?",
-             "All of them, including Flint, Burton, Grand Blanc, Fenton, Flushing, Davison, Swartz Creek, Clio, Mt. Morris, Linden, Montrose and Goodrich."),
         ],
     },
     {
@@ -183,10 +189,42 @@ GROUPS = {
 SERVICES = [
     # ---------------- Residential ----------------
     {
+        "slug": "custom-home-builder", "group": "residential", "nav": "Custom Homes & Additions", "name": "Custom Home Building",
+        "title": "Custom Home Builder | Genesee, Oakland & SE MI | RBF",
+        "desc": "Ground-up custom homes and additions in Genesee County, Oakland County and Southeast Michigan, with in-house excavation, foundations, driveways and utilities.",
+        "h1": "Custom Home Builder for Genesee, Oakland &amp; Southeast Michigan",
+        "lead": "Ground-up residential construction and additions &mdash; with our own crews handling the land clearing, excavation, foundation and utilities.",
+        "bg": "foundation-walls-excavation",
+        "photos": ["foundation-walls-excavation", "commercial-site-excavation-grading", "concrete-road-curb-gutter-construction"],
+        "body": """<h2>Ground-Up Homes, Built by a Site Work Contractor</h2>
+<p>Most home builders subcontract everything below grade. RBF Construction does it ourselves. Our <a href="/site-development">site development division</a> handles clearing, excavation, grading, drainage, foundations, driveways and utility connections &mdash; the work that determines whether a house stays dry, level and problem-free for decades.</p>
+<ul class="tick-list"><li>Custom single-family homes</li><li>Home additions</li><li>Garages &amp; accessory buildings</li><li>Lot clearing &amp; excavation</li>
+<li>Foundations &amp; basements</li><li>Driveways &amp; flatwork</li><li>Water, sewer &amp; utility connections</li><li>Design-build or your plans</li></ul>
+<!--PHOTOS-->
+<h2>Building on Rural, Wooded and Lake Lots</h2>
+<p>Much of northern and western Oakland County, Livingston County, Lapeer County and southern Genesee County is rural or wooded land with lakes, slopes and poor soils. These lots need careful site planning: tree removal, soil management, grading for drainage, long driveways and utility runs. That&rsquo;s exactly where an in-house earthwork crew pays off.</p>
+<h2>From Plans to Keys</h2>
+<ol><li><strong>Lot evaluation:</strong> we walk the property and identify site work, drainage and utility needs early.</li>
+<li><strong>Design &amp; budget:</strong> build from your architect&rsquo;s plans or use our design-build approach.</li>
+<li><strong>Permits &amp; site work:</strong> clearing, excavation, foundation and utilities.</li>
+<li><strong>Construction:</strong> framing through finishes with personal on-site supervision.</li>
+<li><strong>Final inspections &amp; walkthrough.</strong></li></ol>
+<p>We build in <a href="/oakland-county-general-contractor">Oakland</a>, <a href="/livingston-county-general-contractor">Livingston</a>, <a href="/genesee-county-general-contractor">Genesee</a> and <a href="/lapeer-county-general-contractor">Lapeer</a> counties and across <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Tell us about your lot and plans</a>.</p>""",
+        "faqs": [
+            ("Do you build custom homes from the ground up?",
+             "Yes. RBF Construction builds ground-up custom homes and additions, including the land clearing, excavation, foundation, utilities and driveway with our own site work crews."),
+            ("Can you build from my architect's plans?",
+             "Yes. We can build from your plans or deliver the project through design-build with our network of architects."),
+            ("Do you build homes on rural or lake lots?",
+             "Yes. Rural, wooded and lake lots are a strength because our in-house earthwork division handles clearing, grading, drainage, long driveways and utility runs."),
+        ],
+        "types": ["Custom home building", "New home construction", "Home additions", "Residential construction"],
+    },
+    {
         "slug": "kitchen-remodeling", "group": "residential", "nav": "Kitchen Remodeling", "name": "Kitchen Remodeling",
-        "title": "Kitchen Remodeling | Oakland County & SE Michigan | RBF",
+        "title": "Kitchen Remodeling | Genesee, Oakland & SE MI | RBF",
         "desc": "Kitchen remodeling contractor for Oakland County and Southeast Michigan: layout changes, cabinets, countertops, tile, lighting and permits handled.",
-        "h1": "Kitchen Remodeling in Oakland County &amp; Southeast Michigan",
+        "h1": "Kitchen Remodeling in Genesee, Oakland &amp; Southeast Michigan",
         "lead": "From a cabinet-and-countertop refresh to a full gut with a new layout &mdash; one contractor managing design, trades, permits and schedule.",
         "bg": None, "photos": [],
         "body": """<h2>A Kitchen Remodel Managed Like a Construction Project</h2>
@@ -217,9 +255,9 @@ SERVICES = [
     },
     {
         "slug": "bathroom-remodeling", "group": "residential", "nav": "Bathroom Remodeling", "name": "Bathroom Remodeling",
-        "title": "Bathroom Remodeling | Oakland County & SE Michigan | RBF",
-        "desc": "Bathroom remodeling in Oakland County and Southeast Michigan: walk-in showers, tub conversions, tile, vanities and accessible, aging-in-place baths.",
-        "h1": "Bathroom Remodeling in Oakland County &amp; Southeast Michigan",
+        "title": "Bathroom Remodeling | Genesee, Oakland & SE MI | RBF",
+        "desc": "Bathroom remodeling in Genesee, Oakland & SE Michigan: walk-in showers, tub conversions, tile, vanities and accessible, aging-in-place baths.",
+        "h1": "Bathroom Remodeling in Genesee, Oakland &amp; Southeast Michigan",
         "lead": "Walk-in showers, tub-to-shower conversions, accessible baths and complete primary suite remodels &mdash; waterproofed and built to last.",
         "bg": None, "photos": [],
         "body": """<h2>Bathrooms Built Right Behind the Walls</h2>
@@ -241,49 +279,57 @@ SERVICES = [
             ("Do you build accessible or aging-in-place bathrooms?",
              "Yes. We build curbless and low-threshold showers, add blocking for grab bars, install comfort-height fixtures and slip-resistant flooring, and can widen doorways."),
             ("Do you remodel bathrooms in Oakland County?",
-             "Yes. We remodel bathrooms throughout Oakland County and Southeast Michigan, as well as Genesee County where our office is located."),
+             "Yes. We remodel bathrooms throughout Genesee County, Oakland County and Southeast Michigan, as well as Genesee County where our office is located."),
         ],
         "types": ["Bathroom remodeling", "Bathroom renovation", "Shower installation", "Accessible bathroom remodeling"],
     },
     {
-        "slug": "custom-home-builder", "group": "residential", "nav": "Custom Homes & Additions", "name": "Custom Home Building",
-        "title": "Custom Home Builder | Oakland County & SE Michigan | RBF",
-        "desc": "Ground-up custom homes and additions in Oakland County and Southeast Michigan, with in-house excavation, foundations, driveways and utilities.",
-        "h1": "Custom Home Builder for Oakland County &amp; Southeast Michigan",
-        "lead": "Ground-up residential construction and additions &mdash; with our own crews handling the land clearing, excavation, foundation and utilities.",
-        "bg": "foundation-walls-excavation",
-        "photos": ["foundation-walls-excavation", "commercial-site-excavation-grading", "concrete-road-curb-gutter-construction"],
-        "body": """<h2>Ground-Up Homes, Built by a Site Work Contractor</h2>
-<p>Most home builders subcontract everything below grade. RBF Construction does it ourselves. Our <a href="/site-development">site development division</a> handles clearing, excavation, grading, drainage, foundations, driveways and utility connections &mdash; the work that determines whether a house stays dry, level and problem-free for decades.</p>
-<ul class="tick-list"><li>Custom single-family homes</li><li>Home additions</li><li>Garages &amp; accessory buildings</li><li>Lot clearing &amp; excavation</li>
-<li>Foundations &amp; basements</li><li>Driveways &amp; flatwork</li><li>Water, sewer &amp; utility connections</li><li>Design-build or your plans</li></ul>
-<!--PHOTOS-->
-<h2>Building on Rural, Wooded and Lake Lots</h2>
-<p>Much of northern and western Oakland County, Livingston County, Lapeer County and southern Genesee County is rural or wooded land with lakes, slopes and poor soils. These lots need careful site planning: tree removal, soil management, grading for drainage, long driveways and utility runs. That&rsquo;s exactly where an in-house earthwork crew pays off.</p>
-<h2>From Plans to Keys</h2>
-<ol><li><strong>Lot evaluation:</strong> we walk the property and identify site work, drainage and utility needs early.</li>
-<li><strong>Design &amp; budget:</strong> build from your architect&rsquo;s plans or use our design-build approach.</li>
-<li><strong>Permits &amp; site work:</strong> clearing, excavation, foundation and utilities.</li>
-<li><strong>Construction:</strong> framing through finishes with personal on-site supervision.</li>
-<li><strong>Final inspections &amp; walkthrough.</strong></li></ol>
-<p>We build in <a href="/oakland-county-general-contractor">Oakland</a>, <a href="/livingston-county-general-contractor">Livingston</a>, <a href="/genesee-county-general-contractor">Genesee</a> and <a href="/lapeer-county-general-contractor">Lapeer</a> counties and across <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Tell us about your lot and plans</a>.</p>""",
+        "slug": "pole-barns", "group": "residential", "nav": "Pole Barns & Garages", "name": "Pole Barn Construction",
+        "title": "Pole Barn Builder | Genesee, Oakland & SE MI | RBF",
+        "desc": "Pole barns, detached garages, workshops and post-frame buildings in Genesee County, Oakland County and Southeast Michigan, with site prep and concrete.",
+        "h1": "Pole Barns, Garages &amp; Post-Frame Buildings",
+        "lead": "Pole barns, detached garages, workshops and storage buildings &mdash; with the site prep, gravel base and concrete floor done by our own crews.",
+        "bg": None, "photos": [],
+        "body": """<h2>Pole Barns Built on a Proper Foundation</h2>
+<p>A pole barn is only as good as the ground it sits on. Because RBF Construction has its own <a href="/site-development">excavation and site work division</a>, we handle everything from clearing and grading the building site to the gravel base, concrete floor, apron and driveway &mdash; then build the post-frame structure itself.</p>
+<h2>Pole Barn and Post-Frame Projects</h2>
+<ul class="tick-list"><li>Detached garages</li><li>Workshops &amp; hobby barns</li><li>RV, boat &amp; equipment storage</li><li>Horse &amp; hobby-farm barns</li>
+<li>Agricultural buildings</li><li>Commercial storage buildings</li><li>Lean-tos &amp; additions</li><li>Barn-style homes &amp; living quarters</li></ul>
+<h2>Options and Upgrades</h2>
+<ul><li><strong>Concrete floors and aprons</strong>, poured by our own crews</li>
+<li><strong>Overhead and walk doors</strong> sized for trucks, RVs, boats or equipment</li>
+<li><strong>Insulation, liner panels and heat</strong> for a year-round shop</li>
+<li><strong>Electrical service and lighting</strong>, including trenching from the house</li>
+<li><strong>Wainscot, windows, cupolas and color choices</strong> to match your home</li>
+<li><strong>Driveways and grading</strong> so water drains away from the building</li></ul>
+<h2>Permits, Zoning and Site Planning</h2>
+<p>Most Michigan townships regulate accessory buildings with size limits, height limits and setbacks, and require a building permit. We review your township&rsquo;s rules, plan the building location, pull permits and schedule inspections.</p>
+<h2>Our Pole Barn Process</h2>
+<ol><li><strong>Site visit:</strong> we look at the location, access, drainage and how you&rsquo;ll use the building.</li>
+<li><strong>Design &amp; estimate:</strong> size, doors, options and a clear price.</li>
+<li><strong>Permits &amp; site prep:</strong> clearing, grading and a compacted base.</li>
+<li><strong>Construction:</strong> posts, trusses, steel, doors and options.</li>
+<li><strong>Concrete &amp; finish:</strong> floor, apron and final grading.</li></ol>
+<p>We build pole barns across <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/lapeer-county-general-contractor">Lapeer County</a>, <a href="/livingston-county-general-contractor">Livingston County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a pole barn estimate</a>.</p>""",
         "faqs": [
-            ("Do you build custom homes from the ground up?",
-             "Yes. RBF Construction builds ground-up custom homes and additions, including the land clearing, excavation, foundation, utilities and driveway with our own site work crews."),
-            ("Can you build from my architect's plans?",
-             "Yes. We can build from your plans or deliver the project through design-build with our network of architects."),
-            ("Do you build homes on rural or lake lots?",
-             "Yes. Rural, wooded and lake lots are a strength because our in-house earthwork division handles clearing, grading, drainage, long driveways and utility runs."),
+            ("Do I need a permit to build a pole barn in Michigan?",
+             "In most Michigan townships, yes. Accessory buildings usually need a building permit and must meet zoning rules for size, height and setbacks. RBF reviews your township's requirements and pulls the permits."),
+            ("Do you pour the concrete floor for pole barns?",
+             "Yes. Our own crews prepare the site, build the compacted base and pour the concrete floor and apron, so the building sits on a solid, properly drained foundation."),
+            ("Can a pole barn be used as a heated workshop?",
+             "Yes. With insulation, interior liner panels, electrical service and a heat source, a pole barn makes an excellent year-round workshop or garage."),
+            ("Where do you build pole barns?",
+             "Throughout Genesee County, Oakland County, Lapeer County, Livingston County and the rest of Southeast Michigan."),
         ],
-        "types": ["Custom home building", "New home construction", "Home additions", "Residential construction"],
+        "types": ["Pole barn construction", "Post-frame construction", "Detached garage construction", "Workshop construction"],
     },
     # ---------------- Commercial ----------------
     {
         "slug": "office-building-construction", "group": "commercial", "nav": "Office Buildings", "name": "Office Building Construction",
         "title": "Office Building Construction | SE Michigan | RBF",
-        "desc": "Office building construction, tenant build-outs and office renovations in Oakland County and Southeast Michigan. Design-build or design-bid-build.",
+        "desc": "Office building construction, tenant build-outs and office renovations in Genesee, Oakland & SE Michigan. Design-build or design-bid-build.",
         "h1": "Office Building Construction &amp; Build-Outs",
-        "lead": "New professional office buildings, tenant improvements and office renovations across Oakland County and Southeast Michigan.",
+        "lead": "New professional office buildings, tenant improvements and office renovations across Genesee County, Oakland County and Southeast Michigan.",
         "bg": "steel-frame-commercial-building",
         "photos": ["steel-frame-commercial-building", "concrete-road-curb-gutter-construction", "commercial-site-excavation-grading"],
         "body": """<h2>Office Space That Works for Your Business</h2>
@@ -339,7 +385,7 @@ SERVICES = [
     {
         "slug": "medical-office-construction", "group": "commercial", "nav": "Medical & Dental", "name": "Medical Office Construction",
         "title": "Medical Office Construction | SE Michigan | RBF",
-        "desc": "Medical office, dental, physical therapy and clinic construction in Oakland County and Southeast Michigan. New buildings and build-outs.",
+        "desc": "Medical office, dental, physical therapy and clinic construction in Genesee County, Oakland County and Southeast Michigan. New buildings and build-outs.",
         "h1": "Medical, Dental &amp; Clinic Construction",
         "lead": "New medical office buildings and build-outs for physicians, dentists, physical therapy, urgent care and specialty clinics.",
         "bg": None, "photos": [],
@@ -470,7 +516,7 @@ SERVICES = [
     },
     {
         "slug": "demolition", "group": "site", "nav": "Demolition", "name": "Demolition",
-        "title": "Demolition Contractor | Oakland County & SE MI | RBF",
+        "title": "Demolition Contractor | Genesee, Oakland & SE MI | RBF",
         "desc": "Commercial and residential demolition, interior selective demolition, pavement removal and site clearing in Southeast Michigan.",
         "h1": "Demolition &amp; Site Clearing",
         "lead": "Building demolition, interior selective demolition, pavement and foundation removal &mdash; clearing the way for what&rsquo;s next.",
@@ -530,7 +576,7 @@ ARTICLES = [
         "slug": "kitchen-bathroom-remodel-planning-guide",
         "title": "Kitchen & Bath Remodel Planning Guide | SE Michigan",
         "h1": "Planning a Kitchen or Bathroom Remodel in Southeast Michigan",
-        "desc": "Step-by-step guide to planning a kitchen or bathroom remodel in Oakland County and Southeast Michigan: scope, budget, permits, timing and contractors.",
+        "desc": "Step-by-step guide to planning a kitchen or bathroom remodel in Genesee, Oakland & SE Michigan: scope, budget, permits, timing and contractors.",
         "summary": "Define scope first, set a budget with a contingency, make selections before demolition, confirm permits, and hire a contractor who manages trades and inspections.",
         "bg": None,
         "body": """<p class="tldr"><strong>Short answer:</strong> Decide your scope, set a realistic budget with a contingency, finalize selections <em>before</em> demolition, confirm permits with your city or township, and hire a contractor who manages every trade and inspection.</p>
