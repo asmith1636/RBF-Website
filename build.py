@@ -649,8 +649,8 @@ def divisions():
 # Pages
 # --------------------------------------------------------------------------
 HERO_SLIDES = [
+    ("taco-bell-new-construction", "New Taco Bell restaurant built by RBF Construction", "center 55%"),
     ("kitchen-white-cabinets-island-pendant-lights", "Custom kitchen &mdash; white cabinets, dark island &amp; pendant lighting", "center 55%"),
-    ("taco-bell-new-construction", "New Taco Bell restaurant &mdash; ground-up commercial construction", "center 55%"),
     ("living-room-coffered-ceiling-stone-fireplace", "Living room &mdash; coffered ceiling &amp; stone fireplace", "center 50%"),
     ("retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "Multi-tenant retail &mdash; Jimmy John&rsquo;s, Pizza Hut &amp; Smoothie King", "center 65%"),
     ("bathroom-freestanding-tub-glass-shower", "Primary bath &mdash; soaking tub &amp; glass shower", "center 55%"),

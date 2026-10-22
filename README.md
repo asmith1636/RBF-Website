@@ -86,3 +86,12 @@ git subtree push --prefix site origin hostinger
 ```
 
 Then click **Deploy** in hPanel → Websites → Advanced → **Git**, or turn on auto-deployment there.
+
+## Phase 2 additions
+
+- **Case studies** are in `CASE_STUDIES` in content.py and appear at `/projects/<slug>`. Optional fields `scope`, `year`, `size` and `challenge` stay hidden until they're filled in. Add them once RBF confirms the facts, then run `python build.py`.
+- **Analytics:** set `GA4_ID` at the top of build.py and rebuild. The site already sends `phone_click`, `email_click`, `bid_cta_click`, `generate_lead_submit` and `generate_lead` (on the thank-you page) to `window.dataLayer`.
+- **Bid form:** links can preselect answers, e.g. `/construction-contact?audience=gc&type=site#quote`. Each submission includes the first page of the visit, the page that opened the form, and any campaign (UTM) tags.
+- **Staging vs production:** `.htaccess` sends `X-Robots-Tag: noindex` on every host except rbfconstruction.com, so the Hostinger temporary domain won't be indexed. When the real domain is attached, it's indexable automatically.
+- **Fonts** are hosted on the site itself in `site/fonts`.
+- **Photos:** `python tools/process_photos.py` rebuilds every photo from `originals/`.

@@ -90,8 +90,12 @@ COUNTIES = [
 <li><a href="/kitchen-remodeling">Kitchen remodels</a></li><li><a href="/bathroom-remodeling">Bathroom remodels</a></li>
 <li><a href="/retail-construction">Retail &amp; commercial buildings</a></li><li><a href="/office-building-construction">Professional offices</a></li></ul>
 <h2>Site Work for Rural and Semi-Rural Lots</h2>
-<p>New construction in Livingston County often starts with raw land. Our in-house earthwork crews handle clearing, excavation, grading, drainage, driveways and utility trenching, so your home or commercial building starts on properly prepared ground.</p>""",
+<p>New construction in Livingston County often starts with raw land. Our in-house earthwork crews handle clearing, excavation, grading, drainage, driveways and utility trenching, so your home or commercial building starts on properly prepared ground.</p>
+<h2>Pole Barns and Garages on Acreage</h2>
+<p>Many Livingston County properties have room for a <a href="/pole-barns">pole barn, detached garage or workshop</a>. RBF prepares the site, builds the compacted base and pours the concrete floor and apron with our own crews, then builds the post-frame structure.</p>""",
         "faqs": [
+            ("Do you build pole barns in Livingston County?",
+             "Yes. We build pole barns, detached garages and workshops in Brighton, Howell, Hartland, Fowlerville, Pinckney and the surrounding townships, including the site work and concrete."),
             ("Do you build custom homes in Livingston County?",
              "Yes. We build ground-up homes and additions in Brighton, Howell, Hartland, Fowlerville, Pinckney and surrounding townships, including the site work."),
         ],
@@ -109,8 +113,14 @@ COUNTIES = [
         "focus": """<h2>Lapeer County Services</h2>
 <ul class="tick-list"><li><a href="/custom-home-builder">Custom homes</a></li><li><a href="/excavation-grading">Excavation &amp; grading</a></li>
 <li><a href="/kitchen-remodeling">Kitchen remodeling</a></li><li><a href="/bathroom-remodeling">Bathroom remodeling</a></li>
-<li><a href="/commercial-general-contracting">Commercial construction</a></li><li><a href="/parking-lot-paving-concrete">Driveways, lots &amp; concrete</a></li></ul>""",
+<li><a href="/commercial-general-contracting">Commercial construction</a></li><li><a href="/parking-lot-paving-concrete">Driveways, lots &amp; concrete</a></li></ul>
+<h2>Pole Barns, Garages and Outbuildings</h2>
+<p>Acreage across Lapeer County &mdash; from Metamora and Dryden to Columbiaville and North Branch &mdash; is pole barn country. RBF builds <a href="/pole-barns">pole barns, detached garages and workshops</a> with our own crews handling the site clearing, grading, compacted base and concrete floor, so the building sits on properly drained ground.</p>
+<h2>Close to Our Flint Headquarters</h2>
+<p>Lapeer County sits just east of Flint along I-69, so our crews, equipment and supervisors are a short drive away. That makes it practical to stay closely involved in the site work and construction on Lapeer County projects, from a single garage to a commercial building in Lapeer or Imlay City.</p>""",
         "faqs": [
+            ("Do you build pole barns in Lapeer County?",
+             "Yes. RBF builds pole barns, detached garages and workshops throughout Lapeer County, including the site preparation, compacted base and concrete floor."),
             ("Do you serve Lapeer County?",
              "Yes. We work in Lapeer, Imlay City, Almont, Metamora, Dryden, Columbiaville, North Branch and the surrounding townships."),
         ],
