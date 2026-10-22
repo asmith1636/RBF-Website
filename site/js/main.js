@@ -64,6 +64,18 @@
     set();
   });
 
+  // Gallery filters
+  document.querySelectorAll('.filters').forEach(function (bar) {
+    var figs = bar.nextElementSibling.querySelectorAll('figure');
+    bar.querySelectorAll('button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var f = btn.dataset.filter;
+        bar.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+        figs.forEach(function (fig) { fig.hidden = !(f === 'all' || fig.dataset.cat === f); });
+      });
+    });
+  });
+
   // Gallery lightbox
   var box = document.querySelector('.lightbox');
   if (box && box.showModal) {

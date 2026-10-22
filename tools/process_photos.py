@@ -25,10 +25,41 @@ PHOTOS = {
     "rbf-8.jpg": "steel-frame-commercial-building",
     "rbf18.jpg": "foundation-walls-excavation",
 }
+# Photos from the old site's Residential, Commercial and Site Development pages
+PHOTOS.update({
+    "more/rbf1.jpg": "kitchen-white-cabinets-island-pendant-lights",
+    "more/rbf10.jpg": "kitchen-island-wood-beams-white-cabinets",
+    "more/rbf7.jpg": "open-kitchen-island-tile-backsplash",
+    "more/rbf8.jpg": "kitchen-large-island-pendant-lights",
+    "more/rbf15.jpg": "kitchen-granite-countertops-white-cabinets",
+    "more/rbf11.jpg": "walk-in-shower-white-subway-tile",
+    "more/rbf14.jpg": "bathroom-black-tile-shower-vanity",
+    "more/rbf3.jpg": "bathroom-freestanding-tub-glass-shower",
+    "more/rbf5.jpg": "bathroom-wood-vanity-patterned-tile-floor",
+    "more/rbf12.jpg": "open-floor-plan-fireplace-cable-railing",
+    "more/rbf13.jpg": "wet-bar-brick-accent-wall",
+    "more/rbf9.jpg": "living-room-coffered-ceiling-stone-fireplace",
+    # screenshot-2026-05-26-150303.png is a Google Street View capture (watermarked) - not usable
+    "more/new-taco-bell.jpg": "taco-bell-new-construction",
+    "more/taco-bell-cass-city.webp": "taco-bell-cass-city-mi",
+    "more/dollartree-olivet-mi.png": "family-dollar-dollar-tree-olivet-mi",
+    "more/athletico-shelby-mi.webp": "athletico-physical-therapy-shelby-mi",
+    "more/cottage-inn-davison.webp": "cottage-inn-pizza-davison-mi",
+    "more/untitled-design-35.png": "smoothie-king-building",
+    "more/rbf16.jpg": "concrete-curb-finishing",
+    "more/lawndale.png": "site-clearing-excavator",
+    "more/rbf-photo.4.png": "precast-manhole-installation",
+    "more/rbf-photos.12.png": "lift-station-pump-installation",
+    "more/rbf-photos.14.png": "water-main-fittings-staging",
+    "more/rbf-photos.2.png": "storm-pipe-trench-installation",
+    "more/rbf-photos.7.png": "valve-vault-piping",
+})
+
 # Homepage slideshow, in display order
-SLIDES = ["retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "commercial-renovation-after",
-          "commercial-site-excavation-grading", "precast-structure-crane-set",
-          "underground-utility-trench-excavation", "industrial-pump-room-upgrade"]
+SLIDES = ["taco-bell-new-construction", "kitchen-white-cabinets-island-pendant-lights",
+          "retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "bathroom-freestanding-tub-glass-shower",
+          "living-room-coffered-ceiling-stone-fireplace", "commercial-renovation-after",
+          "commercial-site-excavation-grading", "precast-structure-crane-set"]
 
 
 def load(name):

@@ -21,7 +21,7 @@ A static site: fast, works on any host, and has no monthly builder fee.
 ## Before launch: confirm with the owner
 
 1. **Counties and cities** (`COUNTIES` in content.py). Remove any communities RBF doesn't want to target, and add any that are missing.
-2. **Photos needed.** There are no kitchen, bathroom or medical project photos yet, so those pages use a plain navy header. Adding real photos of those projects will help both rankings and conversions.
+2. **Project locations in photo captions.** These come from the old site's file names: Taco Bell (Cass City), Family Dollar/Dollar Tree (Olivet), Athletico (Shelby) and Cottage Inn (Davison). Confirm they're right. Still needed: photos of pole barns and finished homes. The townhome image on the old site is a Google Street View screenshot, which can't legally be reused, so it was left out.
 3. **County project examples.** The Lapeer, Macomb, Wayne and Washtenaw pages are shorter. Adding a real project from each county with photos makes them much stronger.
 4. **Careers positions dropdown.** The list is: Laborer, Operator, Pipe layer, Concrete, CDL driver, Foreman, PM/Estimator. Adjust it to match the roles RBF hires for.
 5. **Forms.** The forms send to info@rbfconstruction.com through FormSubmit.co, which is free and needs no account. The first time a form is submitted, FormSubmit emails info@ an activation link, and someone must click it. To use something else, change `FORM_ACTION` in build.py. Alternatives are Formspree, Web3Forms, or Netlify Forms if you host on Netlify.

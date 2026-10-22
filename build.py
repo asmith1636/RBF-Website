@@ -77,6 +77,31 @@ PHOTOS = {
     "pump-room-piping-installation": "New pumps and blue piping installed in a pump room",
     "large-water-valve-installation": "Worker rigging and installing a large blue water valve",
     "industrial-pump-room-upgrade": "Row of large industrial pumps and motors in an upgraded pump room",
+    "kitchen-white-cabinets-island-pendant-lights": "Remodeled kitchen with white cabinets, a dark island, quartz countertops and pendant lights",
+    "kitchen-island-wood-beams-white-cabinets": "New kitchen with white shaker cabinets, a dark island, wood ceiling beams and black pendant lights",
+    "open-kitchen-island-tile-backsplash": "Open kitchen with a large island, patterned tile backsplash and range hood",
+    "kitchen-large-island-pendant-lights": "Kitchen with a large granite island, bar seating and pendant lights",
+    "kitchen-granite-countertops-white-cabinets": "Kitchen with granite countertops, white cabinets and stainless appliances",
+    "walk-in-shower-white-subway-tile": "Walk-in shower with white subway tile, built-in bench and black hex tile floor",
+    "bathroom-black-tile-shower-vanity": "Bathroom with a charcoal tile shower wall, dark vanity and wood-look floor",
+    "bathroom-freestanding-tub-glass-shower": "Primary bathroom with a freestanding soaking tub, glass shower and white wainscoting",
+    "bathroom-wood-vanity-patterned-tile-floor": "Bathroom with a wood vanity, black fixtures and patterned tile floor",
+    "open-floor-plan-fireplace-cable-railing": "Open floor plan with kitchen island, fireplace and cable stair railing",
+    "wet-bar-brick-accent-wall": "Wet bar with black cabinets and a brick accent wall",
+    "living-room-coffered-ceiling-stone-fireplace": "Living room with a coffered ceiling, stone fireplace and built-in shelving",
+    "taco-bell-new-construction": "New Taco Bell restaurant building built by RBF Construction",
+    "taco-bell-cass-city-mi": "Taco Bell restaurant in Cass City, Michigan built by RBF Construction",
+    "family-dollar-dollar-tree-olivet-mi": "Family Dollar / Dollar Tree store in Olivet, Michigan built by RBF Construction",
+    "athletico-physical-therapy-shelby-mi": "Athletico Physical Therapy clinic in Shelby, Michigan built by RBF Construction",
+    "cottage-inn-pizza-davison-mi": "Cottage Inn Pizza restaurant in Davison, Michigan",
+    "smoothie-king-building": "Smoothie King restaurant with dark board-and-batten siding",
+    "concrete-curb-finishing": "RBF crew member finishing a new concrete curb",
+    "site-clearing-excavator": "Excavator and dump truck clearing a wooded building site",
+    "precast-manhole-installation": "Excavator lowering a precast manhole structure while the crew guides it into place",
+    "lift-station-pump-installation": "Crew member installing a submersible pump in a lift station",
+    "water-main-fittings-staging": "Water main fittings and pipe staged for installation",
+    "storm-pipe-trench-installation": "Large storm pipe laid in a long excavated trench",
+    "valve-vault-piping": "New valves and piping inside an underground valve vault",
 }
 CLIENTS = [("client-jimmy-johns", "Jimmy John's"), ("client-pizza-hut", "Pizza Hut"),
            ("client-smoothie-king", "Smoothie King"), ("client-taco-bell", "Taco Bell"),
@@ -167,11 +192,11 @@ def header(path):
   </a>
   <button class="menu-toggle" aria-controls="nav" aria-expanded="false" aria-label="Open menu">{icon('menu')}</button>
   <nav id="nav" class="nav" aria-label="Main">
-    <a href="/"{cur('/')}>Home</a>
     <div class="has-sub"><a href="/general-contracting"{cur('/general-contracting')}>Services</a><div class="sub mega">{mega}</div></div>
     <div class="has-sub"><a href="/service-areas"{cur('/service-areas')}>Service Areas</a><div class="sub">{areas}</div></div>
     <a href="/projects"{cur('/projects')}>Projects</a>
     <a href="/resources/"{cur('/resources/')}>Resources</a>
+    <a href="/about"{cur('/about')}>About</a>
     <a href="/construction-contact"{cur('/construction-contact')}>Contact</a>
     <a class="btn btn-amber" href="/construction-contact#quote">Request a Bid</a>
   </nav>
@@ -201,7 +226,7 @@ def footer():
     <div><h2><a href="/commercial-general-contracting">Commercial</a></h2><ul>{com}<li><a href="/general-contracting">General Contracting</a></li></ul></div>
     <div><h2><a href="/service-areas">Service Areas</a></h2><ul>{areas}</ul></div>
     <div><h2>Company</h2><ul>
-      <li><a href="/projects">Projects</a></li><li><a href="/resources/">Resources</a></li><li><a href="/careers">Careers</a></li>
+      <li><a href="/about">About</a></li><li><a href="/projects">Projects</a></li><li><a href="/resources/">Resources</a></li><li><a href="/careers">Careers</a></li>
       <li><a href="/bidding-list">Subcontractor Bid List</a></li><li><a href="/construction-contact">Contact</a></li>
       <li><a href="/privacy-policy">Privacy Policy</a></li></ul></div>
   </div>
@@ -451,30 +476,66 @@ HOME_FAQ = [
      "reach out when projects in your trade and area come up for bid."),
 ]
 
-PROJECTS = [
-    ("retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "Multi-tenant retail building", "wide"),
-    ("commercial-site-excavation-grading", "Commercial site excavation & grading", "wide"),
-    ("storm-sewer-pipe-installation-crew", "Storm sewer installation", "tall"),
-    ("concrete-road-curb-gutter-construction", "Concrete road, curb & gutter", "tall"),
-    ("underground-utility-trench-excavation", "Underground utilities", ""),
-    ("precast-structure-crane-set", "Setting precast structures", ""),
-    ("foundation-walls-excavation", "Foundation walls", "tall"),
-    ("steel-frame-commercial-building", "Structural steel erection", "tall"),
-    ("manhole-water-valve-installation", "Water valve & manhole work", "tall"),
-    ("pump-station-tank-installation", "Pump station tank installation", ""),
-    ("industrial-pump-room-upgrade", "Industrial pump room upgrade", ""),
-    ("pump-room-piping-installation", "Pump room piping", "tall"),
-    ("large-water-valve-installation", "Large water valve installation", "tall"),
+PROJECTS = [  # (photo, caption, layout, category)
+    ("kitchen-island-wood-beams-white-cabinets", "Kitchen with island & wood beams", "wide", "residential"),
+    ("taco-bell-new-construction", "New Taco Bell restaurant", "wide", "commercial"),
+    ("bathroom-freestanding-tub-glass-shower", "Primary bath with soaking tub", "tall", "residential"),
+    ("commercial-site-excavation-grading", "Commercial site excavation & grading", "", "site"),
+    ("family-dollar-dollar-tree-olivet-mi", "Family Dollar / Dollar Tree — Olivet, MI", "", "commercial"),
+    ("living-room-coffered-ceiling-stone-fireplace", "Living room & stone fireplace", "wide", "residential"),
+    ("storm-sewer-pipe-installation-crew", "Storm sewer installation", "tall", "utilities"),
+    ("retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "Multi-tenant retail building", "wide", "commercial"),
+    ("walk-in-shower-white-subway-tile", "Walk-in tile shower", "tall", "residential"),
+    ("athletico-physical-therapy-shelby-mi", "Athletico Physical Therapy — Shelby, MI", "", "commercial"),
+    ("kitchen-white-cabinets-island-pendant-lights", "White kitchen with dark island", "", "residential"),
+    ("concrete-curb-finishing", "Finishing new concrete curb", "tall", "site"),
+    ("taco-bell-cass-city-mi", "Taco Bell — Cass City, MI", "", "commercial"),
+    ("open-floor-plan-fireplace-cable-railing", "Open floor plan & fireplace", "", "residential"),
+    ("precast-manhole-installation", "Setting a precast manhole", "tall", "utilities"),
+    ("cottage-inn-pizza-davison-mi", "Cottage Inn Pizza — Davison, MI", "", "commercial"),
+    ("bathroom-black-tile-shower-vanity", "Bathroom with charcoal tile", "tall", "residential"),
+    ("smoothie-king-building", "Smoothie King restaurant", "", "commercial"),
+    ("storm-pipe-trench-installation", "Large storm pipe trench", "tall", "utilities"),
+    ("open-kitchen-island-tile-backsplash", "Open kitchen with tile backsplash", "", "residential"),
+    ("steel-frame-commercial-building", "Structural steel erection", "tall", "commercial"),
+    ("site-clearing-excavator", "Clearing a wooded building site", "tall", "site"),
+    ("wet-bar-brick-accent-wall", "Wet bar with brick accent wall", "", "residential"),
+    ("concrete-road-curb-gutter-construction", "Concrete road, curb & gutter", "tall", "site"),
+    ("underground-utility-trench-excavation", "Underground utilities", "", "utilities"),
+    ("kitchen-granite-countertops-white-cabinets", "Kitchen with granite counters", "", "residential"),
+    ("foundation-walls-excavation", "Foundation walls", "tall", "site"),
+    ("valve-vault-piping", "Valve vault piping", "tall", "utilities"),
+    ("bathroom-wood-vanity-patterned-tile-floor", "Bath with patterned tile floor", "tall", "residential"),
+    ("precast-structure-crane-set", "Setting precast structures", "", "utilities"),
+    ("lift-station-pump-installation", "Lift station pump installation", "tall", "utilities"),
+    ("kitchen-large-island-pendant-lights", "Kitchen with large island", "", "residential"),
+    ("manhole-water-valve-installation", "Water valve & manhole work", "tall", "utilities"),
+    ("water-main-fittings-staging", "Water main fittings staged", "", "utilities"),
+    ("pump-station-tank-installation", "Pump station tank installation", "", "utilities"),
+    ("industrial-pump-room-upgrade", "Industrial pump room upgrade", "", "utilities"),
+    ("pump-room-piping-installation", "Pump room piping", "tall", "utilities"),
+    ("large-water-valve-installation", "Large water valve installation", "tall", "utilities"),
 ]
+HOME_GALLERY = [p for p in PROJECTS if p[0] in (
+    "kitchen-island-wood-beams-white-cabinets", "taco-bell-new-construction", "bathroom-freestanding-tub-glass-shower",
+    "commercial-site-excavation-grading", "family-dollar-dollar-tree-olivet-mi", "living-room-coffered-ceiling-stone-fireplace",
+    "storm-sewer-pipe-installation-crew", "retail-plaza-jimmy-johns-pizza-hut-smoothie-king")]
+CATEGORIES = [("all", "All"), ("residential", "Residential"), ("commercial", "Commercial"), ("site", "Site Work"), ("utilities", "Utilities")]
 
 
-def gallery(items):
+
+def gallery(items, filters=False):
     figs = []
-    for stem, cap, cls in items:
+    for stem, cap, cls, cat in items:
         c = f' class="{cls}"' if cls else ""
-        figs.append(f'<figure{c}><button type="button" data-caption="{escape(cap)}" aria-label="Enlarge photo: {escape(cap)}">'
+        figs.append(f'<figure{c} data-cat="{cat}"><button type="button" data-caption="{escape(cap)}" aria-label="Enlarge photo: {escape(cap)}">'
                     f'{img(stem, sizes="(max-width:860px) 50vw, 25vw")}</button><figcaption>{escape(cap)}</figcaption></figure>')
-    return ('<div class="gallery">' + "".join(figs) + '</div>'
+    bar = ""
+    if filters:
+        bar = ('<div class="filters" role="group" aria-label="Filter projects">' +
+               "".join(f'<button type="button" data-filter="{k}"{" aria-pressed=\"true\"" if k == "all" else " aria-pressed=\"false\""}>{v}</button>'
+                       for k, v in CATEGORIES) + '</div>')
+    return (bar + '<div class="gallery">' + "".join(figs) + '</div>'
             '<dialog class="lightbox" aria-label="Photo viewer"><button class="close" aria-label="Close">&times;</button>'
             '<img src="" alt=""><p></p></dialog>')
 
@@ -544,12 +605,14 @@ def svc_groups():
 # Pages
 # --------------------------------------------------------------------------
 HERO_SLIDES = [
-    ("retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "Multi-tenant retail building &mdash; Jimmy John&rsquo;s, Pizza Hut &amp; Smoothie King", "center 65%"),
+    ("kitchen-white-cabinets-island-pendant-lights", "Custom kitchen &mdash; white cabinets, dark island &amp; pendant lighting", "center 55%"),
+    ("taco-bell-new-construction", "New Taco Bell restaurant &mdash; ground-up commercial construction", "center 55%"),
+    ("living-room-coffered-ceiling-stone-fireplace", "Living room &mdash; coffered ceiling &amp; stone fireplace", "center 50%"),
+    ("retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "Multi-tenant retail &mdash; Jimmy John&rsquo;s, Pizza Hut &amp; Smoothie King", "center 65%"),
+    ("bathroom-freestanding-tub-glass-shower", "Primary bath &mdash; soaking tub &amp; glass shower", "center 55%"),
     ("commercial-renovation-after", "Commercial renovation &mdash; new facade, paving &amp; striping", "center 60%"),
-    ("commercial-site-excavation-grading", "Commercial site excavation &amp; grading", "center 55%"),
-    ("precast-structure-crane-set", "Setting precast structures", "center 60%"),
-    ("underground-utility-trench-excavation", "Underground utility installation", "center 50%"),
-    ("industrial-pump-room-upgrade", "Pump station upgrade", "center 50%"),
+    ("commercial-site-excavation-grading", "Site excavation &amp; grading", "center 55%"),
+    ("precast-structure-crane-set", "Setting precast utility structures", "center 60%"),
 ]
 
 
@@ -588,7 +651,7 @@ def home():
              "/parking-lot-paving-concrete", "/underground-utilities"]
     caps_html = "".join(f'<a class="cap reveal" href="{l}">{icon(i)}<h3>{t}</h3><p>{d}</p></a>' for (i, t, d), l in zip(caps, links))
     cards = [
-        ("/residential-general-contracting", "Residential", "Custom homes and additions, kitchen &amp; bath remodels, and pole barns &mdash; with personal on-site supervision.", "foundation-walls-excavation"),
+        ("/residential-general-contracting", "Residential", "Custom homes and additions, kitchen &amp; bath remodels, and pole barns &mdash; with personal on-site supervision.", "kitchen-island-wood-beams-white-cabinets"),
         ("/commercial-general-contracting", "Commercial", "Office buildings, restaurants, medical and dental offices, retail and tenant build-outs.", "retail-plaza-jimmy-johns-pizza-hut-smoothie-king"),
         ("/site-development", "Site Work", "Excavation, grading, demolition, parking lots, concrete and underground utilities.", "commercial-site-excavation-grading"),
         ("/general-contracting", "General Contracting", "Construction management, design-build and design-bid-build delivered on time and on budget.", "steel-frame-commercial-building"),
@@ -623,9 +686,9 @@ def home():
 <section><div class="wrap split">
   <div class="media reveal"><div class="collage">
     {img('storm-sewer-pipe-installation-crew', sizes='(max-width:860px) 50vw, 300px')}
-    {img('commercial-site-excavation-grading', sizes='(max-width:860px) 50vw, 300px')}
-    {img('concrete-road-curb-gutter-construction', sizes='(max-width:860px) 50vw, 300px')}
-    <div class="badge-card"><strong>Ground-up builder</strong><span>Site work, utilities &amp; buildings under one contract</span></div>
+    {img('kitchen-white-cabinets-island-pendant-lights', sizes='(max-width:860px) 50vw, 300px')}
+    {img('taco-bell-new-construction', sizes='(max-width:860px) 50vw, 300px')}
+    <div class="badge-card"><strong>Homes to restaurants</strong><span>Site work, buildings &amp; finishes under one contract</span></div>
   </div></div>
   <div class="reveal">
     <span class="eyebrow">Who We Are</span>
@@ -669,8 +732,8 @@ def home():
 
 <section><div class="wrap">
   <div class="section-head"><span class="eyebrow">Project Gallery</span><h2>From the Job Site</h2>
-  <p>Real photos from RBF Construction projects &mdash; utilities, earthwork, concrete, steel and finished buildings.</p></div>
-  {gallery(PROJECTS[:8])}
+  <p>Real photos from RBF Construction projects &mdash; kitchens and baths, restaurants and retail, earthwork and utilities.</p></div>
+  {gallery(HOME_GALLERY)}
   <p style="margin-top:30px"><a class="btn btn-navy" href="/projects">View All Projects {icon('arrow')}</a></p>
 </div></section>
 
@@ -931,27 +994,39 @@ def resources():
 
 def projects():
     trail = [("Home", "/"), ("Projects", "/projects")]
-    body = f"""{page_hero("Construction Projects by RBF", "A look at our work across commercial buildings, renovations, site development, underground utilities and pump station upgrades.", trail, "commercial-renovation-after")}
-<section><div class="wrap feature">
-  <div class="reveal">{img('retail-plaza-jimmy-johns-pizza-hut-smoothie-king', sizes='(max-width:860px) 100vw, 680px')}</div>
-  <div class="reveal"><span class="eyebrow">Featured Project</span><h2>Multi-Tenant Retail Building</h2>
-  <p>A ground-up retail building with storefronts for Jimmy John&rsquo;s (with drive-thru), Pizza Hut and Smoothie King, finished with stone veneer, metal panel accents and a new concrete parking area.</p>
-  <a class="btn btn-navy" href="/commercial-general-contracting">Commercial Services {icon('arrow')}</a></div>
-</div></section>
+    feats = [
+        ("taco-bell-new-construction", "Restaurants", "Taco Bell, Smoothie King, Cottage Inn &amp; More",
+         "Ground-up quick-service restaurants with drive-thrus, built to national brand standards &mdash; including Taco Bell locations such as Cass City, a Cottage Inn Pizza in Davison, and a multi-tenant building with Jimmy John&rsquo;s, Pizza Hut and Smoothie King.",
+         "/restaurant-construction", "Restaurant Construction"),
+        ("kitchen-island-wood-beams-white-cabinets", "Residential", "Kitchens, Baths &amp; Living Spaces",
+         "Custom kitchens with islands and beamed ceilings, primary baths with soaking tubs and walk-in tile showers, coffered-ceiling living rooms and wet bars.",
+         "/residential-general-contracting", "Residential Services"),
+        ("family-dollar-dollar-tree-olivet-mi", "Retail &amp; Medical", "Stores &amp; Clinics",
+         "Retail and healthcare spaces including a Family Dollar / Dollar Tree in Olivet and an Athletico Physical Therapy clinic in Shelby.",
+         "/retail-construction", "Retail &amp; Business Construction"),
+    ]
+    feat_html = "".join(
+        f'''<div class="wrap feature{" rev" if i % 2 else ""}">
+  <div class="reveal">{img(st, sizes="(max-width:860px) 100vw, 680px")}</div>
+  <div class="reveal"><span class="eyebrow">{eb}</span><h2>{h}</h2><p>{t}</p>
+  <a class="btn btn-navy" href="{u}">{lbl} {icon("arrow")}</a></div>
+</div>''' for i, (st, eb, h, t, u, lbl) in enumerate(feats))
+    body = f"""{page_hero("Construction Projects by RBF", "Homes, kitchens and baths, restaurants and retail buildings, site development and underground utilities &mdash; real photos from RBF Construction projects.", trail, "taco-bell-new-construction")}
+<section class="features">{feat_html}</section>
 <section class="alt"><div class="wrap">
   <div class="section-head center"><span class="eyebrow">Renovation</span><h2>Before &amp; After</h2><p>Drag to compare.</p></div>
   {before_after()}
 </div></section>
-<section><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Gallery</span><h2>On the Job Site</h2><p>Select any photo to enlarge it.</p></div>
-  {gallery(PROJECTS[1:])}
+<section id="gallery"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Gallery</span><h2>Project Photo Gallery</h2><p>Filter by type of work, and select any photo to enlarge it.</p></div>
+  {gallery(PROJECTS, filters=True)}
 </div></section>"""
     gal = {"@type": "ImageGallery", "@id": SITE + "/projects#gallery", "name": "RBF Construction project photos",
            "about": {"@id": BIZ_ID},
            "image": [{"@type": "ImageObject", "contentUrl": f"{SITE}/img/{s}.webp", "caption": PHOTOS[s],
                       "creator": {"@id": BIZ_ID}, "copyrightHolder": {"@id": BIZ_ID}} for s in PHOTOS]}
     return page("/projects", "Construction Projects & Gallery | RBF Construction",
-                "See RBF Construction's commercial buildings, renovations, site development and underground utility projects in the Flint, Michigan area.",
+                "Photos of RBF Construction projects: kitchens, baths, homes, restaurants, retail, medical, site development and underground utilities in Michigan.",
                 body, trail, [gal], page_type="CollectionPage")
 
 
@@ -980,6 +1055,45 @@ def form(subject, fields, button):
 <p style="margin-top:22px"><button class="btn btn-amber" type="submit">{button} {icon('arrow')}</button></p>
 <p class="form-note">We&rsquo;ll only use your information to respond to you. See our <a href="/privacy-policy">privacy policy</a>.</p>
 </form>"""
+
+
+def about():
+    trail = [("Home", "/"), ("About", "/about")]
+    clients = ", ".join(n for _, n in CLIENTS[:-1]) + " and " + CLIENTS[-1][1]
+    body = f"""{page_hero("About RBF Construction", "A Flint-based general contractor that builds homes, commercial buildings and the sites underneath them &mdash; with personal on-site supervision.", trail, "commercial-site-excavation-grading")}
+<section><div class="wrap split rev">
+  <div class="media reveal"><div class="collage">
+    {img('kitchen-island-wood-beams-white-cabinets', sizes='(max-width:860px) 50vw, 300px')}
+    {img('taco-bell-new-construction', sizes='(max-width:860px) 50vw, 300px')}
+    {img('storm-sewer-pipe-installation-crew', sizes='(max-width:860px) 50vw, 300px')}
+  </div></div>
+  <div class="reveal prose">
+    <span class="eyebrow">&ldquo;{BIZ['slogan']}&rdquo;</span>
+    <h2>Building and Civil Work, Under One Roof</h2>
+    <p><strong>{BIZ['name']}</strong> is a general contractor headquartered at {BIZ['street']} in {BIZ['city']}, Michigan. We serve Genesee County, Oakland County and all of Southeast Michigan.</p>
+    <p>What sets RBF apart is that we do both halves of construction. Our general contracting team builds custom homes, kitchens and baths, pole barns, restaurants, retail stores, offices and medical clinics. Our site development division handles the excavation, grading, underground utilities, parking lots and concrete those projects sit on. Owners get one accountable contractor from the first shovel of dirt to the final walkthrough.</p>
+    <p>We work with a trusted network of skilled tradesmen, subcontractors and architects, and we stay close to the work with personal on-site supervision on every job.</p>
+  </div>
+</div></section>
+<section class="alt"><div class="wrap">
+  <div class="section-head center"><span class="eyebrow">How We Work</span><h2>What You Can Expect</h2></div>
+  <div class="svc-groups">
+    <div class="grp reveal">{icon('clipboard')}<h3>Plan With Purpose</h3><p>Scope, budget and schedule worked out early, with value engineering to find savings without cutting corners.</p></div>
+    <div class="grp reveal">{icon('people')}<h3>One Coordinated Team</h3><p>We coordinate owners, architects, trades and site work so nothing falls between contractors.</p></div>
+    <div class="grp reveal">{icon('check')}<h3>Stay Close to the Work</h3><p>Personal on-site supervision from groundbreaking to final inspection and punch list.</p></div>
+  </div>
+</div></section>
+<section><div class="wrap prose">
+  <h2>Who We&rsquo;ve Built For</h2>
+  <p>Our commercial work includes projects for {clients}, along with local business owners, developers and homeowners across Michigan.</p>
+  <h2>Where We Work</h2>
+  <p>From our Flint office we serve <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a> and the rest of <a href="/service-areas">Southeast Michigan</a>, including Livingston, Lapeer, Macomb, Wayne and Washtenaw counties.</p>
+  <p><a class="btn btn-amber" href="/construction-contact#quote">Request a Bid {icon('arrow')}</a> <a class="btn btn-navy" href="/projects">See Our Work {icon('arrow')}</a></p>
+</div></section>"""
+    about_ld = {"@type": "AboutPage", "@id": SITE + "/about#about", "url": SITE + "/about", "mainEntity": {"@id": BIZ_ID}}
+    return page("/about", "About RBF Construction | Flint, MI General Contractor",
+                "RBF Construction is a Flint-based general contractor serving Genesee, Oakland and Southeast Michigan with building and site work under one roof.",
+                body, trail, [about_ld], page_type="AboutPage")
 
 
 def contact():
@@ -1106,7 +1220,7 @@ def not_found():
 def indexed():
     return (["/", "/general-contracting", "/residential-general-contracting", "/commercial-general-contracting",
              "/site-development"] + ["/" + s["slug"] for s in SVC] + ["/service-areas"] +
-            ["/" + c["slug"] for c in COUNTIES] + ["/projects", "/resources/"] +
+            ["/" + c["slug"] for c in COUNTIES] + ["/about", "/projects", "/resources/"] +
             ["/resources/" + a["slug"] for a in ARTICLES] +
             ["/construction-contact", "/careers", "/bidding-list", "/privacy-policy"])
 
@@ -1175,6 +1289,7 @@ def llms_txt():
 {arts}
 
 ## Other pages
+- [About RBF Construction]({SITE}/about)
 - [Projects and photo gallery]({SITE}/projects)
 - [Contact / request a bid]({SITE}/construction-contact)
 - [Careers]({SITE}/careers)
@@ -1250,6 +1365,7 @@ def build():
         "site-development.html": site_development(),
         "service-areas.html": service_areas(),
         "projects.html": projects(),
+        "about.html": about(),
         "resources/index.html": resources(),
         "construction-contact.html": contact(),
         "careers.html": careers(),
