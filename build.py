@@ -13,7 +13,7 @@ from html import escape
 from PIL import Image
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from content import ARTICLES, COUNTIES, GROUPS, OTHER_AREAS, SERVICES as SVC  # noqa: E402
+from content import ARTICLES, CASE_STUDIES, COUNTIES, GROUPS, OTHER_AREAS, SE_MICHIGAN, SERVICES as SVC  # noqa: E402
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "site")
@@ -53,6 +53,9 @@ TOWNS = ["Flint", "Burton", "Grand Blanc", "Flushing", "Fenton", "Davison",
          "Swartz Creek", "Clio", "Mt. Morris", "Linden", "Holly", "Lapeer",
          "Owosso", "Saginaw"]
 FORM_ACTION = "https://formsubmit.co/" + BIZ["email"]
+# Google Analytics 4 measurement ID (e.g. "G-XXXXXXXXXX"). Leave empty until RBF creates the property;
+# the site already pushes lead events (calls, emails, bid clicks, form submits) to window.dataLayer.
+GA4_ID = ""
 
 MAP_EMBED = ("https://www.google.com/maps?q=RBF+Construction,+1411+W+Hill+Rd,"
              "+Flint,+MI+48507&output=embed")
@@ -196,15 +199,15 @@ def header(path):
 </div></div>
 <header class="site-header"><div class="wrap">
   <a class="brand" href="/" aria-label="{BIZ['short']} home">
-    <img src="/img/rbf-construction-logo.webp" width="480" height="480" alt="{BIZ['short']} logo">
-    <span class="brand-text"><strong>RBF CONSTRUCTION</strong><em>Genesee &middot; Oakland &middot; SE Michigan</em></span>
+    <img class="logo-mark" src="/img/rbf-logo-wordmark.webp" width="442" height="262" alt="RBF Construction">
+    <span class="brand-tag">General Contracting<br>&amp; Site Work &middot; Flint, MI</span>
   </a>
   <button class="menu-toggle" aria-controls="nav" aria-expanded="false" aria-label="Open menu">{icon('menu')}</button>
   <nav id="nav" class="nav" aria-label="Main">
     <div class="has-sub"><a href="/general-contracting"{cur('/general-contracting') or (on if gc_on else '')}>General Contracting</a><div class="sub mega two">{gc_menu}</div></div>
     <div class="has-sub"><a href="/site-development"{cur('/site-development') or (on if site_on else '')}>Site Work &amp; Utilities</a><div class="sub">{site_menu}</div></div>
     <div class="has-sub"><a href="/service-areas"{cur('/service-areas')}>Service Areas</a><div class="sub">{areas}</div></div>
-    <a href="/projects"{cur('/projects')}>Projects</a>
+    <a href="/projects/"{cur('/projects/') or (' class="is-section"' if path.startswith('/projects/') else '')}>Projects</a>
     <div class="has-sub"><a href="/about"{cur('/about')}>About</a><div class="sub">{about}</div></div>
     <a href="/construction-contact"{cur('/construction-contact')}>Contact</a>
     <a class="btn btn-amber" href="/construction-contact#quote">Request a Bid</a>
@@ -236,7 +239,7 @@ def footer():
     <div><h2><a href="/site-development">Site Work &amp; Utilities</a></h2><ul>{site}</ul></div>
     <div><h2><a href="/service-areas">Service Areas</a></h2><ul>{areas}</ul></div>
     <div><h2>Company</h2><ul>
-      <li><a href="/about">About</a></li><li><a href="/projects">Projects</a></li><li><a href="/resources/">Resources</a></li><li><a href="/careers">Careers</a></li>
+      <li><a href="/about">About</a></li><li><a href="/projects/">Projects</a></li><li><a href="/resources/">Resources</a></li><li><a href="/careers">Careers</a></li>
       <li><a href="/bidding-list">Subcontractor Bid List</a></li><li><a href="/construction-contact">Contact</a></li>
       <li><a href="/privacy-policy">Privacy Policy</a></li></ul></div>
   </div>
@@ -386,12 +389,12 @@ def page(path, title, desc, body, trail, extra_schema=(), page_type="WebPage", p
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable summary">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap">
+<link rel="preload" href="/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
 {pre}
 <link rel="stylesheet" href="/css/style.css?v={ver('css/style.css')}">
 <script type="application/ld+json">{ld}</script>
+{analytics()}
 </head>
 <body>
 {header(path)}
@@ -402,6 +405,14 @@ def page(path, title, desc, body, trail, extra_schema=(), page_type="WebPage", p
 </body>
 </html>
 """
+
+
+def analytics():
+    if not GA4_ID:
+        return '<script>window.dataLayer=window.dataLayer||[];</script>'
+    return (f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA4_ID}"></script>'
+            f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}"
+            f"gtag('js',new Date());gtag('config','{GA4_ID}');</script>")
 
 
 def page_hero(h1, lead, trail, bg):
@@ -455,10 +466,14 @@ HOME_FAQ = [
      "concrete and demolition."),
     ("What areas do you serve?",
      "We serve <a href=\"/genesee-county-general-contractor\">Genesee County</a>, <a href=\"/oakland-county-general-contractor\">Oakland County</a> "
-     "and all of Southeast Michigan, including <a href=\"/livingston-county-general-contractor\">Livingston</a>, "
-     "<a href=\"/macomb-county-general-contractor\">Macomb</a>, <a href=\"/wayne-county-general-contractor\">Wayne</a>, "
-     "<a href=\"/lapeer-county-general-contractor\">Lapeer</a> and <a href=\"/washtenaw-county-general-contractor\">Washtenaw</a> "
-     "counties. See all <a href=\"/service-areas\">service areas</a>."),
+     "and all of Southeast Michigan, including <a href=\"/livingston-county-general-contractor\">Livingston</a> and "
+     "<a href=\"/lapeer-county-general-contractor\">Lapeer</a> counties and Macomb, Wayne and Washtenaw counties. "
+     "See all <a href=\"/service-areas\">service areas</a>."),
+    ("Does RBF Construction do its own site work?",
+     "Yes. RBF&rsquo;s site development division uses its own crews and equipment for excavation, grading, underground "
+     "utilities, parking lots and concrete curbs, sidewalks and slabs. Building trades are provided by a trusted network of "
+     "skilled subcontractors that RBF coordinates and supervises on site, so the owner works with one contractor from "
+     "groundbreaking to completion."),
     ("Where is RBF Construction located?",
      f"Our office is at {BIZ['street']}, {BIZ['city']}, {BIZ['region']} {BIZ['zip']}, just off I-75 between Genesee and Oakland counties. "
      f"We&rsquo;re open {BIZ['hours_text']}. Call <a href=\"tel:{BIZ['phone_e164']}\">{BIZ['phone']}</a> or email "
@@ -667,33 +682,47 @@ def hero_slides():
             f'{"".join(dots)}<button type="button" class="next" aria-label="Next slide">{icon("arrow")}</button></div></div></div>')
 
 
-def home():
-    caps = [
-        ("building", "Commercial Site Development", "Complete site packages for office, restaurant, medical and retail projects."),
-        ("grade", "Excavation &amp; Grading", "Mass excavation, land balancing, building pads and basements."),
-        ("demo", "Demolition", "Building, interior and pavement demolition to clear the way for what&rsquo;s next."),
-        ("road", "Parking Lots &amp; Roads", "Base preparation and construction of lots, drives and drive-thru lanes."),
-        ("curb", "Curbs, Sidewalks &amp; Slabs", "Durable concrete flatwork built for Michigan freeze-thaw cycles."),
-        ("pipe", "Underground Utilities", "Storm and sanitary sewers, water lines, retention ponds and pump stations."),
-    ]
-    links = ["/site-development", "/excavation-grading", "/demolition", "/parking-lot-paving-concrete",
-             "/parking-lot-paving-concrete", "/underground-utilities"]
-    caps_html = "".join(f'<a class="cap reveal" href="{l}">{icon(i)}<h3>{t}</h3><p>{d}</p></a>' for (i, t, d), l in zip(caps, links))
-    steps = [
-        ("Consult &amp; Site Review", "We walk the site or home, review plans and goals, and give expert technical advice from day one."),
-        ("Budget &amp; Value Engineering", "We price the work, find savings without cutting corners, and select the right trades."),
-        ("Build with On-Site Supervision", "Our crews and trusted trades execute while we manage scheduling, permits and logistics in person."),
-        ("Close Out &amp; Hand Over", "Final inspections, punch list and a finished project delivered to your exact specifications."),
-    ]
-    steps_html = "".join(f'<li class="reveal"><h3>{t}</h3><p>{d}</p></li>' for t, d in steps)
+DIRT_TO_DONE = [
+    ("excavator", "Site Prep &amp; Excavation", "Clearing, demolition, excavation and mass grading.", "RBF crews", "/excavation-grading"),
+    ("pipe", "Underground Utilities", "Storm and sanitary sewer, water lines and retention ponds.", "RBF crews", "/underground-utilities"),
+    ("grade", "Building Pads &amp; Grading", "Pads, fine grading and drainage built to plan elevations.", "RBF crews", "/site-development"),
+    ("building", "Building Construction", "Commercial, restaurant, tenant build-out and residential construction.", "RBF-managed", "/general-contracting"),
+    ("road", "Paving, Curbs &amp; Concrete", "Parking lots, drive-thru lanes, curbs, sidewalks and slabs.", "RBF crews", "/parking-lot-paving-concrete"),
+    ("check", "Completion &amp; Turnover", "Inspections, punch list and a finished project on your schedule.", "RBF on site", "/construction-contact#quote"),
+]
 
+
+def dirt_to_done(dark=True):
+    steps = "".join(
+        f'<li class="reveal"><a href="{u}"><span class="step-icon">{icon(i)}</span><span class="who">{w}</span>'
+        f'<h3>{t}</h3><p>{d}</p></a></li>' for i, t, d, w, u in DIRT_TO_DONE)
+    return f"""<section class="{'dark ' if dark else ''}d2d" id="dirt-to-done"><div class="wrap">
+  <div class="section-head center"><span class="eyebrow">Our Advantage</span><h2>One Contractor. From Dirt to Done.</h2>
+  <p>Most projects juggle a site contractor and a building contractor &mdash; and the gaps between them. RBF does both. Our own crews handle the earthwork, utilities and paving; our general contracting team manages the building with trusted trades. One schedule, one point of contact, one accountable team.</p></div>
+  <ol class="d2d-steps">{steps}</ol>
+  <div class="d2d-legend"><span><i class="k crew"></i>RBF crews: self-performed by our site development division</span><span><i class="k managed"></i>RBF-managed: skilled trades coordinated and supervised by RBF</span></div>
+</div></section>"""
+
+
+def case_cards(items, heading_level="h3"):
+    cards = []
+    for c in items:
+        meta = " &middot; ".join(x for x in [escape(c["category"]), escape(c["location"]) if c["location"] else ""] if x)
+        cards.append(
+            f'<a class="case-card reveal" href="/projects/{c["slug"]}"><div class="img">{img(c["hero"], sizes="(max-width:640px) 100vw, (max-width:1060px) 50vw, 33vw")}</div>'
+            f'<div class="body"><span class="meta">{meta}</span><{heading_level}>{c["name"]}</{heading_level}>'
+            f'<p>{escape(c["summary"])}</p><span class="more">View project {icon("arrow")}</span></div></a>')
+    return '<div class="case-grid">' + "".join(cards) + "</div>"
+
+
+def home():
     body = f"""
 <section class="hero hero-slides" aria-label="Featured projects">
   {hero_slides()[0]}
   <div class="wrap">
     <span class="eyebrow">&ldquo;{BIZ['slogan']}&rdquo;</span>
-    <h1>Genesee, Oakland &amp; <span>Southeast Michigan</span> General Contractor</h1>
-    <p class="lead">Custom homes, remodels and pole barns. Offices, restaurants, medical and retail buildings. Plus all the site work underneath them &mdash; from the first shovel of dirt to the final walkthrough.</p>
+    <h1><span class="h1-kicker">Flint, MI General Contractor &amp; Site Developer</span>One Contractor. <span>From Dirt to Done.</span></h1>
+    <p class="lead">Site work, underground utilities and the building itself &mdash; restaurants, retail, offices, medical, custom homes and remodels &mdash; for owners across Genesee County, Oakland County and Southeast Michigan.</p>
     <div class="actions">
       <a class="btn btn-amber" href="/construction-contact#quote">Request a Bid {icon('arrow')}</a>
       <a class="btn btn-ghost" href="tel:{BIZ['phone_e164']}">{icon('phone')} Call {BIZ['phone']}</a>
@@ -702,7 +731,21 @@ def home():
   {hero_slides()[1]}
 </section>
 {clients_strip()}
-<section><div class="wrap split">
+{dirt_to_done()}
+<section class="alt"><div class="wrap">
+  <div class="section-head center"><span class="eyebrow">Two Divisions, One Team</span><h2>General Contracting &amp; Site Work</h2>
+  <p>Everything from a kitchen remodel to a ground-up restaurant &mdash; and the excavation and utilities underneath it.</p></div>
+  {divisions()}
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-head split-head"><div><span class="eyebrow">Featured Projects</span><h2>Built for National Brands &amp; Local Owners</h2></div>
+  <p>Restaurants, retail, healthcare and commercial renovation from RBF&rsquo;s portfolio.</p></div>
+  {case_cards(CASE_STUDIES)}
+  <p class="center-btn"><a class="btn btn-navy" href="/projects/">See All Projects &amp; Photos {icon('arrow')}</a></p>
+</div></section>
+
+<section class="alt"><div class="wrap split">
   <div class="media reveal"><div class="collage">
     {img('storm-sewer-pipe-installation-crew', sizes='(max-width:860px) 50vw, 300px')}
     {img('kitchen-white-cabinets-island-pendant-lights', sizes='(max-width:860px) 50vw, 300px')}
@@ -711,58 +754,39 @@ def home():
   </div></div>
   <div class="reveal">
     <span class="eyebrow">Who We Are</span>
-    <h2>Your Vision, Our Expertise in Construction</h2>
-    <p><strong>RBF Construction</strong> is a full-service general contractor serving Genesee County, Oakland County and all of Southeast Michigan. We build custom homes and pole barns, remodel kitchens and bathrooms, construct offices, restaurants, medical and retail buildings, and handle every phase of site work with our own crews.</p>
-    <p>We pair a trusted network of skilled tradesmen, subcontractors and architects with personal on-site supervision, so every project is streamlined for efficiency and cost-effectiveness &mdash; whether it&rsquo;s one bathroom or a ground-up commercial site.</p>
+    <h2>A Flint Contractor With Both Halves of Construction In-House</h2>
+    <p><strong>RBF Construction, Inc.</strong> is headquartered on W Hill Rd in Flint and serves Genesee County, Oakland County and all of Southeast Michigan. Our general contracting team builds and renovates restaurants, retail stores, offices, medical clinics, custom homes, kitchens, baths and pole barns. Our site development division handles the excavation, utilities and paving those projects sit on.</p>
     <ul class="checks">
-      <li>{icon('check')}<span><strong>On time and on budget.</strong> Schedules and budgets are managed from preconstruction through closeout.</span></li>
-      <li>{icon('check')}<span><strong>Built to your exact specifications.</strong> Your goals drive every project decision.</span></li>
-      <li>{icon('check')}<span><strong>One accountable team.</strong> Site work, building and finishes under one roof.</span></li>
+      <li>{icon('check')}<span><strong>On time and on budget.</strong> Budgeting, value engineering and scheduling from preconstruction through closeout.</span></li>
+      <li>{icon('check')}<span><strong>Personal on-site supervision.</strong> We stay close to the work on every job.</span></li>
+      <li>{icon('check')}<span><strong>Design-build or design-bid-build.</strong> We work with your architect or bring our own team.</span></li>
     </ul>
-    <a class="btn btn-navy" href="/general-contracting">Our Approach {icon('arrow')}</a>
+    <a class="btn btn-navy" href="/about">About RBF {icon('arrow')}</a>
   </div>
-</div></section>
-
-<section class="alt"><div class="wrap">
-  <div class="section-head center"><span class="eyebrow">Two Divisions, One Team</span><h2>General Contracting &amp; Site Work</h2>
-  <p>Everything from a kitchen remodel to a ground-up restaurant &mdash; and the excavation and utilities underneath it.</p></div>
-  {divisions()}
 </div></section>
 
 <section><div class="wrap">
   <div class="section-head center"><span class="eyebrow">Recent Work</span><h2>Before &amp; After: Commercial Renovation</h2>
-  <p>Drag the slider to see how RBF transformed a tired storefront and failing parking lot into a modern commercial building with new paving and striping.</p></div>
+  <p>A tired storefront and a failing parking lot, turned into modern, leasable space. <a href="/projects/commercial-renovation-before-after">Read the project</a>.</p></div>
   {before_after()}
-</div></section>
-
-<section class="dark"><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Site Development Division</span><h2>Earthwork &amp; Civil, Done In-House</h2>
-  <p>A successful project starts with a solid foundation. Our full-service earthwork division handles everything from initial site review to the critical groundwork.</p></div>
-  <div class="caps">{caps_html}</div>
-  <p style="margin-top:34px"><a class="btn btn-amber" href="/site-development">Explore Site Development {icon('arrow')}</a></p>
-</div></section>
-
-<section class="alt"><div class="wrap">
-  <div class="section-head center"><span class="eyebrow">How We Work</span><h2>A Clear Process From Start to Finish</h2>
-  <p>As part of your project team from the start, we provide budgeting, value engineering, scheduling and logistics support.</p></div>
-  <ol class="steps">{steps_html}</ol>
-</div></section>
-
-<section><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Project Gallery</span><h2>From the Job Site</h2>
-  <p>Real photos from RBF Construction projects &mdash; kitchens and baths, restaurants and retail, earthwork and utilities.</p></div>
-  {gallery(HOME_GALLERY)}
-  <p style="margin-top:30px"><a class="btn btn-navy" href="/projects">View All Projects {icon('arrow')}</a></p>
 </div></section>
 
 {faq_html(HOME_FAQ, "Questions About Working With RBF", "Quick answers about our services, service area and how to get a bid.")}
 {area_section()}
 """
-    title = "General Contractor | Genesee, Oakland & SE Michigan | RBF"
-    desc = ("Genesee, Oakland & SE Michigan general contractor: custom homes, remodels, pole barns, offices, restaurants, "
-            "medical & retail builds, site work.")
-    return page("/", title, desc, body, [("Home", "/")], [faq_schema(HOME_FAQ)],
-                preload="hero")
+    title = "General Contractor in Flint, MI | RBF Construction"
+    desc = ("Flint, MI general contractor & site developer: restaurants, retail, offices, homes and remodels, plus excavation "
+            "and utilities. Call 810-938-8498.")
+    return page("/", title, desc, body, [("Home", "/")], [faq_schema(HOME_FAQ)], preload="hero")
+
+
+CALLOUTS = {
+    "/restaurant-construction": '<div class="callout"><h3>Franchise operators &amp; restaurant developers</h3><p>Send us your prototype drawings, site address and opening target. We&rsquo;ll respond with questions, a schedule outlook and a bid.</p><a class="btn btn-amber" href="/construction-contact?audience=franchise&amp;type=restaurant#quote">Request a Restaurant Bid</a></div>',
+    "/site-development": '<div class="callout"><h3>General contractors &amp; developers: need a site contractor?</h3><p>RBF bids excavation, utilities, paving and concrete as a site subcontractor on other contractors&rsquo; projects too.</p><a class="btn btn-amber" href="/construction-contact?audience=gc&amp;type=site#quote">Request a Site Work Bid</a></div>',
+    "/underground-utilities": '<div class="callout"><h3>Need a utility subcontractor?</h3><p>Send plans and a bid date &mdash; RBF bids storm, sanitary and water work for owners, developers and general contractors.</p><a class="btn btn-amber" href="/construction-contact?audience=gc&amp;type=utilities#quote">Request a Utilities Bid</a></div>',
+    "/excavation-grading": '<div class="callout"><h3>Need an excavation subcontractor?</h3><p>We bid earthwork, grading and building pads for owners, developers and general contractors.</p><a class="btn btn-amber" href="/construction-contact?audience=gc&amp;type=site#quote">Request an Excavation Bid</a></div>',
+    "/residential-general-contracting": '<div class="callout"><h3>Planning a home, remodel or pole barn?</h3><p>Tell us about your project and timeline. Photos and any drawings help us give you a faster, more accurate estimate.</p><a class="btn btn-amber" href="/construction-contact?audience=homeowner#quote">Request a Residential Estimate</a></div>',
+}
 
 
 def service_page(path, crumb, title, desc, h1, lead, bg, content, faqs, svc_name, svc_types, photos, group=None, trail=None):
@@ -777,6 +801,10 @@ def service_page(path, crumb, title, desc, h1, lead, bg, content, faqs, svc_name
             trail = [("Home", "/"), ("Services", "/general-contracting"), (crumb, path)]
     row = "".join(img(p, sizes="(max-width:640px) 50vw, 250px") for p in photos)
     content = content.replace('<!--PHOTOS-->', f'<div class="photo-row">{row}</div>' if photos else "")
+    content += CALLOUTS.get(path, "")
+    related = [c for c in CASE_STUDIES if path in c["services"]]
+    if related:
+        content += f'<h2>Related Projects</h2>{case_cards(related[:4])}' 
     body = f"""{page_hero(h1, lead, trail, bg)}
 <section><div class="wrap content-grid">
   <article class="prose">{content}</article>
@@ -828,9 +856,9 @@ def general_contracting():
     ]
     return service_page(
         "/general-contracting", "General Contracting",
-        "General Contracting & Design-Build | SE Michigan | RBF",
+        "General Contracting & Design-Build in Flint, MI | RBF",
         "Full-service general contractor for Genesee, Oakland & Southeast Michigan: construction management, design-build, design-bid-build and consulting.",
-        "General Contracting in Genesee, Oakland &amp; Southeast Michigan",
+        "General Contractor in Flint, Genesee County &amp; Southeast Michigan",
         "General contracting, construction management, design-build and consulting &mdash; managed in person, delivered on time and on budget.",
         "steel-frame-commercial-building", content, faqs, "General Contracting",
         ["General contracting", "Construction management", "Design-build", "Design-bid-build", "Construction consulting"],
@@ -863,9 +891,9 @@ def commercial():
     ]
     return service_page(
         "/commercial-general-contracting", "Commercial Construction",
-        "Commercial Construction | Genesee, Oakland & SE MI | RBF",
-        "Commercial contractor for Genesee, Oakland & Southeast Michigan: office buildings, restaurants, medical offices, retail and tenant build-outs.",
-        "Commercial Construction in Genesee, Oakland &amp; Southeast Michigan",
+        "Commercial Contractor in Flint, MI | RBF Construction",
+        "Commercial contractor in Flint, MI for restaurants, retail, offices, medical and tenant build-outs across Genesee, Oakland & Southeast Michigan.",
+        "Commercial Contractor in Flint &amp; Southeast Michigan",
         "Office buildings, restaurants, medical facilities and retail &mdash; from site work to ribbon cutting, for local owners and national brands.",
         "retail-plaza-jimmy-johns-pizza-hut-smoothie-king", content, faqs, "Commercial General Contracting",
         ["Commercial construction", "Office construction", "Restaurant construction", "Medical office construction",
@@ -878,7 +906,7 @@ def residential():
 <p>RBF Construction brings the discipline of a commercial contractor to homes across <strong>Genesee County, Oakland County and Southeast Michigan</strong>. Whether you&rsquo;re building a new home from the ground up, adding on, remodeling a kitchen or bathroom, or putting up a pole barn, you get one accountable contractor, personal on-site supervision and a trusted network of skilled tradesmen.</p>
 {child_cards('residential')}
 <h2>Built Right From the Ground Up</h2>
-<p>Many residential headaches start below grade or behind the walls. Because RBF runs its own <a href="/site-development">site development and earthwork division</a>, we handle excavation, grading, drainage, foundations and utility work with the same team that manages your build &mdash; so nothing falls through the cracks between contractors.</p>
+<p>Many residential headaches start below grade or behind the walls. Because RBF runs its own <a href="/site-development">site development and earthwork division</a>, we handle excavation, grading, drainage and utility work with the same team that manages your build &mdash; so nothing falls through the cracks between contractors.</p>
 <h2>How We Work With Homeowners</h2>
 <ul>
 <li><strong>Tailored solutions:</strong> we listen first, then scope the work to your needs and budget.</li>
@@ -889,15 +917,15 @@ def residential():
 <p>Planning a project? Read our <a href="/resources/kitchen-bathroom-remodel-planning-guide">kitchen and bath remodel planning guide</a>, then <a href="/construction-contact#quote">tell us about it</a> or call <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a>.</p>"""
     faqs = [
         ("What residential services does RBF Construction offer?",
-         "Custom homes and additions, kitchen remodeling, bathroom remodeling, pole barns and garages, and residential site work such as excavation, foundations, grading, drainage, driveways and utility connections."),
+         "Custom homes and additions, kitchen remodeling, bathroom remodeling, pole barns and garages, and residential site work such as excavation, grading, drainage, driveways and utility connections."),
         ("Do you do residential work in Oakland County?",
          "Yes. We remodel and build homes throughout Oakland County, including Clarkston, Waterford, Rochester Hills, Troy, Novi, Milford, Holly and Oxford, and across Southeast Michigan."),
     ]
     return service_page(
         "/residential-general-contracting", "Residential",
-        "Residential Contractor | Genesee, Oakland & SE MI | RBF",
+        "Residential General Contractor | Genesee County, MI | RBF",
         "Custom homes, kitchen & bath remodels and pole barns in Genesee, Oakland & Southeast Michigan, with in-house site work and on-site supervision.",
-        "Custom Homes, Remodels &amp; Pole Barns",
+        "Custom Homes, Remodels &amp; Pole Barns in Genesee County",
         "Custom homes and additions, kitchen and bath remodels, and pole barns across Genesee County, Oakland County and Southeast Michigan.",
         "foundation-walls-excavation", content, faqs, "Residential General Contracting",
         ["Residential construction", "Custom home building", "Home additions", "Kitchen remodeling", "Bathroom remodeling", "Pole barns"],
@@ -926,9 +954,9 @@ def site_development():
     ]
     return service_page(
         "/site-development", "Site Work",
-        "Site Development & Excavation | SE Michigan | RBF",
+        "Site Development Contractor | Flint & Genesee County | RBF",
         "Site development contractor for Genesee, Oakland & Southeast Michigan: excavation, grading, demolition, parking lots, concrete and underground utilities.",
-        "Site Work, Excavation &amp; Underground Utilities",
+        "Site Development, Excavation &amp; Utilities in Flint &amp; Genesee County",
         "Earthwork, demolition, paving, concrete and underground utilities &mdash; the solid foundation every successful project needs.",
         "commercial-site-excavation-grading", content, faqs, "Site Development and Earthwork",
         ["Site development", "Excavation", "Land balancing", "Demolition", "Parking lot construction",
@@ -972,11 +1000,14 @@ def service_areas():
   <div class="section-head"><span class="eyebrow">Where We Work</span><h2>Counties We Serve</h2>
   <p>We take on residential remodeling, new homes, commercial construction and site work in each of these counties. Select yours to see the communities we serve.</p></div>
   <div class="county-grid">{cards}</div>
-  <p style="margin-top:30px">We also take projects in {", ".join(OTHER_AREAS[:-1])} and {OTHER_AREAS[-1]}. <a href="/construction-contact#quote">Contact us</a> about your location.</p>
+  <div class="se-mi" id="southeast-michigan"><h2>Across Southeast Michigan</h2>
+  <p>Beyond our core counties, RBF takes on commercial construction, restaurant and retail projects and site work throughout Southeast Michigan, including:</p>
+  <div class="se-grid">{"".join(f'<div><h3>{k}</h3><p>{", ".join(v)}</p></div>' for k, v in SE_MICHIGAN.items())}</div>
+  <p>We also take projects in {", ".join(OTHER_AREAS[:-1])} and {OTHER_AREAS[-1]}. <a href="/construction-contact#quote">Contact us</a> about your location.</p></div>
 </div></section>
 {area_section()}"""
     return page("/service-areas", "Service Areas | Genesee, Oakland & SE MI | RBF",
-                "RBF Construction serves Genesee and Oakland counties plus Livingston, Lapeer, Macomb, Wayne and Washtenaw counties in Southeast Michigan.",
+                "RBF Construction serves Genesee and Oakland counties plus Livingston, Lapeer, Macomb, Wayne and Washtenaw counties across Southeast Michigan.",
                 body, trail, [{"@type": "ItemList", "name": "RBF Construction service areas",
                                "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": c["name"], "url": f"{SITE}/{c['slug']}"}
                                                    for i, c in enumerate(COUNTIES)]}])
@@ -1006,33 +1037,19 @@ def resources():
     cards = "".join(f'<a class="county reveal" href="/resources/{a["slug"]}"><h3>{a["h1"]}</h3><p>{a["summary"]}</p>'
                     f'<span class="more">Read the guide {icon("arrow")}</span></a>' for a in ARTICLES)
     body = f"""{page_hero("Construction Guides &amp; Resources", "Straight answers to common questions about remodeling, building and site work in Southeast Michigan.", trail, None)}
-<section><div class="wrap"><div class="county-grid">{cards}</div></div></section>"""
+<section><div class="wrap"><div class="section-head"><span class="eyebrow">Guides</span><h2>Plan Your Project</h2></div><div class="county-grid">{cards}</div></div></section>"""
     return page("/resources/", "Construction Guides & Resources | RBF Construction",
                 "Guides from RBF Construction on design-build vs. design-bid-build, planning a kitchen or bath remodel, and commercial site work in Michigan.",
                 body, trail, page_type="CollectionPage")
 
 
 def projects():
-    trail = [("Home", "/"), ("Projects", "/projects")]
-    feats = [
-        ("taco-bell-new-construction", "Restaurants", "Taco Bell, Smoothie King, Cottage Inn &amp; More",
-         "Ground-up quick-service restaurants with drive-thrus, built to national brand standards &mdash; including Taco Bell locations such as Cass City, a Cottage Inn Pizza in Davison, and a multi-tenant building with Jimmy John&rsquo;s, Pizza Hut and Smoothie King.",
-         "/restaurant-construction", "Restaurant Construction"),
-        ("kitchen-island-wood-beams-white-cabinets", "Residential", "Kitchens, Baths &amp; Living Spaces",
-         "Custom kitchens with islands and beamed ceilings, primary baths with soaking tubs and walk-in tile showers, coffered-ceiling living rooms and wet bars.",
-         "/residential-general-contracting", "Residential Services"),
-        ("family-dollar-dollar-tree-olivet-mi", "Retail &amp; Medical", "Stores &amp; Clinics",
-         "Retail and healthcare spaces including a Family Dollar / Dollar Tree in Olivet and an Athletico Physical Therapy clinic in Shelby.",
-         "/retail-construction", "Retail &amp; Business Construction"),
-    ]
-    feat_html = "".join(
-        f'''<div class="wrap feature{" rev" if i % 2 else ""}">
-  <div class="reveal">{img(st, sizes="(max-width:860px) 100vw, 680px")}</div>
-  <div class="reveal"><span class="eyebrow">{eb}</span><h2>{h}</h2><p>{t}</p>
-  <a class="btn btn-navy" href="{u}">{lbl} {icon("arrow")}</a></div>
-</div>''' for i, (st, eb, h, t, u, lbl) in enumerate(feats))
-    body = f"""{page_hero("Construction Projects by RBF", "Homes, kitchens and baths, restaurants and retail buildings, site development and underground utilities &mdash; real photos from RBF Construction projects.", trail, "taco-bell-new-construction")}
-<section class="features">{feat_html}</section>
+    trail = [("Home", "/"), ("Projects", "/projects/")]
+    body = f"""{page_hero("Construction Projects by RBF", "Restaurants, retail, healthcare, commercial renovation, homes, site development and underground utilities &mdash; real RBF Construction projects.", trail, "taco-bell-new-construction")}
+<section><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Case Studies</span><h2>Featured Projects</h2><p>Select a project for photos and details.</p></div>
+  {case_cards(CASE_STUDIES, "h3")}
+</div></section>
 <section class="alt"><div class="wrap">
   <div class="section-head center"><span class="eyebrow">Renovation</span><h2>Before &amp; After</h2><p>Drag to compare.</p></div>
   {before_after()}
@@ -1041,13 +1058,65 @@ def projects():
   <div class="section-head"><span class="eyebrow">Gallery</span><h2>Project Photo Gallery</h2><p>Filter by type of work, and select any photo to enlarge it.</p></div>
   {gallery(PROJECTS, filters=True)}
 </div></section>"""
-    gal = {"@type": "ImageGallery", "@id": SITE + "/projects#gallery", "name": "RBF Construction project photos",
+    gal = {"@type": "ImageGallery", "@id": SITE + "/projects/#gallery", "name": "RBF Construction project photos",
            "about": {"@id": BIZ_ID},
            "image": [{"@type": "ImageObject", "contentUrl": f"{SITE}/img/{s}.webp", "caption": PHOTOS[s],
                       "creator": {"@id": BIZ_ID}, "copyrightHolder": {"@id": BIZ_ID}} for s in PHOTOS]}
-    return page("/projects", "Construction Projects & Gallery | RBF Construction",
-                "Photos of RBF Construction projects: kitchens, baths, homes, restaurants, retail, medical, site development and underground utilities in Michigan.",
-                body, trail, [gal], page_type="CollectionPage")
+    items = {"@type": "ItemList", "name": "RBF Construction case studies", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "name": strip_tags(c["name"]), "url": f"{SITE}/projects/{c['slug']}"}
+        for i, c in enumerate(CASE_STUDIES)]}
+    return page("/projects/", "Construction Projects & Case Studies | RBF Construction",
+                "RBF Construction projects: Taco Bell, Dollar Tree, Athletico, Cottage Inn and multi-tenant restaurant buildings, plus homes, site work and utilities.",
+                body, trail, [gal, items], page_type="CollectionPage")
+
+
+def case_page(c):
+    path = f"/projects/{c['slug']}"
+    trail = [("Home", "/"), ("Projects", "/projects/"), (strip_tags(c["name"]), path)]
+    facts = [("Project type", escape(c["category"]))]
+    if c["brand"]:
+        facts.append(("Brand / tenant", escape(c["brand"])))
+    if c["location"]:
+        facts.append(("Location", escape(c["location"])))
+    for key, label in (("scope", "RBF scope"), ("year", "Completed"), ("size", "Size")):
+        if c.get(key):
+            facts.append((label, escape(c[key])))
+    facts_html = "".join(f"<dt>{k}</dt><dd>{v}</dd>" for k, v in facts)
+    observed = "".join(f"<li>{escape(o)}</li>" for o in c["observed"])
+    titles = dict(ALL_SERVICE_LINKS + [("/genesee-county-general-contractor", "Genesee County")])
+    svc_links = "".join(f'<li><a href="{u}">{titles.get(u, u)}</a></li>' for u in c["services"])
+    photos = "".join(f'<figure>{img(p, sizes="(max-width:860px) 100vw, 760px")}<figcaption>{escape(PHOTOS[p])}</figcaption></figure>'
+                     for p in c["photos"] if p != c["hero"])
+    ba = before_after() if c["before_after"] else ""
+    challenge = f"<h2>Challenges &amp; Solutions</h2><p>{escape(c['challenge'])}</p>" if c.get("challenge") else ""
+    others = [o for o in CASE_STUDIES if o is not c][:3]
+    body = f"""{page_hero(c['h1'], escape(c['summary']), trail, c['hero'])}
+<section><div class="wrap content-grid">
+  <article class="prose">
+    {c['story']}
+    {ba}{photos}
+    <h2>What You Can See in This Project</h2><ul class="tick-list">{observed}</ul>
+    {challenge}
+    <h2>Related Services</h2><ul>{svc_links}</ul>
+  </article>
+  <aside class="aside">
+    <div class="nap facts"><h3>Project Facts</h3><dl>{facts_html}</dl></div>
+    <div class="box"><h3>Planning a Similar Project?</h3><p>Tell us about your site, schedule and budget.</p>
+    <a class="btn btn-amber" href="/construction-contact#quote">Request a Bid</a>
+    <a class="btn btn-ghost" href="tel:{BIZ['phone_e164']}">{icon('phone')} {BIZ['phone']}</a></div>
+  </aside>
+</div></section>
+<section class="alt"><div class="wrap"><div class="section-head"><span class="eyebrow">More Work</span><h2>Other Projects</h2></div>{case_cards(others)}</div></section>"""
+    proj = {"@type": "CreativeWork", "@id": SITE + path + "#project", "name": strip_tags(c["name"]),
+            "description": c["summary"], "genre": c["category"], "creator": {"@id": BIZ_ID},
+            "image": [f"{SITE}/img/{p}.webp" for p in ([c["hero"]] + c["photos"])], "url": SITE + path,
+            "about": [{"@type": "Service", "name": titles.get(u, u), "url": SITE + u} for u in c["services"]]}
+    if c["location"]:
+        proj["locationCreated"] = {"@type": "Place", "name": c["location"], "address": {"@type": "PostalAddress",
+                                   "addressLocality": c["location"].split(",")[0], "addressRegion": "MI", "addressCountry": "US"}}
+    if c["brand"]:
+        proj["keywords"] = c["brand"]
+    return page(path, c["title"], c["desc"], body, trail, [proj], og_image=c["hero"] + ".webp")
 
 
 def field(label, name, kind="text", req=True, full=False, auto=None, rows=None):
@@ -1058,7 +1127,7 @@ def field(label, name, kind="text", req=True, full=False, auto=None, rows=None):
     if kind == "textarea":
         ctl = f'<textarea id="{name}" name="{name}"{r}></textarea>'
     elif isinstance(kind, list):
-        opts = "".join(f"<option>{o}</option>" for o in kind)
+        opts = "".join(f'<option value="{o[0]}">{o[1]}</option>' if isinstance(o, tuple) else f"<option>{o}</option>" for o in kind)
         ctl = f'<select id="{name}" name="{name}"{r}><option value="">Select&hellip;</option>{opts}</select>'
     else:
         ctl = f'<input id="{name}" name="{name}" type="{kind}"{r}{ac}>'
@@ -1071,6 +1140,9 @@ def form(subject, fields, button):
 <input type="hidden" name="_next" value="{SITE}/thank-you">
 <input type="hidden" name="_template" value="table">
 <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="lead_page" value="">
+<input type="hidden" name="lead_referrer" value="">
+<input type="hidden" name="lead_campaign" value="">
 <div class="fields">{''.join(fields)}</div>
 <p style="margin-top:22px"><button class="btn btn-amber" type="submit">{button} {icon('arrow')}</button></p>
 <p class="form-note">We&rsquo;ll only use your information to respond to you. See our <a href="/privacy-policy">privacy policy</a>.</p>
@@ -1108,7 +1180,7 @@ def about():
   <p>Our commercial work includes projects for {clients}, along with local business owners, developers and homeowners across Michigan.</p>
   <h2>Where We Work</h2>
   <p>From our Flint office we serve <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a> and the rest of <a href="/service-areas">Southeast Michigan</a>, including Livingston, Lapeer, Macomb, Wayne and Washtenaw counties.</p>
-  <p><a class="btn btn-amber" href="/construction-contact#quote">Request a Bid {icon('arrow')}</a> <a class="btn btn-navy" href="/projects">See Our Work {icon('arrow')}</a></p>
+  <p><a class="btn btn-amber" href="/construction-contact#quote">Request a Bid {icon('arrow')}</a> <a class="btn btn-navy" href="/projects/">See Our Work {icon('arrow')}</a></p>
 </div></section>"""
     about_ld = {"@type": "AboutPage", "@id": SITE + "/about#about", "url": SITE + "/about", "mainEntity": {"@id": BIZ_ID}}
     return page("/about", "About RBF Construction | Flint, MI General Contractor",
@@ -1123,11 +1195,22 @@ def contact():
         field("Company (optional)", "company", req=False, auto="organization"),
         field("Phone number", "phone", "tel", auto="tel"),
         field("Email address", "email", "email", auto="email"),
-        field("Project type", "project_type", ["Kitchen remodel", "Bathroom remodel", "Custom home / addition",
-                                               "Office building / build-out", "Restaurant", "Medical / dental office",
-                                               "Retail / commercial business", "Excavation / grading", "Underground utilities",
-                                               "Parking lot / concrete", "Demolition", "Construction management / consulting", "Other"]),
+        field("I am a&hellip;", "audience", [("homeowner", "Homeowner"), ("owner", "Business owner / developer"),
+                                            ("franchise", "Franchise operator / brand representative"),
+                                            ("gc", "General contractor needing site work"), ("design", "Architect / engineer"),
+                                            ("other", "Other")]),
+        field("Project type", "project_type", [("custom-home", "Custom home / addition"), ("kitchen", "Kitchen remodel"),
+                                               ("bath", "Bathroom remodel"), ("pole-barn", "Pole barn / garage"),
+                                               ("restaurant", "Restaurant / drive-thru"), ("retail", "Retail / commercial building"),
+                                               ("buildout", "Tenant build-out / office"), ("medical", "Medical / dental"),
+                                               ("site", "Site development / excavation"), ("utilities", "Underground utilities"),
+                                               ("paving", "Parking lot / concrete"), ("demolition", "Demolition"),
+                                               ("cm", "Construction management / consulting"), ("other", "Other")]),
         field("Project location (city)", "location", req=False, auto="address-level2"),
+        field("Timeline", "timeline", ["As soon as possible", "1&ndash;3 months", "3&ndash;6 months", "6&ndash;12 months",
+                                       "12+ months", "Just planning"], req=False),
+        field("Drawings", "drawings", ["No drawings yet", "Concept / sketches", "Permit-ready drawings", "Bid set available"], req=False),
+        field("Link to plans or photos (optional)", "plans_link", "url", req=False, full=True),
         field("Tell us about your project", "message", "textarea", full=True),
     ], "Submit Your Inquiry")
     body = f"""{page_hero("Contact RBF Construction", "Get in touch for reliable construction services anywhere in Genesee County, Oakland County and Southeast Michigan. Call, email or send your project details for a bid.", trail, "precast-structure-crane-set")}
@@ -1222,14 +1305,14 @@ def privacy():
 
 def thanks():
     html = f"""<h2>Thank you &mdash; we received your message.</h2><p>A member of the RBF Construction team will be in touch soon. If your project is time-sensitive, call us at <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a> ({BIZ['hours_text']}).</p>
-<p><a class="btn btn-navy" href="/">Back to Home</a> <a class="btn btn-amber" href="/projects">See Our Projects</a></p>"""
+<p><a class="btn btn-navy" href="/">Back to Home</a> <a class="btn btn-amber" href="/projects/">See Our Projects</a></p>"""
     return simple("/thank-you", "Thank You", "Thank You | RBF Construction", "Thanks for contacting RBF Construction.",
                   "Thanks for Reaching Out", "We&rsquo;ll be in touch shortly.", html, "commercial-renovation-after", noindex=True)
 
 
 def not_found():
     html = f"""<h2>Sorry, we couldn&rsquo;t find that page.</h2><p>It may have moved when we updated our site. Try one of these:</p>
-<ul><li><a href="/">Home</a></li>{''.join(f'<li><a href="{u}">{t}</a></li>' for u, t in SERVICES)}<li><a href="/projects">Projects</a></li><li><a href="/construction-contact">Contact</a></li></ul>"""
+<ul><li><a href="/">Home</a></li>{''.join(f'<li><a href="{u}">{t}</a></li>' for u, t in SERVICES)}<li><a href="/projects/">Projects</a></li><li><a href="/construction-contact">Contact</a></li></ul>"""
     return simple("/404", "Page Not Found", "Page Not Found | RBF Construction", "The page you requested could not be found.",
                   "Page Not Found", "Let&rsquo;s get you back on solid ground.", html, "commercial-site-excavation-grading", noindex=True)
 
@@ -1240,7 +1323,7 @@ def not_found():
 def indexed():
     return (["/", "/general-contracting", "/residential-general-contracting", "/commercial-general-contracting",
              "/site-development"] + ["/" + s["slug"] for s in SVC] + ["/service-areas"] +
-            ["/" + c["slug"] for c in COUNTIES] + ["/about", "/projects", "/resources/"] +
+            ["/" + c["slug"] for c in COUNTIES] + ["/about", "/projects/"] + ["/projects/" + c["slug"] for c in CASE_STUDIES] + ["/resources/"] +
             ["/resources/" + a["slug"] for a in ARTICLES] +
             ["/construction-contact", "/careers", "/bidding-list", "/privacy-policy"])
 
@@ -1278,6 +1361,8 @@ def llms_txt():
     svcs = sec([("/" + s["slug"], s["nav"], s["desc"]) for s in SVC])
     areas = "\n".join(f"- [{c['name']}]({SITE}/{c['slug']}): {', '.join(c['cities'])}" for c in COUNTIES)
     arts = sec([("/resources/" + a["slug"], a["h1"], a["summary"]) for a in ARTICLES])
+    projs = "\n".join(f"- [{strip_tags(c['name'])}]({SITE}/projects/{c['slug']}): {c['category']}"
+                      + (f", {c['location']}" if c["location"] else "") + f". {c['summary']}" for c in CASE_STUDIES)
     faq = "\n".join(f"### {strip_tags(q)}\n{strip_tags(a)}\n" for q, a in HOME_FAQ)
     return f"""# {BIZ['name']}
 
@@ -1292,7 +1377,8 @@ def llms_txt():
 - Phone: {BIZ['phone']}
 - Email: {BIZ['email']}
 - Hours: {BIZ['hours_text']}
-- Service area: Genesee County, Oakland County and all of Southeast Michigan, including {", ".join(c['name'] for c in COUNTIES)} counties
+- Service area: Genesee County, Oakland County and all of Southeast Michigan, including {", ".join(c['name'] for c in COUNTIES)} plus {", ".join(SE_MICHIGAN)}
+- Self-performed work: excavation, grading, underground utilities, parking lots and concrete flatwork (RBF site development division). Building trades: coordinated and supervised by RBF.
 - Brands built for: {", ".join(n for _, n in CLIENTS)}
 - Facebook: {BIZ['facebook']}
 
@@ -1305,12 +1391,15 @@ def llms_txt():
 ## Service areas
 {areas}
 
+## Project case studies
+{projs}
+
 ## Guides
 {arts}
 
 ## Other pages
 - [About RBF Construction]({SITE}/about)
-- [Projects and photo gallery]({SITE}/projects)
+- [Projects and photo gallery]({SITE}/projects/)
 - [Contact / request a bid]({SITE}/construction-contact)
 - [Careers]({SITE}/careers)
 - [Subcontractor bidding list]({SITE}/bidding-list)
@@ -1326,21 +1415,45 @@ def manifest():
                                  {"src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png"}]}, indent=2)
 
 
-HTACCESS = """# Apache (Hostinger, cPanel, etc.)
+HTACCESS = r"""# Apache / LiteSpeed (Hostinger). The same file works on the staging and production domains.
 Options -MultiViews
 RewriteEngine On
 
-# Force HTTPS + non-www
-RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} ^www\\. [NC]
+# Production host = rbfconstruction.com. Every other host (e.g. the Hostinger *.hostingersite.com
+# staging domain) is told not to be indexed, so staging never competes with the real domain.
+SetEnvIfNoCase Host "^(www\.)?rbfconstruction\.com$" RBF_PRODUCTION
+<IfModule mod_headers.c>
+  Header always set X-Robots-Tag "noindex, nofollow" env=!RBF_PRODUCTION
+</IfModule>
+
+# HTTPS on whatever host is serving the site (never send staging visitors to production)
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# www -> apex, production only
+RewriteCond %{HTTP_HOST} ^www\.rbfconstruction\.com$ [NC]
 RewriteRule ^ https://rbfconstruction.com%{REQUEST_URI} [L,R=301]
 
-# Strip .html from URLs
-RewriteCond %{THE_REQUEST} \\s/+(.+?)\\.html[\\s?] [NC]
+# /index.html and /folder/index.html -> folder URL
+RewriteCond %{THE_REQUEST} \s/+(.*?/)?index\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
+
+# County pages consolidated into the Service Areas page
+RewriteRule ^(macomb|wayne|washtenaw)-county-general-contractor/?$ /service-areas [R=301,L]
+
+# Strip .html from URLs
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Remove trailing slash from page URLs (folders like /resources/ keep theirs)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# Serve /page from page.html
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.+?)/?$ $1.html [L]
+RewriteRule ^(.+?)$ $1.html [L]
 
 ErrorDocument 404 /404.html
 
@@ -1349,8 +1462,9 @@ ErrorDocument 404 /404.html
   ExpiresByType image/webp "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
   ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 <IfModule mod_deflate.c>
@@ -1360,6 +1474,7 @@ ErrorDocument 404 /404.html
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 </IfModule>
 """
 
@@ -1384,7 +1499,7 @@ def build():
         "residential-general-contracting.html": residential(),
         "site-development.html": site_development(),
         "service-areas.html": service_areas(),
-        "projects.html": projects(),
+        "projects/index.html": projects(),
         "about.html": about(),
         "resources/index.html": resources(),
         "construction-contact.html": contact(),
@@ -1406,6 +1521,9 @@ def build():
     for c in COUNTIES:
         pages[c["slug"] + ".html"] = county_page(c)
     os.makedirs(os.path.join(OUT, "resources"), exist_ok=True)
+    os.makedirs(os.path.join(OUT, "projects"), exist_ok=True)
+    for c in CASE_STUDIES:
+        pages["projects/" + c["slug"] + ".html"] = case_page(c)
     for a in ARTICLES:
         pages["resources/" + a["slug"] + ".html"] = article_page(a)
     for name, content in pages.items():

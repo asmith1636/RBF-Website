@@ -23,7 +23,7 @@ COUNTIES = [
         "lead": "Headquartered on W Hill Rd in Flint, RBF builds homes, remodels, pole barns, commercial buildings and sites across every corner of Genesee County.",
         "bg": "cottage-inn-pizza-davison-mi",
         "intro": """<p>Genesee County is home base for RBF Construction. Our office and crews are based at 1411 W Hill Rd in Flint, which means fast response times and personal on-site supervision on projects in Flint, Flint Township, Burton, Grand Blanc, Fenton, Flushing, Davison, Swartz Creek, Clio and every surrounding township.</p>
-<p>We know Genesee County&rsquo;s neighborhoods, soils, municipalities and inspectors. We&rsquo;ve built commercial buildings, renovated storefronts, installed underground utilities and upgraded pump stations here, and we bring the same team to homeowners planning a new home, a remodel or a pole barn.</p>""",
+<p>Genesee County is where our crews and equipment are based. Our portfolio includes restaurants, storefront renovations, underground utilities and pump station work, and we bring the same team to homeowners planning a new home, a remodel or a pole barn.</p>""",
         "focus": """<h2>Services Across Genesee County</h2>
 <ul class="tick-list"><li><a href="/custom-home-builder">Custom homes &amp; additions</a></li><li><a href="/kitchen-remodeling">Kitchen remodeling</a></li>
 <li><a href="/bathroom-remodeling">Bathroom remodeling</a></li><li><a href="/pole-barns">Pole barns &amp; garages</a></li>
@@ -97,46 +97,6 @@ COUNTIES = [
         ],
     },
     {
-        "slug": "macomb-county-general-contractor", "name": "Macomb County",
-        "cities": ["Sterling Heights", "Warren", "Shelby Township", "Macomb Township", "Clinton Township", "Utica",
-                   "Washington Township", "Romeo", "Chesterfield Township", "New Baltimore", "Roseville", "St. Clair Shores"],
-        "title": "Macomb County General Contractor | RBF Construction",
-        "desc": "General contractor for Sterling Heights, Shelby Township, Macomb Township and all of Macomb County: remodels, commercial construction, site work.",
-        "h1": "General Contractor for Macomb County",
-        "lead": "Commercial construction, remodeling and site development from Sterling Heights and Warren to Shelby, Macomb and Washington Townships.",
-        "bg": "steel-frame-commercial-building",
-        "intro": """<p>RBF Construction serves Macomb County businesses and homeowners with commercial construction, residential remodeling and complete site development. From restaurant and retail sites along Hall Road (M-59) and Van Dyke to new homes in the growing northern townships, we bring one accountable team to every phase.</p>""",
-        "focus": """<h2>Macomb County Services</h2>
-<ul class="tick-list"><li><a href="/restaurant-construction">Restaurant construction</a></li><li><a href="/retail-construction">Retail construction</a></li>
-<li><a href="/office-building-construction">Office construction &amp; build-outs</a></li><li><a href="/medical-office-construction">Medical facilities</a></li>
-<li><a href="/kitchen-remodeling">Kitchen remodeling</a></li><li><a href="/bathroom-remodeling">Bathroom remodeling</a></li>
-<li><a href="/parking-lot-paving-concrete">Parking lots &amp; concrete</a></li><li><a href="/demolition">Demolition</a></li></ul>""",
-        "faqs": [
-            ("Does RBF Construction work in Macomb County?",
-             "Yes. We serve Sterling Heights, Warren, Shelby Township, Macomb Township, Clinton Township, Utica, Washington Township, Romeo, Chesterfield and the rest of Macomb County."),
-        ],
-    },
-    {
-        "slug": "wayne-county-general-contractor", "name": "Wayne County",
-        "cities": ["Detroit", "Livonia", "Dearborn", "Dearborn Heights", "Canton", "Plymouth", "Northville", "Westland",
-                   "Redford", "Taylor", "Grosse Pointe", "Romulus"],
-        "title": "Wayne County & Detroit General Contractor | RBF",
-        "desc": "General contractor serving Detroit, Livonia, Dearborn, Canton, Plymouth and Wayne County: commercial construction, remodels and site work.",
-        "h1": "General Contractor for Detroit &amp; Wayne County",
-        "lead": "Commercial buildings, renovations, remodels and site work in Detroit, Livonia, Dearborn, Canton, Plymouth and Northville.",
-        "bg": "commercial-renovation-after",
-        "intro": """<p>RBF Construction takes on commercial, residential and site development projects across Wayne County, including Detroit, Livonia, Dearborn, Canton, Plymouth, Northville and Westland. Much of Wayne County&rsquo;s building stock is ready for reinvestment, and renovation and redevelopment &mdash; new facades, interiors, parking and utilities &mdash; is one of our strengths.</p>""",
-        "focus": """<h2>Wayne County Services</h2>
-<ul class="tick-list"><li><a href="/retail-construction">Commercial renovation</a></li><li><a href="/restaurant-construction">Restaurant build-outs</a></li>
-<li><a href="/office-building-construction">Office construction</a></li><li><a href="/medical-office-construction">Medical offices</a></li>
-<li><a href="/demolition">Demolition</a></li><li><a href="/underground-utilities">Underground utilities</a></li>
-<li><a href="/kitchen-remodeling">Kitchen remodels</a></li><li><a href="/bathroom-remodeling">Bathroom remodels</a></li></ul>""",
-        "faqs": [
-            ("Do you take projects in Detroit?",
-             "Yes. RBF Construction serves Detroit and communities throughout Wayne County for commercial construction, renovation, remodeling and site work."),
-        ],
-    },
-    {
         "slug": "lapeer-county-general-contractor", "name": "Lapeer County",
         "cities": ["Lapeer", "Imlay City", "Almont", "Metamora", "Dryden", "Columbiaville", "North Branch", "Attica",
                    "Hadley", "Elba Township"],
@@ -155,25 +115,6 @@ COUNTIES = [
              "Yes. We work in Lapeer, Imlay City, Almont, Metamora, Dryden, Columbiaville, North Branch and the surrounding townships."),
         ],
     },
-    {
-        "slug": "washtenaw-county-general-contractor", "name": "Washtenaw County",
-        "cities": ["Ann Arbor", "Ypsilanti", "Saline", "Dexter", "Chelsea", "Pittsfield Township", "Scio Township",
-                   "Superior Township", "Ypsilanti Township", "Milan"],
-        "title": "Washtenaw County General Contractor | RBF Construction",
-        "desc": "General contractor for Ann Arbor, Ypsilanti, Saline, Dexter and Washtenaw County: medical and office construction, remodels and site work.",
-        "h1": "General Contractor for Ann Arbor &amp; Washtenaw County",
-        "lead": "Medical and professional offices, restaurants, remodels and site development in Ann Arbor, Ypsilanti, Saline and Dexter.",
-        "bg": "steel-frame-commercial-building",
-        "intro": """<p>With a major university and health system at its center, Washtenaw County has steady demand for medical offices, professional space, restaurants and high-quality residential remodeling. RBF Construction serves Ann Arbor, Ypsilanti, Saline, Dexter, Chelsea and the surrounding townships.</p>""",
-        "focus": """<h2>Washtenaw County Services</h2>
-<ul class="tick-list"><li><a href="/medical-office-construction">Medical &amp; dental offices</a></li><li><a href="/office-building-construction">Professional offices</a></li>
-<li><a href="/restaurant-construction">Restaurants</a></li><li><a href="/retail-construction">Retail</a></li>
-<li><a href="/kitchen-remodeling">Kitchen remodels</a></li><li><a href="/bathroom-remodeling">Bathroom remodels</a></li></ul>""",
-        "faqs": [
-            ("Do you work in Ann Arbor?",
-             "Yes. RBF Construction serves Ann Arbor and all of Washtenaw County, including Ypsilanti, Saline, Dexter and Chelsea."),
-        ],
-    },
 ]
 OTHER_AREAS = ["St. Clair County", "Shiawassee County", "Monroe County", "Saginaw County", "Tuscola County"]
 
@@ -190,13 +131,13 @@ SERVICES = [
     # ---------------- Residential ----------------
     {
         "slug": "custom-home-builder", "group": "residential", "nav": "Custom Homes & Additions", "name": "Custom Home Building",
-        "title": "Custom Home Builder | Genesee, Oakland & SE MI | RBF",
-        "desc": "Ground-up custom homes and additions in Genesee County, Oakland County and Southeast Michigan, with in-house excavation, foundations, driveways and utilities.",
-        "h1": "Custom Home Builder for Genesee, Oakland &amp; Southeast Michigan",
-        "lead": "Ground-up residential construction and additions &mdash; with our own crews handling the land clearing, excavation, foundation and utilities.",
+        "title": "Custom Home Builder | Flint, Genesee & Oakland County | RBF",
+        "desc": "Ground-up custom homes and additions in Genesee County, Oakland County and Southeast Michigan, with in-house excavation, grading, driveways and utilities.",
+        "h1": "Custom Home Builder for Flint, Genesee &amp; Oakland County",
+        "lead": "Ground-up residential construction and additions &mdash; with our own crews handling the land clearing, excavation, grading and utilities.",
         "bg": "living-room-coffered-ceiling-stone-fireplace", "photos": ["open-floor-plan-fireplace-cable-railing", "wet-bar-brick-accent-wall", "foundation-walls-excavation"],
         "body": """<h2>Ground-Up Homes, Built by a Site Work Contractor</h2>
-<p>Most home builders subcontract everything below grade. RBF Construction does it ourselves. Our <a href="/site-development">site development division</a> handles clearing, excavation, grading, drainage, foundations, driveways and utility connections &mdash; the work that determines whether a house stays dry, level and problem-free for decades.</p>
+<p>Most home builders subcontract everything below grade. RBF Construction does it ourselves. Our <a href="/site-development">site development division</a> handles clearing, excavation, grading, drainage, driveways and utility connections &mdash; the work that determines whether a house stays dry, level and problem-free for decades.</p>
 <ul class="tick-list"><li>Custom single-family homes</li><li>Home additions</li><li>Garages &amp; accessory buildings</li><li>Lot clearing &amp; excavation</li>
 <li>Foundations &amp; basements</li><li>Driveways &amp; flatwork</li><li>Water, sewer &amp; utility connections</li><li>Design-build or your plans</li></ul>
 <!--PHOTOS-->
@@ -221,13 +162,13 @@ SERVICES = [
     },
     {
         "slug": "kitchen-remodeling", "group": "residential", "nav": "Kitchen Remodeling", "name": "Kitchen Remodeling",
-        "title": "Kitchen Remodeling | Genesee, Oakland & SE MI | RBF",
+        "title": "Kitchen Remodeling Contractor | Flint & Genesee County | RBF",
         "desc": "Kitchen remodeling contractor for Oakland County and Southeast Michigan: layout changes, cabinets, countertops, tile, lighting and permits handled.",
-        "h1": "Kitchen Remodeling in Genesee, Oakland &amp; Southeast Michigan",
+        "h1": "Kitchen Remodeling in Flint, Genesee &amp; Oakland County",
         "lead": "From a cabinet-and-countertop refresh to a full gut with a new layout &mdash; one contractor managing design, trades, permits and schedule.",
         "bg": "kitchen-island-wood-beams-white-cabinets", "photos": ["kitchen-white-cabinets-island-pendant-lights", "open-kitchen-island-tile-backsplash", "kitchen-granite-countertops-white-cabinets"],
         "body": """<h2>A Kitchen Remodel Managed Like a Construction Project</h2>
-<p>Kitchens are the most complex room in a house: plumbing, electrical, ventilation, structure, cabinetry and finishes all have to come together in the right order. RBF Construction manages your kitchen remodel the same way we manage commercial projects &mdash; with a clear scope, a realistic schedule, licensed trades and personal on-site supervision.</p>
+<p>Kitchens are the most complex room in a house: plumbing, electrical, ventilation, structure, cabinetry and finishes all have to come together in the right order. RBF Construction manages your kitchen remodel the same way we manage commercial projects &mdash; with a clear scope, a realistic schedule, skilled trades and personal on-site supervision.</p>
 <h2>What&rsquo;s Included</h2>
 <ul class="tick-list"><li>Layout changes &amp; wall removal</li><li>Cabinets &amp; islands</li><li>Countertops &amp; backsplashes</li><li>Tile, flooring &amp; trim</li>
 <li>Lighting &amp; electrical upgrades</li><li>Plumbing &amp; fixture relocation</li><li>Range hood ventilation</li><li>Permits &amp; inspections</li></ul>
@@ -254,9 +195,9 @@ SERVICES = [
     },
     {
         "slug": "bathroom-remodeling", "group": "residential", "nav": "Bathroom Remodeling", "name": "Bathroom Remodeling",
-        "title": "Bathroom Remodeling | Genesee, Oakland & SE MI | RBF",
+        "title": "Bathroom Remodeling | Flint, Genesee & Oakland County | RBF",
         "desc": "Bathroom remodeling in Genesee, Oakland & SE Michigan: walk-in showers, tub conversions, tile, vanities and accessible, aging-in-place baths.",
-        "h1": "Bathroom Remodeling in Genesee, Oakland &amp; Southeast Michigan",
+        "h1": "Bathroom Remodeling in Flint, Genesee &amp; Oakland County",
         "lead": "Walk-in showers, tub-to-shower conversions, accessible baths and complete primary suite remodels &mdash; waterproofed and built to last.",
         "bg": "bathroom-freestanding-tub-glass-shower", "photos": ["walk-in-shower-white-subway-tile", "bathroom-black-tile-shower-vanity", "bathroom-wood-vanity-patterned-tile-floor"],
         "body": """<h2>Bathrooms Built Right Behind the Walls</h2>
@@ -284,9 +225,9 @@ SERVICES = [
     },
     {
         "slug": "pole-barns", "group": "residential", "nav": "Pole Barns & Garages", "name": "Pole Barn Construction",
-        "title": "Pole Barn Builder | Genesee, Oakland & SE MI | RBF",
+        "title": "Pole Barn Builder | Flint, Genesee & Oakland County | RBF",
         "desc": "Pole barns, detached garages, workshops and post-frame buildings in Genesee County, Oakland County and Southeast Michigan, with site prep and concrete.",
-        "h1": "Pole Barns, Garages &amp; Post-Frame Buildings",
+        "h1": "Pole Barns, Garages &amp; Post-Frame Buildings in Genesee County",
         "lead": "Pole barns, detached garages, workshops and storage buildings &mdash; with the site prep, gravel base and concrete floor done by our own crews.",
         "bg": None, "photos": [],
         "body": """<h2>Pole Barns Built on a Proper Foundation</h2>
@@ -325,9 +266,9 @@ SERVICES = [
     # ---------------- Commercial ----------------
     {
         "slug": "office-building-construction", "group": "commercial", "nav": "Office Buildings", "name": "Office Building Construction",
-        "title": "Office Building Construction | SE Michigan | RBF",
+        "title": "Commercial Build-Out & Office Contractor | Flint, MI | RBF",
         "desc": "Office building construction, tenant build-outs and office renovations in Genesee, Oakland & SE Michigan. Design-build or design-bid-build.",
-        "h1": "Office Building Construction &amp; Build-Outs",
+        "h1": "Commercial Build-Outs &amp; Office Construction",
         "lead": "New professional office buildings, tenant improvements and office renovations across Genesee County, Oakland County and Southeast Michigan.",
         "bg": "steel-frame-commercial-building",
         "photos": ["steel-frame-commercial-building", "concrete-road-curb-gutter-construction", "commercial-site-excavation-grading"],
@@ -353,7 +294,7 @@ SERVICES = [
     },
     {
         "slug": "restaurant-construction", "group": "commercial", "nav": "Restaurants", "name": "Restaurant Construction",
-        "title": "Restaurant Construction Contractor | SE Michigan | RBF",
+        "title": "Restaurant Construction Contractor in Michigan | RBF",
         "desc": "Restaurant and drive-thru construction in Michigan for national brands and local owners: ground-up builds, remodels, build-outs and site work.",
         "h1": "Restaurant Construction for National Brands &amp; Local Owners",
         "lead": "Ground-up quick-service restaurants with drive-thrus, sit-down restaurants, franchise remodels and tenant build-outs.",
@@ -369,7 +310,7 @@ SERVICES = [
 <p>Drive-thru stacking lanes, curbing, menu-board foundations, grease interceptor installation, storm water and parking all fall to our <a href="/site-development">site development division</a> &mdash; no handoff between a site contractor and a building contractor.</p>
 <h2>Opening Day Matters</h2>
 <p>We schedule backward from your opening date, order long-lead equipment early, and keep franchise representatives informed with progress updates.</p>
-<p>We build restaurants throughout <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/macomb-county-general-contractor">Macomb County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a restaurant construction bid</a>.</p>""",
+<p>We build restaurants throughout <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Macomb County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a restaurant construction bid</a>.</p>""",
         "faqs": [
             ("Have you built restaurants for national franchise brands?",
              "Yes. RBF Construction has built for brands including Jimmy John's, Pizza Hut, Smoothie King, Taco Bell, Cottage Inn Pizza and Biggby Coffee."),
@@ -382,9 +323,9 @@ SERVICES = [
     },
     {
         "slug": "medical-office-construction", "group": "commercial", "nav": "Medical & Dental", "name": "Medical Office Construction",
-        "title": "Medical Office Construction | SE Michigan | RBF",
+        "title": "Medical Office Construction | Flint & SE Michigan | RBF",
         "desc": "Medical office, dental, physical therapy and clinic construction in Genesee County, Oakland County and Southeast Michigan. New buildings and build-outs.",
-        "h1": "Medical, Dental &amp; Clinic Construction",
+        "h1": "Medical, Dental &amp; Clinic Construction in Flint &amp; Southeast Michigan",
         "lead": "New medical office buildings and build-outs for physicians, dentists, physical therapy, urgent care and specialty clinics.",
         "bg": "athletico-physical-therapy-shelby-mi", "photos": [],
         "body": """<h2>Healthcare Spaces Built With Care</h2>
@@ -400,7 +341,7 @@ SERVICES = [
 <li><strong>Equipment coordination:</strong> we coordinate with dental, imaging and equipment vendors on power, blocking, plumbing and any shielding their equipment requires.</li></ul>
 <h2>Opening Your Practice on Time</h2>
 <p>We plan around your lease, licensing and equipment delivery so you can start seeing patients when planned.</p>
-<p>Serving <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/washtenaw-county-general-contractor">Washtenaw County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a medical construction bid</a>.</p>""",
+<p>Serving <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Washtenaw County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a medical construction bid</a>.</p>""",
         "faqs": [
             ("Do you build medical and dental offices?",
              "Yes. RBF Construction builds medical office buildings and builds out space for physicians, dentists, physical therapy, urgent care and specialty clinics, including work for Athletico Physical Therapy."),
@@ -411,7 +352,7 @@ SERVICES = [
     },
     {
         "slug": "retail-construction", "group": "commercial", "nav": "Retail & Businesses", "name": "Retail and Commercial Business Construction",
-        "title": "Retail & Business Construction | SE Michigan | RBF",
+        "title": "Retail & Commercial Construction | Flint, MI | RBF",
         "desc": "Retail, strip center and commercial business construction in Southeast Michigan: ground-up buildings, renovations, facades and build-outs.",
         "h1": "Retail &amp; Commercial Business Construction",
         "lead": "Retail stores, multi-tenant strip centers, storefront renovations and buildings for businesses of every kind.",
@@ -425,7 +366,7 @@ SERVICES = [
 <p>An aging, single-story commercial building with a failing parking lot became modern, leasable space with a stone and metal-panel facade, new storefront awnings and a freshly paved, striped lot. <a href="/projects">See the before-and-after</a>.</p>
 <h2>Multi-Tenant Buildings</h2>
 <p>We&rsquo;ve built multi-tenant buildings housing national brands side by side, including a retail building with Jimmy John&rsquo;s, Pizza Hut and Smoothie King. We coordinate shell construction with each tenant&rsquo;s build-out requirements.</p>
-<p>Serving businesses across <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/wayne-county-general-contractor">Wayne County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a commercial bid</a>.</p>""",
+<p>Serving businesses across <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Wayne County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a commercial bid</a>.</p>""",
         "faqs": [
             ("Do you build multi-tenant retail buildings?",
              "Yes. RBF Construction builds multi-tenant retail buildings and strip centers, coordinating the shell with each tenant's build-out requirements."),
@@ -437,9 +378,9 @@ SERVICES = [
     # ---------------- Site work ----------------
     {
         "slug": "excavation-grading", "group": "site", "nav": "Excavation & Grading", "name": "Excavation and Grading",
-        "title": "Excavation & Grading Contractor | SE Michigan | RBF",
+        "title": "Excavation Contractor in Flint, MI | Grading | RBF",
         "desc": "Commercial and residential excavation, mass grading, land balancing and site clearing in Oakland County, Genesee County and Southeast Michigan.",
-        "h1": "Excavation, Grading &amp; Land Balancing",
+        "h1": "Excavation &amp; Grading Contractor in Flint, MI",
         "lead": "Mass excavation, cut-and-fill, fine grading, clearing and building pads for commercial and residential sites.",
         "bg": "commercial-site-excavation-grading", "photos": ["site-clearing-excavator", "foundation-walls-excavation", "precast-structure-crane-set"],
         "body": """<h2>Earthwork Done Right the First Time</h2>
@@ -462,9 +403,9 @@ SERVICES = [
     },
     {
         "slug": "underground-utilities", "group": "site", "nav": "Underground Utilities", "name": "Underground Utility Installation",
-        "title": "Underground Utility Contractor | SE Michigan | RBF",
+        "title": "Underground Utility Contractor | Flint & SE Michigan | RBF",
         "desc": "Storm sewer, sanitary sewer, water main, retention pond and pump station installation in Oakland County, Genesee County and Southeast Michigan.",
-        "h1": "Underground Utilities: Storm, Sanitary &amp; Water",
+        "h1": "Underground Utility Contractor: Storm, Sanitary &amp; Water",
         "lead": "Storm sewers, sanitary sewers, water lines, retention ponds, manholes and pump station work for commercial, residential and municipal projects.",
         "bg": "storm-sewer-pipe-installation-crew", "photos": ["storm-pipe-trench-installation", "precast-manhole-installation", "valve-vault-piping"],
         "body": """<h2>The Infrastructure Under Every Site</h2>
@@ -475,7 +416,7 @@ SERVICES = [
 <h2>Pump Station and Facility Work</h2>
 <p>Beyond new installations, we&rsquo;ve upgraded pump rooms and pump stations with new pumps, large-diameter valves, piping and tanks &mdash; work that requires careful sequencing to keep systems in service.</p>
 <h2>Safety in the Trench</h2>
-<p>Deep excavations demand proper trench protection, competent supervision and well-maintained equipment. Our crews work in deep trenches and structures every day and plan each dig with safety first.</p>
+<p>Deep excavations demand proper trench protection, competent supervision and well-maintained equipment. We plan every dig with safety first.</p>
 <p>Pair utilities with <a href="/excavation-grading">excavation</a> and <a href="/parking-lot-paving-concrete">paving and concrete</a> for a complete site package anywhere in <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a utilities bid</a>.</p>""",
         "faqs": [
             ("What underground utilities does RBF install?",
@@ -487,9 +428,9 @@ SERVICES = [
     },
     {
         "slug": "parking-lot-paving-concrete", "group": "site", "nav": "Parking Lots, Roads & Concrete", "name": "Parking Lot, Road and Concrete Construction",
-        "title": "Parking Lot, Road & Concrete Contractor | SE MI | RBF",
+        "title": "Parking Lot & Concrete Contractor | Flint, MI | RBF",
         "desc": "Parking lots, private roads, drive-thru lanes, concrete curbs, gutters, sidewalks and slabs for commercial and residential sites in Southeast Michigan.",
-        "h1": "Parking Lots, Roads, Curbs &amp; Concrete",
+        "h1": "Parking Lots, Roads, Curbs &amp; Concrete in Flint &amp; Genesee County",
         "lead": "New and reconstructed parking lots, private roads, drive-thru lanes, curbs, gutters, sidewalks, slabs and driveways.",
         "bg": "concrete-road-curb-gutter-construction", "photos": ["concrete-curb-finishing", "commercial-renovation-after", "commercial-site-excavation-grading"],
         "body": """<h2>Pavement Built From the Base Up</h2>
@@ -510,9 +451,9 @@ SERVICES = [
     },
     {
         "slug": "demolition", "group": "site", "nav": "Demolition", "name": "Demolition",
-        "title": "Demolition Contractor | Genesee, Oakland & SE MI | RBF",
+        "title": "Demolition Contractor | Flint, Genesee & Oakland | RBF",
         "desc": "Commercial and residential demolition, interior selective demolition, pavement removal and site clearing in Southeast Michigan.",
-        "h1": "Demolition &amp; Site Clearing",
+        "h1": "Demolition &amp; Site Clearing in Flint &amp; Genesee County",
         "lead": "Building demolition, interior selective demolition, pavement and foundation removal &mdash; clearing the way for what&rsquo;s next.",
         "bg": "underground-utility-trench-excavation",
         "photos": ["commercial-renovation-before", "commercial-site-excavation-grading", "underground-utility-trench-excavation"],
@@ -617,3 +558,139 @@ ARTICLES = [
 <p>When the site contractor and building contractor are different companies, schedule gaps and finger-pointing are common. RBF Construction performs <a href="/site-development">site development</a> and <a href="/general-contracting">general contracting</a> under one contract across <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a bid</a>.</p>""",
     },
 ]
+
+
+# --------------------------------------------------------------------------
+# Project case studies. ONLY facts visible in RBF's own photos or stated on RBF's original
+# website (its photo file names give the towns). Scope, dates, size and challenges are NOT
+# published until RBF confirms them - add "scope", "year", "challenge" keys and rebuild.
+# --------------------------------------------------------------------------
+CASE_STUDIES = [
+    {
+        "slug": "commercial-renovation-before-after",
+        "title": "Commercial Building Renovation: Before & After | RBF",
+        "desc": "Before-and-after commercial renovation by RBF Construction: new stone and metal-panel facade, storefront awnings, and a repaved, restriped parking lot.",
+        "name": "Commercial Building Renovation",
+        "h1": "Commercial Building Renovation: Before &amp; After",
+        "category": "Commercial renovation",
+        "brand": None, "location": None,
+        "hero": "commercial-renovation-after",
+        "photos": [], "before_after": True,
+        "summary": "An aging single-story commercial building with a failing, flooded parking lot transformed into modern, leasable retail space.",
+        "observed": [
+            "Dated facade replaced with stone veneer and metal panels",
+            "New black storefront awnings and entry doors",
+            "Failing, ponding asphalt replaced with a new paved lot",
+            "New parking stall striping and accessible parking marking",
+        ],
+        "story": """<p>The <strong>before</strong> photo shows a tired single-story strip building: mismatched facades, a dated canopy and a parking lot full of standing water and broken pavement. The <strong>after</strong> photo shows the same footprint as a clean, modern retail building &mdash; stone veneer and metal panel facade, uniform black awnings, new storefronts, and a freshly paved and striped parking lot.</p>
+<p>Projects like this combine both sides of RBF&rsquo;s business: building renovation managed by our general contracting team, and the paving and drainage work our site division performs.</p>""",
+        "services": ["/retail-construction", "/parking-lot-paving-concrete", "/commercial-general-contracting"],
+    },
+    {
+        "slug": "jimmy-johns-pizza-hut-smoothie-king-retail-building",
+        "title": "Multi-Tenant Restaurant Building | RBF Construction",
+        "desc": "Multi-tenant restaurant building with Jimmy John's (drive-thru), Pizza Hut and Smoothie King storefronts, from RBF Construction's portfolio.",
+        "name": "Multi-Tenant Restaurant Building",
+        "h1": "Multi-Tenant Restaurant Building: Jimmy John&rsquo;s, Pizza Hut &amp; Smoothie King",
+        "category": "Restaurant / multi-tenant retail",
+        "brand": "Jimmy John's, Pizza Hut, Smoothie King", "location": None,
+        "hero": "retail-plaza-jimmy-johns-pizza-hut-smoothie-king",
+        "photos": ["retail-plaza-jimmy-johns-pizza-hut-smoothie-king"], "before_after": False,
+        "summary": "A multi-tenant building housing three national quick-service brands side by side, including a Jimmy John's drive-thru.",
+        "observed": [
+            "Three national quick-service tenants under one roof",
+            "Jimmy John's end-cap with drive-thru signage",
+            "Stone veneer piers, masonry and metal-panel accents",
+            "Concrete walks and storefront entries for each tenant",
+        ],
+        "story": """<p>This building puts three national restaurant brands &mdash; <strong>Jimmy John&rsquo;s</strong>, <strong>Pizza Hut</strong> and <strong>Smoothie King</strong> &mdash; side by side, each with its own storefront and signage, and a drive-thru at the Jimmy John&rsquo;s end-cap.</p>
+<p>Multi-tenant restaurant buildings require coordinating the building shell with each brand&rsquo;s own requirements for storefronts, signage, kitchens and drive-thru lanes &mdash; the coordination RBF&rsquo;s <a href="/restaurant-construction">restaurant construction</a> work is built around.</p>""",
+        "services": ["/restaurant-construction", "/retail-construction", "/site-development"],
+    },
+    {
+        "slug": "taco-bell-cass-city-mi",
+        "title": "Taco Bell Restaurant, Cass City, MI | RBF Construction",
+        "desc": "Taco Bell quick-service restaurant in Cass City, Michigan from RBF Construction's restaurant construction portfolio.",
+        "name": "Taco Bell Restaurant, Cass City",
+        "h1": "Taco Bell Restaurant &mdash; Cass City, Michigan",
+        "category": "Restaurant (quick-service)",
+        "brand": "Taco Bell", "location": "Cass City, MI",
+        "hero": "taco-bell-cass-city-mi",
+        "photos": ["taco-bell-cass-city-mi"], "before_after": False,
+        "summary": "A freestanding Taco Bell quick-service restaurant in Cass City, Michigan, finished to the brand's current exterior design.",
+        "observed": [
+            "Freestanding quick-service restaurant building",
+            "Taco Bell's current exterior design: tower element and purple accents",
+            "Paved parking and site work around the building",
+        ],
+        "story": """<p>RBF Construction&rsquo;s restaurant portfolio includes this <strong>Taco Bell</strong> in <strong>Cass City, Michigan</strong> &mdash; a freestanding quick-service building finished in the brand&rsquo;s current look, with its signature tower element and purple accent bands.</p>
+<p>National restaurant brands bring detailed prototype drawings, finish standards and opening deadlines. RBF&rsquo;s approach to <a href="/restaurant-construction">restaurant construction</a> is to coordinate those standards, the kitchen infrastructure and the site work under one contractor.</p>""",
+        "services": ["/restaurant-construction", "/site-development", "/parking-lot-paving-concrete"],
+    },
+    {
+        "slug": "family-dollar-dollar-tree-olivet-mi",
+        "title": "Family Dollar / Dollar Tree, Olivet, MI | RBF Construction",
+        "desc": "Family Dollar / Dollar Tree combination store in Olivet, Michigan from RBF Construction's retail construction portfolio.",
+        "name": "Family Dollar / Dollar Tree, Olivet",
+        "h1": "Family Dollar / Dollar Tree &mdash; Olivet, Michigan",
+        "category": "Retail",
+        "brand": "Family Dollar / Dollar Tree", "location": "Olivet, MI",
+        "hero": "family-dollar-dollar-tree-olivet-mi",
+        "photos": ["family-dollar-dollar-tree-olivet-mi"], "before_after": False,
+        "summary": "A Family Dollar / Dollar Tree combination store in Olivet, Michigan.",
+        "observed": [
+            "National discount retail combination store",
+            "Arched entry tower with brand signage",
+            "Storefront glazing along the front elevation",
+        ],
+        "story": """<p>This <strong>Family Dollar / Dollar Tree</strong> combination store in <strong>Olivet, Michigan</strong> is part of RBF Construction&rsquo;s retail portfolio &mdash; a national discount brand with a defined storefront and signage standard.</p>
+<p>See how RBF approaches <a href="/retail-construction">retail and commercial business construction</a>, from ground-up buildings to storefront renovations.</p>""",
+        "services": ["/retail-construction", "/commercial-general-contracting"],
+    },
+    {
+        "slug": "athletico-physical-therapy-shelby-mi",
+        "title": "Athletico Physical Therapy, Shelby, MI | RBF Construction",
+        "desc": "Athletico Physical Therapy clinic in Shelby, Michigan from RBF Construction's medical and commercial construction portfolio.",
+        "name": "Athletico Physical Therapy, Shelby",
+        "h1": "Athletico Physical Therapy Clinic &mdash; Shelby, Michigan",
+        "category": "Medical / physical therapy",
+        "brand": "Athletico Physical Therapy", "location": "Shelby, MI",
+        "hero": "athletico-physical-therapy-shelby-mi",
+        "photos": ["athletico-physical-therapy-shelby-mi"], "before_after": False,
+        "summary": "An Athletico Physical Therapy clinic storefront in Shelby, Michigan.",
+        "observed": [
+            "Healthcare tenant in a multi-tenant retail center",
+            "Full-height storefront glazing with brand signage and awning",
+        ],
+        "story": """<p>RBF Construction&rsquo;s healthcare work includes this <strong>Athletico Physical Therapy</strong> clinic in <strong>Shelby, Michigan</strong>, located in a multi-tenant retail center.</p>
+<p>Physical therapy and medical clinics need accessible layouts, durable finishes and plumbing in treatment areas. Learn how RBF approaches <a href="/medical-office-construction">medical and clinic construction</a>.</p>""",
+        "services": ["/medical-office-construction", "/office-building-construction"],
+    },
+    {
+        "slug": "cottage-inn-pizza-davison-mi",
+        "title": "Cottage Inn Pizza, Davison, MI | RBF Construction",
+        "desc": "Cottage Inn Pizza restaurant in Davison, Genesee County, Michigan from RBF Construction's restaurant portfolio.",
+        "name": "Cottage Inn Pizza, Davison",
+        "h1": "Cottage Inn Pizza &mdash; Davison, Michigan",
+        "category": "Restaurant",
+        "brand": "Cottage Inn Pizza", "location": "Davison, MI",
+        "hero": "cottage-inn-pizza-davison-mi",
+        "photos": ["cottage-inn-pizza-davison-mi"], "before_after": False,
+        "summary": "A Cottage Inn Pizza restaurant in Davison, in Genesee County, Michigan.",
+        "observed": [
+            "Restaurant storefront in Davison, Genesee County",
+            "Entry with brand signage and blue awnings",
+        ],
+        "story": """<p>Close to RBF&rsquo;s Flint headquarters, this <strong>Cottage Inn Pizza</strong> in <strong>Davison</strong> is part of our restaurant portfolio in <a href="/genesee-county-general-contractor">Genesee County</a>.</p>
+<p>From franchise build-outs to ground-up restaurants with drive-thrus, see how RBF approaches <a href="/restaurant-construction">restaurant construction</a>.</p>""",
+        "services": ["/restaurant-construction", "/genesee-county-general-contractor"],
+    },
+]
+
+# Southeast Michigan counties covered on the Service Areas page (no separate thin pages)
+SE_MICHIGAN = {
+    "Macomb County": ["Sterling Heights", "Warren", "Shelby Township", "Macomb Township", "Clinton Township", "Utica", "Washington Township", "Romeo"],
+    "Wayne County": ["Detroit", "Livonia", "Dearborn", "Canton", "Plymouth", "Northville", "Westland"],
+    "Washtenaw County": ["Ann Arbor", "Ypsilanti", "Saline", "Dexter", "Chelsea"],
+}

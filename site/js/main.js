@@ -108,6 +108,54 @@
     els.forEach(function (el) { el.classList.add('in'); });
   }
 
+  // ---- Lead tracking: events go to window.dataLayer (read by GA4/Tag Manager once installed)
+  window.dataLayer = window.dataLayer || [];
+  var track = function (event, detail) {
+    var o = { event: event, page_path: location.pathname };
+    for (var k in detail) o[k] = detail[k];
+    window.dataLayer.push(o);
+    if (typeof window.gtag === 'function') window.gtag('event', event, detail);
+  };
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+    var h = a.getAttribute('href') || '';
+    if (h.indexOf('tel:') === 0) track('phone_click', { link_text: a.textContent.trim() });
+    else if (h.indexOf('mailto:') === 0) track('email_click', {});
+    else if (h.indexOf('#quote') !== -1) track('bid_cta_click', { link_text: a.textContent.trim() });
+  });
+
+  // ---- Bid form: prefill from ?audience=&type= and record where the lead came from
+  var form = document.querySelector('form.card-form');
+  if (form) {
+    var q = new URLSearchParams(location.search);
+    ['audience', 'type'].forEach(function (key) {
+      var v = q.get(key);
+      var sel = form.querySelector(key === 'type' ? '#project_type' : '#audience');
+      if (v && sel && sel.querySelector('option[value="' + v.replace(/[^a-z-]/g, '') + '"]')) sel.value = v;
+    });
+    var setField = function (name, value) { var f = form.querySelector('input[name="' + name + '"]'); if (f) f.value = value; };
+    var store = function (k, v) { try { if (v) sessionStorage.setItem(k, v); return sessionStorage.getItem(k) || v || ''; } catch (err) { return v || ''; } };
+    var camp = ['utm_source', 'utm_medium', 'utm_campaign'].map(function (k) { return q.get(k) ? k + '=' + q.get(k) : ''; }).filter(Boolean).join('&');
+    var ref = document.referrer;
+    var fromPage = ref && ref.indexOf(location.host) !== -1 ? new URL(ref).pathname : '';
+    setField('lead_page', 'first page: ' + (store('rbf_first_page', '') || location.pathname) + (fromPage ? ' | form opened from: ' + fromPage : ''));
+    setField('_next', location.origin + '/thank-you');  // stay on the same domain (staging or production)
+    setField('lead_referrer', store('rbf_referrer', ''));
+    setField('lead_campaign', store('rbf_campaign', camp));
+    form.addEventListener('submit', function () {
+      track('generate_lead_submit', { audience: (form.querySelector('#audience') || {}).value || '', project_type: (form.querySelector('#project_type') || {}).value || '' });
+    });
+  }
+  // remember first page / referrer / campaign of the visit for the bid form
+  try {
+    if (!sessionStorage.getItem('rbf_first_page')) sessionStorage.setItem('rbf_first_page', location.pathname);
+    if (!sessionStorage.getItem('rbf_referrer') && document.referrer && document.referrer.indexOf(location.host) === -1) sessionStorage.setItem('rbf_referrer', document.referrer);
+    var qs = new URLSearchParams(location.search);
+    if (qs.get('utm_source')) sessionStorage.setItem('rbf_campaign', ['utm_source', 'utm_medium', 'utm_campaign'].map(function (k) { return qs.get(k) ? k + '=' + qs.get(k) : ''; }).filter(Boolean).join('&'));
+  } catch (err) { /* storage unavailable: tracking fields stay empty */ }
+  if (location.pathname === '/thank-you') track('generate_lead', {});
+
   // Footer year
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
