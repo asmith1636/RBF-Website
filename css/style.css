@@ -477,3 +477,48 @@ a.cap:hover{border-color:var(--amber);transform:translateY(-3px)}
 .features .feature.rev>div:first-child{order:2}
 .svc-groups .grp p{color:var(--muted);margin:0}
 @media (max-width:860px){.features .feature.rev>div:first-child{order:0}}
+
+/* ---- v5: two service tabs + division panels ---- */
+.nav .sub.mega.two{grid-template-columns:repeat(2,minmax(210px,1fr));min-width:480px}
+.nav .sub .sub-foot{grid-column:1/-1;display:flex;align-items:center;gap:8px;margin-top:6px;padding-top:12px;border-top:2px solid var(--concrete);font-weight:700;color:var(--steel)}
+.nav .sub .sub-foot svg{width:16px;height:16px}
+.nav a.is-section{color:var(--steel);box-shadow:inset 0 -3px 0 var(--amber);border-radius:6px 6px 0 0}
+.divisions{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.division{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 1px 0 var(--line),0 18px 40px -26px rgba(11,23,38,.5);display:flex;flex-direction:column}
+.division-media{position:relative;display:block;aspect-ratio:16/9;overflow:hidden}
+.division-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.division:hover .division-media img{transform:scale(1.04)}
+.division-media span{position:absolute;left:18px;bottom:16px;background:rgba(11,23,38,.85);color:#fff;font-family:var(--head);font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:6px;font-size:.95rem}
+.division-body{padding:26px 28px 30px;display:flex;flex-direction:column;flex:1}
+.division-body h3{font-size:2rem;text-transform:uppercase;margin-bottom:.3em}
+.division-body h3 a{color:var(--navy);text-decoration:none}
+.division-body>p{color:var(--muted)}
+.division-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px;flex:1}
+.division-body h4{font-family:var(--head);font-size:1.15rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 6px}
+.division-body h4 a{color:var(--amber);text-decoration:none}
+.division-body ul{list-style:none;padding:0;margin:0}
+.division-body li a{display:block;padding:7px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:600}
+.division-body li a:hover{color:var(--amber)}
+.division-list{margin-bottom:22px!important;flex:1}
+.division-body .btn{align-self:flex-start}
+.site-footer h3{font-size:1rem;letter-spacing:.12em;text-transform:uppercase;margin:12px 0 6px}
+.site-footer h3 a{color:var(--amber)}
+.foot-grid{grid-template-columns:1.4fr 1.2fr 1fr 1fr 1fr}
+@media (max-width:1180px){.nav>a,.nav>.has-sub>a{font-size:1rem;padding:10px 9px}}
+@media (max-width:1060px){
+  .nav .sub.mega.two{display:block;min-width:0}
+  .nav a.is-section{box-shadow:none}
+  .foot-grid{grid-template-columns:1fr 1fr 1fr}
+}
+@media (max-width:860px){.divisions{grid-template-columns:1fr}}
+@media (max-width:640px){.division-cols{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr 1fr}}
+.nav>a,.nav>.has-sub>a{white-space:nowrap}
+@media (min-width:1061px) and (max-width:1240px){
+  .brand-text{display:none}
+  .nav{gap:0}
+  .nav>a,.nav>.has-sub>a{font-size:.98rem;padding:10px 8px;letter-spacing:.03em}
+  .nav .btn{margin-left:6px;padding:10px 14px}
+}
+.brand{flex:none}
+.brand-text strong,.brand-text em{white-space:nowrap}
+@media (min-width:1241px) and (max-width:1400px){.brand-text em{display:none}}
