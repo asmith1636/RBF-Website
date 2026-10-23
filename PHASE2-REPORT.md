@@ -12,7 +12,7 @@
 
 | Area | Change | Why |
 |---|---|---|
-| Positioning | New homepage headline: "Flint, MI General Contractor & Site Developer / One Contractor. From Dirt to Done." A new six-step "Dirt to Done" section shows which steps RBF crews do themselves and which RBF manages. | It's RBF's real advantage. None of the Flint competitors I reviewed lead with having both general contracting and site work in-house. |
+| Positioning | New homepage headline: "General Contractor & Site Developer in Flint, MI", under "Genesee, Oakland & Southeast Michigan". (The earlier "One Contractor. From Dirt to Done." slogan was removed at RBF's request.) A new six-step "How We Work" section shows which steps RBF crews do themselves and which RBF manages. | It's RBF's real advantage. None of the Flint competitors I reviewed lead with having both general contracting and site work in-house. |
 | Credibility | Six project case studies, featured on the homepage, the Projects page and related service pages. | Commercial buyers look for proof. Before, the projects were only a photo gallery. |
 | Local SEO | Titles and main headings now target "Flint, MI" and "Genesee County" for general contracting, commercial, restaurant, build-out, residential, excavation, site development and utilities. | These match the searches RBF wants to win. |
 | Honesty | Removed claims I couldn't verify: "licensed trades", foundations as self-performed, "crews in deep trenches every day", and "ground-up" in the Taco Bell caption. | The brief says no invented facts. Inaccurate claims are also a legal and trust risk. |
@@ -31,7 +31,7 @@
   - Analytics hook added.
 - **Homepage:**
   - New hero headline and slide order (the Taco Bell photo first).
-  - "Dirt to Done" replaces the earthwork-services section and the 4-step process section.
+  - "How We Work" replaces the earthwork-services section and the 4-step process section.
   - Featured case-study cards replace the photo grid.
   - "Who We Are" rewritten.
   - New FAQ: "Does RBF do its own site work?"
@@ -102,7 +102,7 @@
 
 - Larger, sharper logo and larger menu text.
 - Hero opens on the strongest commercial photo, with a two-level headline.
-- "Dirt to Done" sequence with badges showing who does each step.
+- "How We Work" sequence with badges showing who does each step.
 - Case-study cards with hover effects, a project-facts box, and in-page lead call-outs.
 - **[Verified]** Header at 1070, 1240/1250, 1280, 1366, 1440, 1536 and 1920 px wide: no wrapped menu labels, no sideways scroll.
 - **[Verified]** Phone layout at 390 px wide (homepage, county page, case study).

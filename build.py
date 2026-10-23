@@ -692,7 +692,7 @@ def hero_slides():
             f'{"".join(dots)}<button type="button" class="next" aria-label="Next slide">{icon("arrow")}</button></div></div></div>')
 
 
-DIRT_TO_DONE = [
+PROCESS_STEPS = [
     ("excavator", "Site Prep &amp; Excavation", "Clearing, demolition, excavation and mass grading.", "RBF crews", "/excavation-grading"),
     ("pipe", "Underground Utilities", "Storm and sanitary sewer, water lines and retention ponds.", "RBF crews", "/underground-utilities"),
     ("grade", "Building Pads &amp; Grading", "Pads, fine grading and drainage built to plan elevations.", "RBF crews", "/site-development"),
@@ -702,12 +702,12 @@ DIRT_TO_DONE = [
 ]
 
 
-def dirt_to_done(dark=True):
+def process_steps(dark=True):
     steps = "".join(
         f'<li class="reveal"><a href="{u}"><span class="step-icon">{icon(i)}</span><span class="who">{w}</span>'
-        f'<h3>{t}</h3><p>{d}</p></a></li>' for i, t, d, w, u in DIRT_TO_DONE)
-    return f"""<section class="{'dark ' if dark else ''}d2d" id="dirt-to-done"><div class="wrap">
-  <div class="section-head center"><span class="eyebrow">Our Advantage</span><h2>One Contractor. From Dirt to Done.</h2>
+        f'<h3>{t}</h3><p>{d}</p></a></li>' for i, t, d, w, u in PROCESS_STEPS)
+    return f"""<section class="{'dark ' if dark else ''}d2d" id="how-we-work"><div class="wrap">
+  <div class="section-head center"><span class="eyebrow">How We Work</span><h2>Site Work and the Building, Start to Finish</h2>
   <p>Most projects juggle a site contractor and a building contractor &mdash; and the gaps between them. RBF does both. Our own crews handle the earthwork, utilities and paving; our general contracting team manages the building with trusted trades. One schedule, one point of contact, one accountable team.</p></div>
   <ol class="d2d-steps">{steps}</ol>
   <div class="d2d-legend"><span><i class="k crew"></i>RBF crews: self-performed by our site development division</span><span><i class="k managed"></i>RBF-managed: skilled trades coordinated and supervised by RBF</span></div>
@@ -731,7 +731,7 @@ def home():
   {hero_slides()[0]}
   <div class="wrap">
     <span class="eyebrow">&ldquo;{BIZ['slogan']}&rdquo;</span>
-    <h1><span class="h1-kicker">Flint, MI General Contractor &amp; Site Developer</span>One Contractor. <span>From Dirt to Done.</span></h1>
+    <h1><span class="h1-kicker">Genesee, Oakland &amp; Southeast Michigan</span>General Contractor &amp; Site Developer <span>in&nbsp;Flint,&nbsp;MI</span></h1>
     <p class="lead">Site work, underground utilities and the building itself &mdash; restaurants, retail, offices, medical, custom homes and remodels &mdash; for owners across Genesee County, Oakland County and Southeast Michigan.</p>
     <div class="actions">
       <a class="btn btn-amber" href="/construction-contact#quote">Request a Bid {icon('arrow')}</a>
@@ -742,7 +742,7 @@ def home():
   {hero_slides()[1]}
 </section>
 {clients_strip()}
-{dirt_to_done()}
+{process_steps()}
 <section class="alt"><div class="wrap">
   <div class="section-head center"><span class="eyebrow">Two Divisions, One Team</span><h2>General Contracting &amp; Site Work</h2>
   <p>Everything from a kitchen remodel to a ground-up restaurant &mdash; and the excavation and utilities underneath it.</p></div>
@@ -1174,7 +1174,7 @@ def about():
     <span class="eyebrow">&ldquo;{BIZ['slogan']}&rdquo;</span>
     <h2>Building and Civil Work, Under One Roof</h2>
     <p><strong>{BIZ['name']}</strong> is a general contractor headquartered at {BIZ['street']} in {BIZ['city']}, Michigan. We serve Genesee County, Oakland County and all of Southeast Michigan.</p>
-    <p>What sets RBF apart is that we do both halves of construction. Our general contracting team builds custom homes, kitchens and baths, pole barns, restaurants, retail stores, offices and medical clinics. Our site development division handles the excavation, grading, underground utilities, parking lots and concrete those projects sit on. Owners get one accountable contractor from the first shovel of dirt to the final walkthrough.</p>
+    <p>What sets RBF apart is that we do both halves of construction. Our general contracting team builds custom homes, kitchens and baths, pole barns, restaurants, retail stores, offices and medical clinics. Our site development division handles the excavation, grading, underground utilities, parking lots and concrete those projects sit on. Owners work with one accountable team from groundbreaking to the final walkthrough.</p>
     <p>We work with a trusted network of skilled tradesmen, subcontractors and architects, and we stay close to the work with personal on-site supervision on every job.</p>
   </div>
 </div></section>

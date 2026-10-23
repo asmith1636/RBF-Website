@@ -532,7 +532,7 @@ a.cap:hover{border-color:var(--amber);transform:translateY(-3px)}
 @media (min-width:1241px) and (max-width:1400px){.brand-text em{display:none}}
 
 
-/* ==== v6: Phase 2 — premium header, dirt-to-done, case studies, contrast ==== */
+/* ==== v6: Phase 2 — premium header, process steps, case studies, contrast ==== */
 :root{--amber-ink:#9a5800}
 /* accessible amber text on light backgrounds (amber stays for dark backgrounds and accents) */
 .eyebrow{color:var(--amber-ink)}
@@ -564,7 +564,7 @@ a.cap:hover{border-color:var(--amber);transform:translateY(-3px)}
 .hero h1 .h1-kicker{display:block;color:#dbe4ef;font-size:clamp(1.05rem,1.7vw,1.35rem);letter-spacing:.1em;margin-bottom:.5em;font-weight:600;max-width:none}
 .hero h1 span:not(.h1-kicker){color:var(--amber)}
 
-/* dirt-to-done sequence */
+/* process steps sequence */
 .d2d .section-head{max-width:860px}
 .d2d-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;counter-reset:d2d;position:relative}
 .d2d-steps::before{content:"";position:absolute;left:4%;right:4%;top:46px;height:2px;background:linear-gradient(90deg,var(--amber),rgba(245,165,36,.25))}
