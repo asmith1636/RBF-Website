@@ -1106,7 +1106,7 @@ def case_page(c):
   <article class="prose">
     {c['story']}
     {ba}{photos}
-    <h2>What You Can See in This Project</h2><ul class="tick-list">{observed}</ul>
+    <h2>Project Highlights</h2><ul class="tick-list">{observed}</ul>
     {challenge}
     <h2>Related Services</h2><ul>{svc_links}</ul>
   </article>

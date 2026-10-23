@@ -309,7 +309,7 @@ SERVICES = [
         "h1": "Restaurant Construction for National Brands &amp; Local Owners",
         "lead": "Ground-up quick-service restaurants with drive-thrus, sit-down restaurants, franchise remodels and tenant build-outs.",
         "bg": "smoothie-king-building", "photos": ["taco-bell-cass-city-mi", "cottage-inn-pizza-davison-mi", "smoothie-king-building"],
-        "body": """<h2>Restaurant Experience You Can See</h2>
+        "body": """<h2>Restaurant Projects We&rsquo;ve Built</h2>
 <p>RBF Construction has built for restaurant brands including <strong>Jimmy John&rsquo;s, Pizza Hut, Smoothie King, Taco Bell, Cottage Inn Pizza and Biggby Coffee</strong>. We understand franchise brand standards, tight opening dates and the kitchen infrastructure restaurants depend on.</p>
 <ul class="tick-list"><li>Quick-service restaurants</li><li>Drive-thru lanes &amp; windows</li><li>Sit-down &amp; fast-casual</li><li>Coffee shops &amp; smoothie bars</li>
 <li>Franchise remodels &amp; refreshes</li><li>End-cap &amp; in-line build-outs</li><li>Multi-tenant restaurant buildings</li><li>Parking, drive aisles &amp; utilities</li></ul>
@@ -588,12 +588,12 @@ CASE_STUDIES = [
         "photos": [], "before_after": True,
         "summary": "An aging single-story commercial building with a failing, flooded parking lot transformed into modern, leasable retail space.",
         "observed": [
-            "Dated facade replaced with stone veneer and metal panels",
-            "New black storefront awnings and entry doors",
-            "Failing, ponding asphalt replaced with a new paved lot",
-            "New parking stall striping and accessible parking marking",
+            "New stone veneer and metal-panel facade",
+            "Black storefront awnings and new entry doors",
+            "Parking lot repaved, replacing broken, ponding asphalt",
+            "New stall striping and accessible parking",
         ],
-        "story": """<p>The <strong>before</strong> photo shows a tired single-story strip building: mismatched facades, a dated canopy and a parking lot full of standing water and broken pavement. The <strong>after</strong> photo shows the same footprint as a clean, modern retail building &mdash; stone veneer and metal panel facade, uniform black awnings, new storefronts, and a freshly paved and striped parking lot.</p>
+        "story": """<p><strong>Before</strong> the renovation, this was a tired single-story strip building: mismatched facades, a dated canopy and a parking lot full of standing water and broken pavement. <strong>After</strong>, the same footprint is a clean, modern retail building &mdash; stone veneer and metal panel facade, uniform black awnings, new storefronts, and a freshly paved and striped parking lot.</p>
 <p>Projects like this combine both sides of RBF&rsquo;s business: building renovation managed by our general contracting team, and the paving and drainage work our site division performs.</p>""",
         "services": ["/retail-construction", "/parking-lot-paving-concrete", "/commercial-general-contracting"],
     },
@@ -610,9 +610,9 @@ CASE_STUDIES = [
         "summary": "A multi-tenant building housing three national quick-service brands side by side, including a Jimmy John's drive-thru.",
         "observed": [
             "Three national quick-service tenants under one roof",
-            "Jimmy John's end-cap with drive-thru signage",
-            "Stone veneer piers, masonry and metal-panel accents",
-            "Concrete walks and storefront entries for each tenant",
+            "Drive-thru at the Jimmy John's end-cap",
+            "Stone veneer piers with masonry and metal-panel accents",
+            "Separate storefront entry and signage for each tenant",
         ],
         "story": """<p>This building puts three national restaurant brands &mdash; <strong>Jimmy John&rsquo;s</strong>, <strong>Pizza Hut</strong> and <strong>Smoothie King</strong> &mdash; side by side, each with its own storefront and signage, and a drive-thru at the Jimmy John&rsquo;s end-cap.</p>
 <p>Multi-tenant restaurant buildings require coordinating the building shell with each brand&rsquo;s own requirements for storefronts, signage, kitchens and drive-thru lanes &mdash; the coordination RBF&rsquo;s <a href="/restaurant-construction">restaurant construction</a> work is built around.</p>""",
@@ -630,9 +630,9 @@ CASE_STUDIES = [
         "photos": ["taco-bell-cass-city-mi"], "before_after": False,
         "summary": "A freestanding Taco Bell quick-service restaurant in Cass City, Michigan, finished to the brand's current exterior design.",
         "observed": [
-            "Freestanding quick-service restaurant building",
-            "Taco Bell's current exterior design: tower element and purple accents",
-            "Paved parking and site work around the building",
+            "Freestanding quick-service restaurant",
+            "Taco Bell's current exterior design, with tower element and purple accents",
+            "Paved parking around the building",
         ],
         "story": """<p>RBF Construction&rsquo;s restaurant portfolio includes this <strong>Taco Bell</strong> in <strong>Cass City, Michigan</strong> &mdash; a freestanding quick-service building finished in the brand&rsquo;s current look, with its signature tower element and purple accent bands.</p>
 <p>National restaurant brands bring detailed prototype drawings, finish standards and opening deadlines. RBF&rsquo;s approach to <a href="/restaurant-construction">restaurant construction</a> is to coordinate those standards, the kitchen infrastructure and the site work under one contractor.</p>""",
@@ -650,9 +650,9 @@ CASE_STUDIES = [
         "photos": ["family-dollar-dollar-tree-olivet-mi"], "before_after": False,
         "summary": "A Family Dollar / Dollar Tree combination store in Olivet, Michigan.",
         "observed": [
-            "National discount retail combination store",
+            "Combination Family Dollar / Dollar Tree store",
             "Arched entry tower with brand signage",
-            "Storefront glazing along the front elevation",
+            "Storefront glass across the front of the building",
         ],
         "story": """<p>This <strong>Family Dollar / Dollar Tree</strong> combination store in <strong>Olivet, Michigan</strong> is part of RBF Construction&rsquo;s retail portfolio &mdash; a national discount brand with a defined storefront and signage standard.</p>
 <p>See how RBF approaches <a href="/retail-construction">retail and commercial business construction</a>, from ground-up buildings to storefront renovations.</p>""",
@@ -670,8 +670,8 @@ CASE_STUDIES = [
         "photos": ["athletico-physical-therapy-shelby-mi"], "before_after": False,
         "summary": "An Athletico Physical Therapy clinic storefront in Shelby, Michigan.",
         "observed": [
-            "Healthcare tenant in a multi-tenant retail center",
-            "Full-height storefront glazing with brand signage and awning",
+            "Physical therapy clinic in a multi-tenant retail center",
+            "Full-height storefront glass with signage and awning",
         ],
         "story": """<p>RBF Construction&rsquo;s healthcare work includes this <strong>Athletico Physical Therapy</strong> clinic in <strong>Shelby, Michigan</strong>, located in a multi-tenant retail center.</p>
 <p>Physical therapy and medical clinics need accessible layouts, durable finishes and plumbing in treatment areas. Learn how RBF approaches <a href="/medical-office-construction">medical and clinic construction</a>.</p>""",
@@ -689,8 +689,8 @@ CASE_STUDIES = [
         "photos": ["cottage-inn-pizza-davison-mi"], "before_after": False,
         "summary": "A Cottage Inn Pizza restaurant in Davison, in Genesee County, Michigan.",
         "observed": [
-            "Restaurant storefront in Davison, Genesee County",
-            "Entry with brand signage and blue awnings",
+            "Restaurant in Davison, near RBF's Flint office",
+            "Storefront entry with brand signage and blue awnings",
         ],
         "story": """<p>Close to RBF&rsquo;s Flint headquarters, this <strong>Cottage Inn Pizza</strong> in <strong>Davison</strong> is part of our restaurant portfolio in <a href="/genesee-county-general-contractor">Genesee County</a>.</p>
 <p>From franchise build-outs to ground-up restaurants with drive-thrus, see how RBF approaches <a href="/restaurant-construction">restaurant construction</a>.</p>""",
