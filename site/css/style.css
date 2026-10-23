@@ -638,3 +638,9 @@ a.cap:hover{border-color:var(--amber);transform:translateY(-3px)}
 @media (max-width:1060px){.logo-mark{height:56px}}
 @media (max-width:640px){.logo-mark{height:50px}}
 .d2d-steps li:nth-child(4) .who{color:var(--navy)}
+
+/* v7: photo credit + hero trust line */
+.photo-credit{position:absolute;right:12px;bottom:10px;z-index:2;font-size:.75rem;color:#dbe4ef;background:rgba(7,16,27,.6);padding:3px 8px;border-radius:4px}
+.hero-trust{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-wrap:wrap;gap:8px 24px;color:#dbe4ef;font-size:.98rem}
+.hero-trust li{display:flex;align-items:center;gap:8px}
+.hero-trust svg{color:var(--amber)}

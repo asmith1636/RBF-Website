@@ -308,7 +308,7 @@ SERVICES = [
         "desc": "Restaurant and drive-thru construction in Michigan for national brands and local owners: ground-up builds, remodels, build-outs and site work.",
         "h1": "Restaurant Construction for National Brands &amp; Local Owners",
         "lead": "Ground-up quick-service restaurants with drive-thrus, sit-down restaurants, franchise remodels and tenant build-outs.",
-        "bg": "taco-bell-new-construction", "photos": ["taco-bell-cass-city-mi", "cottage-inn-pizza-davison-mi", "smoothie-king-building"],
+        "bg": "smoothie-king-building", "photos": ["taco-bell-cass-city-mi", "cottage-inn-pizza-davison-mi", "smoothie-king-building"],
         "body": """<h2>Restaurant Experience You Can See</h2>
 <p>RBF Construction has built for restaurant brands including <strong>Jimmy John&rsquo;s, Pizza Hut, Smoothie King, Taco Bell, Cottage Inn Pizza and Biggby Coffee</strong>. We understand franchise brand standards, tight opening dates and the kitchen infrastructure restaurants depend on.</p>
 <ul class="tick-list"><li>Quick-service restaurants</li><li>Drive-thru lanes &amp; windows</li><li>Sit-down &amp; fast-casual</li><li>Coffee shops &amp; smoothie bars</li>

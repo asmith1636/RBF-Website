@@ -11,7 +11,7 @@ ORIG = os.path.join(ROOT, "originals")
 OUT = os.path.join(ROOT, "site", "img")
 
 PHOTOS = {
-    "untitled-design-48.png": "retail-plaza-jimmy-johns-pizza-hut-smoothie-king",
+    "more/retail-plaza-photo-2.webp": "retail-plaza-jimmy-johns-pizza-hut-smoothie-king",  # 2000px photo with RBF van (replaces untitled-design-48.png)
     "7.png": "pump-station-tank-installation",
     "photo-1.png": "storm-sewer-pipe-installation-crew",
     "photo-16.png": "manhole-water-valve-installation",
@@ -39,7 +39,8 @@ PHOTOS.update({
     "more/rbf12.jpg": "open-floor-plan-fireplace-cable-railing",
     "more/rbf13.jpg": "wet-bar-brick-accent-wall",
     "more/rbf9.jpg": "living-room-coffered-ceiling-stone-fireplace",
-    # screenshot-2026-05-26-150303.png is a Google Street View capture (watermarked) - not usable
+    # Google Street View capture: used at RBF's request with "Imagery © Google" credit; replace with an RBF photo
+    "more/screenshot-2026-05-26-150303.png": "new-townhomes-exterior",
     "more/new-taco-bell.jpg": "taco-bell-new-construction",
     "more/taco-bell-cass-city.webp": "taco-bell-cass-city-mi",
     "more/dollartree-olivet-mi.png": "family-dollar-dollar-tree-olivet-mi",
@@ -56,9 +57,9 @@ PHOTOS.update({
 })
 
 # Homepage slideshow, in display order
-SLIDES = ["taco-bell-new-construction", "kitchen-white-cabinets-island-pendant-lights",
-          "retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "bathroom-freestanding-tub-glass-shower",
-          "living-room-coffered-ceiling-stone-fireplace", "commercial-renovation-after",
+SLIDES = ["retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "new-townhomes-exterior",
+          "kitchen-white-cabinets-island-pendant-lights", "living-room-coffered-ceiling-stone-fireplace",
+          "bathroom-freestanding-tub-glass-shower", "commercial-renovation-after",
           "commercial-site-excavation-grading", "precast-structure-crane-set"]
 
 

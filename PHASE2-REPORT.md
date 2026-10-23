@@ -138,9 +138,9 @@
    - one challenge and how it was solved
    - the towns taken from the old site's file names: Cass City, Olivet, Shelby, Davison
    - the location of the multi-tenant building and the renovation
-2. **Credibility details competitors have and RBF doesn't:** year founded, owner and leadership names and bios, Michigan builder license number, insurance and bonding, memberships, and 3–5 customer testimonials with permission.
+2. **Credibility details competitors have and RBF doesn't:** "Licensed & insured" is now shown, taken from RBF's own van. Still needed: the license number to display, year founded, owner and leadership names and bios, Michigan builder license number, insurance and bonding, memberships, and 3–5 customer testimonials with permission.
 3. **Confirm the self-performed list:** excavation, grading, utilities, paving and concrete flatwork. Do RBF crews also do foundations, framing or anything else?
-4. **Photos still needed:** pole barns, finished homes (exteriors), medical interiors, and an RBF-owned photo of the townhomes. The current one is Google Street View and can't be used.
+4. **Photos still needed:** pole barns, finished homes (exteriors) and medical interiors. **Townhomes:** at RBF's request the site now uses the Google Street View townhomes image, credited "Imagery © Google". Google restricts commercial use of Street View imagery, so replace it with an RBF photo before production launch.
 5. **Brand logos:** confirm RBF is comfortable showing client logos (they were already on the old site).
 6. **Google Analytics 4 measurement ID**, plus access to Search Console and Bing Webmaster Tools.
 7. **Production launch approval:** attach rbfconstruction.com to the Hostinger plan running staging. Canonical addresses use `https://rbfconstruction.com` without "www", matching how the old site redirects.

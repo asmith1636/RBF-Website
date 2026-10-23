@@ -65,7 +65,8 @@ MAP_LINK = "https://www.google.com/maps/search/?api=1&query=1411+W+Hill+Rd,+Flin
 # Photos (filename stem -> descriptive alt text / caption)
 # --------------------------------------------------------------------------
 PHOTOS = {
-    "retail-plaza-jimmy-johns-pizza-hut-smoothie-king": "Completed multi-tenant retail building with Jimmy John's, Pizza Hut and Smoothie King storefronts built by RBF Construction",
+    "retail-plaza-jimmy-johns-pizza-hut-smoothie-king": "Completed multi-tenant retail building with Jimmy John's drive-thru, Pizza Hut and Smoothie King storefronts, with an RBF Construction van on site",
+    "new-townhomes-exterior": "New two-story townhome building with front porches, stone accents and stone retaining walls",
     "commercial-renovation-before": "Before: aging single-story commercial building with a cracked, flooded parking lot",
     "commercial-renovation-after": "After: RBF Construction's renovated commercial building with stone facade, new awnings and a freshly paved, striped parking lot",
     "commercial-site-excavation-grading": "Excavators grading and excavating a commercial building site",
@@ -106,6 +107,9 @@ PHOTOS = {
     "storm-pipe-trench-installation": "Large storm pipe laid in a long excavated trench",
     "valve-vault-piping": "New valves and piping inside an underground valve vault",
 }
+# Photos that are not RBF's own and must show a credit wherever they appear
+PHOTO_CREDITS = {"new-townhomes-exterior": "Imagery &copy; Google"}
+
 CLIENTS = [("client-jimmy-johns", "Jimmy John's"), ("client-pizza-hut", "Pizza Hut"),
            ("client-smoothie-king", "Smoothie King"), ("client-taco-bell", "Taco Bell"),
            ("client-dollar-tree", "Dollar Tree"), ("client-biggby-coffee", "Biggby Coffee"),
@@ -420,6 +424,8 @@ def page_hero(h1, lead, trail, bg):
         f'<li><a href="{u}">{escape(n)}</a></li>' if i < len(trail) - 1 else f'<li aria-current="page">{escape(n)}</li>'
         for i, (n, u) in enumerate(trail))
     pic = img(bg, 'bg', lazy=False, alt='', priority=True) if bg else ""
+    if bg in PHOTO_CREDITS:
+        pic += f'<span class="photo-credit">{PHOTO_CREDITS[bg]}</span>'
     cls = "page-hero" if bg else "page-hero plain"
     return f"""<section class="{cls}">{pic}
 <div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><ol>{items}</ol></nav>
@@ -469,6 +475,9 @@ HOME_FAQ = [
      "and all of Southeast Michigan, including <a href=\"/livingston-county-general-contractor\">Livingston</a> and "
      "<a href=\"/lapeer-county-general-contractor\">Lapeer</a> counties and Macomb, Wayne and Washtenaw counties. "
      "See all <a href=\"/service-areas\">service areas</a>."),
+    ("Is RBF Construction licensed and insured?",
+     "Yes. RBF Construction is licensed and insured for residential and commercial work. Ask for license and insurance "
+     "certificates with your bid."),
     ("Does RBF Construction do its own site work?",
      "Yes. RBF&rsquo;s site development division uses its own crews and equipment for excavation, grading, underground "
      "utilities, parking lots and concrete curbs, sidewalks and slabs. Building trades are provided by a trusted network of "
@@ -506,6 +515,7 @@ PROJECTS = [  # (photo, caption, layout, category)
     ("kitchen-island-wood-beams-white-cabinets", "Kitchen with island & wood beams", "wide", "residential"),
     ("taco-bell-new-construction", "New Taco Bell restaurant", "wide", "commercial"),
     ("bathroom-freestanding-tub-glass-shower", "Primary bath with soaking tub", "tall", "residential"),
+    ("new-townhomes-exterior", "New townhomes (Imagery \u00a9 Google)", "wide", "residential"),
     ("commercial-site-excavation-grading", "Commercial site excavation & grading", "", "site"),
     ("family-dollar-dollar-tree-olivet-mi", "Family Dollar / Dollar Tree — Olivet, MI", "", "commercial"),
     ("living-room-coffered-ceiling-stone-fireplace", "Living room & stone fireplace", "wide", "residential"),
@@ -622,7 +632,7 @@ def divisions():
         return "".join(f'<li><a href="/{s["slug"]}">{s["nav"]}</a></li>' for s in SVC_BY_GROUP[group])
     return f"""<div class="divisions">
   <article class="division reveal">
-    <a class="division-media" href="/general-contracting" tabindex="-1" aria-hidden="true">{img('kitchen-island-wood-beams-white-cabinets', alt='', sizes='(max-width:860px) 100vw, 600px')}<span>01 / Build</span></a>
+    <a class="division-media" href="/general-contracting" tabindex="-1" aria-hidden="true">{img('retail-plaza-jimmy-johns-pizza-hut-smoothie-king', alt='', sizes='(max-width:860px) 100vw, 600px')}<span>01 / Build</span></a>
     <div class="division-body">
       <h3><a href="/general-contracting">General Contracting</a></h3>
       <p>Residential and commercial construction with personal on-site supervision &mdash; design-build or design-bid-build.</p>
@@ -649,10 +659,10 @@ def divisions():
 # Pages
 # --------------------------------------------------------------------------
 HERO_SLIDES = [
-    ("taco-bell-new-construction", "New Taco Bell restaurant built by RBF Construction", "center 55%"),
+    ("retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "Multi-tenant restaurant building &mdash; Jimmy John&rsquo;s, Pizza Hut &amp; Smoothie King", "center 55%"),
+    ("new-townhomes-exterior", "New townhomes &mdash; front porches &amp; stone retaining walls (Imagery &copy; Google)", "center 45%"),
     ("kitchen-white-cabinets-island-pendant-lights", "Custom kitchen &mdash; white cabinets, dark island &amp; pendant lighting", "center 55%"),
     ("living-room-coffered-ceiling-stone-fireplace", "Living room &mdash; coffered ceiling &amp; stone fireplace", "center 50%"),
-    ("retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "Multi-tenant retail &mdash; Jimmy John&rsquo;s, Pizza Hut &amp; Smoothie King", "center 65%"),
     ("bathroom-freestanding-tub-glass-shower", "Primary bath &mdash; soaking tub &amp; glass shower", "center 55%"),
     ("commercial-renovation-after", "Commercial renovation &mdash; new facade, paving &amp; striping", "center 60%"),
     ("commercial-site-excavation-grading", "Site excavation &amp; grading", "center 55%"),
@@ -727,6 +737,7 @@ def home():
       <a class="btn btn-amber" href="/construction-contact#quote">Request a Bid {icon('arrow')}</a>
       <a class="btn btn-ghost" href="tel:{BIZ['phone_e164']}">{icon('phone')} Call {BIZ['phone']}</a>
     </div>
+    <ul class="hero-trust"><li>{icon('check')} Licensed &amp; insured</li><li>{icon('check')} Residential &amp; commercial</li><li>{icon('check')} Self-performed site work</li></ul>
   </div>
   {hero_slides()[1]}
 </section>
@@ -860,9 +871,9 @@ def general_contracting():
         "Full-service general contractor for Genesee, Oakland & Southeast Michigan: construction management, design-build, design-bid-build and consulting.",
         "General Contractor in Flint, Genesee County &amp; Southeast Michigan",
         "General contracting, construction management, design-build and consulting &mdash; managed in person, delivered on time and on budget.",
-        "steel-frame-commercial-building", content, faqs, "General Contracting",
+        "retail-plaza-jimmy-johns-pizza-hut-smoothie-king", content, faqs, "General Contracting",
         ["General contracting", "Construction management", "Design-build", "Design-bid-build", "Construction consulting"],
-        ["steel-frame-commercial-building", "foundation-walls-excavation", "concrete-road-curb-gutter-construction"])
+        ["taco-bell-new-construction", "family-dollar-dollar-tree-olivet-mi", "athletico-physical-therapy-shelby-mi"])
 
 
 def commercial():
@@ -895,7 +906,7 @@ def commercial():
         "Commercial contractor in Flint, MI for restaurants, retail, offices, medical and tenant build-outs across Genesee, Oakland & Southeast Michigan.",
         "Commercial Contractor in Flint &amp; Southeast Michigan",
         "Office buildings, restaurants, medical facilities and retail &mdash; from site work to ribbon cutting, for local owners and national brands.",
-        "retail-plaza-jimmy-johns-pizza-hut-smoothie-king", content, faqs, "Commercial General Contracting",
+        "commercial-renovation-after", content, faqs, "Commercial General Contracting",
         ["Commercial construction", "Office construction", "Restaurant construction", "Medical office construction",
          "Retail construction", "Tenant build-out", "Commercial renovation"], [], trail=[("Home", "/"), ("General Contracting", "/general-contracting"), ("Commercial", "/commercial-general-contracting")])
 
@@ -927,7 +938,7 @@ def residential():
         "Custom homes, kitchen & bath remodels and pole barns in Genesee, Oakland & Southeast Michigan, with in-house site work and on-site supervision.",
         "Custom Homes, Remodels &amp; Pole Barns in Genesee County",
         "Custom homes and additions, kitchen and bath remodels, and pole barns across Genesee County, Oakland County and Southeast Michigan.",
-        "foundation-walls-excavation", content, faqs, "Residential General Contracting",
+        "new-townhomes-exterior", content, faqs, "Residential General Contracting",
         ["Residential construction", "Custom home building", "Home additions", "Kitchen remodeling", "Bathroom remodeling", "Pole barns"],
         [], trail=[("Home", "/"), ("General Contracting", "/general-contracting"), ("Residential", "/residential-general-contracting")])
 
@@ -1045,7 +1056,7 @@ def resources():
 
 def projects():
     trail = [("Home", "/"), ("Projects", "/projects/")]
-    body = f"""{page_hero("Construction Projects by RBF", "Restaurants, retail, healthcare, commercial renovation, homes, site development and underground utilities &mdash; real RBF Construction projects.", trail, "taco-bell-new-construction")}
+    body = f"""{page_hero("Construction Projects by RBF", "Restaurants, retail, healthcare, commercial renovation, homes, site development and underground utilities &mdash; real RBF Construction projects.", trail, "retail-plaza-jimmy-johns-pizza-hut-smoothie-king")}
 <section><div class="wrap">
   <div class="section-head"><span class="eyebrow">Case Studies</span><h2>Featured Projects</h2><p>Select a project for photos and details.</p></div>
   {case_cards(CASE_STUDIES, "h3")}
