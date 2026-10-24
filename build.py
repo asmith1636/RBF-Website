@@ -66,6 +66,7 @@ MAP_LINK = "https://www.google.com/maps/search/?api=1&query=1411+W+Hill+Rd,+Flin
 # --------------------------------------------------------------------------
 PHOTOS = {
     "retail-plaza-jimmy-johns-pizza-hut-smoothie-king": "Completed multi-tenant retail building with Jimmy John's drive-thru, Pizza Hut and Smoothie King storefronts, with an RBF Construction van on site",
+    "public-library-brick-building": "Brick public library building with large windows and trees",
     "new-townhomes-exterior": "New two-story townhome building with front porches, stone accents and stone retaining walls",
     "commercial-renovation-before": "Before: aging single-story commercial building with a cracked, flooded parking lot",
     "commercial-renovation-after": "After: RBF Construction's renovated commercial building with stone facade, new awnings and a freshly paved, striped parking lot",
@@ -108,7 +109,8 @@ PHOTOS = {
     "valve-vault-piping": "New valves and piping inside an underground valve vault",
 }
 # Photos that are not RBF's own and must show a credit wherever they appear
-PHOTO_CREDITS = {"new-townhomes-exterior": "Imagery &copy; Google"}
+PHOTO_CREDITS = {"new-townhomes-exterior": "Imagery &copy; Google",
+                 "public-library-brick-building": "Stock photo: Naturalist Boat / Unsplash"}
 
 CLIENTS = [("client-jimmy-johns", "Jimmy John's"), ("client-pizza-hut", "Pizza Hut"),
            ("client-smoothie-king", "Smoothie King"), ("client-taco-bell", "Taco Bell"),
@@ -493,8 +495,8 @@ HOME_FAQ = [
      "the trades, permits and inspections."),
     ("What types of commercial buildings do you build?",
      "Office buildings and tenant build-outs, restaurants including drive-thrus, medical, dental and physical therapy "
-     "offices, retail stores, multi-tenant buildings, and public and nonprofit buildings. We&rsquo;ve built for brands such as Jimmy John&rsquo;s, Pizza Hut, "
-     "Smoothie King, Taco Bell, Dollar Tree, Biggby Coffee, Cottage Inn Pizza and Athletico Physical Therapy, along with many local businesses."),
+     "offices, retail stores, multi-tenant buildings, and public and nonprofit buildings &mdash; for national brands and "
+     "local businesses alike."),
     ("Can RBF take a project from raw land to a finished building?",
      "Yes. Our in-house <a href=\"/site-development\">site development division</a> handles demolition, excavation, grading, "
      "utilities, paving and concrete, and we build the building too &mdash; one contractor from groundbreaking to completion."),
@@ -896,7 +898,7 @@ def commercial():
         ("Can you handle the site work and the building on a commercial project?",
          "Yes. RBF has an in-house site development division for demolition, excavation, grading, utilities, paving and concrete, and we serve as the general contractor for the building."),
         ("Have you built for national brands?",
-         "Yes. Our work includes projects for brands such as Jimmy John's, Pizza Hut, Smoothie King, Taco Bell, Dollar Tree, Biggby Coffee, Cottage Inn Pizza and Athletico Physical Therapy, among others."),
+         "Yes. Our work includes projects for national restaurant, retail and healthcare brands, as well as local business owners and developers."),
         ("Do you build commercial projects in Oakland County?",
          "Yes. We build throughout Oakland County, including Troy, Southfield, Auburn Hills, Novi, Rochester Hills and Waterford, and across Southeast Michigan."),
     ]

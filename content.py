@@ -147,7 +147,7 @@ COUNTIES = [
             ("Do you serve Shiawassee County?",
              "Yes. We work in Owosso, Durand, Corunna, Perry, Laingsburg, Ovid, Morrice, Byron and the surrounding townships."),
             ("Have you done public projects in Shiawassee County?",
-             "Yes. RBF's work in Shiawassee County includes the Durand Memorial Library and a Veterans Affairs building."),
+             "Yes. RBF's work in Shiawassee County includes public buildings, including a library and a government building."),
         ],
     },
 ]
@@ -213,7 +213,7 @@ SERVICES = [
 <p>We build restaurants throughout <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Macomb County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a restaurant construction bid</a>.</p>""",
         "faqs": [
             ("Have you built restaurants for national franchise brands?",
-             "Yes. RBF Construction has built for brands including Jimmy John's, Pizza Hut, Smoothie King, Taco Bell, Cottage Inn Pizza and Biggby Coffee, among others."),
+             "Yes. RBF Construction has built restaurants for national quick-service and franchise brands, as well as local restaurant owners."),
             ("Do you build drive-thru restaurants?",
              "Yes. We build the restaurant and the drive-thru site work, including stacking lanes, curbing, menu-board foundations, grease interceptors, utilities and parking."),
             ("Can you remodel an existing restaurant to new brand standards?",
@@ -244,7 +244,7 @@ SERVICES = [
 <p>Serving <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Washtenaw County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a medical construction bid</a>.</p>""",
         "faqs": [
             ("Do you build medical and dental offices?",
-             "Yes. RBF Construction builds medical office buildings and builds out space for physicians, dentists, physical therapy, urgent care and specialty clinics, including work for Athletico Physical Therapy and other providers."),
+             "Yes. RBF Construction builds medical office buildings and builds out space for physicians, dentists, physical therapy, urgent care and specialty clinics."),
             ("Can you coordinate with our dental or imaging equipment vendors?",
              "Yes. We coordinate power, plumbing, blocking and any shielding requirements with your equipment vendors so installation goes smoothly."),
         ],
@@ -281,7 +281,7 @@ SERVICES = [
         "desc": "Construction for libraries, nonprofit centers and government buildings in Genesee, Shiawassee, Oakland and Southeast Michigan, plus the site work.",
         "h1": "Government &amp; Institutional Construction",
         "lead": "Libraries, community and nonprofit centers, and government buildings across Genesee County, Shiawassee County and Southeast Michigan.",
-        "bg": None, "photos": [],
+        "bg": "public-library-brick-building", "photos": [],
         "body": """<h2>Building for Public and Nonprofit Owners</h2>
 <p>RBF Construction works with public agencies, library districts and nonprofit organizations on their buildings and the site work around them. Public and institutional projects bring their own requirements &mdash; formal bidding, board approvals and detailed documentation &mdash; and we manage them with the same personal on-site supervision we bring to every job.</p>
 <ul class="tick-list"><li>Libraries</li><li>Community &amp; nonprofit centers</li><li>Government buildings</li><li>Interior build-outs</li>
@@ -296,9 +296,9 @@ SERVICES = [
 <p>Serving public and nonprofit owners in <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/shiawassee-county-general-contractor">Shiawassee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a bid</a>.</p>""",
         "faqs": [
             ("Does RBF Construction work on government and public buildings?",
-             "Yes. RBF's public and institutional work includes the Durand Memorial Library and a Veterans Affairs building in Shiawassee County, and the St. Luke N.E.W. Life Center in Flint."),
+             "Yes. RBF's public and institutional work includes a library, a nonprofit community center and a government building in Genesee and Shiawassee counties."),
             ("Do you work with nonprofit organizations?",
-             "Yes. RBF's nonprofit work includes the St. Luke N.E.W. Life Center in Flint. We help nonprofit owners plan scope, budget and schedule before construction starts."),
+             "Yes. RBF works with nonprofit organizations on their buildings and sites, and we help nonprofit owners plan scope, budget and schedule before construction starts."),
         ],
         "types": ["Government building construction", "Institutional construction", "Public building renovation", "Nonprofit facility construction"],
     },
