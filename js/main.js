@@ -153,6 +153,9 @@
       setField('_replyto', (form.querySelector('#email') || {}).value || '');
       // leave unanswered optional fields out of the email
       form.querySelectorAll('input, select, textarea').forEach(function (f) { if (!f.value && f.name !== '_honey') f.disabled = true; });
+      // save a copy in the RBF admin; the form still posts to FormSubmit for the email
+      var kind = { '/get-a-quote': 'quote', '/bidding-list': 'sub', '/careers': 'job' }[location.pathname.replace(/\.html$/, '')];
+      try { if (kind && navigator.sendBeacon) { var copy = new FormData(form); copy.append('_kind', kind); navigator.sendBeacon('/api/submit.php', copy); } } catch (err) { /* email still goes out */ }
       track('generate_lead_submit', { audience: (form.querySelector('#audience') || {}).value || '', project_type: (form.querySelector('#project_type') || {}).value || '' });
     });
     // coming back with the Back button: re-enable the fields
