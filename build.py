@@ -1160,18 +1160,28 @@ def case_page(c):
     return page(path, c["title"], c["desc"], body, trail, [proj], og_image=c["hero"] + ".webp")
 
 
+# How each field is labeled in the lead email (FormSubmit uses the name attribute)
+EMAIL_LABELS = {"name": "Name", "company": "Company", "phone": "Phone", "email": "Email", "audience": "Customer Type",
+                "project_type": "Project Type", "location": "Project Location", "timeline": "Timeline",
+                "drawings": "Drawings", "plans_link": "Plans or Photos Link", "message": "Project Details",
+                "position": "Position", "experience": "Experience", "additional": "Additional Info",
+                "contact": "Contact Person", "services": "Trades / Services", "service_area": "Service Area"}
+
+
 def field(label, name, kind="text", req=True, full=False, auto=None, rows=None):
     r = ' required' if req else ''
     star = ' <span class="req" aria-hidden="true">*</span>' if req else ''
     ac = f' autocomplete="{auto}"' if auto else ''
     c = ' full' if full else ''
+    key = EMAIL_LABELS[name]
     if kind == "textarea":
-        ctl = f'<textarea id="{name}" name="{name}"{r}></textarea>'
+        ctl = f'<textarea id="{name}" name="{key}"{r}></textarea>'
     elif isinstance(kind, list):
-        opts = "".join(f'<option value="{o[0]}">{o[1]}</option>' if isinstance(o, tuple) else f"<option>{o}</option>" for o in kind)
-        ctl = f'<select id="{name}" name="{name}"{r}><option value="">Select&hellip;</option>{opts}</select>'
+        # the email gets the option text; data-key is what ?audience=/?type= links preselect
+        opts = "".join(f'<option data-key="{o[0]}">{o[1]}</option>' if isinstance(o, tuple) else f"<option>{o}</option>" for o in kind)
+        ctl = f'<select id="{name}" name="{key}"{r}><option value="">Select&hellip;</option>{opts}</select>'
     else:
-        ctl = f'<input id="{name}" name="{name}" type="{kind}"{r}{ac}>'
+        ctl = f'<input id="{name}" name="{key}" type="{kind}"{r}{ac}>'
     return f'<div class="field{c}"><label for="{name}">{label}{star}</label>{ctl}</div>'
 
 
@@ -1179,12 +1189,11 @@ def form(subject, fields, button):
     return f"""<form class="card-form" action="{FORM_ACTION}" method="POST">
 <input type="hidden" name="_subject" value="{subject}">
 <input type="hidden" name="_next" value="{SITE}/thank-you">
-<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_template" value="box">
+<input type="hidden" name="_replyto" value="">
 <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-<input type="hidden" name="lead_page" value="">
-<input type="hidden" name="lead_referrer" value="">
-<input type="hidden" name="lead_campaign" value="">
 <div class="fields">{''.join(fields)}</div>
+<input type="hidden" name="How They Found Us" value="">
 <p style="margin-top:22px"><button class="btn btn-amber" type="submit">{button} {icon('arrow')}</button></p>
 <p class="form-note">We&rsquo;ll only use your information to respond to you. See our <a href="/privacy-policy">privacy policy</a>.</p>
 </form>"""

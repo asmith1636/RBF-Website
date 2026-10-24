@@ -132,25 +132,36 @@
     ['audience', 'type'].forEach(function (key) {
       var v = q.get(key);
       var sel = form.querySelector(key === 'type' ? '#project_type' : '#audience');
-      if (v && sel && sel.querySelector('option[value="' + v.replace(/[^a-z-]/g, '') + '"]')) sel.value = v;
+      var opt = v && sel && sel.querySelector('option[data-key="' + v.replace(/[^a-z-]/g, '') + '"]');
+      if (opt) sel.value = opt.value;
     });
     var setField = function (name, value) { var f = form.querySelector('input[name="' + name + '"]'); if (f) f.value = value; };
+    var pageName = function (path) { return path === '/' ? 'Homepage' : path; };
     var store = function (k, v) { try { if (v) sessionStorage.setItem(k, v); return sessionStorage.getItem(k) || v || ''; } catch (err) { return v || ''; } };
     var camp = ['utm_source', 'utm_medium', 'utm_campaign'].map(function (k) { return q.get(k) ? k + '=' + q.get(k) : ''; }).filter(Boolean).join('&');
     var ref = document.referrer;
     var fromPage = ref && ref.indexOf(location.host) !== -1 ? new URL(ref).pathname : '';
-    setField('lead_page', 'first page: ' + (store('rbf_first_page', '') || location.pathname) + (fromPage ? ' | form opened from: ' + fromPage : ''));
     setField('_next', location.origin + '/thank-you');  // stay on the same domain (staging or production)
-    setField('lead_referrer', store('rbf_referrer', ''));
-    setField('lead_campaign', store('rbf_campaign', camp));
+    var origin = store('rbf_referrer', '');
+    var found = ['First page visited: ' + pageName(store('rbf_first_page', '') || location.pathname)];
+    if (fromPage) found.push('Opened the form from: ' + pageName(fromPage));
+    if (origin) found.push('Came from: ' + origin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, ''));
+    var campaign = store('rbf_campaign', camp);
+    if (campaign) found.push('Campaign: ' + campaign);
+    setField('How They Found Us', found.join(' · '));
     form.addEventListener('submit', function () {
+      setField('_replyto', (form.querySelector('#email') || {}).value || '');
+      // leave unanswered optional fields out of the email
+      form.querySelectorAll('input, select, textarea').forEach(function (f) { if (!f.value && f.name !== '_honey') f.disabled = true; });
       track('generate_lead_submit', { audience: (form.querySelector('#audience') || {}).value || '', project_type: (form.querySelector('#project_type') || {}).value || '' });
     });
+    // coming back with the Back button: re-enable the fields
+    window.addEventListener('pageshow', function () { form.querySelectorAll('[disabled]').forEach(function (f) { f.disabled = false; }); });
   }
   // remember first page / referrer / campaign of the visit for the bid form
   try {
     if (!sessionStorage.getItem('rbf_first_page')) sessionStorage.setItem('rbf_first_page', location.pathname);
-    if (!sessionStorage.getItem('rbf_referrer') && document.referrer && document.referrer.indexOf(location.host) === -1) sessionStorage.setItem('rbf_referrer', document.referrer);
+    if (!sessionStorage.getItem('rbf_referrer') && document.referrer && document.referrer.indexOf(location.host) === -1 && document.referrer.indexOf('formsubmit.co') === -1) sessionStorage.setItem('rbf_referrer', document.referrer);
     var qs = new URLSearchParams(location.search);
     if (qs.get('utm_source')) sessionStorage.setItem('rbf_campaign', ['utm_source', 'utm_medium', 'utm_campaign'].map(function (k) { return qs.get(k) ? k + '=' + qs.get(k) : ''; }).filter(Boolean).join('&'));
   } catch (err) { /* storage unavailable: tracking fields stay empty */ }
