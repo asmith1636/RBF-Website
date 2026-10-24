@@ -109,15 +109,17 @@ PHOTOS = {
     "storm-pipe-trench-installation": "Large storm pipe laid in a long excavated trench",
     "valve-vault-piping": "New valves and piping inside an underground valve vault",
 }
-# Photos that are not RBF's own and must show a credit wherever they appear
 # Hero photos with a brand logo or sign. Phones: headline below the sign ("low").
 # Desktop: signs on the left of the photo get the headline on the right ("flip").
 SIGN_PHOTOS = {"athletico-physical-therapy-shelby-mi": "", "cottage-inn-pizza-davison-mi": " flip",
                "family-dollar-dollar-tree-olivet-mi": "", "retail-plaza-jimmy-johns-pizza-hut-smoothie-king": "",
                "smoothie-king-building": " flip", "taco-bell-cass-city-mi": " flip", "public-library-brick-building": ""}
+# Photos that are not RBF's own and must show a credit wherever they appear
 PHOTO_CREDITS = {"new-townhomes-exterior": "Imagery &copy; Google",
                  "public-library-brick-building": "Stock photo: Naturalist Boat / Unsplash",
                  "modern-office-building-exterior": "Stock photo: kaleb tapp / Unsplash"}
+# RBF's own photos: credited ones (stock, Street View) are not listed as RBF's work
+RBF_PHOTOS = [s for s in PHOTOS if s not in PHOTO_CREDITS]
 
 CLIENTS = [("client-jimmy-johns", "Jimmy John's"), ("client-pizza-hut", "Pizza Hut"),
            ("client-smoothie-king", "Smoothie King"), ("client-taco-bell", "Taco Bell"),
@@ -1099,7 +1101,7 @@ def projects():
     gal = {"@type": "ImageGallery", "@id": SITE + "/projects/#gallery", "name": "RBF Construction project photos",
            "about": {"@id": BIZ_ID},
            "image": [{"@type": "ImageObject", "contentUrl": f"{SITE}/img/{s}.webp", "caption": PHOTOS[s],
-                      "creator": {"@id": BIZ_ID}, "copyrightHolder": {"@id": BIZ_ID}} for s in PHOTOS]}
+                      "creator": {"@id": BIZ_ID}, "copyrightHolder": {"@id": BIZ_ID}} for s in RBF_PHOTOS]}
     items = {"@type": "ItemList", "name": "RBF Construction case studies", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "name": strip_tags(c["name"]), "url": f"{SITE}/projects/{c['slug']}"}
         for i, c in enumerate(CASE_STUDIES)]}
@@ -1373,7 +1375,7 @@ def sitemap():
     for u in indexed():
         imgs = ""
         if u == "/projects/":
-            imgs = "".join(f"<image:image><image:loc>{SITE}/img/{s}.webp</image:loc></image:image>" for s in PHOTOS)
+            imgs = "".join(f"<image:image><image:loc>{SITE}/img/{s}.webp</image:loc></image:image>" for s in RBF_PHOTOS)
         urls.append(f"<url><loc>{SITE}{u}</loc><lastmod>{mod.get(u, TODAY)}</lastmod><priority>{pri.get(u, '0.8')}</priority>{imgs}</url>")
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
             'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' + "\n".join(urls) + "\n</urlset>\n")
