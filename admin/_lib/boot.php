@@ -485,6 +485,55 @@ function filters(string $kind, array $g): array
     return [implode(' AND ', $where), $args, $orders[$f['sort']], $f];
 }
 
+// Plain-text email from the site's own address. 'mail_log' in rbf-config.php writes to a file instead (for testing).
+function send_mail(array $to, string $subject, string $body, string $replyTo): bool
+{
+    $c = config();
+    $from = $c['mail_from'] ?? 'info@rbfconstruction.com';
+    $headers = ['From' => 'RBF Construction <' . $from . '>', 'Reply-To' => $replyTo, 'MIME-Version' => '1.0',
+                'Content-Type' => 'text/plain; charset=UTF-8', 'Content-Transfer-Encoding' => '8bit', 'X-Mailer' => 'RBF Admin'];
+    $subject = mb_encode_mimeheader(preg_replace('/[\r\n]+/', ' ', $subject), 'UTF-8', 'Q');
+    $body = str_replace("\n", "\r\n", str_replace("\r\n", "\n", $body));
+    if (!empty($c['mail_log'])) {
+        $raw = 'To: ' . implode(', ', $to) . "\r\nSubject: $subject\r\n";
+        foreach ($headers as $k => $v) {
+            $raw .= "$k: $v\r\n";
+        }
+        return file_put_contents($c['mail_log'], $raw . "\r\n" . $body . "\r\n\r\n=====\r\n\r\n", FILE_APPEND) !== false;
+    }
+    return mail(implode(', ', $to), $subject, $body, $headers, '-f' . $from);
+}
+
+// A record as plain text, for forwarding
+function record_text(array $s, bool $withNotes): string
+{
+    $lines = [KINDS[$s['kind']] . ' — received ' . when($s['created_at']), 'Status: ' . $s['status']];
+    if ($s['kind'] === 'quote' && $s['amount'] !== null) {
+        $lines[] = 'Bid amount: ' . money($s['amount']);
+    }
+    if ($s['follow_up']) {
+        $lines[] = 'Follow-up: ' . day($s['follow_up']);
+    }
+    $lines[] = '';
+    foreach (json_decode($s['fields'], true) ?: [] as $label => $v) {
+        $v = (string) $v;
+        $lines[] = str_contains($v, "\n") ? "$label:\n  " . str_replace("\n", "\n  ", $v) : "$label: $v";
+    }
+    if ($withNotes) {
+        $n = db()->prepare('SELECT * FROM rbf_notes WHERE submission_id = ? ORDER BY created_at, id');
+        $n->execute([$s['id']]);
+        $notes = $n->fetchAll();
+        if ($notes) {
+            $lines[] = '';
+            $lines[] = 'Notes:';
+            foreach ($notes as $note) {
+                $lines[] = '- ' . date('n/j/Y', strtotime($note['created_at'])) . ' ' . $note['author'] . ': ' . str_replace("\n", "\n  ", $note['body']);
+            }
+        }
+    }
+    return implode("\n", $lines);
+}
+
 function field_input(string $label, array $def, string $value): string
 {
     $name = 'f[' . h($label) . ']';

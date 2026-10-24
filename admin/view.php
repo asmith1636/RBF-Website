@@ -42,6 +42,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         flash($parts ? 'Saved.' : 'Nothing changed.');
         redirect('view.php?id=' . $id);
     }
+    if ($action === 'note') {
+        $note = trim(mb_substr(post('note'), 0, 5000));
+        if ($note !== '') {
+            add_note($id, $user['username'], $note);
+        }
+        flash($note !== '' ? 'Note added.' : 'Type a note first.');
+        redirect('view.php?id=' . $id);
+    }
     if ($action === 'snooze') {  // quick follow-up buttons
         $days = (int) post('days');
         if (in_array($days, [1, 3, 7, 14, 30], true)) {
@@ -108,6 +116,7 @@ top($title, $user, $kind);
   <?php if ($tel): ?><a class="btn" href="tel:<?= h($tel) ?>">Call <?= h($s['phone']) ?></a><a class="btn ghost" href="sms:<?= h($tel) ?>">Text</a><?php endif; ?>
   <?php if ($s['email']): ?><a class="btn ghost" href="mailto:<?= h($s['email']) ?>?subject=<?= rawurlencode('Your request to RBF Construction') ?>">Email</a><?php endif; ?>
   <?php if (!empty($fields['Project Location'])): ?><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=<?= rawurlencode($fields['Project Location'] . ', MI') ?>" target="_blank" rel="noopener noreferrer">Map</a><?php endif; ?>
+  <a class="btn ghost" href="forward.php?id=<?= $id ?>">Forward</a>
   <a class="btn ghost" href="edit.php?id=<?= $id ?>">Edit</a>
 </p>
 
@@ -146,15 +155,22 @@ top($title, $user, $kind);
   </section>
 
   <section class="card">
-    <h2>Update</h2>
+    <h2>Add a note</h2>
+    <form method="post">
+      <?= csrf_field() ?><input type="hidden" name="action" value="note">
+      <label class="sr" for="note">Note</label>
+      <textarea id="note" name="note" rows="4" required placeholder="Called, left voicemail. Site visit Tuesday 10am…"></textarea>
+      <p><button class="btn">Add note</button></p>
+    </form>
+
+    <h2>Status &amp; follow-up</h2>
     <form method="post">
       <?= csrf_field() ?><input type="hidden" name="action" value="update">
       <label>Status
         <select name="status"><?php foreach (STATUSES[$kind] as $st): ?><option<?= $st === $s['status'] ? ' selected' : '' ?>><?= h($st) ?></option><?php endforeach; ?></select>
       </label>
       <label>Follow-up date <input name="follow_up" type="date" value="<?= h((string) $s['follow_up']) ?>"></label>
-      <label>Note <textarea name="note" rows="4" placeholder="Called, left voicemail. Site visit Tuesday 10am…"></textarea></label>
-      <button class="btn">Save</button>
+      <button class="btn ghost">Save status &amp; follow-up</button>
     </form>
     <form method="post" class="snooze">
       <?= csrf_field() ?><input type="hidden" name="action" value="snooze">
