@@ -67,7 +67,7 @@
   - Pages: Service, BreadcrumbList, Article and AboutPage.
   - Projects: CollectionPage, ImageGallery and ItemList.
   - Case studies: CreativeWork, with location where known.
-- **Sitemap:** 38 addresses plus 40 images, and it matches every page's canonical tag [Verified].
+- **Sitemap:** 41 addresses plus 41 project photos, and it matches every page's canonical tag [Verified]. Correction: the photo entries were not actually being written until the October 23 update (a path mismatch); an earlier version of this report wrongly listed them as verified.
 - **robots.txt:** allows search and AI crawlers and lists the sitemap.
 - **Server redirects, all to the same domain [Verified on staging]:**
   - HTTPS
@@ -79,7 +79,7 @@
   - real 404 for missing pages
 - **Staging protection [Verified]:** `X-Robots-Tag: noindex, nofollow` on the staging domain. The rule only exempts `rbfconstruction.com` and `www.rbfconstruction.com`.
 - **Images:** WebP, width and height set so the layout doesn't shift, lazy-loading below the fold, the first slide preloaded, smaller files for phones on large images.
-- **Audit [Verified]:** 40 pages, 0 problems found in:
+- **Audit [Verified]:** 41 pages, 0 problems found in:
   - title and description lengths, duplicate titles and descriptions
   - single main heading, heading order
   - image alt text
@@ -87,6 +87,13 @@
   - canonical vs. sitemap
 
 ## 5. Changes aimed at AI search (GEO)
+
+- **Guides (October 23):** three new guides answer common questions:
+  - `/resources/pole-barn-permits-michigan`: when a pole barn needs a permit, and the farm-building exemption
+  - `/resources/commercial-construction-permits-genesee-county`: site plan, soil erosion, driveway, utility and building approvals
+  - `/resources/custom-home-building-steps-michigan`: lot checks through move-in
+- Each guide names state rules only where I checked them against official or primary sources, and lists those sources. They include no RBF prices, timelines or project claims.
+- Every guide now shows a fixed published and updated date, a byline linked to the About page, and an "About This Guide" box. Before, the date changed every time the site was rebuilt, which misstated when guides were updated.
 
 - `llms.txt` now includes:
   - which work RBF self-performs and which it coordinates
@@ -143,7 +150,8 @@
 4. **Photos still needed:** pole barns, finished homes (exteriors) and medical interiors. **Townhomes:** at RBF's request the site now uses the Google Street View townhomes image, credited "Imagery © Google". Google restricts commercial use of Street View imagery, so replace it with an RBF photo before production launch.
 5. **Brand logos:** confirm RBF is comfortable showing client logos (they were already on the old site).
 6. **Google Analytics 4 measurement ID**, plus access to Search Console and Bing Webmaster Tools.
-7. **Production launch approval:** attach rbfconstruction.com to the Hostinger plan running staging. Canonical addresses use `https://rbfconstruction.com` without "www", matching how the old site redirects.
+7. **Guides:** have someone at RBF read the three new guides. Adding RBF's typical timelines, or the owner's name as the author or reviewer, would make them stronger.
+8. **Production launch approval:** attach rbfconstruction.com to the Hostinger plan running staging. Canonical addresses use `https://rbfconstruction.com` without "www", matching how the old site redirects.
 
 ## 9. After launch: how to improve Google rankings
 

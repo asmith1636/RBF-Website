@@ -1027,19 +1027,37 @@ def service_areas():
 # --------------------------------------------------------------------------
 # Resources
 # --------------------------------------------------------------------------
+def long_date(iso):
+    d = date.fromisoformat(iso)
+    return f"{d:%B} {d.day}, {d.year}"
+
+
 def article_page(a):
     path = "/resources/" + a["slug"]
     trail = [("Home", "/"), ("Resources", "/resources/"), (strip_tags(a["h1"]).split(":")[0], path)]
     lead = a["summary"]
+    dates = f'Published <time datetime="{a["published"]}">{long_date(a["published"])}</time>'
+    if a["updated"] != a["published"]:
+        dates += f' &middot; Updated <time datetime="{a["updated"]}">{long_date(a["updated"])}</time>'
+    sources = ""
+    if a.get("sources"):
+        items = "".join(f'<li><a href="{u}" rel="noopener" target="_blank">{escape(t)}</a></li>' for t, u in a["sources"])
+        sources = f'<h2>Sources</h2><ul class="sources">{items}</ul>'
+    about = (f'<div class="about-guide"><h2>About This Guide</h2><p>Written by the team at <a href="/about">{BIZ["name"]}</a>, '
+             f'a licensed and insured general contractor and site developer in Flint, Michigan, serving Genesee, Oakland and '
+             f'Southeast Michigan. Rules vary by community, so confirm requirements with your local building department. '
+             f'Questions? Call <a href="tel:{BIZ["phone_e164"]}">{BIZ["phone"]}</a>.</p></div>')
     body = f"""{page_hero(a['h1'], lead, trail, a['bg'])}
 <section><div class="wrap content-grid">
-  <article class="prose"><p class="byline">By the RBF Construction team &middot; Updated <time datetime="{TODAY}">{date.today().strftime('%B %d, %Y')}</time></p>{a['body']}</article>
+  <article class="prose"><p class="byline">By the <a href="/about">RBF Construction team</a> &middot; {dates}</p>{a['body']}{sources}{about}</article>
   {aside(path)}
 </div></section>"""
     art = {"@type": "Article", "@id": SITE + path + "#article", "headline": strip_tags(a["h1"]), "description": a["desc"],
-           "abstract": a["summary"], "datePublished": TODAY, "dateModified": TODAY,
+           "abstract": a["summary"], "datePublished": a["published"], "dateModified": a["updated"],
            "author": {"@id": BIZ_ID}, "publisher": {"@id": BIZ_ID}, "mainEntityOfPage": SITE + path,
            "image": SITE + "/img/" + (a["bg"] + ".webp" if a["bg"] else "og-image.jpg"), "inLanguage": "en-US"}
+    if a.get("sources"):
+        art["citation"] = [u for _, u in a["sources"]]
     return page(path, a["title"], a["desc"], body, trail, [art])
 
 
@@ -1050,7 +1068,7 @@ def resources():
     body = f"""{page_hero("Construction Guides &amp; Resources", "Straight answers to common questions about remodeling, building and site work in Southeast Michigan.", trail, None)}
 <section><div class="wrap"><div class="section-head"><span class="eyebrow">Guides</span><h2>Plan Your Project</h2></div><div class="county-grid">{cards}</div></div></section>"""
     return page("/resources/", "Construction Guides & Resources | RBF Construction",
-                "Guides from RBF Construction on design-build vs. design-bid-build, planning a kitchen or bath remodel, and commercial site work in Michigan.",
+                "Guides from RBF Construction on Michigan permits for pole barns and commercial buildings, building a custom home, remodel planning and site work.",
                 body, trail, page_type="CollectionPage")
 
 
@@ -1342,11 +1360,12 @@ def indexed():
 def sitemap():
     pri = {"/": "1.0", "/construction-contact": "0.9", "/oakland-county-general-contractor": "0.9", "/privacy-policy": "0.2"}
     urls = []
+    mod = {"/resources/" + a["slug"]: a["updated"] for a in ARTICLES}
     for u in indexed():
         imgs = ""
-        if u == "/projects":
+        if u == "/projects/":
             imgs = "".join(f"<image:image><image:loc>{SITE}/img/{s}.webp</image:loc></image:image>" for s in PHOTOS)
-        urls.append(f"<url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod><priority>{pri.get(u, '0.8')}</priority>{imgs}</url>")
+        urls.append(f"<url><loc>{SITE}{u}</loc><lastmod>{mod.get(u, TODAY)}</lastmod><priority>{pri.get(u, '0.8')}</priority>{imgs}</url>")
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
             'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' + "\n".join(urls) + "\n</urlset>\n")
 

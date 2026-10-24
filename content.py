@@ -253,7 +253,7 @@ SERVICES = [
 <li><strong>Wainscot, windows, cupolas and color choices</strong> to match your home</li>
 <li><strong>Driveways and grading</strong> so water drains away from the building</li></ul>
 <h2>Permits, Zoning and Site Planning</h2>
-<p>Most Michigan townships regulate accessory buildings with size limits, height limits and setbacks, and require a building permit. We review your township&rsquo;s rules, plan the building location, pull permits and schedule inspections.</p>
+<p>Most Michigan townships regulate accessory buildings with size limits, height limits and setbacks, and require a building permit. We review your township&rsquo;s rules, plan the building location, pull permits and schedule inspections. Farm buildings may qualify for Michigan&rsquo;s agricultural exemption &mdash; see our <a href="/resources/pole-barn-permits-michigan">pole barn permit guide</a>.</p>
 <h2>Our Pole Barn Process</h2>
 <ol><li><strong>Site visit:</strong> we look at the location, access, drainage and how you&rsquo;ll use the building.</li>
 <li><strong>Design &amp; estimate:</strong> size, doors, options and a clear price.</li>
@@ -491,6 +491,7 @@ SERVICES = [
 ARTICLES = [
     {
         "slug": "design-build-vs-design-bid-build",
+        "published": "2026-10-21", "updated": "2026-10-21",
         "title": "Design-Build vs. Design-Bid-Build in Michigan | RBF",
         "h1": "Design-Build vs. Design-Bid-Build: Which Is Right for Your Project?",
         "desc": "A plain-English comparison of design-build and design-bid-build for Michigan commercial and residential projects, from a general contractor.",
@@ -519,6 +520,7 @@ ARTICLES = [
     },
     {
         "slug": "kitchen-bathroom-remodel-planning-guide",
+        "published": "2026-10-21", "updated": "2026-10-21",
         "title": "Kitchen & Bath Remodel Planning Guide | SE Michigan",
         "h1": "Planning a Kitchen or Bathroom Remodel in Southeast Michigan",
         "desc": "Step-by-step guide to planning a kitchen or bathroom remodel in Genesee, Oakland & SE Michigan: scope, budget, permits, timing and contractors.",
@@ -544,6 +546,7 @@ ARTICLES = [
     },
     {
         "slug": "commercial-site-work-guide",
+        "published": "2026-10-21", "updated": "2026-10-21",
         "title": "Commercial Site Work Guide for Michigan Owners | RBF",
         "h1": "What Site Work Does a Commercial Building Need?",
         "desc": "A guide for Michigan business owners to commercial site work: clearing, earthwork, utilities, storm water, paving, concrete and why it affects cost.",
@@ -566,6 +569,125 @@ ARTICLES = [
 <p>Topsoil, final grades and landscaping areas finish the site and direct water away from the building.</p>
 <h2>Why One Contractor for Site and Building Helps</h2>
 <p>When the site contractor and building contractor are different companies, schedule gaps and finger-pointing are common. RBF Construction performs <a href="/site-development">site development</a> and <a href="/general-contracting">general contracting</a> under one contract across <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a bid</a>.</p>""",
+    },
+    {
+        "slug": "pole-barn-permits-michigan",
+        "published": "2026-10-23", "updated": "2026-10-23",
+        "title": "Do You Need a Permit for a Pole Barn in Michigan? | RBF",
+        "h1": "Do You Need a Permit for a Pole Barn in Michigan?",
+        "desc": "When a Michigan pole barn needs a building permit, when the farm-building exemption applies, and the zoning, soil erosion and MISS DIG steps that still apply.",
+        "summary": "Most pole barns and garages over 200 square feet need a building permit. Farm buildings used for agriculture can be exempt from the building permit, but zoning rules still apply.",
+        "bg": None,
+        "body": """<p class="tldr"><strong>Short answer:</strong> In Michigan, a detached accessory building over <strong>200 square feet</strong> &mdash; which includes almost every pole barn or garage &mdash; needs a building permit from the local building department. A building used for <strong>agriculture</strong> on the land it sits on, and not for retail sales, can be exempt from the building permit under state law. Either way, the township&rsquo;s <strong>zoning rules</strong> for size, height and setbacks still apply.</p>
+<h2>When a Pole Barn Needs a Building Permit</h2>
+<p>The Michigan Residential Code exempts one-story detached accessory structures with a floor area of 200 square feet or less from the building permit. Anything larger &mdash; a typical pole barn, detached garage or workshop &mdash; needs a permit and inspections. Permits are issued by the city, township or village where the property is located, or by the county where it runs the building department for that community.</p>
+<h2>The Agricultural (Farm Building) Exemption</h2>
+<p>Michigan&rsquo;s Single State Construction Code Act says a building permit is not required for a building incidental to the agricultural use of the land it sits on, as long as it is not used for retail trade. Townships usually ask the owner to sign an <strong>agricultural exemption affidavit</strong> stating that the building will store farm equipment or products, will not be lived in, and will not be used for retail sales.</p>
+<ul><li>The exemption applies to the <strong>building permit</strong>, not to zoning. Most townships still require a zoning or land-use permit.</li>
+<li>If the building later changes use &mdash; for example, to a shop, a home business or living space &mdash; the exemption can be lost and the building must meet code.</li>
+<li>Townships apply the exemption differently. Some require that the stored products be grown on the same property.</li></ul>
+<h2>Zoning Rules That Still Apply</h2>
+<p>Township zoning ordinances commonly regulate accessory buildings by:</p>
+<ul><li>maximum size, often tied to lot size</li><li>maximum height</li><li>setbacks from property lines, the road and the house</li><li>whether the building can sit in front of the house</li><li>exterior materials in some subdivisions</li></ul>
+<p>Private deed restrictions or homeowner association rules can be stricter than zoning, so check those too.</p>
+<h2>Other Approvals to Check</h2>
+<ul><li><strong>Soil erosion permit:</strong> Michigan generally requires a soil erosion and sedimentation control permit for earth changes that disturb one acre or more, or that are within 500 feet of a lake or stream. In Genesee County, the Drain Commissioner&rsquo;s office administers the program for most communities.</li>
+<li><strong>MISS DIG 811:</strong> state law requires notice to MISS DIG at least three business days before digging post holes or footings, so underground utilities can be marked.</li>
+<li><strong>Driveway access:</strong> a new driveway to a county road needs a permit from the county road commission.</li>
+<li><strong>Electrical:</strong> wiring a pole barn usually needs a separate electrical permit and inspection.</li></ul>
+<h2>Steps Before You Build</h2>
+<ol><li>Call your township building or zoning office and ask about accessory building limits and permits.</li>
+<li>If the barn is for farm use, ask for the agricultural exemption form.</li>
+<li>Have the building location, size and height planned to fit the setbacks.</li>
+<li>Submit plans for the building permit, if one is required.</li>
+<li>Call MISS DIG 811 before any digging starts.</li></ol>
+<p>RBF Construction builds <a href="/pole-barns">pole barns and garages</a> across <a href="/genesee-county-general-contractor">Genesee</a>, <a href="/lapeer-county-general-contractor">Lapeer</a>, <a href="/livingston-county-general-contractor">Livingston</a> and <a href="/oakland-county-general-contractor">Oakland</a> counties, and handles the site prep and permits. <a href="/construction-contact#quote">Request a pole barn estimate</a>.</p>""",
+        "sources": [
+            ("Michigan Residential Code, R 408.30505: work exempt from permit", "https://www.law.cornell.edu/regulations/michigan/Mich-Admin-Code-R-408-30505"),
+            ("Michigan Farm Bureau: building permit exemption for farm buildings", "https://www.michfb.com/agriculture/farming-resources/land-use-regulation/building-permit-exemption"),
+            ("Michigan EGLE: soil erosion and sedimentation control overview", "https://www.michigan.gov/egle/about/organization/water-resources/soil-erosion/sesc-overview"),
+            ("MISS DIG 811: frequently asked questions", "https://www.missdig811.org/get-started/i-want-to-dig/faq.html"),
+        ],
+    },
+    {
+        "slug": "commercial-construction-permits-genesee-county",
+        "published": "2026-10-23", "updated": "2026-10-23",
+        "title": "Commercial Construction Permits in Genesee County | RBF",
+        "h1": "Permits and Approvals for Commercial Construction in Genesee County, Michigan",
+        "desc": "The approvals a new commercial building in Flint and Genesee County typically needs: site plan review, soil erosion, driveway, utility and building permits.",
+        "summary": "A new commercial building typically needs local site plan approval, a soil erosion permit, driveway and utility permits, and building and trade permits before it can open.",
+        "bg": "steel-frame-commercial-building",
+        "body": """<p class="tldr"><strong>Short answer:</strong> A new commercial building in Flint or Genesee County typically needs <strong>site plan approval</strong> from the city or township, a <strong>soil erosion and sedimentation control permit</strong>, a <strong>driveway permit</strong> from the road agency, <strong>water and sewer connection</strong> approvals, and <strong>building and trade permits</strong> &mdash; followed by inspections and a certificate of occupancy. Which agencies are involved depends on the community and the road the site fronts.</p>
+<h2>1. Zoning and Site Plan Review</h2>
+<p>Commercial projects start with the local city or township. The site plan &mdash; building location, parking, drive aisles, landscaping, lighting, storm water and utilities &mdash; is reviewed against the zoning ordinance, often by the planning commission. A use that isn&rsquo;t allowed by right may need a special land use approval or rezoning first, which adds time.</p>
+<h2>2. Storm Water and Soil Erosion</h2>
+<ul><li><strong>Soil erosion and sedimentation control (SESC) permit:</strong> required in Michigan for earth changes of one acre or more, or within 500 feet of a lake or stream. In Genesee County, most communities&rsquo; permits are issued by the Genesee County Drain Commissioner&rsquo;s office; some cities and townships run their own program.</li>
+<li><strong>Storm water design:</strong> most communities require new development to control runoff, often with a detention or retention pond or underground storage, reviewed with the site plan.</li>
+<li><strong>State storm water coverage:</strong> larger sites that disturb an acre or more and discharge to state waters may also need coverage from Michigan EGLE.</li></ul>
+<h2>3. Driveway and Right-of-Way Permits</h2>
+<p>Any new or changed driveway needs a permit from the agency that owns the road:</p>
+<ul><li><strong>County roads:</strong> the Genesee County Road Commission.</li>
+<li><strong>State highways</strong> (I-, M- and US-numbered routes): the Michigan Department of Transportation (MDOT), through its online permit system.</li>
+<li><strong>City streets:</strong> the city.</li></ul>
+<p>Commercial driveways, especially for drive-thru restaurants, may need a traffic study, turn lanes or specific spacing from other drives.</p>
+<h2>4. Water and Sewer Connections</h2>
+<p>Water service, sanitary sewer and storm sewer connections are approved by the utility that serves the site &mdash; the city, the township, or the county&rsquo;s water and waste system. Restaurants usually also need a grease interceptor sized and approved for the kitchen. Sites without public sewer or water need health department approval for a well or septic system.</p>
+<h2>5. Building and Trade Permits</h2>
+<p>Once the site plan is approved, construction drawings, usually sealed by a Michigan-licensed, architect or engineer are submitted for the building permit. Separate permits cover electrical, plumbing and mechanical work. Restaurants and other food businesses also need plan review from the health department before opening.</p>
+<h2>6. MISS DIG Before Digging</h2>
+<p>Michigan law requires notice to MISS DIG 811 at least three business days before excavation, so existing utilities are marked before site work begins.</p>
+<h2>7. Inspections and Certificate of Occupancy</h2>
+<p>The building department inspects footings, framing, trades and final construction. The site work &mdash; utilities, paving, landscaping and storm water &mdash; must also be completed or bonded before the community issues a <strong>certificate of occupancy</strong>, which is required before the business can open.</p>
+<h2>How to Keep Approvals From Delaying Your Opening</h2>
+<ul><li>Meet with the city or township planning staff before buying or designing the site.</li>
+<li>Confirm which road agency controls the driveway and whether a traffic study is needed.</li>
+<li>Confirm where water and sewer connect and who owns those lines.</li>
+<li>Bring your contractor in during design so site costs are priced before approvals are final.</li></ul>
+<p>RBF Construction handles <a href="/site-development">site development</a> and <a href="/commercial-general-contracting">commercial construction</a> in <a href="/genesee-county-general-contractor">Genesee County</a> and across <a href="/service-areas">Southeast Michigan</a>, including <a href="/restaurant-construction">restaurants</a> and <a href="/retail-construction">retail buildings</a>. <a href="/construction-contact#quote">Request a bid</a>.</p>""",
+        "sources": [
+            ("Michigan EGLE: soil erosion and sedimentation control overview", "https://www.michigan.gov/egle/about/organization/water-resources/soil-erosion/sesc-overview"),
+            ("Michigan EGLE: Part 91 enforcing agencies", "https://www.michigan.gov/egle/about/organization/water-resources/soil-erosion/part-91-agencies"),
+            ("Genesee County Road Commission: driveway permits", "https://gcrc.org/permits/driveway"),
+            ("MDOT: building on a state highway", "https://www.michigan.gov/mdot/about/faqs/business/building-on-state-highway"),
+            ("MISS DIG 811: frequently asked questions", "https://www.missdig811.org/get-started/i-want-to-dig/faq.html"),
+        ],
+    },
+    {
+        "slug": "custom-home-building-steps-michigan",
+        "published": "2026-10-23", "updated": "2026-10-23",
+        "title": "Building a Custom Home in Michigan: Step by Step | RBF",
+        "h1": "Building a Custom Home in Michigan: Steps From Lot to Move-In",
+        "desc": "The steps to build a custom home in Genesee, Oakland and Southeast Michigan: lot checks, design, permits, site work, construction, inspections and move-in.",
+        "summary": "Check the lot first, then design and price the home, get permits, complete site work and the foundation, build and inspect the home, and finish with a certificate of occupancy.",
+        "bg": "foundation-walls-excavation",
+        "body": """<p class="tldr"><strong>Short answer:</strong> Building a custom home in Michigan follows the same order almost every time: <strong>check the lot</strong>, <strong>design and price</strong> the home, get <strong>permits</strong>, complete <strong>site work and the foundation</strong>, <strong>build</strong> the home with inspections along the way, then receive a <strong>certificate of occupancy</strong> and move in. Most surprises &mdash; and most extra cost &mdash; come from the lot, so check it before you buy.</p>
+<h2>1. Check the Lot Before You Buy</h2>
+<ul><li><strong>Zoning and setbacks:</strong> confirm a home of the size you want fits the lot.</li>
+<li><strong>Water and sewer:</strong> if public utilities aren&rsquo;t available, the lot needs approval from the county health department for a well and septic system. Soils that don&rsquo;t pass a septic evaluation can limit or rule out a lot.</li>
+<li><strong>Soils, slope and drainage:</strong> wet ground, high groundwater or steep grades add excavation, fill or drainage cost.</li>
+<li><strong>Access and utilities:</strong> the driveway may need a road commission permit, and bringing electric and gas to a rural lot can be a real cost.</li>
+<li><strong>Restrictions:</strong> subdivision covenants or association rules can set minimum home size, materials or style.</li></ul>
+<h2>2. Design the Home and Set the Budget</h2>
+<p>Work with an architect or designer, or through a design-build contractor, to develop floor plans and selections. Price the design as it develops so the plan stays in budget, and include the site work &mdash; excavation, utilities, driveway and grading &mdash; which is easy to underestimate. See <a href="/resources/design-build-vs-design-bid-build">design-build vs. design-bid-build</a>.</p>
+<h2>3. Financing</h2>
+<p>Most custom homes are financed with a construction loan that pays the builder in stages as work is completed and inspected. Lenders usually want final plans, a fixed contract price and a schedule.</p>
+<h2>4. Permits</h2>
+<p>The building permit comes from the city, township or village (or the county where it runs the building department). Expect separate permits for electrical, plumbing and mechanical work, plus a soil erosion permit when the earth disturbance is an acre or more or within 500 feet of a lake or stream. Michigan law also requires calling MISS DIG 811 at least three business days before digging.</p>
+<h2>5. Site Work and Foundation</h2>
+<p>The lot is cleared, the basement or foundation is excavated, footings and foundation walls are poured, and the well, septic or utility connections are installed. Good site work &mdash; correct elevations and drainage away from the house &mdash; prevents wet basements later. See <a href="/excavation-grading">excavation and grading</a>.</p>
+<h2>6. Construction and Inspections</h2>
+<p>Framing, roofing, windows, and rough plumbing, electrical and mechanical work come next, each inspected before walls are closed. Then insulation, drywall, cabinets, flooring, fixtures and finishes. Making selections early keeps long-lead items such as windows and cabinets from holding up the schedule.</p>
+<h2>7. Final Inspection and Move-In</h2>
+<p>After final inspections, the building department issues a certificate of occupancy. The driveway, final grading and seeding finish the site, and a walkthrough produces a punch list of final items before move-in.</p>
+<h2>Questions to Ask a Custom Home Builder</h2>
+<ul><li>Will you check the lot before I buy it?</li><li>Is site work included in your price, and who performs it?</li>
+<li>Who supervises the job day to day?</li><li>How do you handle changes and allowances?</li><li>Do you pull the permits and schedule inspections?</li></ul>
+<p>RBF Construction builds <a href="/custom-home-builder">custom homes and additions</a> across <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a> and <a href="/service-areas">Southeast Michigan</a>, with its own crews handling the excavation and site work. <a href="/construction-contact#quote">Talk with RBF about your home</a>.</p>""",
+        "sources": [
+            ("Michigan EGLE: soil erosion and sedimentation control overview", "https://www.michigan.gov/egle/about/organization/water-resources/soil-erosion/sesc-overview"),
+            ("MISS DIG 811: frequently asked questions", "https://www.missdig811.org/get-started/i-want-to-dig/faq.html"),
+            ("Genesee County Road Commission: driveway permits", "https://gcrc.org/permits/driveway"),
+        ],
     },
 ]
 
