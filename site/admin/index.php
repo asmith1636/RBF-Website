@@ -1,97 +1,107 @@
 <?php
+// Dashboard: what needs attention today, and how the bids are going
 define('RBF', true);
 require __DIR__ . '/_lib/boot.php';
 
 $user = require_login();
-$kind = array_key_exists($_GET['kind'] ?? '', KINDS) ? $_GET['kind'] : 'quote';
-$statuses = STATUSES[$kind];
-$closed = ['Won', 'Lost', 'Not a Fit', 'Hired', 'Spam'];
-$open = array_values(array_diff($statuses, $closed));
-$status = (string) ($_GET['status'] ?? 'open');
-if ($status !== 'open' && $status !== 'all' && !in_array($status, $statuses, true)) {
-    $status = 'open';
-}
-$search = trim((string) ($_GET['q'] ?? ''));
-$page = max(1, (int) ($_GET['page'] ?? 1));
-$per = 50;
+$db = db();
+$today = date('Y-m-d');
+$closed = implode(',', array_map(fn($s) => $db->quote($s), CLOSED));
 
-$where = ['kind = ?'];
-$args = [$kind];
-if ($status === 'open') {
-    $where[] = 'status IN (' . implode(',', array_fill(0, count($open), '?')) . ')';
-    array_push($args, ...$open);
-} elseif ($status !== 'all') {
-    $where[] = 'status = ?';
-    $args[] = $status;
-}
-if ($search !== '') {
-    $like = '%' . addcslashes($search, '%_\\') . '%';
-    $where[] = '(name LIKE ? OR company LIKE ? OR email LIKE ? OR phone LIKE ? OR fields LIKE ?)';
-    array_push($args, $like, $like, $like, $like, $like);
-}
-$sqlWhere = implode(' AND ', $where);
-$q = db()->prepare("SELECT COUNT(*) FROM rbf_submissions WHERE $sqlWhere");
-$q->execute($args);
-$total = (int) $q->fetchColumn();
-$q = db()->prepare("SELECT * FROM rbf_submissions WHERE $sqlWhere ORDER BY created_at DESC, id DESC LIMIT $per OFFSET " . (($page - 1) * $per));
-$q->execute($args);
-$rows = $q->fetchAll();
+$due = $db->prepare("SELECT * FROM rbf_submissions WHERE follow_up <= ? AND status NOT IN ($closed) ORDER BY follow_up, created_at LIMIT 25");
+$due->execute([$today]);
+$due = $due->fetchAll();
+$fresh = $db->query("SELECT * FROM rbf_submissions WHERE status = 'New' ORDER BY created_at DESC LIMIT 10")->fetchAll();
+$mine = $db->prepare("SELECT COUNT(*) FROM rbf_submissions WHERE assigned_to = ? AND status NOT IN ($closed)");
+$mine->execute([$user['id']]);
+$mine = (int) $mine->fetchColumn();
 
-$counts = ['all' => 0, 'open' => 0];
-$c = db()->prepare('SELECT status, COUNT(*) n FROM rbf_submissions WHERE kind = ? GROUP BY status');
-$c->execute([$kind]);
-foreach ($c as $r) {
-    $counts[$r['status']] = (int) $r['n'];
-    $counts['all'] += (int) $r['n'];
-    if (in_array($r['status'], $open, true)) {
-        $counts['open'] += (int) $r['n'];
-    }
-}
-
-function link_to(array $changes): string
+$year = date('Y') . '-01-01 00:00:00';
+function one_row(string $sql, array $a = []): array
 {
-    $p = array_merge(['kind' => $_GET['kind'] ?? 'quote', 'status' => $_GET['status'] ?? 'open', 'q' => $_GET['q'] ?? ''], $changes);
-    return './?' . http_build_query(array_filter($p, fn($v) => $v !== '' && $v !== null));
+    $q = db()->prepare($sql);
+    $q->execute($a);
+    return $q->fetch();
+}
+$week = one_row("SELECT COUNT(*) n FROM rbf_submissions WHERE kind = 'quote' AND created_at >= ?", [date('Y-m-d 00:00:00', strtotime('-6 days'))]);
+$out = one_row("SELECT COUNT(*) n, SUM(amount) total FROM rbf_submissions WHERE kind = 'quote' AND status = 'Bid Sent'");
+$won = one_row("SELECT COUNT(*) n, SUM(amount) total FROM rbf_submissions WHERE kind = 'quote' AND status = 'Won' AND created_at >= ?", [$year]);
+$lost = one_row("SELECT COUNT(*) n FROM rbf_submissions WHERE kind = 'quote' AND status = 'Lost' AND created_at >= ?", [$year]);
+$rate = ($won['n'] + $lost['n']) ? round(100 * $won['n'] / ($won['n'] + $lost['n'])) . '%' : '—';
+
+$pipeline = [];
+foreach ($db->query("SELECT status, COUNT(*) n FROM rbf_submissions WHERE kind = 'quote' GROUP BY status") as $r) {
+    $pipeline[$r['status']] = (int) $r['n'];
+}
+$types = $db->prepare("SELECT summary, COUNT(*) n FROM rbf_submissions WHERE kind = 'quote' AND summary <> '' AND created_at >= ? GROUP BY summary ORDER BY n DESC LIMIT 6");
+$types->execute([$year]);
+$types = $types->fetchAll();
+$sources = $db->prepare("SELECT source, COUNT(*) n FROM rbf_submissions WHERE kind = 'quote' AND created_at >= ? GROUP BY source ORDER BY n DESC");
+$sources->execute([$year]);
+$sources = $sources->fetchAll();
+$activity = $db->query('SELECT n.*, s.name, s.company FROM rbf_notes n JOIN rbf_submissions s ON s.id = n.submission_id ORDER BY n.created_at DESC, n.id DESC LIMIT 8')->fetchAll();
+
+function mini_row(array $r, string $extra = ''): string
+{
+    return '<a class="mini" href="view.php?id=' . (int) $r['id'] . '"><span><strong>' . h($r['name'] ?: $r['company'] ?: '(no name)') . '</strong>'
+         . '<small>' . h(KINDS[$r['kind']] . ($r['summary'] ? ' · ' . $r['summary'] : '')) . '</small></span>' . $extra . '</a>';
 }
 
-top(KINDS[$kind], $user, $kind);
+top('Dashboard', $user, 'home');
 ?>
 <div class="head">
-  <h1><?= h(KINDS[$kind]) ?></h1>
-  <a class="btn ghost" href="export.php?kind=<?= $kind ?>">Download CSV</a>
+  <h1>Hi, <?= h($user['username']) ?></h1>
+  <p class="actions">
+    <a class="btn" href="edit.php?kind=quote">+ Bid request</a>
+    <a class="btn ghost" href="edit.php?kind=sub">+ Subcontractor</a>
+    <a class="btn ghost" href="edit.php?kind=job">+ Applicant</a>
+  </p>
 </div>
-<nav class="tabs">
-  <?php foreach (array_merge(['open'], $statuses, ['all']) as $s): ?>
-    <a href="<?= h(link_to(['status' => $s, 'page' => null])) ?>"<?= $s === $status ? ' class="on"' : '' ?>><?= h(ucfirst($s)) ?> <span><?= $counts[$s] ?? 0 ?></span></a>
-  <?php endforeach; ?>
-</nav>
-<form class="search" method="get">
-  <input type="hidden" name="kind" value="<?= $kind ?>"><input type="hidden" name="status" value="<?= h($status) ?>">
-  <input name="q" type="search" placeholder="Search name, company, phone, email or details" value="<?= h($search) ?>">
-  <button class="btn">Search</button>
-  <?php if ($search !== ''): ?><a href="<?= h(link_to(['q' => null])) ?>">Clear</a><?php endif; ?>
+<form class="search" method="get" action="search.php">
+  <input name="q" type="search" placeholder="Find anyone: name, company, phone or email" required>
+  <button class="btn">Search all</button>
 </form>
 
-<?php if (!$rows): ?>
-  <p class="empty"><?= $counts['all'] ? 'Nothing matches.' : 'Nothing yet. New submissions from the website show up here.' ?></p>
-<?php else: ?>
-  <div class="list">
-    <?php foreach ($rows as $r): ?>
-      <a class="row" href="view.php?id=<?= (int) $r['id'] ?>">
-        <span class="who"><strong><?= h($r['name'] ?: $r['company'] ?: '(no name)') ?></strong><?php if ($r['company'] && $r['name']): ?><small><?= h($r['company']) ?></small><?php endif; ?></span>
-        <span class="what"><?= h($r['summary']) ?></span>
-        <span class="phone"><?= h($r['phone']) ?></span>
-        <span class="date"><?= h(date('M j, g:i a', strtotime($r['created_at']))) ?></span>
-        <span class="status s-<?= h(strtolower(str_replace(' ', '-', $r['status']))) ?>"><?= h($r['status']) ?></span>
-      </a>
+<div class="stats">
+  <a class="stat" href="list.php?kind=quote&amp;status=all&amp;from=<?= date('Y-m-d', strtotime('-6 days')) ?>"><b><?= (int) $week['n'] ?></b><span>Bid requests this week</span></a>
+  <a class="stat" href="list.php?kind=quote&amp;status=Bid+Sent"><b><?= (int) $out['n'] ?></b><span>Bids out<?= $out['total'] ? ' · ' . h(money($out['total'])) : '' ?></span></a>
+  <a class="stat" href="list.php?kind=quote&amp;status=Won&amp;from=<?= date('Y') ?>-01-01"><b><?= (int) $won['n'] ?></b><span>Won in <?= date('Y') ?><?= $won['total'] ? ' · ' . h(money($won['total'])) : '' ?></span></a>
+  <div class="stat"><b><?= $rate ?></b><span>Win rate in <?= date('Y') ?> (won vs. lost)</span></div>
+</div>
+
+<div class="cols">
+  <section class="card">
+    <h2>Follow-ups due <?= $due ? '<b class="badge">' . count($due) . '</b>' : '' ?></h2>
+    <?php if (!$due): ?><p class="muted">Nothing due today. 🎣</p><?php endif; ?>
+    <?php foreach ($due as $r): ?>
+      <?= mini_row($r, '<span class="follow due">' . ($r['follow_up'] < $today ? 'Overdue · ' : 'Today · ') . h(day($r['follow_up'])) . '</span>') ?>
     <?php endforeach; ?>
-  </div>
-  <?php if ($total > $per): ?>
-    <p class="pager">
-      <?php if ($page > 1): ?><a href="<?= h(link_to(['page' => $page - 1])) ?>">&larr; Newer</a><?php endif; ?>
-      <span>Page <?= $page ?> of <?= (int) ceil($total / $per) ?></span>
-      <?php if ($page * $per < $total): ?><a href="<?= h(link_to(['page' => $page + 1])) ?>">Older &rarr;</a><?php endif; ?>
-    </p>
-  <?php endif; ?>
-<?php endif;
-bottom();
+    <h2>New, not yet handled</h2>
+    <?php if (!$fresh): ?><p class="muted">You’re all caught up.</p><?php endif; ?>
+    <?php foreach ($fresh as $r): ?>
+      <?= mini_row($r, '<span class="date">' . h(date('M j', strtotime($r['created_at']))) . '</span>') ?>
+    <?php endforeach; ?>
+    <?php if ($mine): ?><p><a href="list.php?kind=quote&amp;who=<?= (int) $user['id'] ?>">Your open bid requests (<?= $mine ?>) &rarr;</a></p><?php endif; ?>
+  </section>
+
+  <section class="card">
+    <h2>Bid request pipeline</h2>
+    <?php $max = max([1, ...array_values($pipeline)]); foreach (STATUSES['quote'] as $st): $n = $pipeline[$st] ?? 0; ?>
+      <a class="bar-row" href="list.php?kind=quote&amp;status=<?= urlencode($st) ?>"><span><?= h($st) ?></span><i><em class="w<?= (int) round(10 * $n / $max) ?>"></em></i><b><?= $n ?></b></a>
+    <?php endforeach; ?>
+    <?php if ($types): ?>
+      <h2>Top project types in <?= date('Y') ?></h2>
+      <?php foreach ($types as $t): ?><a class="bar-row plain" href="list.php?kind=quote&amp;status=all&amp;type=<?= urlencode($t['summary']) ?>"><span><?= h($t['summary']) ?></span><b><?= (int) $t['n'] ?></b></a><?php endforeach; ?>
+    <?php endif; ?>
+    <?php if ($sources): ?>
+      <h2>Where bid requests came from in <?= date('Y') ?></h2>
+      <?php foreach ($sources as $t): ?><a class="bar-row plain" href="list.php?kind=quote&amp;status=all&amp;source=<?= urlencode($t['source']) ?>"><span><?= h($t['source']) ?></span><b><?= (int) $t['n'] ?></b></a><?php endforeach; ?>
+    <?php endif; ?>
+    <h2>Recent activity</h2>
+    <?php if (!$activity): ?><p class="muted">No activity yet.</p><?php endif; ?>
+    <?php foreach ($activity as $n): ?>
+      <a class="mini" href="view.php?id=<?= (int) $n['submission_id'] ?>"><span><strong><?= h($n['name'] ?: $n['company']) ?></strong><small><?= h($n['author'] . ': ' . mb_strimwidth(str_replace("\n", ' ', $n['body']), 0, 90, '…')) ?></small></span><span class="date"><?= h(date('M j', strtotime($n['created_at']))) ?></span></a>
+    <?php endforeach; ?>
+  </section>
+</div>
+<?php bottom();
