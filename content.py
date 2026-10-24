@@ -54,7 +54,7 @@ COUNTIES = [
         "desc": "Oakland County general contractor for kitchen & bath remodels, custom homes, office, restaurant, medical and retail construction, plus site work.",
         "h1": "General Contractor Serving All of Oakland County",
         "lead": "Kitchen and bath remodels, new homes, commercial buildings and full site work &mdash; from Holly and Clarkston to Troy, Novi and Royal Oak.",
-        "bg": "retail-plaza-jimmy-johns-pizza-hut-smoothie-king",
+        "bg": "living-room-coffered-ceiling-stone-fireplace",
         "intro": """<p>RBF Construction works throughout <strong>all of Oakland County</strong>, from the northern townships along I-75 &mdash; Holly, Groveland, Springfield, Independence and Orion &mdash; down through the business corridors of Auburn Hills, Troy and Southfield and into the established neighborhoods of Birmingham, Bloomfield, Royal Oak and Ferndale. Our Flint headquarters sits just up I-75, so Oakland County job sites are a short drive for our crews and equipment.</p>
 <p>Oakland County has some of Michigan&rsquo;s most active construction demand: office and professional buildings along the I-75 and M-59 corridors, medical offices and clinics serving a large and growing population, restaurants and retail along Telegraph, Woodward, Novi Road and Rochester Road, and homeowners investing in kitchens, baths and new custom homes on lake lots and acreage in the northern and western townships.</p>""",
         "focus": """<h2>What We Build in Oakland County</h2>
@@ -146,7 +146,7 @@ SERVICES = [
         "h1": "Commercial Build-Outs &amp; Office Construction",
         "lead": "New professional office buildings, tenant improvements and office renovations across Genesee County, Oakland County and Southeast Michigan.",
         "bg": "steel-frame-commercial-building",
-        "photos": ["steel-frame-commercial-building", "concrete-road-curb-gutter-construction", "commercial-site-excavation-grading"],
+        "photos": ["athletico-physical-therapy-shelby-mi", "commercial-renovation-after", "commercial-site-excavation-grading"],
         "body": """<h2>Office Space That Works for Your Business</h2>
 <p>RBF Construction builds new office buildings and renovates existing ones for owners, developers and tenants. Whether it&rsquo;s a single-story professional office, a multi-tenant building or a build-out of leased space, we manage budget, schedule and quality from preconstruction to move-in.</p>
 <ul class="tick-list"><li>Ground-up office buildings</li><li>Tenant improvements &amp; build-outs</li><li>Office renovations &amp; modernization</li><li>Multi-tenant professional buildings</li>
@@ -231,7 +231,7 @@ SERVICES = [
         "desc": "Retail, strip center and commercial business construction in Southeast Michigan: ground-up buildings, renovations, facades and build-outs.",
         "h1": "Retail &amp; Commercial Business Construction",
         "lead": "Retail stores, multi-tenant strip centers, storefront renovations and buildings for businesses of every kind.",
-        "bg": "family-dollar-dollar-tree-olivet-mi", "photos": ["retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "commercial-renovation-after", "concrete-road-curb-gutter-construction"],
+        "bg": "family-dollar-dollar-tree-olivet-mi", "photos": ["retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "commercial-renovation-after", "athletico-physical-therapy-shelby-mi"],
         "body": """<h2>Buildings That Help Businesses Grow</h2>
 <p>From national retailers like <strong>Dollar Tree</strong> to local businesses opening their first location, RBF Construction builds and renovates commercial space that&rsquo;s ready for customers. We handle ground-up buildings, multi-tenant strip centers, storefront renovations and interior build-outs.</p>
 <ul class="tick-list"><li>Retail stores</li><li>Multi-tenant strip centers</li><li>Facade &amp; storefront renovations</li><li>Interior build-outs</li>
@@ -392,7 +392,7 @@ SERVICES = [
         "desc": "Commercial and residential excavation, mass grading, land balancing and site clearing in Oakland County, Genesee County and Southeast Michigan.",
         "h1": "Excavation &amp; Grading Contractor in Flint, MI",
         "lead": "Mass excavation, cut-and-fill, fine grading, clearing and building pads for commercial and residential sites.",
-        "bg": "commercial-site-excavation-grading", "photos": ["site-clearing-excavator", "foundation-walls-excavation", "precast-structure-crane-set"],
+        "bg": "commercial-site-excavation-grading", "photos": ["site-clearing-excavator", "foundation-walls-excavation", "underground-utility-trench-excavation"],
         "body": """<h2>Earthwork Done Right the First Time</h2>
 <p>Every project rests on its earthwork. RBF Construction&rsquo;s crews and equipment handle excavation and grading for commercial developments, building additions, new homes and infrastructure projects &mdash; built to plan elevations so pavements drain and foundations stay put.</p>
 <ul class="tick-list"><li>Site clearing &amp; grubbing</li><li>Mass excavation</li><li>Land balancing (cut &amp; fill)</li><li>Building pads</li>
@@ -465,8 +465,8 @@ SERVICES = [
         "desc": "Commercial and residential demolition, interior selective demolition, pavement removal and site clearing in Southeast Michigan.",
         "h1": "Demolition &amp; Site Clearing in Flint &amp; Genesee County",
         "lead": "Building demolition, interior selective demolition, pavement and foundation removal &mdash; clearing the way for what&rsquo;s next.",
-        "bg": "underground-utility-trench-excavation",
-        "photos": ["commercial-renovation-before", "commercial-site-excavation-grading", "underground-utility-trench-excavation"],
+        "bg": "site-clearing-excavator",
+        "photos": ["commercial-renovation-before", "commercial-renovation-after", "commercial-site-excavation-grading"],
         "body": """<h2>Safe, Efficient Demolition</h2>
 <p>Whether you&rsquo;re clearing a site for redevelopment or gutting an interior for a remodel, demolition sets the pace for the rest of the project. RBF Construction plans demolition carefully &mdash; utility disconnects, permits, protection of adjacent property and proper disposal &mdash; then moves quickly.</p>
 <ul class="tick-list"><li>Commercial building demolition</li><li>Residential demolition</li><li>Interior selective demolition</li><li>Pavement &amp; curb removal</li>
