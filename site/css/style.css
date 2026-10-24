@@ -651,3 +651,27 @@ a.cap:hover{border-color:var(--amber);transform:translateY(-3px)}
 .about-guide{margin-top:2.2rem;padding:20px 22px;background:var(--concrete);border-radius:12px}
 .about-guide h2{font-size:1.3rem;margin:0 0 .4rem}
 .about-guide p{margin:0;font-size:.98rem}
+
+/* ==== v9: hero photos with signs - smaller headline, lower, so the sign stays clear ==== */
+.page-hero.low{display:flex;align-items:flex-end;min-height:clamp(520px,46vw,800px)}
+.page-hero.low .wrap{width:100%;padding-top:180px;padding-bottom:clamp(32px,4vw,52px)}
+.page-hero.low h1{font-size:clamp(2rem,3.4vw,2.9rem);max-width:26ch;margin-bottom:.4rem}
+.page-hero.low p{font-size:1.05rem}
+.page-hero.low img.bg{object-position:center 30%}
+.page-hero.low img.bg[src*="smoothie-king"]{object-position:center 63%}
+.page-hero.low img.bg[src*="cottage-inn"]{object-position:center 72%}
+.page-hero.low img.bg[src*="taco-bell"]{object-position:center 73%}
+.page-hero.low img.bg[src*="library"]{object-position:center 100%}
+.page-hero.low::after{background:linear-gradient(0deg,rgba(7,16,27,.94) 0%,rgba(7,16,27,.8) 30%,rgba(7,16,27,.25) 62%,rgba(7,16,27,.05) 100%)}
+@media (max-width:860px){
+  .page-hero.low{min-height:680px}
+  .page-hero.low .wrap{padding-top:300px}
+  .page-hero.low img.bg{object-position:center top}
+  .page-hero.low img.bg[src*="athletico"]{object-position:0 top}
+  .page-hero.low img.bg[src*="cottage-inn"]{object-position:8% top}
+  .page-hero.low img.bg[src*="family-dollar"]{object-position:78% top}
+  .page-hero.low img.bg[src*="taco-bell"]{object-position:30% top}
+  .page-hero.low img.bg[src*="smoothie-king"]{object-position:40% top}
+  .page-hero.low img.bg[src*="library"]{object-position:70% top}
+  .page-hero.low::after{background:linear-gradient(0deg,rgba(7,16,27,.95) 0%,rgba(7,16,27,.88) 44%,rgba(7,16,27,.3) 55%,rgba(7,16,27,0) 66%)}
+}
