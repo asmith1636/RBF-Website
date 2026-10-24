@@ -121,6 +121,7 @@ PHOTO_CREDITS = {"new-townhomes-exterior": "Imagery &copy; Google",
 # RBF's own photos: credited ones (stock, Street View) are not listed as RBF's work
 RBF_PHOTOS = [s for s in PHOTOS if s not in PHOTO_CREDITS]
 
+OTHER_BRANDS = ["Subway", "YaYa's Chicken", "NBC25"]
 CLIENTS = [("client-jimmy-johns", "Jimmy John's"), ("client-pizza-hut", "Pizza Hut"),
            ("client-smoothie-king", "Smoothie King"), ("client-taco-bell", "Taco Bell"),
            ("client-dollar-tree", "Dollar Tree"), ("client-biggby-coffee", "Biggby Coffee"),
@@ -890,7 +891,7 @@ def general_contracting():
 def commercial():
     content = f"""
 <h2>Commercial General Contractor for Southeast Michigan Businesses</h2>
-<p>RBF Construction builds and renovates commercial properties of all kinds for owners, developers and national brands across Genesee County, Oakland County and Southeast Michigan &mdash; <strong>office buildings, restaurants, medical and dental offices, retail stores, multi-tenant buildings, and government and institutional buildings</strong>. Our work includes projects for Jimmy John&rsquo;s, Pizza Hut, Smoothie King, Taco Bell, Dollar Tree, Biggby Coffee, Cottage Inn Pizza and Athletico Physical Therapy.</p>
+<p>RBF Construction builds and renovates commercial properties of all kinds for owners, developers and national brands across Genesee County, Oakland County and Southeast Michigan &mdash; <strong>office buildings, restaurants, medical and dental offices, retail stores, multi-tenant buildings, and government and institutional buildings</strong>. Our work includes projects for multiple Taco Bell and Subway locations, Jimmy John&rsquo;s, Pizza Hut, Smoothie King, YaYa&rsquo;s Chicken, Dollar Tree, Biggby Coffee, Cottage Inn Pizza and Athletico Physical Therapy, and a remodel for NBC25.</p>
 {child_cards('commercial')}
 <p>Because we also run our own <a href="/site-development">site development division</a>, we can take a commercial project from raw ground &mdash; demolition, excavation, utilities, parking lot and concrete &mdash; all the way through the finished building.</p>
 <h2>Featured: Commercial Renovation</h2>
@@ -1191,7 +1192,8 @@ def form(subject, fields, button):
 
 def about():
     trail = [("Home", "/"), ("About", "/about")]
-    clients = ", ".join(n for _, n in CLIENTS[:-1]) + " and " + CLIENTS[-1][1]
+    names = [escape(n) for _, n in CLIENTS] + [escape(n) for n in OTHER_BRANDS]
+    clients = ", ".join(names[:-1]) + " and " + names[-1]
     body = f"""{page_hero("About RBF Construction", "A Flint-based general contractor that builds homes, commercial buildings and the sites underneath them &mdash; with personal on-site supervision.", trail, "commercial-site-excavation-grading")}
 <section><div class="wrap split rev">
   <div class="media reveal"><div class="collage">
@@ -1217,7 +1219,7 @@ def about():
 </div></section>
 <section><div class="wrap prose">
   <h2>Who We&rsquo;ve Built For</h2>
-  <p>Our commercial work includes projects for national brands such as {clients}, public and nonprofit owners such as the Durand Memorial Library and the St. Luke N.E.W. Life Center, along with many local business owners, developers and homeowners across Michigan.</p>
+  <p>Our commercial work includes projects for brands such as {clients}, public and nonprofit owners such as the Durand Memorial Library and the St. Luke N.E.W. Life Center, along with many local business owners, developers and homeowners across Michigan.</p>
   <h2>Where We Work</h2>
   <p>From our Flint office we serve <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a> and the rest of <a href="/service-areas">Southeast Michigan</a>, including Livingston, Lapeer, Shiawassee, Macomb, Wayne and Washtenaw counties.</p>
   <p><a class="btn btn-amber" href="/construction-contact#quote">Request a Bid {icon('arrow')}</a> <a class="btn btn-navy" href="/projects/">See Our Work {icon('arrow')}</a></p>
@@ -1420,7 +1422,7 @@ def llms_txt():
 - Hours: {BIZ['hours_text']}
 - Service area: Genesee County, Oakland County and all of Southeast Michigan, including {", ".join(c['name'] for c in COUNTIES)} plus {", ".join(SE_MICHIGAN)}
 - Self-performed work: excavation, grading, underground utilities, parking lots and concrete flatwork (RBF site development division). Building trades: coordinated and supervised by RBF.
-- Brands built for (examples, not a complete list): {", ".join(n for _, n in CLIENTS)}
+- Brands built for (examples, not a complete list): {", ".join([n for _, n in CLIENTS] + OTHER_BRANDS)}; Taco Bell and Subway at multiple locations
 - Public and institutional work (examples): Durand Memorial Library (Durand, MI); St. Luke N.E.W. Life Center (Flint, MI); a Veterans Affairs building in Shiawassee County, MI
 - Facebook: {BIZ['facebook']}
 

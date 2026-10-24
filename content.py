@@ -176,6 +176,7 @@ SERVICES = [
 <p>RBF Construction builds new office buildings and renovates existing ones for owners, developers and tenants. Whether it&rsquo;s a single-story professional office, a multi-tenant building or a build-out of leased space, we manage budget, schedule and quality from preconstruction to move-in.</p>
 <ul class="tick-list"><li>Ground-up office buildings</li><li>Tenant improvements &amp; build-outs</li><li>Office renovations &amp; modernization</li><li>Multi-tenant professional buildings</li>
 <li>Occupied-building phasing</li><li>Site work, parking &amp; utilities</li></ul>
+<p>RBF&rsquo;s commercial remodeling work includes a remodel for <strong>NBC25</strong>.</p>
 <!--PHOTOS-->
 <h2>Tenant Build-Outs on Schedule</h2>
 <p>Lease start dates don&rsquo;t move. We plan tenant improvement projects around your lease, coordinate with building management, and sequence demolition, framing, mechanical, electrical, data and finishes so you can open on time.</p>
@@ -200,7 +201,7 @@ SERVICES = [
         "lead": "Ground-up quick-service restaurants with drive-thrus, sit-down restaurants, franchise remodels and tenant build-outs.",
         "bg": "smoothie-king-building", "photos": ["taco-bell-cass-city-mi", "cottage-inn-pizza-davison-mi", "smoothie-king-building"],
         "body": """<h2>Restaurant Projects We&rsquo;ve Built</h2>
-<p>RBF Construction has built for restaurant brands including <strong>Jimmy John&rsquo;s, Pizza Hut, Smoothie King, Taco Bell, Cottage Inn Pizza and Biggby Coffee</strong>, among others. We understand franchise brand standards, tight opening dates and the kitchen infrastructure restaurants depend on.</p>
+<p>RBF Construction has built for restaurant brands including <strong>multiple Taco Bell and Subway locations</strong>, as well as <strong>Jimmy John&rsquo;s, Pizza Hut, Smoothie King, YaYa&rsquo;s Chicken, Cottage Inn Pizza and Biggby Coffee</strong>, among others. We understand franchise brand standards, tight opening dates and the kitchen infrastructure restaurants depend on.</p>
 <ul class="tick-list"><li>Quick-service restaurants</li><li>Drive-thru lanes &amp; windows</li><li>Sit-down &amp; fast-casual</li><li>Coffee shops &amp; smoothie bars</li>
 <li>Franchise remodels &amp; refreshes</li><li>End-cap &amp; in-line build-outs</li><li>Multi-tenant restaurant buildings</li><li>Parking, drive aisles &amp; utilities</li></ul>
 <!--PHOTOS-->
@@ -816,7 +817,7 @@ CASE_STUDIES = [
             "Taco Bell's current exterior design, with tower element and purple accents",
             "Paved parking around the building",
         ],
-        "story": """<p>RBF Construction&rsquo;s restaurant portfolio includes this <strong>Taco Bell</strong> in <strong>Cass City, Michigan</strong> &mdash; a freestanding quick-service building finished in the brand&rsquo;s current look, with its signature tower element and purple accent bands.</p>
+        "story": """<p>RBF Construction&rsquo;s restaurant portfolio includes this <strong>Taco Bell</strong> in <strong>Cass City, Michigan</strong> &mdash; a freestanding quick-service building finished in the brand&rsquo;s current look, with its signature tower element and purple accent bands. It&rsquo;s one of several Taco Bell restaurants RBF has worked on.</p>
 <p>National restaurant brands bring detailed prototype drawings, finish standards and opening deadlines. RBF&rsquo;s approach to <a href="/restaurant-construction">restaurant construction</a> is to coordinate those standards, the kitchen infrastructure and the site work under one contractor.</p>""",
         "services": ["/restaurant-construction", "/site-development", "/parking-lot-paving-concrete"],
     },
