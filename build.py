@@ -109,6 +109,10 @@ PHOTOS = {
     "valve-vault-piping": "New valves and piping inside an underground valve vault",
 }
 # Photos that are not RBF's own and must show a credit wherever they appear
+# Hero photos with a brand logo or sign: shown on the right so the headline doesn't cover it
+SIGN_PHOTOS = {"athletico-physical-therapy-shelby-mi", "cottage-inn-pizza-davison-mi", "family-dollar-dollar-tree-olivet-mi",
+               "retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "smoothie-king-building", "taco-bell-cass-city-mi",
+               "public-library-brick-building"}
 PHOTO_CREDITS = {"new-townhomes-exterior": "Imagery &copy; Google",
                  "public-library-brick-building": "Stock photo: Naturalist Boat / Unsplash"}
 
@@ -428,7 +432,7 @@ def page_hero(h1, lead, trail, bg):
     pic = img(bg, 'bg', lazy=False, alt='', priority=True) if bg else ""
     if bg in PHOTO_CREDITS:
         pic += f'<span class="photo-credit">{PHOTO_CREDITS[bg]}</span>'
-    cls = "page-hero" if bg else "page-hero plain"
+    cls = ("page-hero side" if bg in SIGN_PHOTOS else "page-hero") if bg else "page-hero plain"
     return f"""<section class="{cls}">{pic}
 <div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><ol>{items}</ol></nav>
 <h1>{h1}</h1><p>{lead}</p></div></section>"""

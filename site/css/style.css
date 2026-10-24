@@ -651,3 +651,17 @@ a.cap:hover{border-color:var(--amber);transform:translateY(-3px)}
 .about-guide{margin-top:2.2rem;padding:20px 22px;background:var(--concrete);border-radius:12px}
 .about-guide h2{font-size:1.3rem;margin:0 0 .4rem}
 .about-guide p{margin:0;font-size:.98rem}
+
+/* ==== v9: hero photos with logos sit to the right of the headline ==== */
+.page-hero.side img.bg{left:auto;right:0;width:56%}
+.page-hero.side::after{background:linear-gradient(90deg,var(--navy) 0%,var(--navy) 44%,rgba(7,16,27,.25) 49%,rgba(7,16,27,0) 55%)}
+.page-hero.side img.bg[src*="athletico"],.page-hero.side img.bg[src*="cottage-inn"],.page-hero.side img.bg[src*="retail-plaza"]{object-position:left center}
+.page-hero.side h1{max-width:15ch}
+.page-hero.side p{max-width:44ch}
+@media (max-width:860px){
+  .page-hero.side img.bg{position:relative;inset:auto;display:block;width:100%;height:clamp(190px,52vw,300px)}
+  .page-hero.side::after{display:none}
+  .page-hero.side{padding-top:0}
+  .page-hero.side .wrap{padding-top:28px}
+  .page-hero.side .photo-credit{top:clamp(160px,46vw,270px);bottom:auto}
+}
