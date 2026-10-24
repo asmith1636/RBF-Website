@@ -4,9 +4,11 @@ require __DIR__ . '/_lib/boot.php';
 
 require_login();
 $kind = array_key_exists($_GET['kind'] ?? '', KINDS) ? $_GET['kind'] : 'quote';
-$q = db()->prepare('SELECT * FROM rbf_submissions WHERE kind = ? ORDER BY created_at DESC, id DESC');
-$q->execute([$kind]);
+[$where, $args, $order] = filters($kind, $_GET + ['status' => 'all']);  // same filters as the list on screen
+$q = db()->prepare("SELECT * FROM rbf_submissions WHERE $where ORDER BY $order");
+$q->execute($args);
 $rows = $q->fetchAll();
+$users = users();
 
 // one column per form field, in the order they first appear
 $labels = [];
@@ -35,9 +37,14 @@ header('Content-Type: text/csv; charset=utf-8');
 header('Content-Disposition: attachment; filename="rbf-' . strtolower(str_replace(' ', '-', KINDS[$kind])) . '-' . date('Y-m-d') . '.csv"');
 $out = fopen('php://output', 'w');
 fwrite($out, "\xEF\xBB\xBF");  // so Excel reads the file as UTF-8
-fputcsv($out, array_merge(['ID', 'Received', 'Status'], $labels, ['Notes']));
+$extra = $kind === 'quote' ? ['Bid Amount'] : [];
+fputcsv($out, array_merge(['ID', 'Received', 'Status', 'Source', 'Assigned To', 'Follow-up'], $extra, $labels, ['Notes']));
 foreach ($rows as $r) {
-    $line = [$r['id'], date('n/j/Y g:i a', strtotime($r['created_at'])), $r['status']];
+    $line = [$r['id'], date('n/j/Y g:i a', strtotime($r['created_at'])), $r['status'], $r['source'],
+             $users[$r['assigned_to']] ?? '', $r['follow_up'] ? date('n/j/Y', strtotime($r['follow_up'])) : ''];
+    if ($extra) {
+        $line[] = $r['amount'] === null ? '' : (0 + $r['amount']);
+    }
     foreach ($labels as $l) {
         $line[] = $r['fields'][$l] ?? '';
     }
