@@ -5,3 +5,6 @@ __pycache__/
 *.pyc
 .DS_Store
 Thumbs.db
+
+# Admin settings hold the database password: never commit them
+rbf-config.php
