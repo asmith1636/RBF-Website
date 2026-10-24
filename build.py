@@ -464,7 +464,7 @@ def aside(path, group=None):
 HOME_FAQ = [
     ("What does RBF Construction do?",
      "RBF Construction, Inc. is a full-service general contractor serving Genesee County, Oakland County and Southeast Michigan. "
-     "We build <a href=\"/custom-home-builder\">custom homes and additions</a>, do <a href=\"/kitchen-remodeling\">kitchen</a> "
+     "We build <a href=\"/custom-home-builder\">stick-built and modular homes and additions</a>, do <a href=\"/kitchen-remodeling\">kitchen</a> "
      "and <a href=\"/bathroom-remodeling\">bathroom remodeling</a>, build <a href=\"/pole-barns\">pole barns</a>, and handle commercial construction of "
      "<a href=\"/office-building-construction\">office buildings</a>, <a href=\"/restaurant-construction\">restaurants</a>, "
      "<a href=\"/medical-office-construction\">medical and dental offices</a> and <a href=\"/retail-construction\">retail</a>, "
@@ -493,7 +493,7 @@ HOME_FAQ = [
      "the trades, permits and inspections."),
     ("What types of commercial buildings do you build?",
      "Office buildings and tenant build-outs, restaurants including drive-thrus, medical, dental and physical therapy "
-     "offices, retail stores and multi-tenant buildings. We&rsquo;ve built for brands such as Jimmy John&rsquo;s, Pizza Hut, "
+     "offices, retail stores, multi-tenant buildings, and public and nonprofit buildings. We&rsquo;ve built for brands such as Jimmy John&rsquo;s, Pizza Hut, "
      "Smoothie King, Taco Bell, Dollar Tree, Biggby Coffee, Cottage Inn Pizza and Athletico Physical Therapy, along with many local businesses."),
     ("Can RBF take a project from raw land to a finished building?",
      "Yes. Our in-house <a href=\"/site-development\">site development division</a> handles demolition, excavation, grading, "
@@ -879,7 +879,7 @@ def general_contracting():
 def commercial():
     content = f"""
 <h2>Commercial General Contractor for Southeast Michigan Businesses</h2>
-<p>RBF Construction builds and renovates commercial properties of all kinds for owners, developers and national brands across Genesee County, Oakland County and Southeast Michigan &mdash; <strong>office buildings, restaurants, medical and dental offices, retail stores and multi-tenant buildings</strong>. Our work includes projects for Jimmy John&rsquo;s, Pizza Hut, Smoothie King, Taco Bell, Dollar Tree, Biggby Coffee, Cottage Inn Pizza and Athletico Physical Therapy.</p>
+<p>RBF Construction builds and renovates commercial properties of all kinds for owners, developers and national brands across Genesee County, Oakland County and Southeast Michigan &mdash; <strong>office buildings, restaurants, medical and dental offices, retail stores, multi-tenant buildings, and government and institutional buildings</strong>. Our work includes projects for Jimmy John&rsquo;s, Pizza Hut, Smoothie King, Taco Bell, Dollar Tree, Biggby Coffee, Cottage Inn Pizza and Athletico Physical Therapy.</p>
 {child_cards('commercial')}
 <p>Because we also run our own <a href="/site-development">site development division</a>, we can take a commercial project from raw ground &mdash; demolition, excavation, utilities, parking lot and concrete &mdash; all the way through the finished building.</p>
 <h2>Featured: Commercial Renovation</h2>
@@ -892,7 +892,7 @@ def commercial():
 <p>Ready to talk about your next location or renovation? <a href="/construction-contact#quote">Request a commercial bid</a> or call <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a>.</p>"""
     faqs = [
         ("What types of commercial projects does RBF build?",
-         "Office buildings and tenant build-outs, restaurants and drive-thrus, medical, dental and physical therapy offices, retail stores and multi-tenant buildings, commercial renovations, facility upgrades such as pump stations, and the site work that goes with them."),
+         "Office buildings and tenant build-outs, restaurants and drive-thrus, medical, dental and physical therapy offices, retail stores and multi-tenant buildings, libraries, nonprofit and government buildings, commercial renovations, facility upgrades such as pump stations, and the site work that goes with them."),
         ("Can you handle the site work and the building on a commercial project?",
          "Yes. RBF has an in-house site development division for demolition, excavation, grading, utilities, paving and concrete, and we serve as the general contractor for the building."),
         ("Have you built for national brands?",
@@ -928,7 +928,7 @@ def residential():
 <p>Planning a project? Read our <a href="/resources/kitchen-bathroom-remodel-planning-guide">kitchen and bath remodel planning guide</a>, then <a href="/construction-contact#quote">tell us about it</a> or call <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a>.</p>"""
     faqs = [
         ("What residential services does RBF Construction offer?",
-         "Custom homes and additions, kitchen remodeling, bathroom remodeling, pole barns and garages, and residential site work such as excavation, grading, drainage, driveways and utility connections."),
+         "Stick-built and modular custom homes and additions, kitchen remodeling, bathroom remodeling, pole barns and garages, and residential site work such as excavation, grading, drainage, driveways and utility connections."),
         ("Do you do residential work in Oakland County?",
          "Yes. We remodel and build homes throughout Oakland County, including Clarkston, Waterford, Rochester Hills, Troy, Novi, Milford, Holly and Oxford, and across Southeast Michigan."),
     ]
@@ -1018,7 +1018,7 @@ def service_areas():
 </div></section>
 {area_section()}"""
     return page("/service-areas", "Service Areas | Genesee, Oakland & SE MI | RBF",
-                "RBF Construction serves Genesee and Oakland counties plus Livingston, Lapeer, Macomb, Wayne and Washtenaw counties across Southeast Michigan.",
+                "RBF Construction serves Genesee and Oakland counties plus Livingston, Lapeer, Shiawassee, Macomb, Wayne and Washtenaw counties in Michigan.",
                 body, trail, [{"@type": "ItemList", "name": "RBF Construction service areas",
                                "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": c["name"], "url": f"{SITE}/{c['slug']}"}
                                                    for i, c in enumerate(COUNTIES)]}])
@@ -1206,9 +1206,9 @@ def about():
 </div></section>
 <section><div class="wrap prose">
   <h2>Who We&rsquo;ve Built For</h2>
-  <p>Our commercial work includes projects for national brands such as {clients}, along with many local business owners, developers and homeowners across Michigan.</p>
+  <p>Our commercial work includes projects for national brands such as {clients}, public and nonprofit owners such as the Durand Memorial Library and the St. Luke N.E.W. Life Center, along with many local business owners, developers and homeowners across Michigan.</p>
   <h2>Where We Work</h2>
-  <p>From our Flint office we serve <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a> and the rest of <a href="/service-areas">Southeast Michigan</a>, including Livingston, Lapeer, Macomb, Wayne and Washtenaw counties.</p>
+  <p>From our Flint office we serve <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a> and the rest of <a href="/service-areas">Southeast Michigan</a>, including Livingston, Lapeer, Shiawassee, Macomb, Wayne and Washtenaw counties.</p>
   <p><a class="btn btn-amber" href="/construction-contact#quote">Request a Bid {icon('arrow')}</a> <a class="btn btn-navy" href="/projects/">See Our Work {icon('arrow')}</a></p>
 </div></section>"""
     about_ld = {"@type": "AboutPage", "@id": SITE + "/about#about", "url": SITE + "/about", "mainEntity": {"@id": BIZ_ID}}
@@ -1385,8 +1385,8 @@ def llms_txt():
     def sec(items):
         return "\n".join(f"- [{strip_tags(t)}]({SITE}{u}): {strip_tags(d)}" for u, t, d in items)
     hubs = sec([("/general-contracting", "General Contracting", "construction management, design-build, design-bid-build, consulting"),
-                ("/commercial-general-contracting", "Commercial", "offices, restaurants, medical, retail, tenant build-outs"),
-                ("/residential-general-contracting", "Residential", "custom homes and additions, kitchen and bath remodeling, pole barns"),
+                ("/commercial-general-contracting", "Commercial", "offices, restaurants, medical, retail, government and institutional, tenant build-outs"),
+                ("/residential-general-contracting", "Residential", "stick-built and modular homes, additions, kitchen and bath remodeling, pole barns"),
                 ("/site-development", "Site Work & Utilities", "excavation, grading, underground utilities, paving, concrete, demolition")])
     svcs = sec([("/" + s["slug"], s["nav"], s["desc"]) for s in SVC])
     areas = "\n".join(f"- [{c['name']}]({SITE}/{c['slug']}): {', '.join(c['cities'])}" for c in COUNTIES)
@@ -1410,6 +1410,7 @@ def llms_txt():
 - Service area: Genesee County, Oakland County and all of Southeast Michigan, including {", ".join(c['name'] for c in COUNTIES)} plus {", ".join(SE_MICHIGAN)}
 - Self-performed work: excavation, grading, underground utilities, parking lots and concrete flatwork (RBF site development division). Building trades: coordinated and supervised by RBF.
 - Brands built for (examples, not a complete list): {", ".join(n for _, n in CLIENTS)}
+- Public and institutional work (examples): Durand Memorial Library (Durand, MI); St. Luke N.E.W. Life Center (Flint, MI); a Veterans Affairs building in Shiawassee County, MI
 - Facebook: {BIZ['facebook']}
 
 ## Service categories

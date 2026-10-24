@@ -125,8 +125,33 @@ COUNTIES = [
              "Yes. We work in Lapeer, Imlay City, Almont, Metamora, Dryden, Columbiaville, North Branch and the surrounding townships."),
         ],
     },
+    {
+        "slug": "shiawassee-county-general-contractor", "name": "Shiawassee County",
+        "cities": ["Owosso", "Durand", "Corunna", "Perry", "Laingsburg", "Ovid", "Morrice", "Byron", "Bancroft",
+                   "Lennon", "Vernon"],
+        "title": "Shiawassee County General Contractor | RBF Construction",
+        "desc": "General contractor for Owosso, Durand, Corunna, Perry and all of Shiawassee County: public and commercial buildings, homes, remodels and site work.",
+        "h1": "General Contractor for Shiawassee County",
+        "lead": "Public and commercial buildings, new homes, remodels and site work in Owosso, Durand, Corunna and Perry.",
+        "bg": "storm-pipe-trench-installation",
+        "intro": """<p>Just west of our Flint headquarters, Shiawassee County is home to Owosso, Durand, Corunna and Perry. RBF Construction&rsquo;s work here includes the <strong>Durand Memorial Library</strong> and a <strong>Veterans Affairs building</strong>, and we take on commercial buildings, new homes and additions, kitchen and bath remodels, and the excavation, utilities and paving behind them.</p>""",
+        "focus": """<h2>Shiawassee County Services</h2>
+<ul class="tick-list"><li><a href="/government-institutional-construction">Government &amp; institutional</a></li><li><a href="/commercial-general-contracting">Commercial construction</a></li>
+<li><a href="/custom-home-builder">Custom homes</a></li><li><a href="/kitchen-remodeling">Kitchen remodeling</a></li>
+<li><a href="/excavation-grading">Excavation &amp; grading</a></li><li><a href="/parking-lot-paving-concrete">Driveways, lots &amp; concrete</a></li></ul>
+<h2>Public and Institutional Work</h2>
+<p>Public projects in Shiawassee County, including the Durand Memorial Library and a Veterans Affairs building, are part of RBF&rsquo;s <a href="/government-institutional-construction">government and institutional work</a>. Library districts, agencies and nonprofits get one team for the building and the site work around it.</p>
+<h2>Close to Our Flint Headquarters</h2>
+<p>Durand and Perry sit along I-69 west of Flint, and Owosso and Corunna are a short drive beyond, so our crews, equipment and supervisors can stay closely involved in Shiawassee County projects from start to finish.</p>""",
+        "faqs": [
+            ("Do you serve Shiawassee County?",
+             "Yes. We work in Owosso, Durand, Corunna, Perry, Laingsburg, Ovid, Morrice, Byron and the surrounding townships."),
+            ("Have you done public projects in Shiawassee County?",
+             "Yes. RBF's work in Shiawassee County includes the Durand Memorial Library and a Veterans Affairs building."),
+        ],
+    },
 ]
-OTHER_AREAS = ["St. Clair County", "Shiawassee County", "Monroe County", "Saginaw County", "Tuscola County"]
+OTHER_AREAS = ["St. Clair County", "Monroe County", "Saginaw County", "Tuscola County"]
 
 # --------------------------------------------------------------------------
 # Services
@@ -250,19 +275,50 @@ SERVICES = [
         ],
         "types": ["Retail construction", "Commercial renovation", "Strip center construction", "Storefront renovation"],
     },
+    {
+        "slug": "government-institutional-construction", "group": "commercial", "nav": "Government & Institutional", "name": "Government and Institutional Construction",
+        "title": "Government & Institutional Construction | RBF",
+        "desc": "Construction for libraries, nonprofit centers and government buildings in Genesee, Shiawassee, Oakland and Southeast Michigan, plus the site work.",
+        "h1": "Government &amp; Institutional Construction",
+        "lead": "Libraries, community and nonprofit centers, and government buildings across Genesee County, Shiawassee County and Southeast Michigan.",
+        "bg": None, "photos": [],
+        "body": """<h2>Building for Public and Nonprofit Owners</h2>
+<p>RBF Construction works with public agencies, library districts and nonprofit organizations on their buildings and the site work around them. Public and institutional projects bring their own requirements &mdash; formal bidding, board approvals and detailed documentation &mdash; and we manage them with the same personal on-site supervision we bring to every job.</p>
+<ul class="tick-list"><li>Libraries</li><li>Community &amp; nonprofit centers</li><li>Government buildings</li><li>Interior build-outs</li>
+<li>Renovations</li><li>Site work, parking &amp; utilities</li></ul>
+<h2>Public and Institutional Experience</h2>
+<p>A few examples of RBF&rsquo;s public and nonprofit work:</p>
+<ul><li><strong>Durand Memorial Library</strong> &mdash; Durand, <a href="/shiawassee-county-general-contractor">Shiawassee County</a></li>
+<li><strong>St. Luke N.E.W. Life Center</strong> &mdash; Flint, <a href="/genesee-county-general-contractor">Genesee County</a></li>
+<li><strong>Veterans Affairs building</strong> &mdash; <a href="/shiawassee-county-general-contractor">Shiawassee County</a></li></ul>
+<h2>One Team for the Building and the Site</h2>
+<p>Because RBF runs its own <a href="/site-development">site development division</a>, the same team that manages the building can handle <a href="/excavation-grading">excavation</a>, <a href="/underground-utilities">utilities</a> and <a href="/parking-lot-paving-concrete">parking and concrete</a> &mdash; fewer handoffs for owners who answer to a board or the public.</p>
+<p>Serving public and nonprofit owners in <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/shiawassee-county-general-contractor">Shiawassee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a bid</a>.</p>""",
+        "faqs": [
+            ("Does RBF Construction work on government and public buildings?",
+             "Yes. RBF's public and institutional work includes the Durand Memorial Library and a Veterans Affairs building in Shiawassee County, and the St. Luke N.E.W. Life Center in Flint."),
+            ("Do you work with nonprofit organizations?",
+             "Yes. RBF's nonprofit work includes the St. Luke N.E.W. Life Center in Flint. We help nonprofit owners plan scope, budget and schedule before construction starts."),
+        ],
+        "types": ["Government building construction", "Institutional construction", "Public building renovation", "Nonprofit facility construction"],
+    },
     # ---------------- Residential ----------------
     {
-        "slug": "custom-home-builder", "group": "residential", "nav": "Custom Homes & Additions", "name": "Custom Home Building",
-        "title": "Custom Home Builder | Flint, Genesee & Oakland County | RBF",
-        "desc": "Ground-up custom homes and additions in Genesee County, Oakland County and Southeast Michigan, with in-house excavation, grading, driveways and utilities.",
+        "slug": "custom-home-builder", "group": "residential", "nav": "Custom & Modular Homes", "name": "Custom Home Building",
+        "title": "Custom & Modular Home Builder | Flint & Genesee County | RBF",
+        "desc": "Stick-built and modular homes and additions in Genesee, Oakland and SE Michigan, with in-house excavation, grading, driveways and utilities.",
         "h1": "Custom Home Builder for Flint, Genesee &amp; Oakland County",
-        "lead": "Ground-up residential construction and additions &mdash; with our own crews handling the land clearing, excavation, grading and utilities.",
+        "lead": "Stick-built and modular homes and additions &mdash; with our own crews handling the land clearing, excavation, grading and utilities.",
         "bg": "living-room-coffered-ceiling-stone-fireplace", "photos": ["open-floor-plan-fireplace-cable-railing", "wet-bar-brick-accent-wall", "foundation-walls-excavation"],
         "body": """<h2>Ground-Up Homes, Built by a Site Work Contractor</h2>
 <p>Most home builders subcontract everything below grade. RBF Construction does it ourselves. Our <a href="/site-development">site development division</a> handles clearing, excavation, grading, drainage, driveways and utility connections &mdash; the work that determines whether a house stays dry, level and problem-free for decades.</p>
-<ul class="tick-list"><li>Custom single-family homes</li><li>Home additions</li><li>Garages &amp; accessory buildings</li><li>Lot clearing &amp; excavation</li>
+<ul class="tick-list"><li>Stick-built custom homes</li><li>Modular homes</li><li>Home additions</li><li>Garages &amp; accessory buildings</li><li>Lot clearing &amp; excavation</li>
 <li>Foundations &amp; basements</li><li>Driveways &amp; flatwork</li><li>Water, sewer &amp; utility connections</li><li>Design-build or your plans</li></ul>
 <!--PHOTOS-->
+<h2>Stick-Built or Modular: Two Ways to Build</h2>
+<p><strong>Stick-built</strong> homes are framed piece by piece on your lot. They offer the most freedom in layout, rooflines and finishes, and changes can be made as the house goes up.</p>
+<p><strong>Modular</strong> homes are built in sections in a factory, then delivered and set on a permanent foundation with a crane. In Michigan, modular homes are built to the same state building code as site-built homes. Factory construction isn&rsquo;t slowed by weather, which can shorten the time on site.</p>
+<p>Either way, the lot still needs clearing, excavation, a foundation, utilities and a driveway &mdash; the work our own crews handle. RBF builds both, so we can help you compare options for your lot, budget and schedule.</p>
 <h2>Building on Rural, Wooded and Lake Lots</h2>
 <p>Much of northern and western Oakland County, Livingston County, Lapeer County and southern Genesee County is rural or wooded land with lakes, slopes and poor soils. These lots need careful site planning: tree removal, soil management, grading for drainage, long driveways and utility runs. That&rsquo;s exactly where an in-house earthwork crew pays off.</p>
 <h2>From Plans to Keys</h2>
@@ -275,12 +331,16 @@ SERVICES = [
         "faqs": [
             ("Do you build custom homes from the ground up?",
              "Yes. RBF Construction builds ground-up custom homes and additions, including the land clearing, excavation, foundation, utilities and driveway with our own site work crews."),
+            ("Do you build modular homes?",
+             "Yes. RBF Construction builds both stick-built and modular homes. For either one, our own crews handle the lot clearing, excavation, grading, utilities and driveway."),
+            ("What is the difference between a modular and a stick-built home?",
+             "A stick-built home is framed on your lot, which allows the most design flexibility. A modular home is built in sections in a factory to the same Michigan building code, then set on a permanent foundation on your lot."),
             ("Can you build from my architect's plans?",
              "Yes. We can build from your plans or deliver the project through design-build with our network of architects."),
             ("Do you build homes on rural or lake lots?",
              "Yes. Rural, wooded and lake lots are a strength because our in-house earthwork division handles clearing, grading, drainage, long driveways and utility runs."),
         ],
-        "types": ["Custom home building", "New home construction", "Home additions", "Residential construction"],
+        "types": ["Custom home building", "Modular home construction", "Stick-built home construction", "New home construction", "Home additions"],
     },
     {
         "slug": "kitchen-remodeling", "group": "residential", "nav": "Kitchen Remodeling", "name": "Kitchen Remodeling",
