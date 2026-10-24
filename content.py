@@ -170,7 +170,7 @@ SERVICES = [
         "desc": "Office building construction, tenant build-outs and office renovations in Genesee, Oakland & SE Michigan. Design-build or design-bid-build.",
         "h1": "Commercial Build-Outs &amp; Office Construction",
         "lead": "New professional office buildings, tenant improvements and office renovations across Genesee County, Oakland County and Southeast Michigan.",
-        "bg": "steel-frame-commercial-building",
+        "bg": "modern-office-building-exterior",
         "photos": ["athletico-physical-therapy-shelby-mi", "commercial-renovation-after", "commercial-site-excavation-grading"],
         "body": """<h2>Office Space That Works for Your Business</h2>
 <p>RBF Construction builds new office buildings and renovates existing ones for owners, developers and tenants. Whether it&rsquo;s a single-story professional office, a multi-tenant building or a build-out of leased space, we manage budget, schedule and quality from preconstruction to move-in.</p>

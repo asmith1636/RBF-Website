@@ -67,6 +67,7 @@ MAP_LINK = "https://www.google.com/maps/search/?api=1&query=1411+W+Hill+Rd,+Flin
 PHOTOS = {
     "retail-plaza-jimmy-johns-pizza-hut-smoothie-king": "Completed multi-tenant retail building with Jimmy John's drive-thru, Pizza Hut and Smoothie King storefronts, with an RBF Construction van on site",
     "public-library-brick-building": "Brick public library building with large windows and trees",
+    "modern-office-building-exterior": "Modern multi-story office building with glass and metal panels",
     "new-townhomes-exterior": "New two-story townhome building with front porches, stone accents and stone retaining walls",
     "commercial-renovation-before": "Before: aging single-story commercial building with a cracked, flooded parking lot",
     "commercial-renovation-after": "After: RBF Construction's renovated commercial building with stone facade, new awnings and a freshly paved, striped parking lot",
@@ -109,12 +110,14 @@ PHOTOS = {
     "valve-vault-piping": "New valves and piping inside an underground valve vault",
 }
 # Photos that are not RBF's own and must show a credit wherever they appear
-# Hero photos with a brand logo or sign: the headline sits lower and smaller so the sign stays visible
-SIGN_PHOTOS = {"athletico-physical-therapy-shelby-mi", "cottage-inn-pizza-davison-mi", "family-dollar-dollar-tree-olivet-mi",
-               "retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "smoothie-king-building", "taco-bell-cass-city-mi",
-               "public-library-brick-building"}
+# Hero photos with a brand logo or sign. Phones: headline below the sign ("low").
+# Desktop: signs on the left of the photo get the headline on the right ("flip").
+SIGN_PHOTOS = {"athletico-physical-therapy-shelby-mi": "", "cottage-inn-pizza-davison-mi": " flip",
+               "family-dollar-dollar-tree-olivet-mi": "", "retail-plaza-jimmy-johns-pizza-hut-smoothie-king": "",
+               "smoothie-king-building": " flip", "taco-bell-cass-city-mi": " flip", "public-library-brick-building": ""}
 PHOTO_CREDITS = {"new-townhomes-exterior": "Imagery &copy; Google",
-                 "public-library-brick-building": "Stock photo: Naturalist Boat / Unsplash"}
+                 "public-library-brick-building": "Stock photo: Naturalist Boat / Unsplash",
+                 "modern-office-building-exterior": "Stock photo: kaleb tapp / Unsplash"}
 
 CLIENTS = [("client-jimmy-johns", "Jimmy John's"), ("client-pizza-hut", "Pizza Hut"),
            ("client-smoothie-king", "Smoothie King"), ("client-taco-bell", "Taco Bell"),
@@ -432,7 +435,7 @@ def page_hero(h1, lead, trail, bg):
     pic = img(bg, 'bg', lazy=False, alt='', priority=True) if bg else ""
     if bg in PHOTO_CREDITS:
         pic += f'<span class="photo-credit">{PHOTO_CREDITS[bg]}</span>'
-    cls = ("page-hero low" if bg in SIGN_PHOTOS else "page-hero") if bg else "page-hero plain"
+    cls = ("page-hero low" + SIGN_PHOTOS[bg] if bg in SIGN_PHOTOS else "page-hero") if bg else "page-hero plain"
     return f"""<section class="{cls}">{pic}
 <div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><ol>{items}</ol></nav>
 <h1>{h1}</h1><p>{lead}</p></div></section>"""
@@ -877,7 +880,7 @@ def general_contracting():
         "Full-service general contractor for Genesee, Oakland & Southeast Michigan: construction management, design-build, design-bid-build and consulting.",
         "General Contractor in Flint, Genesee County &amp; Southeast Michigan",
         "General contracting, construction management, design-build and consulting &mdash; managed in person, delivered on time and on budget.",
-        "retail-plaza-jimmy-johns-pizza-hut-smoothie-king", content, faqs, "General Contracting",
+        "steel-frame-commercial-building", content, faqs, "General Contracting",
         ["General contracting", "Construction management", "Design-build", "Design-bid-build", "Construction consulting"],
         ["taco-bell-new-construction", "family-dollar-dollar-tree-olivet-mi", "athletico-physical-therapy-shelby-mi"])
 
@@ -1080,7 +1083,7 @@ def resources():
 
 def projects():
     trail = [("Home", "/"), ("Projects", "/projects/")]
-    body = f"""{page_hero("Construction Projects by RBF", "Restaurants, retail, healthcare, commercial renovation, homes, site development and underground utilities &mdash; real RBF Construction projects.", trail, "retail-plaza-jimmy-johns-pizza-hut-smoothie-king")}
+    body = f"""{page_hero("Construction Projects by RBF", "Restaurants, retail, healthcare, commercial renovation, homes, site development and underground utilities &mdash; real RBF Construction projects.", trail, "commercial-renovation-after")}
 <section><div class="wrap">
   <div class="section-head"><span class="eyebrow">Case Studies</span><h2>Featured Projects</h2><p>Select a project for photos and details.</p></div>
   {case_cards(CASE_STUDIES, "h3")}
