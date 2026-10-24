@@ -132,12 +132,124 @@ OTHER_AREAS = ["St. Clair County", "Shiawassee County", "Monroe County", "Sagina
 # Services
 # --------------------------------------------------------------------------
 GROUPS = {
-    "residential": ("Residential", "/residential-general-contracting"),
     "commercial": ("Commercial", "/commercial-general-contracting"),
+    "residential": ("Residential", "/residential-general-contracting"),
     "site": ("Site Work & Utilities", "/site-development"),
 }
 
 SERVICES = [
+    # ---------------- Commercial ----------------
+    {
+        "slug": "office-building-construction", "group": "commercial", "nav": "Office Buildings", "name": "Office Building Construction",
+        "title": "Commercial Build-Out & Office Contractor | Flint, MI | RBF",
+        "desc": "Office building construction, tenant build-outs and office renovations in Genesee, Oakland & SE Michigan. Design-build or design-bid-build.",
+        "h1": "Commercial Build-Outs &amp; Office Construction",
+        "lead": "New professional office buildings, tenant improvements and office renovations across Genesee County, Oakland County and Southeast Michigan.",
+        "bg": "steel-frame-commercial-building",
+        "photos": ["steel-frame-commercial-building", "concrete-road-curb-gutter-construction", "commercial-site-excavation-grading"],
+        "body": """<h2>Office Space That Works for Your Business</h2>
+<p>RBF Construction builds new office buildings and renovates existing ones for owners, developers and tenants. Whether it&rsquo;s a single-story professional office, a multi-tenant building or a build-out of leased space, we manage budget, schedule and quality from preconstruction to move-in.</p>
+<ul class="tick-list"><li>Ground-up office buildings</li><li>Tenant improvements &amp; build-outs</li><li>Office renovations &amp; modernization</li><li>Multi-tenant professional buildings</li>
+<li>Occupied-building phasing</li><li>Site work, parking &amp; utilities</li></ul>
+<!--PHOTOS-->
+<h2>Tenant Build-Outs on Schedule</h2>
+<p>Lease start dates don&rsquo;t move. We plan tenant improvement projects around your lease, coordinate with building management, and sequence demolition, framing, mechanical, electrical, data and finishes so you can open on time.</p>
+<h2>Renovating While You Stay Open</h2>
+<p>Need to update an office you&rsquo;re working in? We phase work to keep your business operating &mdash; after-hours work where needed, dust and noise control, and clear communication about what&rsquo;s happening each day.</p>
+<h2>Ground-Up With Site Work Included</h2>
+<p>For new buildings, our <a href="/site-development">site development division</a> handles excavation, utilities, parking lots and concrete, so the building and the site are managed by one team.</p>
+<p>Serving office corridors in <a href="/oakland-county-general-contractor">Troy, Southfield, Auburn Hills and Novi</a>, <a href="/genesee-county-general-contractor">Flint and Grand Blanc</a>, and across <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request an office construction bid</a>.</p>""",
+        "faqs": [
+            ("Do you do tenant build-outs?",
+             "Yes. RBF Construction builds out leased office, medical, retail and restaurant space, coordinating with building management and planning the work around your lease start date."),
+            ("Can you renovate our office while we keep working?",
+             "Yes. We phase renovation work, schedule disruptive tasks after hours when needed, and control dust and noise so your business can keep operating."),
+        ],
+        "types": ["Office construction", "Tenant improvement", "Office build-out", "Office renovation"],
+    },
+    {
+        "slug": "restaurant-construction", "group": "commercial", "nav": "Restaurants", "name": "Restaurant Construction",
+        "title": "Restaurant Construction Contractor in Michigan | RBF",
+        "desc": "Restaurant and drive-thru construction in Michigan for national brands and local owners: ground-up builds, remodels, build-outs and site work.",
+        "h1": "Restaurant Construction for National Brands &amp; Local Owners",
+        "lead": "Ground-up quick-service restaurants with drive-thrus, sit-down restaurants, franchise remodels and tenant build-outs.",
+        "bg": "smoothie-king-building", "photos": ["taco-bell-cass-city-mi", "cottage-inn-pizza-davison-mi", "smoothie-king-building"],
+        "body": """<h2>Restaurant Projects We&rsquo;ve Built</h2>
+<p>RBF Construction has built for restaurant brands including <strong>Jimmy John&rsquo;s, Pizza Hut, Smoothie King, Taco Bell, Cottage Inn Pizza and Biggby Coffee</strong>. We understand franchise brand standards, tight opening dates and the kitchen infrastructure restaurants depend on.</p>
+<ul class="tick-list"><li>Quick-service restaurants</li><li>Drive-thru lanes &amp; windows</li><li>Sit-down &amp; fast-casual</li><li>Coffee shops &amp; smoothie bars</li>
+<li>Franchise remodels &amp; refreshes</li><li>End-cap &amp; in-line build-outs</li><li>Multi-tenant restaurant buildings</li><li>Parking, drive aisles &amp; utilities</li></ul>
+<!--PHOTOS-->
+<h2>Built Around the Kitchen</h2>
+<p>Restaurants have infrastructure most buildings don&rsquo;t: hood and make-up air systems, grease interceptors, floor drains, heavy electrical and gas loads, walk-in coolers and health-code finishes. We coordinate these trades and inspections so your health department and fire inspections go smoothly.</p>
+<h2>Drive-Thru Site Work, Done In-House</h2>
+<p>Drive-thru stacking lanes, curbing, menu-board foundations, grease interceptor installation, storm water and parking all fall to our <a href="/site-development">site development division</a> &mdash; no handoff between a site contractor and a building contractor.</p>
+<h2>Opening Day Matters</h2>
+<p>We schedule backward from your opening date, order long-lead equipment early, and keep franchise representatives informed with progress updates.</p>
+<p>We build restaurants throughout <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Macomb County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a restaurant construction bid</a>.</p>""",
+        "faqs": [
+            ("Have you built restaurants for national franchise brands?",
+             "Yes. RBF Construction has built for brands including Jimmy John's, Pizza Hut, Smoothie King, Taco Bell, Cottage Inn Pizza and Biggby Coffee."),
+            ("Do you build drive-thru restaurants?",
+             "Yes. We build the restaurant and the drive-thru site work, including stacking lanes, curbing, menu-board foundations, grease interceptors, utilities and parking."),
+            ("Can you remodel an existing restaurant to new brand standards?",
+             "Yes. We handle franchise remodels and refreshes, scheduling the work to minimize the time your restaurant is closed."),
+        ],
+        "types": ["Restaurant construction", "Quick-service restaurant construction", "Drive-thru construction", "Franchise construction"],
+    },
+    {
+        "slug": "medical-office-construction", "group": "commercial", "nav": "Medical & Dental", "name": "Medical Office Construction",
+        "title": "Medical Office Construction | Flint & SE Michigan | RBF",
+        "desc": "Medical office, dental, physical therapy and clinic construction in Genesee County, Oakland County and Southeast Michigan. New buildings and build-outs.",
+        "h1": "Medical, Dental &amp; Clinic Construction in Flint &amp; Southeast Michigan",
+        "lead": "New medical office buildings and build-outs for physicians, dentists, physical therapy, urgent care and specialty clinics.",
+        "bg": "athletico-physical-therapy-shelby-mi", "photos": [],
+        "body": """<h2>Healthcare Spaces Built With Care</h2>
+<p>Medical construction has requirements other commercial projects don&rsquo;t: accessibility, infection-control-friendly finishes, plumbing at nearly every exam room, privacy and sound control, and coordination with specialty equipment vendors. RBF Construction has built space for healthcare tenants including <strong>Athletico Physical Therapy</strong> (pictured above), and we bring that experience to every medical project.</p>
+<ul class="tick-list"><li>Medical office buildings</li><li>Physician &amp; specialty practices</li><li>Dental offices</li><li>Physical therapy clinics</li>
+<li>Urgent care &amp; walk-in clinics</li><li>Medical tenant build-outs</li><li>Veterinary clinics</li><li>Renovations &amp; expansions</li></ul>
+<!--PHOTOS-->
+<h2>What Sets Medical Projects Apart</h2>
+<ul><li><strong>Accessibility:</strong> barrier-free entrances, restrooms, door hardware and clearances.</li>
+<li><strong>Plumbing-heavy layouts:</strong> sinks in exam and treatment rooms, sterilization areas and specialized drains.</li>
+<li><strong>Durable, cleanable finishes:</strong> materials selected for frequent cleaning.</li>
+<li><strong>Privacy:</strong> sound-attenuating walls and thoughtful layouts.</li>
+<li><strong>Equipment coordination:</strong> we coordinate with dental, imaging and equipment vendors on power, blocking, plumbing and any shielding their equipment requires.</li></ul>
+<h2>Opening Your Practice on Time</h2>
+<p>We plan around your lease, licensing and equipment delivery so you can start seeing patients when planned.</p>
+<p>Serving <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Washtenaw County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a medical construction bid</a>.</p>""",
+        "faqs": [
+            ("Do you build medical and dental offices?",
+             "Yes. RBF Construction builds medical office buildings and builds out space for physicians, dentists, physical therapy, urgent care and specialty clinics, including work for Athletico Physical Therapy."),
+            ("Can you coordinate with our dental or imaging equipment vendors?",
+             "Yes. We coordinate power, plumbing, blocking and any shielding requirements with your equipment vendors so installation goes smoothly."),
+        ],
+        "types": ["Medical office construction", "Dental office construction", "Clinic construction", "Healthcare tenant build-out"],
+    },
+    {
+        "slug": "retail-construction", "group": "commercial", "nav": "Retail & Businesses", "name": "Retail and Commercial Business Construction",
+        "title": "Retail & Commercial Construction | Flint, MI | RBF",
+        "desc": "Retail, strip center and commercial business construction in Southeast Michigan: ground-up buildings, renovations, facades and build-outs.",
+        "h1": "Retail &amp; Commercial Business Construction",
+        "lead": "Retail stores, multi-tenant strip centers, storefront renovations and buildings for businesses of every kind.",
+        "bg": "family-dollar-dollar-tree-olivet-mi", "photos": ["retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "commercial-renovation-after", "concrete-road-curb-gutter-construction"],
+        "body": """<h2>Buildings That Help Businesses Grow</h2>
+<p>From national retailers like <strong>Dollar Tree</strong> to local businesses opening their first location, RBF Construction builds and renovates commercial space that&rsquo;s ready for customers. We handle ground-up buildings, multi-tenant strip centers, storefront renovations and interior build-outs.</p>
+<ul class="tick-list"><li>Retail stores</li><li>Multi-tenant strip centers</li><li>Facade &amp; storefront renovations</li><li>Interior build-outs</li>
+<li>Service &amp; professional businesses</li><li>Warehouse &amp; flex space</li><li>Parking lot reconstruction</li><li>Pump station &amp; facility upgrades</li></ul>
+<!--PHOTOS-->
+<h2>Commercial Renovation: Before &amp; After</h2>
+<p>An aging, single-story commercial building with a failing parking lot became modern, leasable space with a stone and metal-panel facade, new storefront awnings and a freshly paved, striped lot. <a href="/projects">See the before-and-after</a>.</p>
+<h2>Multi-Tenant Buildings</h2>
+<p>We&rsquo;ve built multi-tenant buildings housing national brands side by side, including a retail building with Jimmy John&rsquo;s, Pizza Hut and Smoothie King. We coordinate shell construction with each tenant&rsquo;s build-out requirements.</p>
+<p>Serving businesses across <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Wayne County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a commercial bid</a>.</p>""",
+        "faqs": [
+            ("Do you build multi-tenant retail buildings?",
+             "Yes. RBF Construction builds multi-tenant retail buildings and strip centers, coordinating the shell with each tenant's build-out requirements."),
+            ("Can you renovate an older commercial building?",
+             "Yes. We renovate facades, storefronts, interiors, parking lots and utilities to turn older properties into modern, leasable space."),
+        ],
+        "types": ["Retail construction", "Commercial renovation", "Strip center construction", "Storefront renovation"],
+    },
     # ---------------- Residential ----------------
     {
         "slug": "custom-home-builder", "group": "residential", "nav": "Custom Homes & Additions", "name": "Custom Home Building",
@@ -272,118 +384,6 @@ SERVICES = [
              "Throughout Genesee County, Oakland County, Lapeer County, Livingston County and the rest of Southeast Michigan."),
         ],
         "types": ["Pole barn construction", "Post-frame construction", "Detached garage construction", "Workshop construction"],
-    },
-    # ---------------- Commercial ----------------
-    {
-        "slug": "office-building-construction", "group": "commercial", "nav": "Office Buildings", "name": "Office Building Construction",
-        "title": "Commercial Build-Out & Office Contractor | Flint, MI | RBF",
-        "desc": "Office building construction, tenant build-outs and office renovations in Genesee, Oakland & SE Michigan. Design-build or design-bid-build.",
-        "h1": "Commercial Build-Outs &amp; Office Construction",
-        "lead": "New professional office buildings, tenant improvements and office renovations across Genesee County, Oakland County and Southeast Michigan.",
-        "bg": "steel-frame-commercial-building",
-        "photos": ["steel-frame-commercial-building", "concrete-road-curb-gutter-construction", "commercial-site-excavation-grading"],
-        "body": """<h2>Office Space That Works for Your Business</h2>
-<p>RBF Construction builds new office buildings and renovates existing ones for owners, developers and tenants. Whether it&rsquo;s a single-story professional office, a multi-tenant building or a build-out of leased space, we manage budget, schedule and quality from preconstruction to move-in.</p>
-<ul class="tick-list"><li>Ground-up office buildings</li><li>Tenant improvements &amp; build-outs</li><li>Office renovations &amp; modernization</li><li>Multi-tenant professional buildings</li>
-<li>Occupied-building phasing</li><li>Site work, parking &amp; utilities</li></ul>
-<!--PHOTOS-->
-<h2>Tenant Build-Outs on Schedule</h2>
-<p>Lease start dates don&rsquo;t move. We plan tenant improvement projects around your lease, coordinate with building management, and sequence demolition, framing, mechanical, electrical, data and finishes so you can open on time.</p>
-<h2>Renovating While You Stay Open</h2>
-<p>Need to update an office you&rsquo;re working in? We phase work to keep your business operating &mdash; after-hours work where needed, dust and noise control, and clear communication about what&rsquo;s happening each day.</p>
-<h2>Ground-Up With Site Work Included</h2>
-<p>For new buildings, our <a href="/site-development">site development division</a> handles excavation, utilities, parking lots and concrete, so the building and the site are managed by one team.</p>
-<p>Serving office corridors in <a href="/oakland-county-general-contractor">Troy, Southfield, Auburn Hills and Novi</a>, <a href="/genesee-county-general-contractor">Flint and Grand Blanc</a>, and across <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request an office construction bid</a>.</p>""",
-        "faqs": [
-            ("Do you do tenant build-outs?",
-             "Yes. RBF Construction builds out leased office, medical, retail and restaurant space, coordinating with building management and planning the work around your lease start date."),
-            ("Can you renovate our office while we keep working?",
-             "Yes. We phase renovation work, schedule disruptive tasks after hours when needed, and control dust and noise so your business can keep operating."),
-        ],
-        "types": ["Office construction", "Tenant improvement", "Office build-out", "Office renovation"],
-    },
-    {
-        "slug": "restaurant-construction", "group": "commercial", "nav": "Restaurants", "name": "Restaurant Construction",
-        "title": "Restaurant Construction Contractor in Michigan | RBF",
-        "desc": "Restaurant and drive-thru construction in Michigan for national brands and local owners: ground-up builds, remodels, build-outs and site work.",
-        "h1": "Restaurant Construction for National Brands &amp; Local Owners",
-        "lead": "Ground-up quick-service restaurants with drive-thrus, sit-down restaurants, franchise remodels and tenant build-outs.",
-        "bg": "smoothie-king-building", "photos": ["taco-bell-cass-city-mi", "cottage-inn-pizza-davison-mi", "smoothie-king-building"],
-        "body": """<h2>Restaurant Projects We&rsquo;ve Built</h2>
-<p>RBF Construction has built for restaurant brands including <strong>Jimmy John&rsquo;s, Pizza Hut, Smoothie King, Taco Bell, Cottage Inn Pizza and Biggby Coffee</strong>. We understand franchise brand standards, tight opening dates and the kitchen infrastructure restaurants depend on.</p>
-<ul class="tick-list"><li>Quick-service restaurants</li><li>Drive-thru lanes &amp; windows</li><li>Sit-down &amp; fast-casual</li><li>Coffee shops &amp; smoothie bars</li>
-<li>Franchise remodels &amp; refreshes</li><li>End-cap &amp; in-line build-outs</li><li>Multi-tenant restaurant buildings</li><li>Parking, drive aisles &amp; utilities</li></ul>
-<!--PHOTOS-->
-<h2>Built Around the Kitchen</h2>
-<p>Restaurants have infrastructure most buildings don&rsquo;t: hood and make-up air systems, grease interceptors, floor drains, heavy electrical and gas loads, walk-in coolers and health-code finishes. We coordinate these trades and inspections so your health department and fire inspections go smoothly.</p>
-<h2>Drive-Thru Site Work, Done In-House</h2>
-<p>Drive-thru stacking lanes, curbing, menu-board foundations, grease interceptor installation, storm water and parking all fall to our <a href="/site-development">site development division</a> &mdash; no handoff between a site contractor and a building contractor.</p>
-<h2>Opening Day Matters</h2>
-<p>We schedule backward from your opening date, order long-lead equipment early, and keep franchise representatives informed with progress updates.</p>
-<p>We build restaurants throughout <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Macomb County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a restaurant construction bid</a>.</p>""",
-        "faqs": [
-            ("Have you built restaurants for national franchise brands?",
-             "Yes. RBF Construction has built for brands including Jimmy John's, Pizza Hut, Smoothie King, Taco Bell, Cottage Inn Pizza and Biggby Coffee."),
-            ("Do you build drive-thru restaurants?",
-             "Yes. We build the restaurant and the drive-thru site work, including stacking lanes, curbing, menu-board foundations, grease interceptors, utilities and parking."),
-            ("Can you remodel an existing restaurant to new brand standards?",
-             "Yes. We handle franchise remodels and refreshes, scheduling the work to minimize the time your restaurant is closed."),
-        ],
-        "types": ["Restaurant construction", "Quick-service restaurant construction", "Drive-thru construction", "Franchise construction"],
-    },
-    {
-        "slug": "medical-office-construction", "group": "commercial", "nav": "Medical & Dental", "name": "Medical Office Construction",
-        "title": "Medical Office Construction | Flint & SE Michigan | RBF",
-        "desc": "Medical office, dental, physical therapy and clinic construction in Genesee County, Oakland County and Southeast Michigan. New buildings and build-outs.",
-        "h1": "Medical, Dental &amp; Clinic Construction in Flint &amp; Southeast Michigan",
-        "lead": "New medical office buildings and build-outs for physicians, dentists, physical therapy, urgent care and specialty clinics.",
-        "bg": "athletico-physical-therapy-shelby-mi", "photos": [],
-        "body": """<h2>Healthcare Spaces Built With Care</h2>
-<p>Medical construction has requirements other commercial projects don&rsquo;t: accessibility, infection-control-friendly finishes, plumbing at nearly every exam room, privacy and sound control, and coordination with specialty equipment vendors. RBF Construction has built space for healthcare tenants including <strong>Athletico Physical Therapy</strong> (pictured above), and we bring that experience to every medical project.</p>
-<ul class="tick-list"><li>Medical office buildings</li><li>Physician &amp; specialty practices</li><li>Dental offices</li><li>Physical therapy clinics</li>
-<li>Urgent care &amp; walk-in clinics</li><li>Medical tenant build-outs</li><li>Veterinary clinics</li><li>Renovations &amp; expansions</li></ul>
-<!--PHOTOS-->
-<h2>What Sets Medical Projects Apart</h2>
-<ul><li><strong>Accessibility:</strong> barrier-free entrances, restrooms, door hardware and clearances.</li>
-<li><strong>Plumbing-heavy layouts:</strong> sinks in exam and treatment rooms, sterilization areas and specialized drains.</li>
-<li><strong>Durable, cleanable finishes:</strong> materials selected for frequent cleaning.</li>
-<li><strong>Privacy:</strong> sound-attenuating walls and thoughtful layouts.</li>
-<li><strong>Equipment coordination:</strong> we coordinate with dental, imaging and equipment vendors on power, blocking, plumbing and any shielding their equipment requires.</li></ul>
-<h2>Opening Your Practice on Time</h2>
-<p>We plan around your lease, licensing and equipment delivery so you can start seeing patients when planned.</p>
-<p>Serving <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Washtenaw County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a medical construction bid</a>.</p>""",
-        "faqs": [
-            ("Do you build medical and dental offices?",
-             "Yes. RBF Construction builds medical office buildings and builds out space for physicians, dentists, physical therapy, urgent care and specialty clinics, including work for Athletico Physical Therapy."),
-            ("Can you coordinate with our dental or imaging equipment vendors?",
-             "Yes. We coordinate power, plumbing, blocking and any shielding requirements with your equipment vendors so installation goes smoothly."),
-        ],
-        "types": ["Medical office construction", "Dental office construction", "Clinic construction", "Healthcare tenant build-out"],
-    },
-    {
-        "slug": "retail-construction", "group": "commercial", "nav": "Retail & Businesses", "name": "Retail and Commercial Business Construction",
-        "title": "Retail & Commercial Construction | Flint, MI | RBF",
-        "desc": "Retail, strip center and commercial business construction in Southeast Michigan: ground-up buildings, renovations, facades and build-outs.",
-        "h1": "Retail &amp; Commercial Business Construction",
-        "lead": "Retail stores, multi-tenant strip centers, storefront renovations and buildings for businesses of every kind.",
-        "bg": "family-dollar-dollar-tree-olivet-mi", "photos": ["retail-plaza-jimmy-johns-pizza-hut-smoothie-king", "commercial-renovation-after", "concrete-road-curb-gutter-construction"],
-        "body": """<h2>Buildings That Help Businesses Grow</h2>
-<p>From national retailers like <strong>Dollar Tree</strong> to local businesses opening their first location, RBF Construction builds and renovates commercial space that&rsquo;s ready for customers. We handle ground-up buildings, multi-tenant strip centers, storefront renovations and interior build-outs.</p>
-<ul class="tick-list"><li>Retail stores</li><li>Multi-tenant strip centers</li><li>Facade &amp; storefront renovations</li><li>Interior build-outs</li>
-<li>Service &amp; professional businesses</li><li>Warehouse &amp; flex space</li><li>Parking lot reconstruction</li><li>Pump station &amp; facility upgrades</li></ul>
-<!--PHOTOS-->
-<h2>Commercial Renovation: Before &amp; After</h2>
-<p>An aging, single-story commercial building with a failing parking lot became modern, leasable space with a stone and metal-panel facade, new storefront awnings and a freshly paved, striped lot. <a href="/projects">See the before-and-after</a>.</p>
-<h2>Multi-Tenant Buildings</h2>
-<p>We&rsquo;ve built multi-tenant buildings housing national brands side by side, including a retail building with Jimmy John&rsquo;s, Pizza Hut and Smoothie King. We coordinate shell construction with each tenant&rsquo;s build-out requirements.</p>
-<p>Serving businesses across <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Wayne County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a commercial bid</a>.</p>""",
-        "faqs": [
-            ("Do you build multi-tenant retail buildings?",
-             "Yes. RBF Construction builds multi-tenant retail buildings and strip centers, coordinating the shell with each tenant's build-out requirements."),
-            ("Can you renovate an older commercial building?",
-             "Yes. We renovate facades, storefronts, interiors, parking lots and utilities to turn older properties into modern, leasable space."),
-        ],
-        "types": ["Retail construction", "Commercial renovation", "Strip center construction", "Storefront renovation"],
     },
     # ---------------- Site work ----------------
     {

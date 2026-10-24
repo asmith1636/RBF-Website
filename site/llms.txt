@@ -18,19 +18,19 @@
 
 ## Service categories
 - [General Contracting](https://rbfconstruction.com/general-contracting): construction management, design-build, design-bid-build, consulting
-- [Residential](https://rbfconstruction.com/residential-general-contracting): custom homes and additions, kitchen and bath remodeling, pole barns
 - [Commercial](https://rbfconstruction.com/commercial-general-contracting): offices, restaurants, medical, retail, tenant build-outs
+- [Residential](https://rbfconstruction.com/residential-general-contracting): custom homes and additions, kitchen and bath remodeling, pole barns
 - [Site Work & Utilities](https://rbfconstruction.com/site-development): excavation, grading, underground utilities, paving, concrete, demolition
 
 ## Services
-- [Custom Homes & Additions](https://rbfconstruction.com/custom-home-builder): Ground-up custom homes and additions in Genesee County, Oakland County and Southeast Michigan, with in-house excavation, grading, driveways and utilities.
-- [Kitchen Remodeling](https://rbfconstruction.com/kitchen-remodeling): Kitchen remodeling contractor for Oakland County and Southeast Michigan: layout changes, cabinets, countertops, tile, lighting and permits handled.
-- [Bathroom Remodeling](https://rbfconstruction.com/bathroom-remodeling): Bathroom remodeling in Genesee, Oakland & SE Michigan: walk-in showers, tub conversions, tile, vanities and accessible, aging-in-place baths.
-- [Pole Barns & Garages](https://rbfconstruction.com/pole-barns): Pole barns, detached garages, workshops and post-frame buildings in Genesee County, Oakland County and Southeast Michigan, with site prep and concrete.
 - [Office Buildings](https://rbfconstruction.com/office-building-construction): Office building construction, tenant build-outs and office renovations in Genesee, Oakland & SE Michigan. Design-build or design-bid-build.
 - [Restaurants](https://rbfconstruction.com/restaurant-construction): Restaurant and drive-thru construction in Michigan for national brands and local owners: ground-up builds, remodels, build-outs and site work.
 - [Medical & Dental](https://rbfconstruction.com/medical-office-construction): Medical office, dental, physical therapy and clinic construction in Genesee County, Oakland County and Southeast Michigan. New buildings and build-outs.
 - [Retail & Businesses](https://rbfconstruction.com/retail-construction): Retail, strip center and commercial business construction in Southeast Michigan: ground-up buildings, renovations, facades and build-outs.
+- [Custom Homes & Additions](https://rbfconstruction.com/custom-home-builder): Ground-up custom homes and additions in Genesee County, Oakland County and Southeast Michigan, with in-house excavation, grading, driveways and utilities.
+- [Kitchen Remodeling](https://rbfconstruction.com/kitchen-remodeling): Kitchen remodeling contractor for Oakland County and Southeast Michigan: layout changes, cabinets, countertops, tile, lighting and permits handled.
+- [Bathroom Remodeling](https://rbfconstruction.com/bathroom-remodeling): Bathroom remodeling in Genesee, Oakland & SE Michigan: walk-in showers, tub conversions, tile, vanities and accessible, aging-in-place baths.
+- [Pole Barns & Garages](https://rbfconstruction.com/pole-barns): Pole barns, detached garages, workshops and post-frame buildings in Genesee County, Oakland County and Southeast Michigan, with site prep and concrete.
 - [Excavation & Grading](https://rbfconstruction.com/excavation-grading): Commercial and residential excavation, mass grading, land balancing and site clearing in Oakland County, Genesee County and Southeast Michigan.
 - [Underground Utilities](https://rbfconstruction.com/underground-utilities): Storm sewer, sanitary sewer, water main, retention pond and pump station installation in Oakland County, Genesee County and Southeast Michigan.
 - [Parking Lots, Roads & Concrete](https://rbfconstruction.com/parking-lot-paving-concrete): Parking lots, private roads, drive-thru lanes, concrete curbs, gutters, sidewalks and slabs for commercial and residential sites in Southeast Michigan.

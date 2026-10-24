@@ -170,8 +170,8 @@ def icon(name):
 # Hub pages (existing URLs kept from the old site). Detailed service pages live in content.py.
 SERVICES = [
     ("/general-contracting", "General Contracting"),
-    ("/residential-general-contracting", "Residential Construction"),
     ("/commercial-general-contracting", "Commercial Construction"),
+    ("/residential-general-contracting", "Residential Construction"),
     ("/site-development", "Site Development"),
 ]
 SVC_BY_GROUP = {g: [s for s in SVC if s["group"] == g] for g in GROUPS}
@@ -185,8 +185,8 @@ def header(path):
     def links(group):
         return "".join(f'<a href="/{s["slug"]}"{cur("/" + s["slug"])}>{s["nav"]}</a>' for s in SVC_BY_GROUP[group])
 
-    gc_menu = (f'<div><a class="grp" href="/residential-general-contracting"{cur("/residential-general-contracting")}>Residential</a>{links("residential")}</div>'
-               f'<div><a class="grp" href="/commercial-general-contracting"{cur("/commercial-general-contracting")}>Commercial</a>{links("commercial")}</div>'
+    gc_menu = (f'<div><a class="grp" href="/commercial-general-contracting"{cur("/commercial-general-contracting")}>Commercial</a>{links("commercial")}</div>'
+               f'<div><a class="grp" href="/residential-general-contracting"{cur("/residential-general-contracting")}>Residential</a>{links("residential")}</div>'
                f'<a class="sub-foot" href="/general-contracting"{cur("/general-contracting")}>Construction management &amp; design-build {icon("arrow")}</a>')
     site_menu = links("site") + f'<a class="sub-foot" href="/site-development"{cur("/site-development")}>All site work &amp; utilities {icon("arrow")}</a>'
     areas = "".join(f'<a href="/{c["slug"]}"{cur("/" + c["slug"])}>{c["name"]}</a>' for c in COUNTIES)
@@ -238,8 +238,8 @@ def footer():
       <div class="social"><a href="{BIZ['facebook']}" rel="noopener" target="_blank" aria-label="RBF Construction on Facebook">{icon('facebook')}</a></div>
     </div>
     <div><h2><a href="/general-contracting">General Contracting</a></h2>
-      <h3><a href="/residential-general-contracting">Residential</a></h3><ul>{res}</ul>
-      <h3><a href="/commercial-general-contracting">Commercial</a></h3><ul>{com}</ul></div>
+      <h3><a href="/commercial-general-contracting">Commercial</a></h3><ul>{com}</ul>
+      <h3><a href="/residential-general-contracting">Residential</a></h3><ul>{res}</ul></div>
     <div><h2><a href="/site-development">Site Work &amp; Utilities</a></h2><ul>{site}</ul></div>
     <div><h2><a href="/service-areas">Service Areas</a></h2><ul>{areas}</ul></div>
     <div><h2>Company</h2><ul>
@@ -556,7 +556,7 @@ HOME_GALLERY = [p for p in PROJECTS if p[0] in (
     "kitchen-island-wood-beams-white-cabinets", "taco-bell-new-construction", "bathroom-freestanding-tub-glass-shower",
     "commercial-site-excavation-grading", "family-dollar-dollar-tree-olivet-mi", "living-room-coffered-ceiling-stone-fireplace",
     "storm-sewer-pipe-installation-crew", "retail-plaza-jimmy-johns-pizza-hut-smoothie-king")]
-CATEGORIES = [("all", "All"), ("residential", "Residential"), ("commercial", "Commercial"), ("site", "Site Work"), ("utilities", "Utilities")]
+CATEGORIES = [("all", "All"), ("commercial", "Commercial"), ("residential", "Residential"), ("site", "Site Work"), ("utilities", "Utilities")]
 
 
 
@@ -635,10 +635,10 @@ def divisions():
     <a class="division-media" href="/general-contracting" tabindex="-1" aria-hidden="true">{img('retail-plaza-jimmy-johns-pizza-hut-smoothie-king', alt='', sizes='(max-width:860px) 100vw, 600px')}<span>01 / Build</span></a>
     <div class="division-body">
       <h3><a href="/general-contracting">General Contracting</a></h3>
-      <p>Residential and commercial construction with personal on-site supervision &mdash; design-build or design-bid-build.</p>
+      <p>Commercial and residential construction with personal on-site supervision &mdash; design-build or design-bid-build.</p>
       <div class="division-cols">
-        <div><h4><a href="/residential-general-contracting">Residential</a></h4><ul>{lis('residential')}</ul></div>
         <div><h4><a href="/commercial-general-contracting">Commercial</a></h4><ul>{lis('commercial')}</ul></div>
+        <div><h4><a href="/residential-general-contracting">Residential</a></h4><ul>{lis('residential')}</ul></div>
       </div>
       <a class="btn btn-navy" href="/general-contracting">General Contracting {icon('arrow')}</a>
     </div>
@@ -737,7 +737,7 @@ def home():
       <a class="btn btn-amber" href="/construction-contact#quote">Request a Bid {icon('arrow')}</a>
       <a class="btn btn-ghost" href="tel:{BIZ['phone_e164']}">{icon('phone')} Call {BIZ['phone']}</a>
     </div>
-    <ul class="hero-trust"><li>{icon('check')} Licensed &amp; insured</li><li>{icon('check')} Residential &amp; commercial</li><li>{icon('check')} Self-performed site work</li></ul>
+    <ul class="hero-trust"><li>{icon('check')} Licensed &amp; insured</li><li>{icon('check')} Commercial &amp; residential</li><li>{icon('check')} Self-performed site work</li></ul>
   </div>
   {hero_slides()[1]}
 </section>
@@ -837,7 +837,7 @@ def general_contracting():
     all_svcs = "".join(f'<li><a href="/{s["slug"]}">{s["nav"]}</a></li>' for s in SVC)
     content = f"""
 <h2>Comprehensive Construction Solutions</h2>
-<p>At RBF Construction, Inc. we deliver outstanding results for projects of all sizes across <strong>Genesee County, Oakland County and Southeast Michigan</strong>. As a full-service construction company, we provide general contracting, construction management, design-build and construction consulting services for residential and commercial clients. Our team manages every detail to ensure your complete satisfaction.</p>
+<p>At RBF Construction, Inc. we deliver outstanding results for projects of all sizes across <strong>Genesee County, Oakland County and Southeast Michigan</strong>. As a full-service construction company, we provide general contracting, construction management, design-build and construction consulting services for commercial and residential clients. Our team manages every detail to ensure your complete satisfaction.</p>
 <ul class="tick-list"><li>General contracting</li><li>Construction management</li><li>Design-build</li><li>Design-bid-build</li><li>Construction consulting</li><li>Value engineering</li></ul>
 <h2>Design-Bid-Build Expertise</h2>
 <p>We specialize in traditional design-bid-build projects for commercial facilities, working closely with architects to deliver on time and within budget. When the drawings are done, we bring accurate pricing, a realistic schedule and the right subcontractors to the table.</p>
@@ -1350,7 +1350,7 @@ def not_found():
 # Crawl & AI files
 # --------------------------------------------------------------------------
 def indexed():
-    return (["/", "/general-contracting", "/residential-general-contracting", "/commercial-general-contracting",
+    return (["/", "/general-contracting", "/commercial-general-contracting", "/residential-general-contracting",
              "/site-development"] + ["/" + s["slug"] for s in SVC] + ["/service-areas"] +
             ["/" + c["slug"] for c in COUNTIES] + ["/about", "/projects/"] + ["/projects/" + c["slug"] for c in CASE_STUDIES] + ["/resources/"] +
             ["/resources/" + a["slug"] for a in ARTICLES] +
@@ -1385,8 +1385,8 @@ def llms_txt():
     def sec(items):
         return "\n".join(f"- [{strip_tags(t)}]({SITE}{u}): {strip_tags(d)}" for u, t, d in items)
     hubs = sec([("/general-contracting", "General Contracting", "construction management, design-build, design-bid-build, consulting"),
-                ("/residential-general-contracting", "Residential", "custom homes and additions, kitchen and bath remodeling, pole barns"),
                 ("/commercial-general-contracting", "Commercial", "offices, restaurants, medical, retail, tenant build-outs"),
+                ("/residential-general-contracting", "Residential", "custom homes and additions, kitchen and bath remodeling, pole barns"),
                 ("/site-development", "Site Work & Utilities", "excavation, grading, underground utilities, paving, concrete, demolition")])
     svcs = sec([("/" + s["slug"], s["nav"], s["desc"]) for s in SVC])
     areas = "\n".join(f"- [{c['name']}]({SITE}/{c['slug']}): {', '.join(c['cities'])}" for c in COUNTIES)
