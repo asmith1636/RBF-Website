@@ -175,7 +175,7 @@ SERVICES = [
         "lead": "Ground-up quick-service restaurants with drive-thrus, sit-down restaurants, franchise remodels and tenant build-outs.",
         "bg": "smoothie-king-building", "photos": ["taco-bell-cass-city-mi", "cottage-inn-pizza-davison-mi", "smoothie-king-building"],
         "body": """<h2>Restaurant Projects We&rsquo;ve Built</h2>
-<p>RBF Construction has built for restaurant brands including <strong>Jimmy John&rsquo;s, Pizza Hut, Smoothie King, Taco Bell, Cottage Inn Pizza and Biggby Coffee</strong>. We understand franchise brand standards, tight opening dates and the kitchen infrastructure restaurants depend on.</p>
+<p>RBF Construction has built for restaurant brands including <strong>Jimmy John&rsquo;s, Pizza Hut, Smoothie King, Taco Bell, Cottage Inn Pizza and Biggby Coffee</strong>, among others. We understand franchise brand standards, tight opening dates and the kitchen infrastructure restaurants depend on.</p>
 <ul class="tick-list"><li>Quick-service restaurants</li><li>Drive-thru lanes &amp; windows</li><li>Sit-down &amp; fast-casual</li><li>Coffee shops &amp; smoothie bars</li>
 <li>Franchise remodels &amp; refreshes</li><li>End-cap &amp; in-line build-outs</li><li>Multi-tenant restaurant buildings</li><li>Parking, drive aisles &amp; utilities</li></ul>
 <!--PHOTOS-->
@@ -188,7 +188,7 @@ SERVICES = [
 <p>We build restaurants throughout <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Macomb County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a restaurant construction bid</a>.</p>""",
         "faqs": [
             ("Have you built restaurants for national franchise brands?",
-             "Yes. RBF Construction has built for brands including Jimmy John's, Pizza Hut, Smoothie King, Taco Bell, Cottage Inn Pizza and Biggby Coffee."),
+             "Yes. RBF Construction has built for brands including Jimmy John's, Pizza Hut, Smoothie King, Taco Bell, Cottage Inn Pizza and Biggby Coffee, among others."),
             ("Do you build drive-thru restaurants?",
              "Yes. We build the restaurant and the drive-thru site work, including stacking lanes, curbing, menu-board foundations, grease interceptors, utilities and parking."),
             ("Can you remodel an existing restaurant to new brand standards?",
@@ -219,7 +219,7 @@ SERVICES = [
 <p>Serving <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Washtenaw County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a medical construction bid</a>.</p>""",
         "faqs": [
             ("Do you build medical and dental offices?",
-             "Yes. RBF Construction builds medical office buildings and builds out space for physicians, dentists, physical therapy, urgent care and specialty clinics, including work for Athletico Physical Therapy."),
+             "Yes. RBF Construction builds medical office buildings and builds out space for physicians, dentists, physical therapy, urgent care and specialty clinics, including work for Athletico Physical Therapy and other providers."),
             ("Can you coordinate with our dental or imaging equipment vendors?",
              "Yes. We coordinate power, plumbing, blocking and any shielding requirements with your equipment vendors so installation goes smoothly."),
         ],
@@ -240,7 +240,7 @@ SERVICES = [
 <h2>Commercial Renovation: Before &amp; After</h2>
 <p>An aging, single-story commercial building with a failing parking lot became modern, leasable space with a stone and metal-panel facade, new storefront awnings and a freshly paved, striped lot. <a href="/projects">See the before-and-after</a>.</p>
 <h2>Multi-Tenant Buildings</h2>
-<p>We&rsquo;ve built multi-tenant buildings housing national brands side by side, including a retail building with Jimmy John&rsquo;s, Pizza Hut and Smoothie King. We coordinate shell construction with each tenant&rsquo;s build-out requirements.</p>
+<p>We&rsquo;ve built multi-tenant buildings housing national brands side by side &mdash; one example is a retail building with Jimmy John&rsquo;s, Pizza Hut and Smoothie King. We coordinate shell construction with each tenant&rsquo;s build-out requirements.</p>
 <p>Serving businesses across <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Wayne County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a commercial bid</a>.</p>""",
         "faqs": [
             ("Do you build multi-tenant retail buildings?",

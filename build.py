@@ -494,7 +494,7 @@ HOME_FAQ = [
     ("What types of commercial buildings do you build?",
      "Office buildings and tenant build-outs, restaurants including drive-thrus, medical, dental and physical therapy "
      "offices, retail stores and multi-tenant buildings. We&rsquo;ve built for brands such as Jimmy John&rsquo;s, Pizza Hut, "
-     "Smoothie King, Taco Bell, Dollar Tree, Biggby Coffee, Cottage Inn Pizza and Athletico Physical Therapy."),
+     "Smoothie King, Taco Bell, Dollar Tree, Biggby Coffee, Cottage Inn Pizza and Athletico Physical Therapy, along with many local businesses."),
     ("Can RBF take a project from raw land to a finished building?",
      "Yes. Our in-house <a href=\"/site-development\">site development division</a> handles demolition, excavation, grading, "
      "utilities, paving and concrete, and we build the building too &mdash; one contractor from groundbreaking to completion."),
@@ -593,7 +593,7 @@ def clients_strip():
     dup = "".join(f'<li aria-hidden="true"><img src="/img/{s}.webp" width="{dims(s)[0]}" height="{dims(s)[1]}" alt="" loading="lazy"></li>'
                   for s, n in CLIENTS)
     return f"""<section class="clients" aria-label="Brands we have built for"><div class="wrap">
-<p>Trusted by national brands &amp; local businesses</p>
+<p>A few of the brands we&rsquo;ve built for &mdash; plus many local businesses</p>
 <div class="marquee"><ul>{lis}{dup}</ul></div></div></section>"""
 
 
@@ -751,7 +751,7 @@ def home():
 
 <section><div class="wrap">
   <div class="section-head split-head"><div><span class="eyebrow">Featured Projects</span><h2>Built for National Brands &amp; Local Owners</h2></div>
-  <p>Restaurants, retail, healthcare and commercial renovation from RBF&rsquo;s portfolio.</p></div>
+  <p>A selection of restaurant, retail, healthcare and renovation work from RBF&rsquo;s portfolio.</p></div>
   {case_cards(CASE_STUDIES)}
   <p class="center-btn"><a class="btn btn-navy" href="/projects/">See All Projects &amp; Photos {icon('arrow')}</a></p>
 </div></section>
@@ -896,7 +896,7 @@ def commercial():
         ("Can you handle the site work and the building on a commercial project?",
          "Yes. RBF has an in-house site development division for demolition, excavation, grading, utilities, paving and concrete, and we serve as the general contractor for the building."),
         ("Have you built for national brands?",
-         "Yes. Our work includes projects for brands such as Jimmy John's, Pizza Hut, Smoothie King, Taco Bell, Dollar Tree, Biggby Coffee, Cottage Inn Pizza and Athletico Physical Therapy."),
+         "Yes. Our work includes projects for brands such as Jimmy John's, Pizza Hut, Smoothie King, Taco Bell, Dollar Tree, Biggby Coffee, Cottage Inn Pizza and Athletico Physical Therapy, among others."),
         ("Do you build commercial projects in Oakland County?",
          "Yes. We build throughout Oakland County, including Troy, Southfield, Auburn Hills, Novi, Rochester Hills and Waterford, and across Southeast Michigan."),
     ]
@@ -1095,7 +1095,7 @@ def projects():
         {"@type": "ListItem", "position": i + 1, "name": strip_tags(c["name"]), "url": f"{SITE}/projects/{c['slug']}"}
         for i, c in enumerate(CASE_STUDIES)]}
     return page("/projects/", "Construction Projects & Case Studies | RBF Construction",
-                "RBF Construction projects: Taco Bell, Dollar Tree, Athletico, Cottage Inn and multi-tenant restaurant buildings, plus homes, site work and utilities.",
+                "RBF Construction projects, including Taco Bell, Dollar Tree, Athletico, Cottage Inn and multi-tenant restaurants, plus homes, site work and utilities.",
                 body, trail, [gal, items], page_type="CollectionPage")
 
 
@@ -1206,7 +1206,7 @@ def about():
 </div></section>
 <section><div class="wrap prose">
   <h2>Who We&rsquo;ve Built For</h2>
-  <p>Our commercial work includes projects for {clients}, along with local business owners, developers and homeowners across Michigan.</p>
+  <p>Our commercial work includes projects for national brands such as {clients}, along with many local business owners, developers and homeowners across Michigan.</p>
   <h2>Where We Work</h2>
   <p>From our Flint office we serve <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a> and the rest of <a href="/service-areas">Southeast Michigan</a>, including Livingston, Lapeer, Macomb, Wayne and Washtenaw counties.</p>
   <p><a class="btn btn-amber" href="/construction-contact#quote">Request a Bid {icon('arrow')}</a> <a class="btn btn-navy" href="/projects/">See Our Work {icon('arrow')}</a></p>
@@ -1409,7 +1409,7 @@ def llms_txt():
 - Hours: {BIZ['hours_text']}
 - Service area: Genesee County, Oakland County and all of Southeast Michigan, including {", ".join(c['name'] for c in COUNTIES)} plus {", ".join(SE_MICHIGAN)}
 - Self-performed work: excavation, grading, underground utilities, parking lots and concrete flatwork (RBF site development division). Building trades: coordinated and supervised by RBF.
-- Brands built for: {", ".join(n for _, n in CLIENTS)}
+- Brands built for (examples, not a complete list): {", ".join(n for _, n in CLIENTS)}
 - Facebook: {BIZ['facebook']}
 
 ## Service categories
