@@ -184,7 +184,7 @@ SERVICES = [
 <p>Need to update an office you&rsquo;re working in? We phase work to keep your business operating &mdash; after-hours work where needed, dust and noise control, and clear communication about what&rsquo;s happening each day.</p>
 <h2>Ground-Up With Site Work Included</h2>
 <p>For new buildings, our <a href="/site-development">site development division</a> handles excavation, utilities, parking lots and concrete, so the building and the site are managed by one team.</p>
-<p>Serving office corridors in <a href="/oakland-county-general-contractor">Troy, Southfield, Auburn Hills and Novi</a>, <a href="/genesee-county-general-contractor">Flint and Grand Blanc</a>, and across <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request an office construction bid</a>.</p>""",
+<p>Serving office corridors in <a href="/oakland-county-general-contractor">Troy, Southfield, Auburn Hills and Novi</a>, <a href="/genesee-county-general-contractor">Flint and Grand Blanc</a>, and across <a href="/service-areas">Southeast Michigan</a>. <a href="/get-a-quote#quote">Request an office construction bid</a>.</p>""",
         "faqs": [
             ("Do you do tenant build-outs?",
              "Yes. RBF Construction builds out leased office, medical, retail and restaurant space, coordinating with building management and planning the work around your lease start date."),
@@ -211,7 +211,7 @@ SERVICES = [
 <p>Drive-thru stacking lanes, curbing, menu-board foundations, grease interceptor installation, storm water and parking all fall to our <a href="/site-development">site development division</a> &mdash; no handoff between a site contractor and a building contractor.</p>
 <h2>Opening Day Matters</h2>
 <p>We schedule backward from your opening date, order long-lead equipment early, and keep franchise representatives informed with progress updates.</p>
-<p>We build restaurants throughout <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Macomb County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a restaurant construction bid</a>.</p>""",
+<p>We build restaurants throughout <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Macomb County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/get-a-quote#quote">Request a restaurant construction bid</a>.</p>""",
         "faqs": [
             ("Have you built restaurants for national franchise brands?",
              "Yes. RBF Construction has built restaurants for national quick-service and franchise brands, as well as local restaurant owners."),
@@ -242,7 +242,7 @@ SERVICES = [
 <li><strong>Equipment coordination:</strong> we coordinate with dental, imaging and equipment vendors on power, blocking, plumbing and any shielding their equipment requires.</li></ul>
 <h2>Opening Your Practice on Time</h2>
 <p>We plan around your lease, licensing and equipment delivery so you can start seeing patients when planned.</p>
-<p>Serving <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Washtenaw County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a medical construction bid</a>.</p>""",
+<p>Serving <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Washtenaw County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/get-a-quote#quote">Request a medical construction bid</a>.</p>""",
         "faqs": [
             ("Do you build medical and dental offices?",
              "Yes. RBF Construction builds medical office buildings and builds out space for physicians, dentists, physical therapy, urgent care and specialty clinics."),
@@ -267,7 +267,7 @@ SERVICES = [
 <p>An aging, single-story commercial building with a failing parking lot became modern, leasable space with a stone and metal-panel facade, new storefront awnings and a freshly paved, striped lot. <a href="/projects">See the before-and-after</a>.</p>
 <h2>Multi-Tenant Buildings</h2>
 <p>We&rsquo;ve built multi-tenant buildings housing national brands side by side &mdash; one example is a retail building with Jimmy John&rsquo;s, Pizza Hut and Smoothie King. We coordinate shell construction with each tenant&rsquo;s build-out requirements.</p>
-<p>Serving businesses across <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Wayne County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a commercial bid</a>.</p>""",
+<p>Serving businesses across <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/service-areas">Wayne County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/get-a-quote#quote">Request a commercial bid</a>.</p>""",
         "faqs": [
             ("Do you build multi-tenant retail buildings?",
              "Yes. RBF Construction builds multi-tenant retail buildings and strip centers, coordinating the shell with each tenant's build-out requirements."),
@@ -294,7 +294,7 @@ SERVICES = [
 <li><strong>Veterans Affairs building</strong> &mdash; <a href="/shiawassee-county-general-contractor">Shiawassee County</a></li></ul>
 <h2>One Team for the Building and the Site</h2>
 <p>Because RBF runs its own <a href="/site-development">site development division</a>, the same team that manages the building can handle <a href="/excavation-grading">excavation</a>, <a href="/underground-utilities">utilities</a> and <a href="/parking-lot-paving-concrete">parking and concrete</a> &mdash; fewer handoffs for owners who answer to a board or the public.</p>
-<p>Serving public and nonprofit owners in <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/shiawassee-county-general-contractor">Shiawassee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a bid</a>.</p>""",
+<p>Serving public and nonprofit owners in <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/shiawassee-county-general-contractor">Shiawassee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/get-a-quote#quote">Request a bid</a>.</p>""",
         "faqs": [
             ("Does RBF Construction work on government and public buildings?",
              "Yes. RBF's public and institutional work includes a library, a nonprofit community center and a government building in Genesee and Shiawassee counties."),
@@ -328,7 +328,7 @@ SERVICES = [
 <li><strong>Permits &amp; site work:</strong> clearing, excavation, foundation and utilities.</li>
 <li><strong>Construction:</strong> framing through finishes with personal on-site supervision.</li>
 <li><strong>Final inspections &amp; walkthrough.</strong></li></ol>
-<p>We build in <a href="/oakland-county-general-contractor">Oakland</a>, <a href="/livingston-county-general-contractor">Livingston</a>, <a href="/genesee-county-general-contractor">Genesee</a> and <a href="/lapeer-county-general-contractor">Lapeer</a> counties and across <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Tell us about your lot and plans</a>.</p>""",
+<p>We build in <a href="/oakland-county-general-contractor">Oakland</a>, <a href="/livingston-county-general-contractor">Livingston</a>, <a href="/genesee-county-general-contractor">Genesee</a> and <a href="/lapeer-county-general-contractor">Lapeer</a> counties and across <a href="/service-areas">Southeast Michigan</a>. <a href="/get-a-quote#quote">Tell us about your lot and plans</a>.</p>""",
         "faqs": [
             ("Do you build custom homes from the ground up?",
              "Yes. RBF Construction builds ground-up custom homes and additions, including the land clearing, excavation, foundation, utilities and driveway with our own site work crews."),
@@ -363,7 +363,7 @@ SERVICES = [
 <li><strong>Permits &amp; ordering:</strong> we pull required permits and order long-lead items like cabinets before demolition starts, so your kitchen is out of service for as little time as possible.</li>
 <li><strong>Construction:</strong> demolition, rough-ins, inspections, installation and finishes, with dust control and daily cleanup.</li>
 <li><strong>Walkthrough:</strong> a final punch list so every detail is right.</li></ol>
-<p>We remodel kitchens throughout <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and the rest of <a href="/service-areas">Southeast Michigan</a>. Pair your kitchen with a <a href="/bathroom-remodeling">bathroom remodel</a> to save on mobilization, or <a href="/construction-contact#quote">request a kitchen remodeling estimate</a>.</p>""",
+<p>We remodel kitchens throughout <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and the rest of <a href="/service-areas">Southeast Michigan</a>. Pair your kitchen with a <a href="/bathroom-remodeling">bathroom remodel</a> to save on mobilization, or <a href="/get-a-quote#quote">request a kitchen remodeling estimate</a>.</p>""",
         "faqs": [
             ("How long does a kitchen remodel take?",
              "It depends on scope. A cosmetic update with new counters and fixtures is much quicker than a full remodel that moves walls, plumbing and electrical. We provide a project schedule with your estimate and order cabinets and other long-lead items before demolition to minimize the time your kitchen is out of service."),
@@ -395,7 +395,7 @@ SERVICES = [
 <li><strong>Selections &amp; estimate:</strong> tile, fixtures, vanity and layout, priced clearly.</li>
 <li><strong>Construction:</strong> demolition, rough-ins, inspections, waterproofing, tile and finish work.</li>
 <li><strong>Final walkthrough:</strong> we test every fixture and fan and finish the punch list.</li></ol>
-<p>We remodel bathrooms across <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. Planning a <a href="/kitchen-remodeling">kitchen remodel</a> too? <a href="/construction-contact#quote">Request an estimate</a> for both.</p>""",
+<p>We remodel bathrooms across <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/genesee-county-general-contractor">Genesee County</a> and <a href="/service-areas">Southeast Michigan</a>. Planning a <a href="/kitchen-remodeling">kitchen remodel</a> too? <a href="/get-a-quote#quote">Request an estimate</a> for both.</p>""",
         "faqs": [
             ("Can you convert my bathtub into a walk-in shower?",
              "Yes. Tub-to-shower conversions are one of our most common bathroom projects, including the plumbing changes, waterproofed shower pan, tile, glass and fixtures."),
@@ -433,7 +433,7 @@ SERVICES = [
 <li><strong>Permits &amp; site prep:</strong> clearing, grading and a compacted base.</li>
 <li><strong>Construction:</strong> posts, trusses, steel, doors and options.</li>
 <li><strong>Concrete &amp; finish:</strong> floor, apron and final grading.</li></ol>
-<p>We build pole barns across <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/lapeer-county-general-contractor">Lapeer County</a>, <a href="/livingston-county-general-contractor">Livingston County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a pole barn estimate</a>.</p>""",
+<p>We build pole barns across <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a>, <a href="/lapeer-county-general-contractor">Lapeer County</a>, <a href="/livingston-county-general-contractor">Livingston County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/get-a-quote#quote">Request a pole barn estimate</a>.</p>""",
         "faqs": [
             ("Do I need a permit to build a pole barn in Michigan?",
              "In most Michigan townships, yes. Accessory buildings usually need a building permit and must meet zoning rules for size, height and setbacks. RBF reviews your township's requirements and pulls the permits."),
@@ -463,7 +463,7 @@ SERVICES = [
 <p>Land balancing moves soil from high areas of a site to low areas so cuts and fills match. A balanced site reaches plan grades while minimizing the cost of trucking dirt in or out &mdash; often one of the biggest savings available on a project.</p>
 <h2>Part of a Complete Site Package</h2>
 <p>Excavation and grading flow directly into our <a href="/underground-utilities">underground utilities</a>, <a href="/parking-lot-paving-concrete">parking lot and concrete</a> and <a href="/demolition">demolition</a> services, so one team manages the entire site.</p>
-<p>Serving <a href="/service-areas">Oakland County, Genesee County and Southeast Michigan</a>. <a href="/construction-contact#quote">Request an excavation bid</a>.</p>""",
+<p>Serving <a href="/service-areas">Oakland County, Genesee County and Southeast Michigan</a>. <a href="/get-a-quote#quote">Request an excavation bid</a>.</p>""",
         "faqs": [
             ("Do you do excavation for new homes?",
              "Yes. We excavate basements and foundations, clear lots, grade for drainage and install driveways and utility connections for new homes and additions."),
@@ -488,7 +488,7 @@ SERVICES = [
 <p>Beyond new installations, we&rsquo;ve upgraded pump rooms and pump stations with new pumps, large-diameter valves, piping and tanks &mdash; work that requires careful sequencing to keep systems in service.</p>
 <h2>Safety in the Trench</h2>
 <p>Deep excavations demand proper trench protection, competent supervision and well-maintained equipment. We plan every dig with safety first.</p>
-<p>Pair utilities with <a href="/excavation-grading">excavation</a> and <a href="/parking-lot-paving-concrete">paving and concrete</a> for a complete site package anywhere in <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a utilities bid</a>.</p>""",
+<p>Pair utilities with <a href="/excavation-grading">excavation</a> and <a href="/parking-lot-paving-concrete">paving and concrete</a> for a complete site package anywhere in <a href="/service-areas">Southeast Michigan</a>. <a href="/get-a-quote#quote">Request a utilities bid</a>.</p>""",
         "faqs": [
             ("What underground utilities does RBF install?",
              "Storm sewers, retention and detention ponds, sanitary sewers, water lines and services, manholes, catch basins, valves, hydrants, and pump station piping, pumps and tanks."),
@@ -511,7 +511,7 @@ SERVICES = [
 <!--PHOTOS-->
 <h2>Fixing Failing Parking Lots</h2>
 <p>Standing water, potholes and alligator cracking usually point to drainage and base problems. Our <a href="/projects">commercial renovation project</a> replaced a flooded, broken lot with a properly graded, freshly paved and striped parking area.</p>
-<p>Part of our full <a href="/site-development">site development</a> services across <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a paving and concrete bid</a>.</p>""",
+<p>Part of our full <a href="/site-development">site development</a> services across <a href="/service-areas">Southeast Michigan</a>. <a href="/get-a-quote#quote">Request a paving and concrete bid</a>.</p>""",
         "faqs": [
             ("Why does my parking lot keep flooding and cracking?",
              "Ponding water and cracking are usually caused by poor drainage slopes or a weak base. Reconstruction with proper grading, a compacted aggregate base and storm drainage fixes the cause rather than the symptom."),
@@ -535,7 +535,7 @@ SERVICES = [
 <!--PHOTOS-->
 <h2>Demolition as Step One</h2>
 <p>Because RBF is also a <a href="/general-contracting">general contractor</a> and <a href="/site-development">site developer</a>, demolition flows straight into excavation, utilities and new construction without waiting on another contractor.</p>
-<p>Serving <a href="/service-areas">Oakland County, Genesee County and Southeast Michigan</a>. <a href="/construction-contact#quote">Request a demolition bid</a>.</p>""",
+<p>Serving <a href="/service-areas">Oakland County, Genesee County and Southeast Michigan</a>. <a href="/get-a-quote#quote">Request a demolition bid</a>.</p>""",
         "faqs": [
             ("Do you do interior demolition for remodels?",
              "Yes. We perform selective interior demolition for commercial build-outs and residential kitchen and bathroom remodels, protecting the areas that stay."),
@@ -577,7 +577,7 @@ ARTICLES = [
 <h2>Where Construction Management Fits</h2>
 <p>With either method, bringing a contractor in early for <a href="/general-contracting">construction management</a> &mdash; budgeting, value engineering, scheduling and subcontractor selection &mdash; catches problems while they&rsquo;re still cheap to fix.</p>
 <h2>Which Should You Choose?</h2>
-<p>Restaurant and retail owners on tight opening dates often prefer design-build. Owners with a trusted architect, a highly specific design, or public funding requirements often use design-bid-build. Homeowners planning a <a href="/custom-home-builder">custom home</a> or major <a href="/kitchen-remodeling">remodel</a> can use either. <a href="/construction-contact#quote">Talk with RBF</a> about which fits your project.</p>""",
+<p>Restaurant and retail owners on tight opening dates often prefer design-build. Owners with a trusted architect, a highly specific design, or public funding requirements often use design-bid-build. Homeowners planning a <a href="/custom-home-builder">custom home</a> or major <a href="/kitchen-remodeling">remodel</a> can use either. <a href="/get-a-quote#quote">Talk with RBF</a> about which fits your project.</p>""",
     },
     {
         "slug": "kitchen-bathroom-remodel-planning-guide",
@@ -603,7 +603,7 @@ ARTICLES = [
 <h2>7. Choose the Right Contractor</h2>
 <ul><li>Do they manage all trades, permits and inspections?</li><li>Will someone supervise on site?</li>
 <li>Do they provide a written scope and schedule?</li><li>Can they handle structural changes if needed?</li></ul>
-<p>RBF Construction remodels <a href="/kitchen-remodeling">kitchens</a> and <a href="/bathroom-remodeling">bathrooms</a> throughout <a href="/oakland-county-general-contractor">Oakland County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request an estimate</a>.</p>""",
+<p>RBF Construction remodels <a href="/kitchen-remodeling">kitchens</a> and <a href="/bathroom-remodeling">bathrooms</a> throughout <a href="/oakland-county-general-contractor">Oakland County</a> and <a href="/service-areas">Southeast Michigan</a>. <a href="/get-a-quote#quote">Request an estimate</a>.</p>""",
     },
     {
         "slug": "commercial-site-work-guide",
@@ -629,7 +629,7 @@ ARTICLES = [
 <h2>7. Final Grading and Restoration</h2>
 <p>Topsoil, final grades and landscaping areas finish the site and direct water away from the building.</p>
 <h2>Why One Contractor for Site and Building Helps</h2>
-<p>When the site contractor and building contractor are different companies, schedule gaps and finger-pointing are common. RBF Construction performs <a href="/site-development">site development</a> and <a href="/general-contracting">general contracting</a> under one contract across <a href="/service-areas">Southeast Michigan</a>. <a href="/construction-contact#quote">Request a bid</a>.</p>""",
+<p>When the site contractor and building contractor are different companies, schedule gaps and finger-pointing are common. RBF Construction performs <a href="/site-development">site development</a> and <a href="/general-contracting">general contracting</a> under one contract across <a href="/service-areas">Southeast Michigan</a>. <a href="/get-a-quote#quote">Request a bid</a>.</p>""",
     },
     {
         "slug": "pole-barn-permits-michigan",
@@ -662,7 +662,7 @@ ARTICLES = [
 <li>Have the building location, size and height planned to fit the setbacks.</li>
 <li>Submit plans for the building permit, if one is required.</li>
 <li>Call MISS DIG 811 before any digging starts.</li></ol>
-<p>RBF Construction builds <a href="/pole-barns">pole barns and garages</a> across <a href="/genesee-county-general-contractor">Genesee</a>, <a href="/lapeer-county-general-contractor">Lapeer</a>, <a href="/livingston-county-general-contractor">Livingston</a> and <a href="/oakland-county-general-contractor">Oakland</a> counties, and handles the site prep and permits. <a href="/construction-contact#quote">Request a pole barn estimate</a>.</p>""",
+<p>RBF Construction builds <a href="/pole-barns">pole barns and garages</a> across <a href="/genesee-county-general-contractor">Genesee</a>, <a href="/lapeer-county-general-contractor">Lapeer</a>, <a href="/livingston-county-general-contractor">Livingston</a> and <a href="/oakland-county-general-contractor">Oakland</a> counties, and handles the site prep and permits. <a href="/get-a-quote#quote">Request a pole barn estimate</a>.</p>""",
         "sources": [
             ("Michigan Residential Code, R 408.30505: work exempt from permit", "https://www.law.cornell.edu/regulations/michigan/Mich-Admin-Code-R-408-30505"),
             ("Michigan Farm Bureau: building permit exemption for farm buildings", "https://www.michfb.com/agriculture/farming-resources/land-use-regulation/building-permit-exemption"),
@@ -704,7 +704,7 @@ ARTICLES = [
 <li>Confirm which road agency controls the driveway and whether a traffic study is needed.</li>
 <li>Confirm where water and sewer connect and who owns those lines.</li>
 <li>Bring your contractor in during design so site costs are priced before approvals are final.</li></ul>
-<p>RBF Construction handles <a href="/site-development">site development</a> and <a href="/commercial-general-contracting">commercial construction</a> in <a href="/genesee-county-general-contractor">Genesee County</a> and across <a href="/service-areas">Southeast Michigan</a>, including <a href="/restaurant-construction">restaurants</a> and <a href="/retail-construction">retail buildings</a>. <a href="/construction-contact#quote">Request a bid</a>.</p>""",
+<p>RBF Construction handles <a href="/site-development">site development</a> and <a href="/commercial-general-contracting">commercial construction</a> in <a href="/genesee-county-general-contractor">Genesee County</a> and across <a href="/service-areas">Southeast Michigan</a>, including <a href="/restaurant-construction">restaurants</a> and <a href="/retail-construction">retail buildings</a>. <a href="/get-a-quote#quote">Request a bid</a>.</p>""",
         "sources": [
             ("Michigan EGLE: soil erosion and sedimentation control overview", "https://www.michigan.gov/egle/about/organization/water-resources/soil-erosion/sesc-overview"),
             ("Michigan EGLE: Part 91 enforcing agencies", "https://www.michigan.gov/egle/about/organization/water-resources/soil-erosion/part-91-agencies"),
@@ -743,7 +743,7 @@ ARTICLES = [
 <h2>Questions to Ask a Custom Home Builder</h2>
 <ul><li>Will you check the lot before I buy it?</li><li>Is site work included in your price, and who performs it?</li>
 <li>Who supervises the job day to day?</li><li>How do you handle changes and allowances?</li><li>Do you pull the permits and schedule inspections?</li></ul>
-<p>RBF Construction builds <a href="/custom-home-builder">custom homes and additions</a> across <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a> and <a href="/service-areas">Southeast Michigan</a>, with its own crews handling the excavation and site work. <a href="/construction-contact#quote">Talk with RBF about your home</a>.</p>""",
+<p>RBF Construction builds <a href="/custom-home-builder">custom homes and additions</a> across <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a> and <a href="/service-areas">Southeast Michigan</a>, with its own crews handling the excavation and site work. <a href="/get-a-quote#quote">Talk with RBF about your home</a>.</p>""",
         "sources": [
             ("Michigan EGLE: soil erosion and sedimentation control overview", "https://www.michigan.gov/egle/about/organization/water-resources/soil-erosion/sesc-overview"),
             ("MISS DIG 811: frequently asked questions", "https://www.missdig811.org/get-started/i-want-to-dig/faq.html"),

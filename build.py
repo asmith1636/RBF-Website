@@ -225,8 +225,8 @@ def header(path):
     <div class="has-sub"><a href="/service-areas"{cur('/service-areas')}>Service Areas</a><div class="sub">{areas}</div></div>
     <a href="/projects/"{cur('/projects/') or (' class="is-section"' if path.startswith('/projects/') else '')}>Projects</a>
     <div class="has-sub"><a href="/about"{cur('/about')}>About</a><div class="sub">{about}</div></div>
-    <a href="/construction-contact"{cur('/construction-contact')}>Contact</a>
-    <a class="btn btn-amber" href="/construction-contact#quote">Request a Bid</a>
+    <a href="/get-a-quote"{cur('/get-a-quote')}>Contact</a>
+    <a class="btn btn-amber" href="/get-a-quote#quote">Request a Bid</a>
   </nav>
 </div></header>"""
 
@@ -238,7 +238,7 @@ def footer():
     areas = "".join(f'<li><a href="/{c["slug"]}">{c["name"]}</a></li>' for c in COUNTIES)
     return f"""<section class="cta-band"><div class="wrap">
   <div><h2>We&rsquo;d rather be fishing.</h2><p>That&rsquo;s why we build it right the first time. Tell us about your project and get a straight answer on scope, schedule and budget.</p></div>
-  <div class="actions"><a class="btn btn-amber" href="/construction-contact#quote">Request a Bid {icon('arrow')}</a><a class="btn btn-ghost" href="tel:{BIZ['phone_e164']}">{icon('phone')} {BIZ['phone']}</a></div>
+  <div class="actions"><a class="btn btn-amber" href="/get-a-quote#quote">Request a Bid {icon('arrow')}</a><a class="btn btn-ghost" href="tel:{BIZ['phone_e164']}">{icon('phone')} {BIZ['phone']}</a></div>
 </div></section>
 <footer class="site-footer"><div class="wrap">
   <div class="foot-grid">
@@ -256,12 +256,12 @@ def footer():
     <div><h2><a href="/service-areas">Service Areas</a></h2><ul>{areas}</ul></div>
     <div><h2>Company</h2><ul>
       <li><a href="/about">About</a></li><li><a href="/projects/">Projects</a></li><li><a href="/resources/">Resources</a></li><li><a href="/careers">Careers</a></li>
-      <li><a href="/bidding-list">Subcontractor Bid List</a></li><li><a href="/construction-contact">Contact</a></li>
+      <li><a href="/bidding-list">Subcontractor Bid List</a></li><li><a href="/get-a-quote">Contact</a></li>
       <li><a href="/privacy-policy">Privacy Policy</a></li></ul></div>
   </div>
   <div class="foot-bottom"><span>&copy; <span id="year">{date.today().year}</span> {BIZ['name']} &mdash; &ldquo;{BIZ['slogan']}.&rdquo; All rights reserved.</span><span>General contractor serving Genesee, Oakland &amp; Southeast Michigan</span></div>
 </div></footer>
-<nav class="callbar" aria-label="Quick contact"><a href="tel:{BIZ['phone_e164']}">{icon('phone')} Call Now</a><a href="/construction-contact#quote">{icon('doc')} Get a Bid</a></nav>
+<nav class="callbar" aria-label="Quick contact"><a href="tel:{BIZ['phone_e164']}">{icon('phone')} Call Now</a><a href="/get-a-quote#quote">{icon('doc')} Get a Bid</a></nav>
 <script src="/js/main.js?v={ver('js/main.js')}" defer></script>"""
 
 
@@ -463,7 +463,7 @@ def aside(path, group=None):
     areas = "".join(f'<li><a href="/{c["slug"]}">{c["name"]}</a></li>' for c in COUNTIES)
     return f"""<aside class="aside">
 <div class="box"><h3>Get a Bid</h3><p>Talk directly with our team about your project&rsquo;s scope, schedule and budget.</p>
-<a class="btn btn-amber" href="/construction-contact#quote">Request a Bid</a>
+<a class="btn btn-amber" href="/get-a-quote#quote">Request a Bid</a>
 <a class="btn btn-ghost" href="tel:{BIZ['phone_e164']}">{icon('phone')} {BIZ['phone']}</a></div>
 <div class="links"><h3>{title}</h3><ul>{lis}</ul></div>
 <div class="links"><h3>Service Areas</h3><ul>{areas}</ul></div>
@@ -516,7 +516,7 @@ HOME_FAQ = [
      "both. Read our <a href=\"/resources/design-build-vs-design-bid-build\">design-build vs. design-bid-build guide</a>."),
     ("How do I get a bid or estimate?",
      f"Call <a href=\"tel:{BIZ['phone_e164']}\">{BIZ['phone']}</a> or send project details through our "
-     "<a href=\"/construction-contact#quote\">bid request form</a>. Plans, photos, the site address and your target timeline "
+     "<a href=\"/get-a-quote#quote\">bid request form</a>. Plans, photos, the site address and your target timeline "
      "help us respond faster."),
     ("I’m a subcontractor. How do I get on your bid list?",
      "Submit your company information on our <a href=\"/bidding-list\">subcontractor bidding list</a> page and we&rsquo;ll "
@@ -710,7 +710,7 @@ PROCESS_STEPS = [
     ("grade", "Building Pads &amp; Grading", "Pads, fine grading and drainage built to plan elevations.", "RBF crews", "/site-development"),
     ("building", "Building Construction", "Commercial, restaurant, tenant build-out and residential construction.", "RBF-managed", "/general-contracting"),
     ("road", "Paving, Curbs &amp; Concrete", "Parking lots, drive-thru lanes, curbs, sidewalks and slabs.", "RBF crews", "/parking-lot-paving-concrete"),
-    ("check", "Completion &amp; Turnover", "Inspections, punch list and a finished project on your schedule.", "RBF on site", "/construction-contact#quote"),
+    ("check", "Completion &amp; Turnover", "Inspections, punch list and a finished project on your schedule.", "RBF on site", "/get-a-quote#quote"),
 ]
 
 
@@ -746,7 +746,7 @@ def home():
     <h1><span class="h1-kicker">Genesee, Oakland &amp; Southeast Michigan</span>General Contractor &amp; Site Developer <span>in&nbsp;Flint,&nbsp;MI</span></h1>
     <p class="lead">Site work, underground utilities and the building itself &mdash; restaurants, retail, offices, medical, custom homes and remodels &mdash; for owners across Genesee County, Oakland County and Southeast Michigan.</p>
     <div class="actions">
-      <a class="btn btn-amber" href="/construction-contact#quote">Request a Bid {icon('arrow')}</a>
+      <a class="btn btn-amber" href="/get-a-quote#quote">Request a Bid {icon('arrow')}</a>
       <a class="btn btn-ghost" href="tel:{BIZ['phone_e164']}">{icon('phone')} Call {BIZ['phone']}</a>
     </div>
     <ul class="hero-trust"><li>{icon('check')} Licensed &amp; insured</li><li>{icon('check')} Commercial &amp; residential</li><li>{icon('check')} Self-performed site work</li></ul>
@@ -804,11 +804,11 @@ def home():
 
 
 CALLOUTS = {
-    "/restaurant-construction": '<div class="callout"><h3>Franchise operators &amp; restaurant developers</h3><p>Send us your prototype drawings, site address and opening target. We&rsquo;ll respond with questions, a schedule outlook and a bid.</p><a class="btn btn-amber" href="/construction-contact?audience=franchise&amp;type=restaurant#quote">Request a Restaurant Bid</a></div>',
-    "/site-development": '<div class="callout"><h3>General contractors &amp; developers: need a site contractor?</h3><p>RBF bids excavation, utilities, paving and concrete as a site subcontractor on other contractors&rsquo; projects too.</p><a class="btn btn-amber" href="/construction-contact?audience=gc&amp;type=site#quote">Request a Site Work Bid</a></div>',
-    "/underground-utilities": '<div class="callout"><h3>Need a utility subcontractor?</h3><p>Send plans and a bid date &mdash; RBF bids storm, sanitary and water work for owners, developers and general contractors.</p><a class="btn btn-amber" href="/construction-contact?audience=gc&amp;type=utilities#quote">Request a Utilities Bid</a></div>',
-    "/excavation-grading": '<div class="callout"><h3>Need an excavation subcontractor?</h3><p>We bid earthwork, grading and building pads for owners, developers and general contractors.</p><a class="btn btn-amber" href="/construction-contact?audience=gc&amp;type=site#quote">Request an Excavation Bid</a></div>',
-    "/residential-general-contracting": '<div class="callout"><h3>Planning a home, remodel or pole barn?</h3><p>Tell us about your project and timeline. Photos and any drawings help us give you a faster, more accurate estimate.</p><a class="btn btn-amber" href="/construction-contact?audience=homeowner#quote">Request a Residential Estimate</a></div>',
+    "/restaurant-construction": '<div class="callout"><h3>Franchise operators &amp; restaurant developers</h3><p>Send us your prototype drawings, site address and opening target. We&rsquo;ll respond with questions, a schedule outlook and a bid.</p><a class="btn btn-amber" href="/get-a-quote?audience=franchise&amp;type=restaurant#quote">Request a Restaurant Bid</a></div>',
+    "/site-development": '<div class="callout"><h3>General contractors &amp; developers: need a site contractor?</h3><p>RBF bids excavation, utilities, paving and concrete as a site subcontractor on other contractors&rsquo; projects too.</p><a class="btn btn-amber" href="/get-a-quote?audience=gc&amp;type=site#quote">Request a Site Work Bid</a></div>',
+    "/underground-utilities": '<div class="callout"><h3>Need a utility subcontractor?</h3><p>Send plans and a bid date &mdash; RBF bids storm, sanitary and water work for owners, developers and general contractors.</p><a class="btn btn-amber" href="/get-a-quote?audience=gc&amp;type=utilities#quote">Request a Utilities Bid</a></div>',
+    "/excavation-grading": '<div class="callout"><h3>Need an excavation subcontractor?</h3><p>We bid earthwork, grading and building pads for owners, developers and general contractors.</p><a class="btn btn-amber" href="/get-a-quote?audience=gc&amp;type=site#quote">Request an Excavation Bid</a></div>',
+    "/residential-general-contracting": '<div class="callout"><h3>Planning a home, remodel or pole barn?</h3><p>Tell us about your project and timeline. Photos and any drawings help us give you a faster, more accurate estimate.</p><a class="btn btn-amber" href="/get-a-quote?audience=homeowner#quote">Request a Residential Estimate</a></div>',
 }
 
 
@@ -868,7 +868,7 @@ def general_contracting():
 <li><strong>Site work in-house:</strong> our own <a href="/site-development">site development division</a> means fewer handoffs and tighter schedules.</li>
 <li><strong>Personal on-site supervision</strong> backed by a trusted network of tradesmen, subcontractors and architects.</li>
 </ul>
-<p>Discover the RBF difference &mdash; where your vision becomes our mission. <a href="/construction-contact#quote">Request a bid</a>.</p>"""
+<p>Discover the RBF difference &mdash; where your vision becomes our mission. <a href="/get-a-quote#quote">Request a bid</a>.</p>"""
     faqs = [
         ("What does a general contractor do?",
          "A general contractor manages a construction project from start to finish: pricing and budgeting, scheduling, hiring and coordinating subcontractors, ordering materials, pulling permits, managing the job site, and making sure the work meets the plans, codes and your expectations."),
@@ -901,7 +901,7 @@ def commercial():
 <p>We specialize in traditional design-bid-build projects for commercial facilities, working closely with architects to deliver on time and within budget. For owners who want a single point of responsibility, we also offer design-build.</p>
 <h2>Construction Management From Day One</h2>
 <p>We join your project team early to provide budgeting, value engineering, scheduling and logistics support &mdash; and to select the right subcontractors for each scope.</p>
-<p>Ready to talk about your next location or renovation? <a href="/construction-contact#quote">Request a commercial bid</a> or call <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a>.</p>"""
+<p>Ready to talk about your next location or renovation? <a href="/get-a-quote#quote">Request a commercial bid</a> or call <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a>.</p>"""
     faqs = [
         ("What types of commercial projects does RBF build?",
          "Office buildings and tenant build-outs, restaurants and drive-thrus, medical, dental and physical therapy offices, retail stores and multi-tenant buildings, libraries, nonprofit and government buildings, commercial renovations, facility upgrades such as pump stations, and the site work that goes with them."),
@@ -937,7 +937,7 @@ def residential():
 <li><strong>Permits and inspections handled:</strong> we pull permits and schedule inspections.</li>
 <li><strong>Clean, respectful job sites:</strong> dust control and daily cleanup in occupied homes.</li>
 </ul>
-<p>Planning a project? Read our <a href="/resources/kitchen-bathroom-remodel-planning-guide">kitchen and bath remodel planning guide</a>, then <a href="/construction-contact#quote">tell us about it</a> or call <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a>.</p>"""
+<p>Planning a project? Read our <a href="/resources/kitchen-bathroom-remodel-planning-guide">kitchen and bath remodel planning guide</a>, then <a href="/get-a-quote#quote">tell us about it</a> or call <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a>.</p>"""
     faqs = [
         ("What residential services does RBF Construction offer?",
          "Stick-built and modular custom homes and additions, kitchen remodeling, bathroom remodeling, pole barns and garages, and residential site work such as excavation, grading, drainage, driveways and utility connections."),
@@ -966,7 +966,7 @@ def site_development():
 <li>Curbs, gutters, sidewalks &amp; slabs</li><li>Grading &amp; drainage</li><li>Storm sewers &amp; retention ponds</li><li>Sanitary sewers &amp; water lines</li></ul>
 <h2>Projects of All Sizes</h2>
 <p>We&rsquo;re equipped to handle projects of all sizes, from a residential lot to a multi-acre commercial development. Pair our site work with RBF&rsquo;s <a href="/general-contracting">general contracting</a> services and get one team from bare ground to finished building. New to commercial site work? Read our <a href="/resources/commercial-site-work-guide">commercial site work guide</a>.</p>
-<p><a href="/construction-contact#quote">Request a site development bid</a> or call <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a>.</p>"""
+<p><a href="/get-a-quote#quote">Request a site development bid</a> or call <a href="tel:{BIZ['phone_e164']}">{BIZ['phone']}</a>.</p>"""
     faqs = [
         ("What site development services does RBF offer?",
          "Commercial and residential site development, land balancing and excavation, demolition, road and parking lot construction, curbs, gutters, sidewalks and slabs, grading and drainage, and underground utilities including storm sewers, retention ponds, sanitary sewers and water lines."),
@@ -1000,7 +1000,7 @@ def county_page(c):
   <article class="prose">{c['intro']}{c['focus']}
   <h2>{c['name']} Communities We Serve</h2>
   <ul class="city-list">{cities}</ul>
-  <p>Don&rsquo;t see your community? We work throughout {c['name']} and the rest of Southeast Michigan &mdash; <a href="/construction-contact#quote">ask us about your project</a>.</p>
+  <p>Don&rsquo;t see your community? We work throughout {c['name']} and the rest of Southeast Michigan &mdash; <a href="/get-a-quote#quote">ask us about your project</a>.</p>
   <h2>Other Areas We Serve</h2><ul class="city-list">{others}</ul>
   </article>
   {aside(path)}
@@ -1026,7 +1026,7 @@ def service_areas():
   <div class="se-mi" id="southeast-michigan"><h2>Across Southeast Michigan</h2>
   <p>Beyond our core counties, RBF takes on commercial construction, restaurant and retail projects and site work throughout Southeast Michigan, including:</p>
   <div class="se-grid">{"".join(f'<div><h3>{k}</h3><p>{", ".join(v)}</p></div>' for k, v in SE_MICHIGAN.items())}</div>
-  <p>We also take projects in {", ".join(OTHER_AREAS[:-1])} and {OTHER_AREAS[-1]}. <a href="/construction-contact#quote">Contact us</a> about your location.</p></div>
+  <p>We also take projects in {", ".join(OTHER_AREAS[:-1])} and {OTHER_AREAS[-1]}. <a href="/get-a-quote#quote">Contact us</a> about your location.</p></div>
 </div></section>
 {area_section()}"""
     return page("/service-areas", "Service Areas | Genesee, Oakland & SE MI | RBF",
@@ -1143,7 +1143,7 @@ def case_page(c):
   <aside class="aside">
     <div class="nap facts"><h3>Project Facts</h3><dl>{facts_html}</dl></div>
     <div class="box"><h3>Planning a Similar Project?</h3><p>Tell us about your site, schedule and budget.</p>
-    <a class="btn btn-amber" href="/construction-contact#quote">Request a Bid</a>
+    <a class="btn btn-amber" href="/get-a-quote#quote">Request a Bid</a>
     <a class="btn btn-ghost" href="tel:{BIZ['phone_e164']}">{icon('phone')} {BIZ['phone']}</a></div>
   </aside>
 </div></section>
@@ -1222,7 +1222,7 @@ def about():
   <p>Our commercial work includes projects for brands such as {clients}, public and nonprofit owners such as the Durand Memorial Library and the St. Luke N.E.W. Life Center, along with many local business owners, developers and homeowners across Michigan.</p>
   <h2>Where We Work</h2>
   <p>From our Flint office we serve <a href="/genesee-county-general-contractor">Genesee County</a>, <a href="/oakland-county-general-contractor">Oakland County</a> and the rest of <a href="/service-areas">Southeast Michigan</a>, including Livingston, Lapeer, Shiawassee, Macomb, Wayne and Washtenaw counties.</p>
-  <p><a class="btn btn-amber" href="/construction-contact#quote">Request a Bid {icon('arrow')}</a> <a class="btn btn-navy" href="/projects/">See Our Work {icon('arrow')}</a></p>
+  <p><a class="btn btn-amber" href="/get-a-quote#quote">Request a Bid {icon('arrow')}</a> <a class="btn btn-navy" href="/projects/">See Our Work {icon('arrow')}</a></p>
 </div></section>"""
     about_ld = {"@type": "AboutPage", "@id": SITE + "/about#about", "url": SITE + "/about", "mainEntity": {"@id": BIZ_ID}}
     return page("/about", "About RBF Construction | Flint, MI General Contractor",
@@ -1231,7 +1231,7 @@ def about():
 
 
 def contact():
-    trail = [("Home", "/"), ("Contact", "/construction-contact")]
+    trail = [("Home", "/"), ("Contact", "/get-a-quote")]
     f = form("New bid request — rbfconstruction.com", [
         field("Your name", "name", auto="name"),
         field("Company (optional)", "company", req=False, auto="organization"),
@@ -1272,7 +1272,7 @@ def contact():
   </div>
 </div></section>
 {area_section()}"""
-    return page("/construction-contact", "Contact RBF Construction | 810-938-8498",
+    return page("/get-a-quote", "Contact RBF Construction | 810-938-8498",
                 "Contact RBF Construction for a bid anywhere in Genesee, Oakland & Southeast Michigan. Call 810-938-8498 or email info@rbfconstruction.com.",
                 body, trail, page_type="ContactPage")
 
@@ -1354,7 +1354,7 @@ def thanks():
 
 def not_found():
     html = f"""<h2>Sorry, we couldn&rsquo;t find that page.</h2><p>It may have moved when we updated our site. Try one of these:</p>
-<ul><li><a href="/">Home</a></li>{''.join(f'<li><a href="{u}">{t}</a></li>' for u, t in SERVICES)}<li><a href="/projects/">Projects</a></li><li><a href="/construction-contact">Contact</a></li></ul>"""
+<ul><li><a href="/">Home</a></li>{''.join(f'<li><a href="{u}">{t}</a></li>' for u, t in SERVICES)}<li><a href="/projects/">Projects</a></li><li><a href="/get-a-quote">Contact</a></li></ul>"""
     return simple("/404", "Page Not Found", "Page Not Found | RBF Construction", "The page you requested could not be found.",
                   "Page Not Found", "Let&rsquo;s get you back on solid ground.", html, "commercial-site-excavation-grading", noindex=True)
 
@@ -1367,11 +1367,11 @@ def indexed():
              "/site-development"] + ["/" + s["slug"] for s in SVC] + ["/service-areas"] +
             ["/" + c["slug"] for c in COUNTIES] + ["/about", "/projects/"] + ["/projects/" + c["slug"] for c in CASE_STUDIES] + ["/resources/"] +
             ["/resources/" + a["slug"] for a in ARTICLES] +
-            ["/construction-contact", "/careers", "/bidding-list", "/privacy-policy"])
+            ["/get-a-quote", "/careers", "/bidding-list", "/privacy-policy"])
 
 
 def sitemap():
-    pri = {"/": "1.0", "/construction-contact": "0.9", "/oakland-county-general-contractor": "0.9", "/privacy-policy": "0.2"}
+    pri = {"/": "1.0", "/get-a-quote": "0.9", "/oakland-county-general-contractor": "0.9", "/privacy-policy": "0.2"}
     urls = []
     mod = {"/resources/" + a["slug"]: a["updated"] for a in ARTICLES}
     for u in indexed():
@@ -1444,7 +1444,7 @@ def llms_txt():
 ## Other pages
 - [About RBF Construction]({SITE}/about)
 - [Projects and photo gallery]({SITE}/projects/)
-- [Contact / request a bid]({SITE}/construction-contact)
+- [Contact / request a bid]({SITE}/get-a-quote)
 - [Careers]({SITE}/careers)
 - [Subcontractor bidding list]({SITE}/bidding-list)
 
@@ -1485,6 +1485,9 @@ RewriteRule ^ /%1 [R=301,L]
 
 # County pages consolidated into the Service Areas page
 RewriteRule ^(macomb|wayne|washtenaw)-county-general-contractor/?$ /service-areas [R=301,L]
+
+# The contact page moved off the old site's address
+RewriteRule ^construction-contact(\.html)?/?$ /get-a-quote [R=301,L]
 
 # Strip .html from URLs
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
@@ -1546,7 +1549,7 @@ def build():
         "projects/index.html": projects(),
         "about.html": about(),
         "resources/index.html": resources(),
-        "construction-contact.html": contact(),
+        "get-a-quote.html": contact(),
         "careers.html": careers(),
         "bidding-list.html": bidding(),
         "privacy-policy.html": privacy(),
